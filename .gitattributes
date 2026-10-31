@@ -1,0 +1,12 @@
+* text=auto
+*.py text eol=lf
+*.c text eol=lf
+*.galaxy text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.SC2Map binary
+*.pb binary

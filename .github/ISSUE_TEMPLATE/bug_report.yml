@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a reproducible installation, API, game or replay problem.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the installation guide and known issues first. Multiplayer currently requires the checksum-pinned macOS Base96883 build. Include failed attempts even if a retry succeeds.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Expected and actual behavior
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include the command or minimal policy, player count, teams, map and realtime setting.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include OS/architecture, Python, MPSC2, burnysc2 and SC2 build versions. For native games, include python -m mpsc2 doctor output after reviewing local paths.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error and relevant log excerpt
+      description: Include the traceback and relevant result/readiness/guard entries. Remove private paths and player names; do not attach game executables or raw memory dumps.
+      render: text
+  - type: input
+    id: frequency
+    attributes:
+      label: Reproduction frequency
+      placeholder: For example, 2 failures in 5 fresh runs; retry passed.

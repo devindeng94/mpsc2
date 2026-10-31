@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mpsc2"
+version = "0.3.1a2"
+description = "Team-based multiplayer StarCraft II research with python-sc2-compatible APIs"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "src/mpsc2/licenses/*"]
+requires-python = ">=3.10"
+dependencies = ["burnysc2==7.3.0", "mpyq==0.2.5"]
+keywords = ["starcraft2", "multi-agent", "self-play", "reinforcement-learning", "python-sc2"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Repository = "https://github.com/devindeng94/mpsc2"
+Issues = "https://github.com/devindeng94/mpsc2/issues"
+Documentation = "https://github.com/devindeng94/mpsc2/blob/main/docs/README.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<9", "pytest-cov>=6", "sc2reader==1.9.0",
+    "hypothesis==6.100.0; python_version == '3.10'",
+    "hypothesis>=6; python_version >= '3.11'",
+]
+build = ["build>=1.2", "twine>=5"]
+video = ["pillow>=12", "imageio-ffmpeg==0.6.0"]
+
+[project.scripts]
+mpsc2 = "mpsc2.cli:main"
+mpsc2-smoke = "mpsc2.smoke:main"
+mpsc2-probe = "mpsc2.probe:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mpsc2 = ["native/*.c", "*.galaxy", "assets/*.SC2Map", "licenses/*", "py.typed"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

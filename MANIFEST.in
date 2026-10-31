@@ -1,0 +1,14 @@
+include README.md LICENSE THIRD_PARTY_NOTICES.md CONTRIBUTING.md CHANGELOG.md
+include requirements*.txt .gitattributes .gitignore
+recursive-include .github *.md *.yml
+recursive-include docs *.md
+recursive-include examples *.py
+recursive-include examples *.md
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include maps *.SC2Map *.galaxy *.md LICENSE.*
+recursive-include src/mpsc2 *.galaxy *.c *.SC2Map py.typed LICENSE.*
+prune reports
+include evidence/README.md evidence/*/*.json evidence/*/*.md
+include evidence/2026-10-28/four-client-success/sha256.json
+global-exclude __pycache__ *.py[cod] .DS_Store

@@ -1,0 +1,927 @@
+{
+  "audit_date": "2026-10-30",
+  "version": "0.3.1a1",
+  "status": "completed_with_unresolved_native_research_issue",
+  "release_scope": "Experimental alpha: pinned macOS build, bundled scenarios, independent clients; bridged upgrade research excluded.",
+  "runtime": {
+    "python_tested": [
+      "3.10.0",
+      "3.13.2"
+    ],
+    "platform": "macOS arm64, x86_64 SC2 under Rosetta",
+    "sc2_base_build": 96883,
+    "sc2_executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb",
+    "burnysc2": "7.3.0",
+    "installed_game_binary_modified": false
+  },
+  "upstream_comparison": {
+    "3.13.2": {
+      "upstream_commit": "0875b4bb953c96a3eea3cc12d1a57b9e208bd95f",
+      "adaptation": "Only from sc2.X imports replaced with from mpsc2.X; original assertions and fixtures",
+      "fixture_count": 104,
+      "returncode": 0,
+      "passed": true,
+      "tests": 232,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "matched_source_files": 49,
+      "evidence": {
+        "path": "reports/alpha-release-audit/upstream/validation.json",
+        "sha256": "3fb2503c5bbf60f6af1ea98381270db0a5d4a48b624df8baa91bebe410eec549"
+      }
+    },
+    "3.10.0": {
+      "upstream_commit": "0875b4bb953c96a3eea3cc12d1a57b9e208bd95f",
+      "adaptation": "Only from sc2.X imports replaced with from mpsc2.X; original assertions and fixtures",
+      "fixture_count": 104,
+      "returncode": 0,
+      "passed": true,
+      "tests": 232,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "matched_source_files": 49,
+      "evidence": {
+        "path": "reports/alpha-release-audit/upstream-python310-final/validation.json",
+        "sha256": "3fb2503c5bbf60f6af1ea98381270db0a5d4a48b624df8baa91bebe410eec549"
+      }
+    }
+  },
+  "project_tests": {
+    "source_python313": {
+      "tests": 214,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "evidence": {
+        "path": "reports/alpha-release-audit/offline-junit.xml",
+        "sha256": "37f2a85a991626fc0d1417227e81c83c5491216fec50ed1c07522114e3ffb534"
+      }
+    },
+    "source_python310": {
+      "passed": 214,
+      "failed": 0,
+      "evidence": {
+        "path": "reports/alpha-release-audit/offline-python310.log",
+        "sha256": "c76d2898f6948e70b7bcceef653cc9a4fec70b33b73241789a29535e845c3fea"
+      }
+    },
+    "installed_wheel_python310": {
+      "tests": 214,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "evidence": {
+        "path": "reports/alpha-release-audit/installed310-junit.xml",
+        "sha256": "e147d75145150b31d3475b3ed6e99dc72302eefc6901a4b9b455a463014147c7"
+      }
+    },
+    "installed_wheel_python313": {
+      "tests": 214,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "evidence": {
+        "path": "reports/alpha-release-audit/installed313-junit.xml",
+        "sha256": "366591eedb0e78e5da72819c6ac0e8e98fd46f3b5dd585992dad3be1928c3d28"
+      }
+    }
+  },
+  "full_terran_realtime_2v2": {
+    "passed": true,
+    "team_ids": [
+      7,
+      9,
+      7,
+      9
+    ],
+    "results_input_order": [
+      "Victory",
+      "Defeat",
+      "Victory",
+      "Defeat"
+    ],
+    "results_native_id": {
+      "1": "Victory",
+      "3": "Defeat",
+      "4": "Victory",
+      "2": "Defeat"
+    },
+    "game_loop": 10418,
+    "checks": {
+      "results_match_all_clients": true,
+      "native_win_and_loss": true,
+      "independent_clients": true,
+      "no_debug_requests": true,
+      "realtime_without_manual_steps": true,
+      "player_1_production": true,
+      "player_3_production": true,
+      "player_4_production": true,
+      "player_2_production": true
+    },
+    "replay": {
+      "path": "reports/alpha-release-audit/terran-full-realtime/game.SC2Replay",
+      "sha256": "8da0ac86ded2418188b81d1fe11abeed4f5d2b6a51935d886dc1acb8d2ca6b44"
+    },
+    "report": {
+      "path": "reports/alpha-release-audit/terran-full-realtime/replay-verification.json",
+      "sha256": "7578da4e575090e54f3b8db83afcd2adaac26692a8dd3a9564e6484cd7edd96f"
+    },
+    "provenance": "Fresh run in this audit, before Python cleanup/raw-selection fixes; native bridge and game logic unchanged."
+  },
+  "live_checks": {
+    "races-stock-two": {
+      "passed": true,
+      "phase": "races",
+      "detail": {
+        "results": [
+          "Tie",
+          "Tie"
+        ],
+        "bots": [
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 25,
+              "type_changed": 19,
+              "created_OVERLORD": 3,
+              "created_DRONE": 12,
+              "construction_started": 3,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+              "complete_HATCHERY": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 15.0224609375,
+              "expansion": [
+                53.5,
+                30.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4940.0,
+              668.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false
+          },
+          {
+            "race": "Terran",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_SCV": 9,
+              "construction_started": 7,
+              "complete_SUPPLYDEPOT": 3,
+              "complete_REFINERY": 1,
+              "complete_ENGINEERINGBAY": 1,
+              "complete_BARRACKS": 1,
+              "created_MARINE": 6,
+              "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1,
+              "complete_COMMANDCENTER": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 16.02099609375,
+              "expansion": [
+                75.5,
+                30.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4570.0,
+              644.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false
+          }
+        ],
+        "owned_processes_closed": true
+      },
+      "evidence": {
+        "path": "reports/alpha-release-audit/races-stock-two/validation.json",
+        "sha256": "29d4b1ce81319671605256f1306629a435a9992900b67863764c45b1ab14367f"
+      }
+    },
+    "races-no-research": {
+      "passed": true,
+      "phase": "races",
+      "detail": {
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "bots": [
+          {
+            "race": "Terran",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_SCV": 9,
+              "construction_started": 7,
+              "complete_SUPPLYDEPOT": 3,
+              "complete_REFINERY": 1,
+              "complete_ENGINEERINGBAY": 1,
+              "complete_BARRACKS": 1,
+              "created_MARINE": 6,
+              "complete_COMMANDCENTER": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 16.017822265625,
+              "expansion": [
+                53.5,
+                30.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              5115.0,
+              604.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": false
+          },
+          {
+            "race": "Protoss",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_PROBE": 9,
+              "construction_started": 7,
+              "complete_PYLON": 3,
+              "complete_ASSIMILATOR": 1,
+              "complete_GATEWAY": 1,
+              "complete_FORGE": 1,
+              "created_ZEALOT": 6,
+              "complete_NEXUS": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 16.02099609375,
+              "expansion": [
+                75.5,
+                30.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4860.0,
+              616.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": false
+          },
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 24,
+              "type_changed": 18,
+              "created_OVERLORD": 2,
+              "created_DRONE": 12,
+              "construction_started": 3,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "complete_HATCHERY": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 14.39111328125,
+              "expansion": [
+                53.5,
+                85.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              5015.0,
+              620.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": false
+          },
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 25,
+              "type_changed": 19,
+              "created_OVERLORD": 3,
+              "created_DRONE": 12,
+              "construction_started": 3,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "complete_HATCHERY": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 15.02294921875,
+              "expansion": [
+                75.5,
+                85.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4625.0,
+              600.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": false
+          }
+        ],
+        "owned_processes_closed": true
+      },
+      "evidence": {
+        "path": "reports/alpha-release-audit/races-no-research/validation.json",
+        "sha256": "5ad0cdfb5678a5d94867ea619d6e795655787092eec42703868bd064d38797ba"
+      }
+    },
+    "arena": {
+      "passed": true,
+      "phase": "arena",
+      "detail": {
+        "bots": [
+          {
+            "hidden_at_start": true,
+            "steps": 48,
+            "events": {
+              "entered_vision": 12,
+              "destroyed": 12,
+              "left_vision": 11,
+              "damage": 13
+            },
+            "result": "Victory"
+          },
+          {
+            "hidden_at_start": true,
+            "steps": 48,
+            "events": {
+              "entered_vision": 12,
+              "damage": 27,
+              "destroyed": 8,
+              "left_vision": 12
+            },
+            "result": "Defeat"
+          },
+          {
+            "hidden_at_start": true,
+            "steps": 48,
+            "events": {
+              "entered_vision": 12,
+              "damage": 26,
+              "destroyed": 13,
+              "left_vision": 12
+            },
+            "result": "Defeat"
+          },
+          {
+            "hidden_at_start": true,
+            "steps": 48,
+            "events": {
+              "entered_vision": 11,
+              "damage": 28,
+              "destroyed": 11,
+              "left_vision": 6
+            },
+            "result": "Defeat"
+          },
+          {
+            "hidden_at_start": true,
+            "steps": 48,
+            "events": {
+              "entered_vision": 6,
+              "damage": 29,
+              "destroyed": 9,
+              "left_vision": 6
+            },
+            "result": "Defeat"
+          }
+        ],
+        "owned_processes_closed": true
+      },
+      "evidence": {
+        "path": "reports/alpha-release-audit/arena/validation.json",
+        "sha256": "1f438be486fd6a3264a9b3e810614b363d0466faa62b419f783899f6e8d7ccd9"
+      }
+    },
+    "failures": {
+      "passed": true,
+      "phase": "failures",
+      "detail": [
+        {
+          "case": "exception",
+          "error": "ValueError: intentional release-test policy failure",
+          "owned_processes_closed": true
+        },
+        {
+          "case": "cancel",
+          "error": "CancelledError: ",
+          "owned_processes_closed": true
+        }
+      ],
+      "evidence": {
+        "path": "reports/alpha-release-audit/failures/validation.json",
+        "sha256": "c1d00a285937f558c9c1582308acd6c6232bd2ac5cf24b07170ce294d5d1b013"
+      }
+    },
+    "standard": {
+      "passed": true,
+      "phase": "standard",
+      "detail": {
+        "async_result": "Tie",
+        "async_steps": 168,
+        "standard_batch_result": "Tie",
+        "batch_steps": 113,
+        "async_pair_results": [
+          "Tie",
+          "Tie"
+        ],
+        "allocated_ports_released": true
+      },
+      "evidence": {
+        "path": "reports/alpha-release-audit/standard/validation.json",
+        "sha256": "fa79a1bd18bab695e5b2e58a8eb14151342b7f03bb99032a1d5aee5752d59da2"
+      }
+    },
+    "replay-fixed": {
+      "passed": true,
+      "phase": "replay",
+      "detail": [
+        {
+          "observed_id": 0,
+          "steps": 47,
+          "max_structures": 80,
+          "callback_result": null,
+          "results": {
+            "1": "Victory",
+            "2": "Defeat",
+            "3": "Defeat",
+            "4": "Victory"
+          }
+        },
+        {
+          "observed_id": 3,
+          "steps": 47,
+          "max_structures": 11,
+          "callback_result": "Defeat",
+          "results": {
+            "1": "Victory",
+            "2": "Defeat",
+            "3": "Defeat",
+            "4": "Victory"
+          }
+        },
+        {
+          "paced_preview": true,
+          "steps": 8,
+          "results": {}
+        }
+      ],
+      "evidence": {
+        "path": "reports/alpha-release-audit/replay-fixed/validation.json",
+        "sha256": "88ecad9aa02da383091996ec6f5f1c3f1c231c1a78d647ab3e7610c690377e42"
+      }
+    },
+    "installed310-arena": {
+      "passed": true,
+      "phase": "arena",
+      "detail": {
+        "bots": [
+          {
+            "hidden_at_start": true,
+            "steps": 47,
+            "events": {
+              "entered_vision": 10,
+              "destroyed": 11,
+              "left_vision": 10,
+              "damage": 14
+            },
+            "result": "Victory"
+          },
+          {
+            "hidden_at_start": true,
+            "steps": 47,
+            "events": {
+              "entered_vision": 12,
+              "damage": 13,
+              "destroyed": 8,
+              "left_vision": 12
+            },
+            "result": "Defeat"
+          },
+          {
+            "hidden_at_start": true,
+            "steps": 47,
+            "events": {
+              "entered_vision": 12,
+              "damage": 24,
+              "destroyed": 13,
+              "left_vision": 12
+            },
+            "result": "Defeat"
+          },
+          {
+            "hidden_at_start": true,
+            "steps": 47,
+            "events": {
+              "entered_vision": 6,
+              "damage": 36,
+              "destroyed": 11,
+              "left_vision": 6
+            },
+            "result": "Defeat"
+          },
+          {
+            "hidden_at_start": true,
+            "steps": 47,
+            "events": {
+              "entered_vision": 11,
+              "damage": 28,
+              "destroyed": 12,
+              "left_vision": 6
+            },
+            "result": "Defeat"
+          }
+        ],
+        "owned_processes_closed": true
+      },
+      "evidence": {
+        "path": "reports/alpha-release-audit/installed310-arena/validation.json",
+        "sha256": "fa6dad48e90fbcb0836e3eb47ae38b6c093de5a7d97fc9991e156dd968886af7"
+      }
+    },
+    "installed310-replay": {
+      "passed": true,
+      "phase": "replay",
+      "detail": [
+        {
+          "observed_id": 0,
+          "steps": 47,
+          "max_structures": 80,
+          "callback_result": null,
+          "results": {
+            "1": "Victory",
+            "2": "Defeat",
+            "3": "Defeat",
+            "4": "Victory"
+          }
+        },
+        {
+          "observed_id": 3,
+          "steps": 47,
+          "max_structures": 11,
+          "callback_result": "Defeat",
+          "results": {
+            "1": "Victory",
+            "2": "Defeat",
+            "3": "Defeat",
+            "4": "Victory"
+          }
+        },
+        {
+          "paced_preview": true,
+          "steps": 8,
+          "results": {}
+        }
+      ],
+      "evidence": {
+        "path": "reports/alpha-release-audit/installed310-replay/validation.json",
+        "sha256": "88ecad9aa02da383091996ec6f5f1c3f1c231c1a78d647ab3e7610c690377e42"
+      }
+    }
+  },
+  "known_issue": {
+    "id": "MPSC2-001",
+    "resolved": false,
+    "description": "Four-client mixed-race games crash when upgrade research starts.",
+    "attempts": [
+      {
+        "case": "races",
+        "status": "failed",
+        "error": "ConnectionAlreadyClosedError: Connection already closed.",
+        "players": [
+          {
+            "index": 0,
+            "player_id": 1,
+            "race": "Terran"
+          },
+          {
+            "index": 1,
+            "player_id": 3,
+            "race": "Protoss"
+          },
+          {
+            "index": 2,
+            "player_id": 4,
+            "race": "Zerg"
+          },
+          {
+            "index": 3,
+            "player_id": 2,
+            "race": "Random"
+          }
+        ],
+        "last_common_observation_loop": 2531,
+        "survivor_next_loop": 2563,
+        "crashed_native_player_id": 4,
+        "exception": "EXC_BAD_ACCESS",
+        "fault_address_offset": "0x1e9bf1a",
+        "evidence": {
+          "path": "reports/alpha-release-audit/races/game/result.json",
+          "sha256": "88f6fcc762e025361cfdbcd19bad6c4b8bc9512e95a2da901178dff9c1affc76"
+        }
+      },
+      {
+        "case": "races-default-selection",
+        "status": "failed",
+        "error": "ConnectionAlreadyClosedError: Connection already closed.",
+        "players": [
+          {
+            "index": 0,
+            "player_id": 1,
+            "race": "Terran"
+          },
+          {
+            "index": 1,
+            "player_id": 2,
+            "race": "Protoss"
+          },
+          {
+            "index": 2,
+            "player_id": 4,
+            "race": "Zerg"
+          },
+          {
+            "index": 3,
+            "player_id": 3,
+            "race": "Random"
+          }
+        ],
+        "last_common_observation_loop": 2531,
+        "survivor_next_loop": 2563,
+        "crashed_native_player_id": 4,
+        "exception": "EXC_BAD_ACCESS",
+        "fault_address_offset": "0x1e9bf1a",
+        "evidence": {
+          "path": "reports/alpha-release-audit/races-default-selection/game/result.json",
+          "sha256": "29a8e9ebf43674f2a66167f3e0f3ef07c80a074728465ec0da624c657706baaf"
+        }
+      },
+      {
+        "case": "races-zerg-host",
+        "status": "failed",
+        "error": "ConnectionAlreadyClosedError: Connection already closed.",
+        "players": [
+          {
+            "index": 0,
+            "player_id": 1,
+            "race": "Zerg"
+          },
+          {
+            "index": 1,
+            "player_id": 2,
+            "race": "Terran"
+          },
+          {
+            "index": 2,
+            "player_id": 4,
+            "race": "Protoss"
+          },
+          {
+            "index": 3,
+            "player_id": 3,
+            "race": "Terran"
+          }
+        ],
+        "last_common_observation_loop": 2531,
+        "survivor_next_loop": 2563,
+        "crashed_native_player_id": 4,
+        "exception": "EXC_BAD_ACCESS",
+        "fault_address_offset": "0x1e9bf1a",
+        "evidence": {
+          "path": "reports/alpha-release-audit/races-zerg-host/game/result.json",
+          "sha256": "f35fcd03e805dfb37067ec3d880d8fe2db64420ce3ac4ef875e29c3f3d91ed23"
+        }
+      }
+    ],
+    "controls": [
+      "races-stock-two",
+      "races-no-research"
+    ],
+    "limits": "Does not prove all upgrades or other counts fail; native root cause remains unconfirmed."
+  },
+  "fixed_regressions": [
+    "Owned process cleanup when websocket closure raises",
+    "Automatically reserved standard async ports returned",
+    "Per-BotAI raw_affects_selection forwarded to native join",
+    "Selected-player replay missing ObserverAI event defaults"
+  ],
+  "test_tool_compatibility": {
+    "pytest": "8.4.2",
+    "hypothesis_python310": "6.100.0",
+    "hypothesis_python313": "6.170.13",
+    "prior_failures": [
+      "pytest 9.2.0 internal fixture setup failure on Python 3.10.0",
+      "Hypothesis 6.168.5 internal TreeNode AttributeError in five property tests on Python 3.10.0"
+    ],
+    "upstream_test_assertions_changed": false
+  },
+  "package": {
+    "version": "0.3.1a1",
+    "passed": true,
+    "payload_files_checked": 67,
+    "wheel_sha256": "ddaa84e01e136de4ea2ef1b7615216d9a7806e95f4ac14030fa68877c2f5918c",
+    "sdist_sha256": "8a1fe693c92422988d2717711eb92d70ce9a56799e98f0b47493c9172dd906d5",
+    "installed_payload_matches_source_and_wheel": [
+      "3.10",
+      "3.13"
+    ],
+    "no_reports_replays_bytecode": true,
+    "licenses_maps_native_source_and_validation_scripts_present": true
+  },
+  "core_install": {
+    "python": "3.10.0",
+    "version": "0.3.1a1",
+    "core_only": true,
+    "compatibility_modules": 43,
+    "bundled_maps": [
+      "MPSC2TeamArena",
+      "MPSC2Melee"
+    ],
+    "pip_check": "No broken requirements found.",
+    "passed": true
+  },
+  "coverage": {
+    "scope": "Python, combined offline and live including failed attempts; does not measure native C or engine correctness",
+    "combined_statement_and_branch_percent": 74.16,
+    "modules": {
+      "main.py": 87.93,
+      "native_session.py": 83.46,
+      "replay.py": 92.74,
+      "standard.py": 100.0,
+      "session.py": 66.45
+    },
+    "evidence": {
+      "path": "reports/alpha-release-audit/coverage-combined.json",
+      "sha256": "4c6187f2467ccb25eceb5e8e331237e21c9019e147db5537a117a3d4c099bb6b"
+    }
+  },
+  "previous_player_count_matrix": {
+    "reused": true,
+    "rerun_in_full_this_audit": false,
+    "path": "evidence/2026-10-30/player-count-validation.json",
+    "scope": "All counts 2..8, both timing modes; BotAI vs Computer in both timing modes",
+    "native_bridge_source_unchanged": true,
+    "map_slot_generation_unchanged": true
+  },
+  "ci": {
+    "configured": [
+      "ubuntu-latest:3.10,3.11,3.12,3.13",
+      "macos-latest:3.10,3.13",
+      "windows-latest:3.10,3.13"
+    ],
+    "remote_runs_executed": false,
+    "sc2_tests_in_ci": false
+  },
+  "unvalidated": [
+    "Human/GUI interaction",
+    "External BotProcess/ladder services",
+    "Other platforms/builds for native backend",
+    "Arbitrary multiplayer maps",
+    "Remote hosting",
+    "Long-running training reliability",
+    "All race abilities/build orders",
+    "Upgrade research with three or five through eight native clients"
+  ],
+  "source_payload_sha256": {
+    "src/mpsc2/.DS_Store": "d43a0bd261d2b9911684d3edd2faa6dfb62ce8a4df8937577a3b1aecefdc2044",
+    "src/mpsc2/Melee.galaxy": "63e2ca2564c21af263779395d7d1f6acc4f391590985385c18db3b6f93124a5a",
+    "src/mpsc2/RuntimeArena.galaxy": "9ba278547f63454290d93df7d1eca6b9653af38b2a423037dc18f93d716523d3",
+    "src/mpsc2/__init__.py": "11c8218f76cafe41d1cc8f4789b6f0e8f5c22e5c49ef3c565567a36ec526f694",
+    "src/mpsc2/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/mpsc2/action.py": "a2817e413c5fded672379872e21486db736564f64f52e9d7d2e6223bb176a59c",
+    "src/mpsc2/arena.py": "eba36c3c570ffcb0700d278dc5d19ebf09566e561bd89773b3ec5df5cafcaf2f",
+    "src/mpsc2/assets/MPSC2Melee.SC2Map": "8ff5697a9363ee6995381cdf5ff9a145c6aa4d9f435a5a39c6ce77e2993d2e00",
+    "src/mpsc2/assets/MPSC2TeamArena.SC2Map": "5067d76a0ba49bf93ab8aca43011d79955da65d0bbfcc2c32ef08088fdf02af8",
+    "src/mpsc2/bot_ai.py": "036a2077db7f285fa148fafe4187ce15ac5de4bf4dffe252ee3a10bb9735175b",
+    "src/mpsc2/bot_ai_internal.py": "792bcbf677f0102663d728fff88b01242680ec1db2eea73e9bada388011ae86b",
+    "src/mpsc2/cache.py": "c2dac7c194f1ac2e03e9cb8071726778e9f184eba2cfaa81dc99d9fdd00c4d88",
+    "src/mpsc2/capabilities.py": "f9431495fd786fd448bb40fca8e477406720616db76308e0cede55cfa3626141",
+    "src/mpsc2/cli.py": "92e5d3bf48ad7aaa27bf1306f7f75714a16c586c4290c6c9792ea48766d132d5",
+    "src/mpsc2/client.py": "44242d52727aa7a44d0076726efe833217412777a9772ee43d6e31e09d2212a1",
+    "src/mpsc2/constants.py": "754d36bb12aecbf43480b4049bf28b15bf23f9ca0d93b60373df432e9ca6b3e8",
+    "src/mpsc2/controller.py": "1da6d60faf9cb362ea5cebbd6d0e89a8f240830a1b1271b66c431019ddc9e7b4",
+    "src/mpsc2/data.py": "5844efb34b3d74357879db7c83ae85c322ade9778d4700a77477f552587ab88c",
+    "src/mpsc2/dicts/__init__.py": "0660ae3ec90eadf7b26e55b61cf19def5e4f8cfe760e26fbd4d9a0376ded6667",
+    "src/mpsc2/dicts/generic_redirect_abilities.py": "836d1dbddaabe3ad84280c3140cb595b1859adcf3c88481e715eda18fe33d7cb",
+    "src/mpsc2/dicts/unit_abilities.py": "55a1c8e0e09bdfef56496c0e9299bfbc15d8fc1a5e70411eacf36c63b1309527",
+    "src/mpsc2/dicts/unit_research_abilities.py": "239caf4f07c4985cced98707a96a0628caa9e8567475bbce6932d193b4cda884",
+    "src/mpsc2/dicts/unit_tech_alias.py": "c25c8dcbd08f6947e84f9ec5211f40fe3274a89613dfcb3c62ee95cf223f0f0f",
+    "src/mpsc2/dicts/unit_train_build_abilities.py": "9577a501cef20199579c2ee6d971178d9b38be514ad5b7bfc947c6aa1d7b85ca",
+    "src/mpsc2/dicts/unit_trained_from.py": "2bbb218b3571c9c702f8a0cc0de6b934e7088876aadeacd7621304de9354005b",
+    "src/mpsc2/dicts/unit_unit_alias.py": "ca8ac95c147a8ff6659ae342ddda2459ac1d0e574dc4acc68391d3a3f8c0a770",
+    "src/mpsc2/dicts/upgrade_researched_from.py": "34de27e57bdb7c6db011cb0a06eb902c20338ae95f6f23011ff78af38a86fcf2",
+    "src/mpsc2/expiring_dict.py": "4214bec94fe7a5df31f92eb22f446757cb677c37e6c46315cbe208da048dbac3",
+    "src/mpsc2/game_data.py": "ad52dd2f94b19edbf9416bdb0adffee0351d3094a695816ac456cd35506924dd",
+    "src/mpsc2/game_info.py": "3a480385ca5b93422ef6f54b3556b41677667f9e25bea02cdd87fe41d94afeaf",
+    "src/mpsc2/game_state.py": "ec21dab3e518037ad497017cbc08cb35cc403ec568046e90f8c4ff97b9d282c7",
+    "src/mpsc2/ids/__init__.py": "f195277618375501aa5fa4c4c1609a417e200eca3c136e10b1838698132c8bdd",
+    "src/mpsc2/ids/ability_id.py": "084f89b9fefbb41b5b2003dc8b7c0020f75f5576bf5529fa7e0dc5aa123819ee",
+    "src/mpsc2/ids/buff_id.py": "8fa8655f29cc6f81d4c19c294c6962e6220097d4f40e6237f5b6ea760f468ddf",
+    "src/mpsc2/ids/effect_id.py": "b757c4a26e34c452f3e23c21455d045bfea65881c581fcf9769d16e533b5b682",
+    "src/mpsc2/ids/id_version.py": "e725f1deab0f5ccf7d2660f83b5205389098a740126682521d0a737e40381239",
+    "src/mpsc2/ids/unit_typeid.py": "9e85fe03868bef82da0948afd16e72033855b73f53f7bd19c9b9f13afc2c07d0",
+    "src/mpsc2/ids/upgrade_id.py": "1dd588ff1a77e2132e246cb2fbc50225c7302baca3014d8f5dfaaeaf5535a92f",
+    "src/mpsc2/licenses/LICENSE.python-sc2": "74b446893e6c91d958871a1ed90fa4ff4bf4f2f4641a5f677d41e391dd691dc4",
+    "src/mpsc2/licenses/LICENSE.s2client-api": "95fe34da4157ca45d02ce57193d6427996e609b4c670d0ab78c4786dfae029a4",
+    "src/mpsc2/main.py": "7d8cd747f5ee183591344dd6d9498cc83fb7cef593a8d7000f035664aae1cb99",
+    "src/mpsc2/maps.py": "a7ce6e874fdc786aba094457a61936c6d837f182bee2338040ca161cdeefad7b",
+    "src/mpsc2/matches.py": "9e6993bc3329cbae6261e7d66c0a4a5d2fecbdc5d620a9fb4b5d16e587541c42",
+    "src/mpsc2/mpq.py": "25e0fdb9621e068948816fb89bf837028e8b5881902e5b13ef5eec4c0cd9b394",
+    "src/mpsc2/native/local_four_bridge.c": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+    "src/mpsc2/native_session.py": "3afe72e7d676681777848d727a6bd49c9056ea65ed439754945fce49ade194f3",
+    "src/mpsc2/observer_ai.py": "f4375cf1f89f3b9c050d3bdf097958f6cd29545af303a6fcbf42ea186465f270",
+    "src/mpsc2/paths.py": "2ec269a64b6043471f6e4e9e34844c6361d1a316786cca25a99798631f7e9e50",
+    "src/mpsc2/pixel_map.py": "ba71209a1d77492c917c9a042dc887d1917e8b03784dda550dff150a4a85c8e4",
+    "src/mpsc2/player.py": "f5be9088a6738a267fcf6f172b7407260836901cbb806ba41f96c6e49209f61a",
+    "src/mpsc2/portconfig.py": "b8e3c5aa672d1e917c4fe08f1136e55e6fa2c73cddc7238e2e8f2cc17cb77062",
+    "src/mpsc2/position.py": "75a7de47ce0e3d7844fad5900840c08a521458db7fe36d2bd398e7a150061b63",
+    "src/mpsc2/power_source.py": "7cadb82e018add6f485d51cf65f287c331398630b54fa536b7f25df7da5e4f34",
+    "src/mpsc2/probe.py": "289cfc908f3accec959fa20a778d02c6c24dff5583e741e335ccfef806e37e96",
+    "src/mpsc2/protocol.py": "89dc31246ba73f8c78863f25fc947a572e2becec38379a3e6cf90ebb354fbfaf",
+    "src/mpsc2/proxy.py": "f90d937fefe7a6c388bc77effe777a75d970c5ee5289015d7f5c850ca2430e10",
+    "src/mpsc2/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/mpsc2/replay.py": "3a4624e4f1343ea8457d9e2108672ddf780262ae2f07fa3cd7a58e7f37e7dce6",
+    "src/mpsc2/sc2process.py": "856a48bc7e2138cfd3760dff2ba81e0fbf3004b60bc7200e1173d6eeebf6bd06",
+    "src/mpsc2/score.py": "47ad10486671a597dde765a52351c1b11f8663fb93f4624cfe7c37a502b963c1",
+    "src/mpsc2/session.py": "08d98d75435a3fc3c115867052128b44d12a1429c7035a0c2e35b10c5404dc66",
+    "src/mpsc2/smoke.py": "4ea70dc0280e18e4ef7c006655b390f513b4dc239736d4601d0d536a83594e2f",
+    "src/mpsc2/standard.py": "928524667bda77f71ecf6b85674c59a0716c1936398f619356fdd84d1696c30d",
+    "src/mpsc2/team.py": "5f053daed56088a990b65d8e33404eaac9601740a0a7190e9045f204211bc35f",
+    "src/mpsc2/unit.py": "586174bcae18faaded8c9cc81366d757d895990592341c7a56966670428257a4",
+    "src/mpsc2/unit_command.py": "de857faf9e08f9a5382c7e82cdd55e3d0a20d38ac93aec70837730ff7a883e4c",
+    "src/mpsc2/units.py": "8b300ee0fb8f73596ddf163655f7299490df03efe9d91b5bc21f59ac9e235038",
+    "src/mpsc2/versions.py": "d91b9ba0b4f918d6c0a15958dce5438c620965d1b6f4add2375c31febcece7ce"
+  },
+  "published": false,
+  "owned_process_exit_check": {
+    "recorded_multiplayer_pids_checked": 36,
+    "still_running": 0
+  }
+}

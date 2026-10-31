@@ -1,0 +1,22 @@
+// Normal melee initialization; no additional resources or units during play.
+bool HasSurvivors(int p) {
+    unitfilter buildings = UnitFilter(0, 0, 0, 0);
+    UnitFilterSetState(buildings, c_targetFilterStructure, c_unitFilterRequired);
+    UnitFilterSetState(buildings, c_targetFilterDead, c_unitFilterExcluded);
+    return UnitGroupCount(UnitGroup(null, p, RegionEntireMap(), buildings, 0), c_unitCountAlive) > 0;
+}
+
+void ResourceBase(fixed x, fixed y, fixed side) {
+    int i;
+    for (i = 0; i < 8; i += 1) {
+        UnitCreate(1, "MineralField", 0, 0, Point(x + side * 7.0, y - 7.0 + IntToFixed(i) * 2.0), 0.0);
+    }
+    UnitCreate(1, "VespeneGeyser", 0, 0, Point(x + side * 3.0, y - 10.0), 0.0);
+    UnitCreate(1, "VespeneGeyser", 0, 0, Point(x + side * 3.0, y + 10.0), 0.0);
+}
+
+void StartBase(int p, fixed x, fixed y) {
+    MeleeInitResourcesForPlayer(p, PlayerRace(p));
+    MeleeInitUnitsForPlayer(p, PlayerRace(p), Point(x, y));
+    armies[p] = UnitGroup(null, p, RegionEntireMap(), UnitFilter(0, 0, 0, 0), 0);
+}

@@ -1,0 +1,1292 @@
+{
+  "date": "2026-10-30",
+  "package_version": "0.3.0",
+  "platform": "macOS, Apple Silicon running x86_64 SC2",
+  "sc2": {
+    "version": "5.0.15",
+    "base_build": 96883,
+    "executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb"
+  },
+  "burnysc2": "7.3.0",
+  "coverage": {
+    "api_player_counts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "realtime_values": [
+      false,
+      true
+    ],
+    "passed_native_episodes": 16,
+    "passed_standard_computer_episodes": 2,
+    "all_counts_both_modes_passed": true,
+    "every_game_recorded_as_replay": true
+  },
+  "offline_tests": [
+    {
+      "python": "3.13.2",
+      "passed": 149,
+      "seconds": 1.04,
+      "sc2path": "/nonexistent/mpsc2"
+    },
+    {
+      "python": "3.10.0",
+      "passed": 149,
+      "seconds": 1.22,
+      "sc2path": "/nonexistent/mpsc2"
+    }
+  ],
+  "native_episodes": [
+    {
+      "report": "reports/player-count-probe/3",
+      "players": 3,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0
+      ],
+      "native_ids_in_input_order": [
+        1,
+        2,
+        3
+      ],
+      "process_ids": [
+        45044,
+        45092,
+        45130
+      ],
+      "api_ports": [
+        54362,
+        54396,
+        54421
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "364ad04c1c18cc790c4ae8733c138db2f31107b442ea47335fb59fb239d28e6b",
+      "native_ready_players": 3,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "8fb2e96c18417b6c60ed3ede489d9abac0f56a968439bd41cc862310df286b21",
+      "prepared_map_sha256": "c55b5a5416265493a22327214a724d807794505434f43003528db901111bbb9e",
+      "request_totals": {
+        "ping": 4,
+        "join_game": 3,
+        "step": 39,
+        "action": 6,
+        "observation": 36,
+        "data": 3,
+        "game_info": 36,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-readiness-probe/5",
+      "players": 5,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "native_ids_in_input_order": [
+        1,
+        5,
+        4,
+        2,
+        3
+      ],
+      "process_ids": [
+        46151,
+        46184,
+        46219,
+        46249,
+        46278
+      ],
+      "api_ports": [
+        55083,
+        55118,
+        55148,
+        55174,
+        55201
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 5,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "42c51ceec76c02815e73209429e7e79f08c24b19a7259d03aa41ffab4a8015e9",
+      "prepared_map_sha256": "19495227eccfe3cf7f730e511bc0268e639d401913728aed06220d0066b0a69e",
+      "request_totals": {
+        "ping": 6,
+        "join_game": 5,
+        "step": 65,
+        "action": 10,
+        "observation": 60,
+        "data": 5,
+        "game_info": 60,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-readiness-probe/8",
+      "players": 8,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        7,
+        8,
+        5,
+        6,
+        4,
+        2,
+        3
+      ],
+      "process_ids": [
+        46362,
+        46391,
+        46425,
+        46444,
+        46473,
+        46502,
+        46523,
+        46558
+      ],
+      "api_ports": [
+        55276,
+        55300,
+        55322,
+        55348,
+        55372,
+        55396,
+        55421,
+        55445
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 8,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "8890c824ec5e3db0867a974370fb4b778150ac5a7e32d4e907f1b19a40939344",
+      "prepared_map_sha256": "97d0c334a0a137f01419a10294e474a781688b862b39bcc89cda5217933e04bf",
+      "request_totals": {
+        "ping": 9,
+        "join_game": 8,
+        "step": 104,
+        "action": 16,
+        "observation": 96,
+        "data": 8,
+        "game_info": 96,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-economy/2",
+      "players": 2,
+      "realtime": false,
+      "scenario": "melee",
+      "team_ids": [
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        2
+      ],
+      "process_ids": [
+        47033,
+        47066
+      ],
+      "api_ports": [
+        55706,
+        55730
+      ],
+      "bridge_required": false,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 2,
+      "game_time_limit_galaxy_seconds": 60,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "a10ec6b8cb3c913e16a9535e96171e050588f370948f6f3394376e90e1f695af",
+      "prepared_map_sha256": "716fee0ca699a1f6d32255b2470a08e9489bed2047c25a160845d13d75e34044",
+      "request_totals": {
+        "join_game": 2,
+        "step": 246,
+        "action": 10,
+        "observation": 244,
+        "data": 2,
+        "game_info": 244,
+        "ping": 2,
+        "query": 2,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 120,
+          "max": 120
+        },
+        "collected_minerals": {
+          "min": 395.0,
+          "max": 450.0
+        },
+        "max_workers": {
+          "min": 15,
+          "max": 15
+        },
+        "max_structures": {
+          "min": 2,
+          "max": 2
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-economy/4",
+      "players": 4,
+      "realtime": false,
+      "scenario": "melee",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "process_ids": [
+        47127,
+        47157,
+        47209,
+        47241
+      ],
+      "api_ports": [
+        55777,
+        55810,
+        55838,
+        55860
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 4,
+      "game_time_limit_galaxy_seconds": 60,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "7d2ad02317d949abba5ed38c69839e5de442b4b675466718b874e40f62c671f1",
+      "prepared_map_sha256": "12d3c1791bd52767989b8d5af6b8218dd4cb492cae85e46a0b21a03645acbb4a",
+      "request_totals": {
+        "ping": 5,
+        "join_game": 4,
+        "step": 492,
+        "action": 20,
+        "observation": 488,
+        "data": 4,
+        "game_info": 488,
+        "query": 4,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 120,
+          "max": 120
+        },
+        "collected_minerals": {
+          "min": 410.0,
+          "max": 450.0
+        },
+        "max_workers": {
+          "min": 15,
+          "max": 15
+        },
+        "max_structures": {
+          "min": 2,
+          "max": 2
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-economy/6",
+      "players": 6,
+      "realtime": false,
+      "scenario": "melee",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        2,
+        6,
+        4,
+        5,
+        3
+      ],
+      "process_ids": [
+        47318,
+        47348,
+        47373,
+        47405,
+        47433,
+        47461
+      ],
+      "api_ports": [
+        55926,
+        55951,
+        55979,
+        56004,
+        56026,
+        56051
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 6,
+      "game_time_limit_galaxy_seconds": 60,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "b8f763aefb1bc59de9cc6d04d0be6686c6f2c70f1e18525dde3ca414269edb5b",
+      "prepared_map_sha256": "a0922d8c462d61d3920a017d0277c8a916f4a449940016c41f956901ccc3fdf3",
+      "request_totals": {
+        "ping": 7,
+        "join_game": 6,
+        "step": 738,
+        "action": 30,
+        "observation": 732,
+        "data": 6,
+        "game_info": 732,
+        "query": 6,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 120,
+          "max": 120
+        },
+        "collected_minerals": {
+          "min": 380.0,
+          "max": 450.0
+        },
+        "max_workers": {
+          "min": 15,
+          "max": 15
+        },
+        "max_structures": {
+          "min": 2,
+          "max": 2
+        }
+      },
+      "layout_revision": "initial_expanded_grid",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-economy/7",
+      "players": 7,
+      "realtime": false,
+      "scenario": "melee",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "native_ids_in_input_order": [
+        1,
+        7,
+        5,
+        6,
+        3,
+        2,
+        4
+      ],
+      "process_ids": [
+        47616,
+        47651,
+        47681,
+        47698,
+        47729,
+        47757,
+        47777
+      ],
+      "api_ports": [
+        56155,
+        56178,
+        56202,
+        56225,
+        56248,
+        56272,
+        56296
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 7,
+      "game_time_limit_galaxy_seconds": 60,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "53c0ec3e00c688719e80320bc3f81f4fa91b444de18563d0c6f81a30ad634f68",
+      "prepared_map_sha256": "ed9cea0c144c5570825347adda40e26a20bf966ed5c6963ef2e3644808315252",
+      "request_totals": {
+        "ping": 8,
+        "join_game": 7,
+        "step": 861,
+        "action": 35,
+        "observation": 854,
+        "data": 7,
+        "game_info": 854,
+        "query": 7,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 120,
+          "max": 120
+        },
+        "collected_minerals": {
+          "min": 355.0,
+          "max": 450.0
+        },
+        "max_workers": {
+          "min": 15,
+          "max": 15
+        },
+        "max_structures": {
+          "min": 2,
+          "max": 2
+        }
+      },
+      "layout_revision": "initial_expanded_grid",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-realtime/2",
+      "players": 2,
+      "realtime": true,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        2
+      ],
+      "process_ids": [
+        49610,
+        49639
+      ],
+      "api_ports": [
+        57228,
+        57256
+      ],
+      "bridge_required": false,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 2,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "60c29521cadf2bad5d66169949f0d81e29360f89015571eed18347ea612c0fc6",
+      "prepared_map_sha256": "bae05a0f034aeda391b914c4e4c6b0c7afa3fb6a29e83213c99948b270bb1165",
+      "request_totals": {
+        "join_game": 2,
+        "observation": 30,
+        "action": 6,
+        "data": 2,
+        "game_info": 24,
+        "ping": 2,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-realtime/3",
+      "players": 3,
+      "realtime": true,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0
+      ],
+      "native_ids_in_input_order": [
+        1,
+        2,
+        3
+      ],
+      "process_ids": [
+        49747,
+        49781,
+        49801
+      ],
+      "api_ports": [
+        57324,
+        57349,
+        57372
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 3,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "a2408680562e53ebd707dc5484fcbdef5c348dc3fb674b74a5d34eb940fe4e6d",
+      "prepared_map_sha256": "1d8a896ce12ed406c86c0f13c098e9a94354694f31318d3b1ccf0708fa954594",
+      "request_totals": {
+        "ping": 4,
+        "join_game": 3,
+        "observation": 48,
+        "action": 9,
+        "data": 3,
+        "game_info": 36,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-realtime/4",
+      "players": 4,
+      "realtime": true,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "process_ids": [
+        49881,
+        49913,
+        49938,
+        49972
+      ],
+      "api_ports": [
+        57429,
+        57452,
+        57477,
+        57502
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 4,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "c44180a85bbef6ac15aa842bd6fd20ab2625878ff712b580ade4083c46870151",
+      "prepared_map_sha256": "5e1bd22a85cd799997a0256ffab56120821105cc38a9f985afaf36d84b5859b2",
+      "request_totals": {
+        "ping": 5,
+        "join_game": 4,
+        "observation": 68,
+        "action": 12,
+        "data": 4,
+        "game_info": 48,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-realtime/5",
+      "players": 5,
+      "realtime": true,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "native_ids_in_input_order": [
+        1,
+        4,
+        2,
+        5,
+        3
+      ],
+      "process_ids": [
+        50093,
+        50122,
+        50206,
+        50263,
+        50325
+      ],
+      "api_ports": [
+        57568,
+        57592,
+        57618,
+        57647,
+        57683
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 5,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "6caa6d408f724c7d4d48684f1c6ded82099b9e47f59e392c29b58b926cb7c93c",
+      "prepared_map_sha256": "91d05d4df8f2a148bdd22a4ce5dfefa6938ff311166855ab8df77cb9dafb0b50",
+      "request_totals": {
+        "ping": 6,
+        "join_game": 5,
+        "observation": 80,
+        "action": 15,
+        "data": 5,
+        "game_info": 60,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-realtime/6",
+      "players": 6,
+      "realtime": true,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        6,
+        3,
+        4,
+        2,
+        5
+      ],
+      "process_ids": [
+        50422,
+        50453,
+        50484,
+        50561,
+        50589,
+        50614
+      ],
+      "api_ports": [
+        57763,
+        57786,
+        57812,
+        57837,
+        57862,
+        57886
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 6,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "1466b432b3c1eb29d84cb278947210229b77fa068a34334856fd6b9944843994",
+      "prepared_map_sha256": "ce748a5c89824f11b77f175ae9ac7f98f564e508d8251d46bb6e1d9541744c99",
+      "request_totals": {
+        "ping": 7,
+        "join_game": 6,
+        "observation": 94,
+        "action": 18,
+        "data": 6,
+        "game_info": 70,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 9,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-realtime/7",
+      "players": 7,
+      "realtime": true,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "native_ids_in_input_order": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        6,
+        4
+      ],
+      "process_ids": [
+        50801,
+        50865,
+        50897,
+        50944,
+        50964,
+        50998,
+        51052
+      ],
+      "api_ports": [
+        57981,
+        58008,
+        58036,
+        58060,
+        58083,
+        58108,
+        58134
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 7,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "91b05685e3bd1f0d5102a0308b87273430431852b1c786e4beb530bac43d44fb",
+      "prepared_map_sha256": "2d46d318efe627c9b742bf4cbf5291e93f84d00344598edfcbd0d9bc557fcc41",
+      "request_totals": {
+        "ping": 8,
+        "join_game": 7,
+        "observation": 105,
+        "action": 21,
+        "data": 7,
+        "game_info": 84,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/player-count-realtime/8",
+      "players": 8,
+      "realtime": true,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        8,
+        5,
+        3,
+        6,
+        2,
+        7,
+        4
+      ],
+      "process_ids": [
+        51298,
+        51373,
+        51426,
+        51477,
+        51535,
+        51561,
+        51590,
+        51618
+      ],
+      "api_ports": [
+        58286,
+        58324,
+        58351,
+        58378,
+        58405,
+        58428,
+        58454,
+        58477
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 8,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "650a90be42d3999ca37d93708e866289daf4e2c680416c9aeffad1b2bb281087",
+      "prepared_map_sha256": "13ec4fade0cf7b9e2e2f45d79a7139321aee918dd3757a14e8b5a15ccf904d48",
+      "request_totals": {
+        "ping": 9,
+        "join_game": 8,
+        "observation": 128,
+        "action": 24,
+        "data": 8,
+        "game_info": 96,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "source checkout, Python 3.13.2"
+    },
+    {
+      "report": "reports/eight-player-economy-fixed/8",
+      "players": 8,
+      "realtime": false,
+      "scenario": "melee",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        6,
+        8,
+        7,
+        4,
+        3,
+        2,
+        5
+      ],
+      "process_ids": [
+        52998,
+        53043,
+        53085,
+        53114,
+        53146,
+        53184,
+        53207,
+        53239
+      ],
+      "api_ports": [
+        59150,
+        59176,
+        59204,
+        59229,
+        59253,
+        59281,
+        59304,
+        59329
+      ],
+      "bridge_required": true,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 8,
+      "game_time_limit_galaxy_seconds": 60,
+      "step_size": 16,
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "e91a7253d3e2adf3f312f604c8f565cda0a22488f64fca2b852e6312b4029ff9",
+      "prepared_map_sha256": "848ce765bdef365cf2e9529cb53baa949a9fd2e6cd0ef26a3107954f27417058",
+      "request_totals": {
+        "ping": 9,
+        "join_game": 8,
+        "step": 504,
+        "action": 40,
+        "observation": 496,
+        "data": 8,
+        "game_info": 496,
+        "query": 8,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 60,
+          "max": 60
+        },
+        "collected_minerals": {
+          "min": 395.0,
+          "max": 455.0
+        },
+        "max_workers": {
+          "min": 15,
+          "max": 15
+        },
+        "max_structures": {
+          "min": 2,
+          "max": 2
+        }
+      },
+      "layout_revision": "final",
+      "environment": "installed wheel, Python 3.10.0, cwd /tmp"
+    },
+    {
+      "report": "reports/final-wheel-two-player/2",
+      "players": 2,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1
+      ],
+      "native_ids_in_input_order": [
+        1,
+        2
+      ],
+      "process_ids": [
+        54983,
+        55034
+      ],
+      "api_ports": [
+        59992,
+        60018
+      ],
+      "bridge_required": false,
+      "bridge_source_sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native_ready_players": 2,
+      "game_time_limit_galaxy_seconds": 5,
+      "step_size": 8,
+      "results": [
+        "Tie",
+        "Tie"
+      ],
+      "replay_results_match": true,
+      "replay_sha256": "b15052f1d4516ef482c224b6b7dd9b5390cb171240c0c62ae52291ff42dc3acf",
+      "prepared_map_sha256": "a2a7ef5c35e4bb2240b129bd1f05050080bfb1a1ef1fafa03729975af7152e8f",
+      "request_totals": {
+        "join_game": 2,
+        "step": 26,
+        "action": 4,
+        "observation": 24,
+        "data": 2,
+        "game_info": 24,
+        "ping": 2,
+        "save_replay": 1
+      },
+      "bot_metrics": {
+        "all_moved": true,
+        "on_end_assertions_passed_in_driver": true,
+        "steps": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      "layout_revision": "final",
+      "environment": "installed wheel, Python 3.10.0, cwd /tmp"
+    }
+  ],
+  "one_bot_vs_builtin_computer": [
+    {
+      "report": "reports/one-vs-computer-stepped",
+      "steps": 336,
+      "collected": 710.0,
+      "max_workers": 16,
+      "max_structures": 2,
+      "enemy_moved": true,
+      "enemy_issued_orders": false,
+      "max_enemy_workers": 16,
+      "result": "Tie",
+      "realtime": false,
+      "api_clients": 1,
+      "total_players": 2,
+      "opponent": "SC2 Computer, Terran, Easy",
+      "bounded_seconds": 60,
+      "replay_sha256": "94e7f43292240c62016b6795bea0106379238d8d4c841b6228b7c55af27d35a9",
+      "result_semantics": "Upstream game_time_limit Tie, not native game-over victory"
+    },
+    {
+      "report": "reports/one-vs-computer-realtime",
+      "steps": 335,
+      "collected": 710.0,
+      "max_workers": 16,
+      "max_structures": 2,
+      "enemy_moved": true,
+      "enemy_issued_orders": false,
+      "max_enemy_workers": 16,
+      "result": "Tie",
+      "realtime": true,
+      "api_clients": 1,
+      "total_players": 2,
+      "opponent": "SC2 Computer, Terran, Easy",
+      "bounded_seconds": 60,
+      "replay_sha256": "c2cce902b00ddb702503615d66aa40e1e936d1234dd30392373ec34d8568a504",
+      "result_semantics": "Upstream game_time_limit Tie, not native game-over victory"
+    }
+  ],
+  "standard_map": {
+    "name": "Bel'Shir Vestige LE (Void)",
+    "source": "https://raw.githubusercontent.com/Blizzard/s2client-api/master/maps/Ladder/%282%29Bel%27ShirVestigeLE%20%28Void%29.SC2Map",
+    "sha256": "9cb078a287c76c0b55e3bc137b0e4590415231367d7c5724ab1bfd24a06a1d1e",
+    "packaged": false
+  },
+  "failed_attempts": [
+    {
+      "report": "reports/player-count-probe/8",
+      "phase": "join",
+      "error": "TimeoutError: Multiplayer barrier timed out after 90s",
+      "follow_up": "Added readiness-progress diagnostics. Later eight-client arena and economy runs joined successfully; root cause of first timeout unconfirmed."
+    },
+    {
+      "report": "reports/player-count-economy/8",
+      "phase": "post-game policy validation",
+      "engine_session_completed": true,
+      "validation_passed": false,
+      "error": "At least one bot failed movement/economy assertions on the initial expanded map.",
+      "finding": "The fourth row y=108.5 exceeded playable ymax=108. Replay inspection showed displaced top-row bases and impaired economy.",
+      "fix": "Move grid to x=24.5/103.5, y=20.5+25*i; test resource bounds and reject displaced starting bases.",
+      "verified_follow_up": "reports/eight-player-economy-fixed/8"
+    }
+  ],
+  "distribution": {
+    "wheel": "dist/mpsc2-0.3.0-py3-none-any.whl",
+    "wheel_sha256": "173845b57ae444e90812d3d025097310f1156a6e4c7f4577ab937a35f64a0df9",
+    "sdist": "dist/mpsc2-0.3.0.tar.gz",
+    "sdist_sha256": "892b00cfd83866176bb359f942f9e140f0cb32278f0c4a1102ac320b4f374abb",
+    "live_installed_wheel_sha256": "fc5f3b0858b7947be2d8ef83820ce7a7c69da09940060542ed9c2fa34ed77960",
+    "final_package_payload_matches_live_two_player_installed_package": true,
+    "eight_player_live_package_difference": "Only diagnostic serialization of absent stock CreateGame error changed from default enum 1 to null; verified exact one-site substitution. Gameplay files otherwise byte-identical.",
+    "matching_payload_files": 67,
+    "required_assets_and_source_archive_contents_verified": true,
+    "requires_python": ">=3.10",
+    "license": "MIT",
+    "published": false
+  },
+  "limitations": [
+    "Native scenario route is pinned to the validated macOS Base96883 executable and bundled maps.",
+    "Arena runs are bounded launch/control checks; economy runs exercise mining, worker training and one Depot, not complete combat campaigns.",
+    "Six/seven-player economy evidence uses the initial expanded grid; final corrected grid was live-validated with all eight sites occupied.",
+    "All-count realtime coverage uses arena; full Terran economy/combat campaigns previously covered four-player 2v2.",
+    "No claim for more than eight clients, all team partitions/races, other platforms/builds, remote hosts, human automation, or long-training reliability.",
+    "Raw local reports/replays are intentionally excluded from distributions and version control."
+  ]
+}

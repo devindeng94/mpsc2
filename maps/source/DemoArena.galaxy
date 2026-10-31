@@ -1,0 +1,89 @@
+// Four independent API players; group assignments inserted by the demo runner.
+include "TriggerLibs/NativeLib"
+
+bool finished = false;
+unitgroup[5] armies;
+int[5] labels;
+
+int GroupOf(int p) {
+    // GROUP_ASSIGNMENTS
+    return 0;
+}
+
+void FinishGame(int winner) {
+    int p;
+    int result;
+    if (finished) { return; }
+    finished = true;
+    for (p = 1; p <= 4; p += 1) {
+        result = c_gameOverTie;
+        if (winner != 0) {
+            result = c_gameOverDefeat;
+            if (GroupOf(p) == winner) { result = c_gameOverVictory; }
+        }
+        GameOver(p, result, true, false);
+    }
+}
+
+bool CheckElimination(bool testConds, bool runActions) {
+    int p;
+    int survivor;
+    if (!runActions || finished) { return true; }
+    survivor = 0;
+    for (p = 1; p <= 4; p += 1) {
+        if (UnitGroupCount(armies[p], c_unitCountAlive) > 0) {
+            TextTagSetPosition(labels[p], libNtve_gf_CenterOfUnitGroup(armies[p]), 1.5);
+        }
+        else { TextTagShow(labels[p], PlayerGroupAll(), false); }
+    }
+    for (p = 1; p <= 4; p += 1) {
+        if (UnitGroupCount(armies[p], c_unitCountAlive) > 0) {
+            if ((survivor != 0) && (survivor != GroupOf(p))) { return true; }
+            survivor = GroupOf(p);
+        }
+    }
+    FinishGame(survivor);
+    return true;
+}
+
+bool TimeLimit(bool testConds, bool runActions) {
+    if (runActions) { FinishGame(0); }
+    return true;
+}
+
+bool Setup(bool testConds, bool runActions) {
+    int p;
+    int q;
+    if (!runActions) { return true; }
+    for (p = 1; p <= 4; p += 1) {
+        CameraSetValue(p, c_cameraValueDistance, 55.0, 0.0, -1.0, 10.0);
+        for (q = 1; q <= 4; q += 1) {
+            if (p != q) {
+                if (GroupOf(p) == GroupOf(q)) {
+                    libNtve_gf_SetAlliance(p, q, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndPushable);
+                }
+                else {
+                    libNtve_gf_SetAlliance(p, q, libNtve_ge_AllianceSetting_Enemy);
+                }
+                PlayerSetAlliance(p, c_allianceIdControl, q, false);
+            }
+        }
+    }
+    // ARMY_SPAWNS
+    for (p = 1; p <= 4; p += 1) {
+        labels[p] = TextTagCreate(StringToText("P") + IntToText(p), 24,
+            libNtve_gf_CenterOfUnitGroup(armies[p]), 1.5, true, false, PlayerGroupAll());
+    }
+    return true;
+}
+
+void InitMap() {
+    trigger t;
+    libNtve_InitLib();
+    t = TriggerCreate("Setup");
+    TriggerAddEventMapInit(t);
+    t = TriggerCreate("CheckElimination");
+    TriggerAddEventTimePeriodic(t, 0.25, c_timeGame);
+    t = TriggerCreate("TimeLimit");
+    TriggerAddEventTimeElapsed(t, 120.0, c_timeGame);
+}

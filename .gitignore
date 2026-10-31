@@ -1,0 +1,38 @@
+# Python environments, caches and generated test output
+.venv*/
+venv/
+.tox/
+.nox/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+coverage.xml
+test-results.xml
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Local game runs and compiled native helpers
+reports/*
+!reports/.gitkeep
+*.SC2Replay
+*.dylib
+
+# Preserve original raw evidence locally; publish its hash manifest only.
+/evidence/2026-10-28/four-client-success/*
+!/evidence/2026-10-28/four-client-success/sha256.json
+
+# Local configuration and OS files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.codex/
+.agents/
+.aws/

@@ -1,0 +1,22 @@
+name: Feature request
+description: Propose an API, research workflow or backend improvement.
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Research use case
+      description: Describe the task you cannot accomplish with the current alpha.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Include an API example or expected workflow, and any compatibility needs.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Platform and scope
+      description: Which SC2 build/platform, player counts, maps or policy types matter? What alternatives have you tried?

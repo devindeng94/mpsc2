@@ -1,0 +1,142 @@
+// Runtime team assignment. API client order is independent of native player IDs.
+include "TriggerLibs/NativeLib"
+
+bool configured = false;
+bool started = false;
+bool finished = false;
+bool[SLOT_ARRAY_SIZE] ready;
+int[SLOT_ARRAY_SIZE] groups;
+int[SLOT_ARRAY_SIZE] slots;
+unitgroup[SLOT_ARRAY_SIZE] armies;
+timer matchTimer;
+
+// SCENARIO_HELPERS
+
+int GroupForSlot(int slot) {
+    // GROUP_ASSIGNMENTS
+    return 0;
+}
+
+void FinishGame(int winner) {
+    int p;
+    int result;
+    if (finished) { return; }
+    finished = true;
+    for (p = 1; p <= PLAYER_COUNT; p += 1) {
+        result = c_gameOverTie;
+        if (winner != 0) {
+            result = c_gameOverDefeat;
+            if (groups[p] == winner) { result = c_gameOverVictory; }
+        }
+        GameOver(p, result, true, false);
+    }
+}
+
+bool CheckElimination(bool testConds, bool runActions) {
+    int p;
+    int survivor = 0;
+    if (!runActions || !started || finished) { return true; }
+    for (p = 1; p <= PLAYER_COUNT; p += 1) {
+        if (HasSurvivors(p)) {
+            if ((survivor != 0) && (survivor != groups[p])) { return true; }
+            survivor = groups[p];
+        }
+    }
+    FinishGame(survivor);
+    return true;
+}
+
+bool TimeLimit(bool testConds, bool runActions) {
+    if (runActions && started) { FinishGame(0); }
+    return true;
+}
+
+void BeginMatch() {
+    int p;
+    int i;
+    trigger t;
+    if (started) { return; }
+    started = true;
+    if (REALTIME_MODE) {
+        for (p = 1; p <= PLAYER_COUNT; p += 1) {
+            for (i = 1; i <= UnitGroupCount(armies[p], c_unitCountAlive); i += 1) {
+                UnitSetState(UnitGroupUnit(armies[p], i), c_unitStatePaused, false);
+            }
+        }
+    }
+    t = TriggerCreate("CheckElimination");
+    TriggerAddEventTimePeriodic(t, 0.25, c_timeGame);
+    matchTimer = TimerCreate();
+    t = TriggerCreate("TimeLimit");
+    TriggerAddEventTimer(t, matchTimer);
+    TimerStart(matchTimer, TIME_LIMIT, false, c_timeGame);
+}
+
+bool ReadyPlayer(bool testConds, bool runActions) {
+    int p;
+    if (!runActions || !configured || started) { return true; }
+    p = EventPlayer();
+    if ((p < 1) || (p > PLAYER_COUNT)) { return true; }
+    ready[p] = true;
+    for (p = 1; p <= PLAYER_COUNT; p += 1) {
+        if (!ready[p]) { return true; }
+    }
+    BeginMatch();
+    return true;
+}
+
+void Setup() {
+    int p;
+    int q;
+    int i;
+    // SETUP_WORLD
+    for (p = 1; p <= PLAYER_COUNT; p += 1) {
+        for (q = 1; q <= PLAYER_COUNT; q += 1) {
+            if (p != q) {
+                if (groups[p] == groups[q]) {
+                    libNtve_gf_SetAlliance(p, q, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndPushable);
+                }
+                else { libNtve_gf_SetAlliance(p, q, libNtve_ge_AllianceSetting_Enemy); }
+                PlayerSetAlliance(p, c_allianceIdControl, q, false);
+            }
+        }
+        // ARMY_SPAWNS
+        if (REALTIME_MODE) {
+            for (i = 1; i <= UnitGroupCount(armies[p], c_unitCountAlive); i += 1) {
+                UnitSetState(UnitGroupUnit(armies[p], i), c_unitStatePaused, true);
+            }
+        }
+    }
+    configured = true;
+    if (!REALTIME_MODE) { BeginMatch(); }
+}
+
+bool ConfigurePlayer(bool testConds, bool runActions) {
+    int p;
+    int q;
+    int slot = 0;
+    if (!runActions || configured) { return true; }
+    p = EventPlayer();
+    if ((p < 1) || (p > PLAYER_COUNT) || (slots[p] != 0)) { return true; }
+    // SLOT_MESSAGES
+    if (slot == 0) { return true; }
+    for (q = 1; q <= PLAYER_COUNT; q += 1) {
+        if (slots[q] == slot) { return true; }
+    }
+    slots[p] = slot;
+    groups[p] = GroupForSlot(slot);
+    for (q = 1; q <= PLAYER_COUNT; q += 1) {
+        if (slots[q] == 0) { return true; }
+    }
+    Setup();
+    return true;
+}
+
+void InitMap() {
+    trigger t;
+    libNtve_InitLib();
+    t = TriggerCreate("ConfigurePlayer");
+    TriggerAddEventChatMessage(t, c_playerAny, "MPSC2-SLOT-", false);
+    t = TriggerCreate("ReadyPlayer");
+    TriggerAddEventChatMessage(t, c_playerAny, "MPSC2-READY", true);
+}

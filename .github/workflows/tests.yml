@@ -1,0 +1,53 @@
+name: Package and offline tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  SC2PATH: /nonexistent/mpsc2
+  PYTHONDONTWRITEBYTECODE: '1'
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ['3.10', '3.13']
+        include:
+          - os: ubuntu-latest
+            python: '3.11'
+          - os: ubuntu-latest
+            python: '3.12'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python scripts/check_docs.py
+      - run: python -m pytest -q --cov=mpsc2 --cov-branch --cov-report=xml --junitxml=test-results.xml
+      - run: python -m build
+      - run: python -m twine check dist/*
+      - name: Install wheel and resolve maps outside checkout
+        shell: bash
+        run: |
+          python -m pip uninstall -y mpsc2
+          python -m pip install --no-deps dist/*.whl
+          cd "$RUNNER_TEMP"
+          python -m mpsc2 maps
+          python -c 'from mpsc2.bot_ai import BotAI; from sc2.bot_ai import BotAI as Original; assert BotAI is Original'
+          python -m pip check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-${{ matrix.os }}-py${{ matrix.python }}
+          path: |
+            coverage.xml
+            test-results.xml
+            dist/*

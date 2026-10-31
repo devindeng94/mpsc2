@@ -1,0 +1,4 @@
+# Direct protobuf/WebSocket probe only; python-sc2 and pysc2 are not required.
+# Historical experiment environment; normal MPSC2 users should use requirements.txt.
+aiohttp==3.14.5
+pys2clientprotocol==1.0.2

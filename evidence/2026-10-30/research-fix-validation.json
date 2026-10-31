@@ -1,0 +1,987 @@
+{
+  "date": "2026-10-30",
+  "version": "0.3.1a2",
+  "issue": "MPSC2-001",
+  "status": "fixed",
+  "root_cause": "Observation serialization indexes private opponent upgrade data by unsigned 3-player_id; native player IDs >=4 underflow.",
+  "fault_offset": "0x1e9bf1a",
+  "index_calculation_offset": "0x1e9bd31",
+  "fix": {
+    "site_offset": "0x1e9bf0c",
+    "destination_offset": "0x1e9bfe0",
+    "bytes_changed": 7,
+    "scope": "Process-private observation serialization only; skips private PlayerRaw field 4, preserves public field 3 and simulation.",
+    "guarded_game_clients": "Every client in 3..8-client sessions",
+    "guarded_replays": "Darwin Base96883, observed_id >=4",
+    "stock_two_client_route_preserved": true,
+    "installed_binary_modified": false,
+    "checks": [
+      "Python whole-executable SHA256",
+      "Mach-O UUID",
+      "Loopback listener",
+      "Three runtime instruction signatures",
+      "Page permissions",
+      "Written branch bytes"
+    ]
+  },
+  "executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb",
+  "guard_source": {
+    "path": "src/mpsc2/native/observation_guard.c",
+    "sha256": "7b8275a1f79cec21c0a8ba3e50398236de2ce748beb902e759254ffcaff74ef6"
+  },
+  "host_bridge_source": {
+    "path": "src/mpsc2/native/local_four_bridge.c",
+    "sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf"
+  },
+  "original_failure_evidence": "evidence/2026-10-30/alpha-release-validation.json",
+  "fresh_failure": {
+    "path": "reports/research-investigation/baseline/game/result.json",
+    "sha256": "79e05317d3cdd9882b9e26e75f238267f70c0c52da62c8e0f687939689993b6e"
+  },
+  "two_player_wire_field_control": {
+    "path": "reports/research-investigation/wire-field.log",
+    "sha256": "aba91909931f855822da799c1d6d5a93156f07106384e78d6c83d8f6a8feb9e2"
+  },
+  "negative_uuid_check": {
+    "passed": true,
+    "wrong_uuid_refused": true,
+    "owned_process_exited": true,
+    "report": {
+      "applied": false,
+      "error": "unexpected executable UUID"
+    }
+  },
+  "package_validation": {
+    "passed": true,
+    "wheel_payloads_match_source": 68,
+    "both_native_sources_included": true,
+    "licenses_included": 4,
+    "diagnostics_and_replays_excluded": true,
+    "executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb"
+  },
+  "distribution_check": {
+    "path": "reports/research-investigation/build-final.log",
+    "sha256": "05c9b73b27a05f42d316e0560e4f224c5380bc92f86b598581eb775fc8453b43"
+  },
+  "installed_wheel_live_replay": {
+    "passed": true,
+    "python": "3.10.0",
+    "observed_ids": [
+      0,
+      8
+    ],
+    "version": "0.3.1a2",
+    "evidence": {
+      "path": "reports/research-investigation/wheel310-live-replay.log",
+      "sha256": "8949518571422681fc170f75746d01d54359b46defcd6d97f1d2d54210bbb10f"
+    }
+  },
+  "final_process_check": {
+    "passed": true,
+    "running_SC2_processes": []
+  },
+  "cases": [
+    {
+      "case": "production-4-stepped",
+      "research_passed": true,
+      "players": 4,
+      "realtime": false,
+      "step_size": 32,
+      "native_ids_input_order": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "actual_races": [
+        "Terran",
+        "Protoss",
+        "Zerg",
+        "Protoss"
+      ],
+      "guard_required": true,
+      "guard_applied": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "game_loop": 8004,
+      "upgrades": [
+        {
+          "player_id": 3,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5252,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5476,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5508,
+          "count": 1
+        }
+      ],
+      "replay_playback": [
+        {
+          "observed_id": 0,
+          "upgrades": [],
+          "upgrade_events": {},
+          "attack_levels": {
+            "2": 1,
+            "3": 0,
+            "16": 0,
+            "1": 1,
+            "4": 1
+          },
+          "result": null
+        },
+        {
+          "observed_id": 4,
+          "upgrades": [
+            "PROTOSSGROUNDWEAPONSLEVEL1"
+          ],
+          "upgrade_events": {
+            "PROTOSSGROUNDWEAPONSLEVEL1": 1
+          },
+          "attack_levels": {
+            "16": 0,
+            "2": 1,
+            "4": 1
+          },
+          "result": "Tie"
+        }
+      ],
+      "normal_resource_production_research_and_callbacks": true,
+      "full_macro_passed": true,
+      "original_validation_error": null,
+      "expansion_completed": {
+        "1": true,
+        "4": true,
+        "3": true,
+        "2": true
+      },
+      "no_debug_requests": true,
+      "owned_processes_closed": true,
+      "validation": {
+        "path": "reports/research-investigation/production-4-stepped/validation.json",
+        "sha256": "2f25dca20df626adac56ee52b6db7e97a33128647427d4a5f36b3b17bd82f10c"
+      },
+      "replay": {
+        "path": "reports/research-investigation/production-4-stepped/game.SC2Replay",
+        "sha256": "d9b299009b4ab622ca6b1add2b9ea9577ff3104e057d86958969d6aedeaa2e6c"
+      },
+      "replay_verification": {
+        "path": "reports/research-investigation/production-4-stepped/research-replay-verification.json",
+        "sha256": "0898f4fdcfec2e51eb1e5acd652bd826d1551048c325e24696d5fb41f7f3997d"
+      }
+    },
+    {
+      "case": "production-8-stepped",
+      "research_passed": true,
+      "players": 8,
+      "realtime": false,
+      "step_size": 32,
+      "native_ids_input_order": [
+        1,
+        6,
+        8,
+        2,
+        4,
+        7,
+        3,
+        5
+      ],
+      "actual_races": [
+        "Terran",
+        "Protoss",
+        "Zerg",
+        "Terran",
+        "Terran",
+        "Protoss",
+        "Zerg",
+        "Zerg"
+      ],
+      "guard_required": true,
+      "guard_applied": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "game_loop": 8005,
+      "upgrades": [
+        {
+          "player_id": 8,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 3,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 5,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4420,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5348,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5348,
+          "count": 1
+        },
+        {
+          "player_id": 6,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5444,
+          "count": 1
+        },
+        {
+          "player_id": 7,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5476,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5508,
+          "count": 1
+        }
+      ],
+      "replay_playback": [
+        {
+          "observed_id": 0,
+          "upgrades": [],
+          "upgrade_events": {},
+          "attack_levels": {
+            "7": 1,
+            "16": 0,
+            "3": 0,
+            "5": 0,
+            "8": 0,
+            "4": 1,
+            "1": 1,
+            "6": 1,
+            "2": 1
+          },
+          "result": null
+        },
+        {
+          "observed_id": 8,
+          "upgrades": [
+            "ZERGLINGMOVEMENTSPEED"
+          ],
+          "upgrade_events": {
+            "ZERGLINGMOVEMENTSPEED": 1
+          },
+          "attack_levels": {
+            "16": 0,
+            "3": 0,
+            "8": 0,
+            "4": 1,
+            "1": 1
+          },
+          "result": "Tie"
+        }
+      ],
+      "normal_resource_production_research_and_callbacks": true,
+      "full_macro_passed": false,
+      "original_validation_error": "AssertionError: ('complete_NEXUS', {'race': 'Protoss', 'history': ['before_start', 'start', 'end'], 'steps': 250, 'events': {'created_PROBE': 9, 'construction_started': 6, 'complete_PYLON': 3, 'complete_ASSIMILATOR': 1, 'complete_GATEWAY': 1, 'complete_FORGE': 1, 'created_ZEALOT': 6, 'upgrade_PROTOSSGROUNDWEAPONSLEVEL1': 1}, 'queries': {'abilities': True, 'pathing_distance': 14.807861328125, 'expansion': [114.5, 32.5], 'cost_and_supply': True, 'unit_collections': True}, 'collected': [4855.0, 604.0], 'max_workers': 21, 'result': 'Tie', 'raw_affects_selection': False, 'research_enabled': True})",
+      "expansion_completed": {
+        "1": true,
+        "6": false,
+        "8": true,
+        "2": false,
+        "4": true,
+        "7": false,
+        "3": true,
+        "5": true
+      },
+      "no_debug_requests": true,
+      "owned_processes_closed": true,
+      "validation": {
+        "path": "reports/research-investigation/production-8-stepped/validation.json",
+        "sha256": "fdf51043732e50e67e3f0699a24cbcecec6f13e8baa5fd8f166a4b01f9b8c34a"
+      },
+      "replay": {
+        "path": "reports/research-investigation/production-8-stepped/game.SC2Replay",
+        "sha256": "9707de616183680589278d12ed2ac88eb5b7af90426ba22a46b6f2a7efdeb03d"
+      },
+      "replay_verification": {
+        "path": "reports/research-investigation/production-8-stepped/research-replay-verification.json",
+        "sha256": "a2674d72cfc77943881c3eaf2e0cf29c5e8e0410450a5d3d97c8d9ab1ebf39e4"
+      }
+    },
+    {
+      "case": "production-3-stepped",
+      "research_passed": true,
+      "players": 3,
+      "realtime": false,
+      "step_size": 112,
+      "native_ids_input_order": [
+        1,
+        3,
+        2
+      ],
+      "actual_races": [
+        "Terran",
+        "Protoss",
+        "Zerg"
+      ],
+      "guard_required": true,
+      "guard_applied": [
+        true,
+        true,
+        true
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "game_loop": 8067,
+      "upgrades": [
+        {
+          "player_id": 2,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4676,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5476,
+          "count": 1
+        },
+        {
+          "player_id": 3,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5748,
+          "count": 1
+        }
+      ],
+      "replay_playback": [],
+      "normal_resource_production_research_and_callbacks": true,
+      "full_macro_passed": null,
+      "original_validation_error": null,
+      "expansion_completed": {
+        "1": true,
+        "3": true,
+        "2": true
+      },
+      "no_debug_requests": true,
+      "owned_processes_closed": true,
+      "validation": {
+        "path": "reports/research-investigation/production-3-stepped/validation.json",
+        "sha256": "6ce50461ff0ac2632a782aa7218460f4bcdf84ea7adbccf5c3ec7d1628ed95b6"
+      },
+      "replay": {
+        "path": "reports/research-investigation/production-3-stepped/game.SC2Replay",
+        "sha256": "565d1ac47f887d76090eb475e08439ee6887273a3bf7d57c58206d4475b9cb3d"
+      },
+      "replay_verification": {
+        "path": "reports/research-investigation/production-3-stepped/research-replay-verification.json",
+        "sha256": "e6ec1676c1ce31da2a511102ef63e7c7e42bcc5d416bcc1a4e14308756c26377"
+      }
+    },
+    {
+      "case": "production-5-stepped",
+      "research_passed": true,
+      "players": 5,
+      "realtime": false,
+      "step_size": 112,
+      "native_ids_input_order": [
+        1,
+        5,
+        4,
+        2,
+        3
+      ],
+      "actual_races": [
+        "Terran",
+        "Protoss",
+        "Zerg",
+        "Terran",
+        "Terran"
+      ],
+      "guard_required": true,
+      "guard_applied": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "game_loop": 8067,
+      "upgrades": [
+        {
+          "player_id": 4,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4676,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5476,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5476,
+          "count": 1
+        },
+        {
+          "player_id": 5,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5636,
+          "count": 1
+        },
+        {
+          "player_id": 3,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5700,
+          "count": 1
+        }
+      ],
+      "replay_playback": [],
+      "normal_resource_production_research_and_callbacks": true,
+      "full_macro_passed": null,
+      "original_validation_error": null,
+      "expansion_completed": {
+        "1": true,
+        "5": true,
+        "4": true,
+        "2": true,
+        "3": true
+      },
+      "no_debug_requests": true,
+      "owned_processes_closed": true,
+      "validation": {
+        "path": "reports/research-investigation/production-5-stepped/validation.json",
+        "sha256": "6c4d1c74e5de5b17bc3ae6f529d307d7bea6e845db0a96df5f966a44922c7d09"
+      },
+      "replay": {
+        "path": "reports/research-investigation/production-5-stepped/game.SC2Replay",
+        "sha256": "697dbda83515ccad081bbc6021d50ab9e7901e24783dd8a34dd79f8a5467344b"
+      },
+      "replay_verification": {
+        "path": "reports/research-investigation/production-5-stepped/research-replay-verification.json",
+        "sha256": "f31ae50e8948685f2a351345a6fb171708311e2ffbdf73f99d6ff25fc9cd3bf1"
+      }
+    },
+    {
+      "case": "production-6-stepped-retry",
+      "research_passed": true,
+      "players": 6,
+      "realtime": false,
+      "step_size": 112,
+      "native_ids_input_order": [
+        1,
+        2,
+        3,
+        6,
+        5,
+        4
+      ],
+      "actual_races": [
+        "Terran",
+        "Protoss",
+        "Zerg",
+        "Protoss",
+        "Terran",
+        "Protoss"
+      ],
+      "guard_required": true,
+      "guard_applied": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "game_loop": 8067,
+      "upgrades": [
+        {
+          "player_id": 3,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4676,
+          "count": 1
+        },
+        {
+          "player_id": 5,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5476,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5636,
+          "count": 1
+        },
+        {
+          "player_id": 6,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5636,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5700,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5748,
+          "count": 1
+        }
+      ],
+      "replay_playback": [],
+      "normal_resource_production_research_and_callbacks": true,
+      "full_macro_passed": null,
+      "original_validation_error": null,
+      "expansion_completed": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "6": false,
+        "5": false,
+        "4": false
+      },
+      "no_debug_requests": true,
+      "owned_processes_closed": true,
+      "validation": {
+        "path": "reports/research-investigation/production-6-stepped-retry/validation.json",
+        "sha256": "fb962f13511bbe7365af64d033efb9dbc06753a8f5d0b624be4878648f76ec4d"
+      },
+      "replay": {
+        "path": "reports/research-investigation/production-6-stepped-retry/game.SC2Replay",
+        "sha256": "42549d5a07dc67d38b06954eb1faf5c7ed7db3e604ef2db77512a184f1d9d44e"
+      },
+      "replay_verification": {
+        "path": "reports/research-investigation/production-6-stepped-retry/research-replay-verification.json",
+        "sha256": "b9c4846340347072a3b264753f719ff4e8d944808e1295992bc2911d72f7a54d"
+      }
+    },
+    {
+      "case": "production-7-stepped",
+      "research_passed": true,
+      "players": 7,
+      "realtime": false,
+      "step_size": 112,
+      "native_ids_input_order": [
+        1,
+        6,
+        3,
+        5,
+        7,
+        4,
+        2
+      ],
+      "actual_races": [
+        "Terran",
+        "Protoss",
+        "Zerg",
+        "Protoss",
+        "Terran",
+        "Protoss",
+        "Zerg"
+      ],
+      "guard_required": true,
+      "guard_applied": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "game_loop": 8068,
+      "upgrades": [
+        {
+          "player_id": 3,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4676,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4676,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5588,
+          "count": 1
+        },
+        {
+          "player_id": 5,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5636,
+          "count": 1
+        },
+        {
+          "player_id": 6,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5636,
+          "count": 1
+        },
+        {
+          "player_id": 7,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5700,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5748,
+          "count": 1
+        }
+      ],
+      "replay_playback": [],
+      "normal_resource_production_research_and_callbacks": true,
+      "full_macro_passed": null,
+      "original_validation_error": null,
+      "expansion_completed": {
+        "1": true,
+        "6": true,
+        "3": true,
+        "5": true,
+        "7": true,
+        "4": true,
+        "2": true
+      },
+      "no_debug_requests": true,
+      "owned_processes_closed": true,
+      "validation": {
+        "path": "reports/research-investigation/production-7-stepped/validation.json",
+        "sha256": "4ae1e6afe59fbc87a5bb1473fc08e1803ffb9fd9f8d71d63991bf66e89ce5042"
+      },
+      "replay": {
+        "path": "reports/research-investigation/production-7-stepped/game.SC2Replay",
+        "sha256": "52b147c3a35b7e82c09c881ebf61a347678f244496b50e698966dcf9ab96a9fe"
+      },
+      "replay_verification": {
+        "path": "reports/research-investigation/production-7-stepped/research-replay-verification.json",
+        "sha256": "76c2e4c6653306202148b04041c753299c8b42cfe7cace7965066c096d98de78"
+      }
+    },
+    {
+      "case": "production-2-stepped",
+      "research_passed": true,
+      "players": 2,
+      "realtime": false,
+      "step_size": 112,
+      "native_ids_input_order": [
+        1,
+        2
+      ],
+      "actual_races": [
+        "Zerg",
+        "Terran"
+      ],
+      "guard_required": false,
+      "guard_applied": [
+        false,
+        false
+      ],
+      "results": [
+        "Tie",
+        "Tie"
+      ],
+      "game_loop": 8067,
+      "upgrades": [
+        {
+          "player_id": 1,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4676,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5588,
+          "count": 1
+        }
+      ],
+      "replay_playback": [],
+      "normal_resource_production_research_and_callbacks": true,
+      "full_macro_passed": null,
+      "original_validation_error": null,
+      "expansion_completed": {
+        "1": true,
+        "2": true
+      },
+      "no_debug_requests": true,
+      "owned_processes_closed": true,
+      "validation": {
+        "path": "reports/research-investigation/production-2-stepped/validation.json",
+        "sha256": "c9bb38afc9852b39666e00bfc1d9947aecf7e60194dcd535910f32dff797335a"
+      },
+      "replay": {
+        "path": "reports/research-investigation/production-2-stepped/game.SC2Replay",
+        "sha256": "947398ed99d229dc8c2d8b26a6b2822317358e9c0ba3eff2c9b8fb3b5a5f0783"
+      },
+      "replay_verification": {
+        "path": "reports/research-investigation/production-2-stepped/research-replay-verification.json",
+        "sha256": "9629cbaf2151fd2cf9a95a0c35d22071953dc1d6f6518c077c48a83c9a72781f"
+      }
+    },
+    {
+      "case": "production-4-realtime",
+      "research_passed": true,
+      "players": 4,
+      "realtime": true,
+      "step_size": 112,
+      "native_ids_input_order": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "actual_races": [
+        "Terran",
+        "Protoss",
+        "Zerg",
+        "Zerg"
+      ],
+      "guard_required": true,
+      "guard_applied": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "game_loop": 8093,
+      "upgrades": [
+        {
+          "player_id": 3,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4358,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4807,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5502,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5652,
+          "count": 1
+        }
+      ],
+      "replay_playback": [],
+      "normal_resource_production_research_and_callbacks": true,
+      "full_macro_passed": null,
+      "original_validation_error": null,
+      "expansion_completed": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true
+      },
+      "no_debug_requests": true,
+      "owned_processes_closed": true,
+      "validation": {
+        "path": "reports/research-investigation/production-4-realtime/validation.json",
+        "sha256": "b75d67cd521623ed7f571b0c342dd56e9cb8f4f3395e9cab472db705cba355c2"
+      },
+      "replay": {
+        "path": "reports/research-investigation/production-4-realtime/game.SC2Replay",
+        "sha256": "c993b2c500d44f72a9e0f44f3d44fa54e2dc5a7606eadf68648d05c965122193"
+      },
+      "replay_verification": {
+        "path": "reports/research-investigation/production-4-realtime/research-replay-verification.json",
+        "sha256": "b905bdc3ca4b040cbde81640a47abbb69c487560d64b680dea6bb1440b863912"
+      }
+    }
+  ],
+  "failed_attempts": [
+    {
+      "case": "production-6-stepped",
+      "validation": {
+        "phase": "races",
+        "passed": false,
+        "error": "TimeoutError: Multiplayer barrier timed out after 90s"
+      },
+      "phase": "join before gameplay",
+      "readiness": {
+        "expected_players": 6,
+        "native_ready_players": 4,
+        "forwarded_datagrams": 212,
+        "flags": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      "owned_processes_closed": true,
+      "report": {
+        "path": "reports/research-investigation/production-6-stepped/validation.json",
+        "sha256": "2c221bcd1e430d2d1dad88aeca40605b0769ac3b70a37c5d4ca9df2681796ac3"
+      }
+    }
+  ],
+  "tests": {
+    "offline313.log": {
+      "passed": 227,
+      "evidence": {
+        "path": "reports/research-investigation/offline313.log",
+        "sha256": "87e90389d943e75cca12ce9aedff023a555a3c0fb1857e5362353ba6045e433f"
+      }
+    },
+    "offline310.log": {
+      "passed": 227,
+      "evidence": {
+        "path": "reports/research-investigation/offline310.log",
+        "sha256": "87e90389d943e75cca12ce9aedff023a555a3c0fb1857e5362353ba6045e433f"
+      }
+    },
+    "wheel313-final.log": {
+      "passed": 227,
+      "evidence": {
+        "path": "reports/research-investigation/wheel313-final.log",
+        "sha256": "e59ff2af3a3580b2d757f481fd0e03b4912e914a1377ddd8a298d366d9fc9884"
+      }
+    },
+    "wheel310-final.log": {
+      "passed": 227,
+      "evidence": {
+        "path": "reports/research-investigation/wheel310-final.log",
+        "sha256": "4d00236081bcc107796f7e2014d62bf556414f798c8a57fde709ed5b4e31011c"
+      }
+    }
+  },
+  "limitations": [
+    "Exact macOS executable required",
+    "Eight-player full macro fixture missed three expansions although all research completed",
+    "One six-client startup timed out before gameplay; fresh retry recorded separately",
+    "No proof for every upgrade, ability, platform or long-running workload",
+    "Remote CI not executed"
+  ],
+  "distributions": {
+    "mpsc2-0.3.1a2-py3-none-any.whl": "10ed806d2f8760d78ae22b2a1758b54d2c94ab5a1009919206bdf830045e1359",
+    "mpsc2-0.3.1a2.tar.gz": "73d3853b3d7dddd7e966056be7d6284f91f9fdd359af4027454e675312f27adc"
+  },
+  "published": false
+}

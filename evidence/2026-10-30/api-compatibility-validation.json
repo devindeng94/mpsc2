@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-30",
+  "version": "0.2.0",
+  "license": "MIT",
+  "compatibility_target": "burnysc2==7.3.0",
+  "engine": {
+    "platform": "macOS",
+    "build": 96883,
+    "executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb"
+  },
+  "offline_tests": [
+    {
+      "python": "3.10.0",
+      "passed": 113,
+      "SC2PATH": "nonexistent installation"
+    },
+    {
+      "python": "3.13.2",
+      "passed": 113,
+      "SC2PATH": "nonexistent installation"
+    }
+  ],
+  "package_checks": {
+    "wheel_and_sdist_built": true,
+    "imports_and_maps_outside_checkout": true,
+    "source_and_installed_maps_match": true,
+    "runtime_templates_usable_without_SC2_discovery": true,
+    "MIT_and_upstream_notices_included": true,
+    "final_wheel_code_and_data_identical_to_live_tested_installation": true,
+    "final_metadata_adds_validation_documentation": true,
+    "wheel_sha256": "4a7997c5682470c6d9ec8c51f336f3463ad046e09e5ef5134cce8d5eb085d098",
+    "sdist_sha256": "390ae88b9ef2dbeb1631250ec8850dda3f3b62b5796c7e81babfa20f3ffe3f0e"
+  },
+  "engine_checks": [
+    {
+      "python": "3.13.2",
+      "distribution": "editable source",
+      "episodes": [
+        {
+          "report": "reports/api-compatibility-v020/0/result.json",
+          "teams": [
+            7,
+            9,
+            7,
+            9
+          ],
+          "native_ids_in_input_order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "results_in_input_order": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "realtime": false,
+          "four_distinct_native_players_processes_and_ports": true,
+          "request_counts": {
+            "action": 43,
+            "data": 4,
+            "game_info": 128,
+            "join_game": 4,
+            "observation": 128,
+            "ping": 5,
+            "save_replay": 1,
+            "step": 132
+          },
+          "map_sha256": "08711f8892c8ecc59f29cafbf775f8053dfeead25e8fc8fa29976a122b00b810",
+          "replay_sha256": "1487be7a69c7d25769ad89db68fe05273e0e7cebe53c2ea16dd026ddcd05d4f5"
+        },
+        {
+          "report": "reports/api-compatibility-v020/1/result.json",
+          "teams": [
+            7,
+            7,
+            7,
+            9
+          ],
+          "native_ids_in_input_order": [
+            1,
+            3,
+            2,
+            4
+          ],
+          "results_in_input_order": [
+            "Victory",
+            "Victory",
+            "Victory",
+            "Defeat"
+          ],
+          "realtime": true,
+          "four_distinct_native_players_processes_and_ports": true,
+          "request_counts": {
+            "action": 26,
+            "data": 4,
+            "game_info": 89,
+            "join_game": 4,
+            "observation": 105,
+            "ping": 5,
+            "save_replay": 1
+          },
+          "map_sha256": "35a76e07be01388c3fb614db3ee6f79e0ab56b83ca80ffdb6b49fe481de232a7",
+          "replay_sha256": "001160d5482d1149a7f31cb6f55bf92ccbf843197bb4b73e4bffe93cd6e70296"
+        }
+      ],
+      "replays": [
+        {
+          "path": "reports/api-compatibility-v020/0/game.SC2Replay",
+          "callbacks": 2,
+          "max_structures": 0,
+          "results": {
+            "1": "Tie",
+            "2": "Tie",
+            "3": "Tie",
+            "4": "Tie"
+          },
+          "matches_original_native_results": true,
+          "sha256": "1487be7a69c7d25769ad89db68fe05273e0e7cebe53c2ea16dd026ddcd05d4f5"
+        },
+        {
+          "path": "reports/economy-realtime-2v2/game.SC2Replay",
+          "callbacks": 42,
+          "max_structures": 80,
+          "results": {
+            "1": "Victory",
+            "2": "Victory",
+            "3": "Defeat",
+            "4": "Defeat"
+          },
+          "matches_original_native_results": true,
+          "sha256": "39d4150fcdc1f76c1bd391e80d9620c8b981413abd0328b461ea9e7f20c35efd"
+        }
+      ]
+    },
+    {
+      "python": "3.10.0",
+      "distribution": "installed wheel, run outside checkout",
+      "episodes": [
+        {
+          "report": "reports/installed-wheel-python310/0/result.json",
+          "teams": [
+            7,
+            9,
+            7,
+            9
+          ],
+          "native_ids_in_input_order": [
+            1,
+            4,
+            3,
+            2
+          ],
+          "results_in_input_order": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "realtime": false,
+          "four_distinct_native_players_processes_and_ports": true,
+          "request_counts": {
+            "action": 36,
+            "data": 4,
+            "game_info": 128,
+            "join_game": 4,
+            "observation": 128,
+            "ping": 5,
+            "save_replay": 1,
+            "step": 132
+          },
+          "map_sha256": "08711f8892c8ecc59f29cafbf775f8053dfeead25e8fc8fa29976a122b00b810",
+          "replay_sha256": "0ce7d008939ad139adc6361f79247ae33ab2c8302371c19c508fd9a653e3d81a"
+        },
+        {
+          "report": "reports/installed-wheel-python310/1/result.json",
+          "teams": [
+            7,
+            7,
+            7,
+            9
+          ],
+          "native_ids_in_input_order": [
+            1,
+            4,
+            2,
+            3
+          ],
+          "results_in_input_order": [
+            "Victory",
+            "Victory",
+            "Victory",
+            "Defeat"
+          ],
+          "realtime": true,
+          "four_distinct_native_players_processes_and_ports": true,
+          "request_counts": {
+            "action": 24,
+            "data": 4,
+            "game_info": 88,
+            "join_game": 4,
+            "observation": 104,
+            "ping": 5,
+            "save_replay": 1
+          },
+          "map_sha256": "35a76e07be01388c3fb614db3ee6f79e0ab56b83ca80ffdb6b49fe481de232a7",
+          "replay_sha256": "e627ad85f84a9871220d9c3142f63b4e0a8058b240cc8ad13f425743840e4ac8"
+        }
+      ],
+      "replays": [
+        {
+          "path": "reports/installed-wheel-python310/0/game.SC2Replay",
+          "callbacks": 2,
+          "max_structures": 0,
+          "results": {
+            "1": "Tie",
+            "2": "Tie",
+            "3": "Tie",
+            "4": "Tie"
+          },
+          "matches_original_native_results": true,
+          "sha256": "0ce7d008939ad139adc6361f79247ae33ab2c8302371c19c508fd9a653e3d81a"
+        },
+        {
+          "path": "reports/economy-realtime-2v2/game.SC2Replay",
+          "callbacks": 42,
+          "max_structures": 80,
+          "results": {
+            "1": "Victory",
+            "2": "Victory",
+            "3": "Defeat",
+            "4": "Defeat"
+          },
+          "matches_original_native_results": true,
+          "sha256": "39d4150fcdc1f76c1bd391e80d9620c8b981413abd0328b461ea9e7f20c35efd"
+        }
+      ]
+    }
+  ],
+  "scope": "Four-client backend remains experimental and pinned to macOS Base96883. Standard-game routing is tested at the upstream-call boundary; the GitHub CI workflow is configured but has not been run remotely. These checks do not validate long training campaigns."
+}

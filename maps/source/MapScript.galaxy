@@ -1,0 +1,79 @@
+// Four independent controllers: players 1+2 versus players 3+4.
+// Small combat fixture. No melee initialization or built-in computer AI.
+include "TriggerLibs/NativeLib"
+
+bool finished = false;
+unitgroup[5] armies;
+
+void FinishTeamGame(int winner) {
+    int p;
+    int result;
+    if (finished) { return; }
+    finished = true;
+    for (p = 1; p <= 4; p += 1) {
+        result = c_gameOverTie;
+        if (winner != 0) {
+            result = c_gameOverDefeat;
+            if (((p <= 2) && (winner == 1)) || ((p >= 3) && (winner == 2))) {
+                result = c_gameOverVictory;
+            }
+        }
+        // Retain the terminal game state for API observations. Hiding the
+        // end dialog makes multiplayer clients immediately return to launch.
+        GameOver(p, result, true, false);
+    }
+}
+
+bool CheckElimination(bool testConds, bool runActions) {
+    int a;
+    int b;
+    if (!runActions || finished) { return true; }
+    a = UnitGroupCount(armies[1], c_unitCountAlive) + UnitGroupCount(armies[2], c_unitCountAlive);
+    b = UnitGroupCount(armies[3], c_unitCountAlive) + UnitGroupCount(armies[4], c_unitCountAlive);
+    if ((a == 0) && (b == 0)) { FinishTeamGame(0); }
+    else if (a == 0) { FinishTeamGame(2); }
+    else if (b == 0) { FinishTeamGame(1); }
+    return true;
+}
+
+bool TimeLimit(bool testConds, bool runActions) {
+    if (runActions) { FinishTeamGame(0); }
+    return true;
+}
+
+bool Setup(bool testConds, bool runActions) {
+    int p;
+    int q;
+    bool ally;
+    if (!runActions) { return true; }
+    for (p = 1; p <= 4; p += 1) {
+        for (q = 1; q <= 4; q += 1) {
+            if (p != q) {
+                ally = ((p <= 2) && (q <= 2)) || ((p >= 3) && (q >= 3));
+                if (ally) {
+                    libNtve_gf_SetAlliance(p, q, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndPushable);
+                }
+                else {
+                    libNtve_gf_SetAlliance(p, q, libNtve_ge_AllianceSetting_Enemy);
+                }
+                PlayerSetAlliance(p, c_allianceIdControl, q, false);
+            }
+        }
+    }
+    armies[1] = UnitCreate(6, "Marine", 0, 1, Point(48.0, 50.0), 0.0);
+    armies[2] = UnitCreate(6, "Marine", 0, 2, Point(48.0, 64.0), 0.0);
+    armies[3] = UnitCreate(6, "Marine", 0, 3, Point(80.0, 50.0), 180.0);
+    armies[4] = UnitCreate(6, "Marine", 0, 4, Point(80.0, 64.0), 180.0);
+    return true;
+}
+
+void InitMap() {
+    trigger t;
+    libNtve_InitLib();
+    t = TriggerCreate("Setup");
+    TriggerAddEventMapInit(t);
+    t = TriggerCreate("CheckElimination");
+    TriggerAddEventTimePeriodic(t, 0.25, c_timeGame);
+    t = TriggerCreate("TimeLimit");
+    TriggerAddEventTimeElapsed(t, 120.0, c_timeGame);
+}

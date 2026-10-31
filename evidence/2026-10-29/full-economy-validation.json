@@ -1,0 +1,877 @@
+{
+  "date": "2026-10-29",
+  "sc2_build": "5.0.15.96883",
+  "burnysc2": "7.3.0",
+  "offline_tests": {
+    "Python 3.10.0": 65,
+    "Python 3.13.2": 65
+  },
+  "packaged_galaxy_templates_verified": true,
+  "runs": [
+    {
+      "output": "reports/economy-2v2",
+      "python": "3.13.2",
+      "realtime": false,
+      "team_ids": [
+        7,
+        9,
+        7,
+        9
+      ],
+      "player_ids": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "results_in_input_order": [
+        "Victory",
+        "Defeat",
+        "Victory",
+        "Defeat"
+      ],
+      "disable_fog": false,
+      "native_processes": [
+        {
+          "pid": 5442,
+          "api_port": 61272
+        },
+        {
+          "pid": 5491,
+          "api_port": 61299
+        },
+        {
+          "pid": 5514,
+          "api_port": 61321
+        },
+        {
+          "pid": 5544,
+          "api_port": 61344
+        }
+      ],
+      "economy": {
+        "passed": true,
+        "players": [
+          {
+            "player_index": 0,
+            "player_id": 1,
+            "team_id": 7,
+            "result": "Victory",
+            "trained": {
+              "SCV": 33,
+              "MARAUDER": 15,
+              "MARINE": 16
+            },
+            "completed": {
+              "SUPPLYDEPOT": 8,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "BARRACKSTECHLAB": 1,
+              "COMMANDCENTER": 1
+            },
+            "checks": {
+              "standard_start": true,
+              "mined_minerals_and_gas": true,
+              "spent_minerals_and_gas": true,
+              "completed_production_chain": true,
+              "trained_workers_and_army": true,
+              "observed_construction_progress": true,
+              "expanded": true,
+              "fought": true
+            },
+            "last_observation": {
+              "loop": 10067,
+              "game_seconds": 449.29,
+              "minerals": 3360,
+              "vespene": 423,
+              "collected_minerals": 9035.0,
+              "collected_vespene": 848.0,
+              "spent_minerals": 5725.0,
+              "spent_vespene": 425.0,
+              "workers": 44,
+              "army": 23,
+              "structures": {
+                "REFINERY": 1,
+                "SUPPLYDEPOT": 8,
+                "COMMANDCENTER": 2,
+                "BARRACKS": 2,
+                "BARRACKSTECHLAB": 1
+              },
+              "killed_units": 5200.0,
+              "killed_structures": 4575.0
+            },
+            "action_errors": {}
+          },
+          {
+            "player_index": 1,
+            "player_id": 2,
+            "team_id": 9,
+            "result": "Defeat",
+            "trained": {
+              "SCV": 21,
+              "MARAUDER": 9,
+              "MARINE": 8
+            },
+            "completed": {
+              "SUPPLYDEPOT": 5,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "BARRACKSTECHLAB": 1,
+              "COMMANDCENTER": 1
+            },
+            "checks": {
+              "standard_start": true,
+              "mined_minerals_and_gas": true,
+              "spent_minerals_and_gas": true,
+              "completed_production_chain": true,
+              "trained_workers_and_army": true,
+              "observed_construction_progress": true,
+              "expanded": true,
+              "fought": true
+            },
+            "last_observation": {
+              "loop": 10067,
+              "game_seconds": 449.29,
+              "minerals": 230,
+              "vespene": 434,
+              "collected_minerals": 4955.0,
+              "collected_vespene": 684.0,
+              "spent_minerals": 4775.0,
+              "spent_vespene": 250.0,
+              "workers": 0,
+              "army": 0,
+              "structures": {},
+              "killed_units": 550.0,
+              "killed_structures": 0.0
+            },
+            "action_errors": {
+              "44": 1
+            }
+          },
+          {
+            "player_index": 2,
+            "player_id": 4,
+            "team_id": 7,
+            "result": "Victory",
+            "trained": {
+              "SCV": 33,
+              "MARAUDER": 15,
+              "MARINE": 16
+            },
+            "completed": {
+              "SUPPLYDEPOT": 5,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "BARRACKSTECHLAB": 1,
+              "COMMANDCENTER": 1
+            },
+            "checks": {
+              "standard_start": true,
+              "mined_minerals_and_gas": true,
+              "spent_minerals_and_gas": true,
+              "completed_production_chain": true,
+              "trained_workers_and_army": true,
+              "observed_construction_progress": true,
+              "expanded": true,
+              "fought": true
+            },
+            "last_observation": {
+              "loop": 10067,
+              "game_seconds": 449.29,
+              "minerals": 3835,
+              "vespene": 391,
+              "collected_minerals": 9210.0,
+              "collected_vespene": 816.0,
+              "spent_minerals": 5425.0,
+              "spent_vespene": 425.0,
+              "workers": 44,
+              "army": 8,
+              "structures": {
+                "BARRACKSTECHLAB": 1,
+                "BARRACKS": 2,
+                "SUPPLYDEPOT": 5,
+                "COMMANDCENTER": 2,
+                "REFINERY": 1
+              },
+              "killed_units": 2350.0,
+              "killed_structures": 400.0
+            },
+            "action_errors": {}
+          },
+          {
+            "player_index": 3,
+            "player_id": 3,
+            "team_id": 9,
+            "result": "Defeat",
+            "trained": {
+              "SCV": 38,
+              "MARAUDER": 13,
+              "MARINE": 13
+            },
+            "completed": {
+              "SUPPLYDEPOT": 5,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "BARRACKSTECHLAB": 1,
+              "COMMANDCENTER": 1
+            },
+            "checks": {
+              "standard_start": true,
+              "mined_minerals_and_gas": true,
+              "spent_minerals_and_gas": true,
+              "completed_production_chain": true,
+              "trained_workers_and_army": true,
+              "observed_construction_progress": true,
+              "expanded": true,
+              "fought": true
+            },
+            "last_observation": {
+              "loop": 10067,
+              "game_seconds": 449.29,
+              "minerals": 1240,
+              "vespene": 430,
+              "collected_minerals": 7740.0,
+              "collected_vespene": 780.0,
+              "spent_minerals": 6550.0,
+              "spent_vespene": 350.0,
+              "workers": 9,
+              "army": 0,
+              "structures": {
+                "COMMANDCENTER": 1
+              },
+              "killed_units": 1975.0,
+              "killed_structures": 0.0
+            },
+            "action_errors": {}
+          }
+        ]
+      },
+      "replay": {
+        "passed": true,
+        "checks": {
+          "results_match_all_four_clients": true,
+          "native_win_and_loss": true,
+          "four_independent_clients": true,
+          "no_debug_requests": true,
+          "player_1_production": true,
+          "player_2_production": true,
+          "player_4_production": true,
+          "player_3_production": true
+        },
+        "duration_loops": 10083,
+        "duration_faster_seconds": 450.13,
+        "metadata_duration_normal_seconds": 630,
+        "request_counts": {
+          "ping": 5,
+          "join_game": 4,
+          "step": 2532,
+          "action": 940,
+          "observation": 2528,
+          "data": 4,
+          "game_info": 2528,
+          "query": 357,
+          "save_replay": 1
+        },
+        "replay_results": {
+          "1": "Victory",
+          "2": "Defeat",
+          "3": "Defeat",
+          "4": "Victory"
+        },
+        "players": [
+          {
+            "player_index": 0,
+            "player_id": 1,
+            "born_including_initial": {
+              "CommandCenter": 1,
+              "SCV": 45,
+              "Marauder": 15,
+              "Marine": 16
+            },
+            "completed": {
+              "SupplyDepot": 8,
+              "Refinery": 1,
+              "Barracks": 2,
+              "BarracksTechLab": 1,
+              "CommandCenter": 1
+            },
+            "construction_durations_loops": [
+              480,
+              480,
+              480,
+              1040,
+              400,
+              1040,
+              480,
+              480,
+              1600,
+              480,
+              480,
+              480,
+              480
+            ],
+            "last_stats": {
+              "loop": 10071,
+              "minerals": 3365,
+              "vespene": 427,
+              "workers": 45
+            }
+          },
+          {
+            "player_index": 1,
+            "player_id": 2,
+            "born_including_initial": {
+              "CommandCenter": 1,
+              "SCV": 33,
+              "Marauder": 9,
+              "Marine": 8
+            },
+            "completed": {
+              "SupplyDepot": 5,
+              "Refinery": 1,
+              "Barracks": 2,
+              "BarracksTechLab": 1,
+              "CommandCenter": 1
+            },
+            "construction_durations_loops": [
+              480,
+              480,
+              480,
+              1040,
+              400,
+              1040,
+              480,
+              480,
+              1600,
+              480
+            ],
+            "last_stats": {
+              "loop": 10071,
+              "minerals": 230,
+              "vespene": 434,
+              "workers": 0
+            }
+          },
+          {
+            "player_index": 2,
+            "player_id": 4,
+            "born_including_initial": {
+              "CommandCenter": 1,
+              "SCV": 45,
+              "Marauder": 15,
+              "Marine": 16
+            },
+            "completed": {
+              "SupplyDepot": 5,
+              "Refinery": 1,
+              "Barracks": 2,
+              "BarracksTechLab": 1,
+              "CommandCenter": 1
+            },
+            "construction_durations_loops": [
+              480,
+              480,
+              480,
+              1040,
+              400,
+              1040,
+              480,
+              480,
+              1600,
+              480
+            ],
+            "last_stats": {
+              "loop": 10071,
+              "minerals": 3835,
+              "vespene": 391,
+              "workers": 45
+            }
+          },
+          {
+            "player_index": 3,
+            "player_id": 3,
+            "born_including_initial": {
+              "CommandCenter": 1,
+              "SCV": 50,
+              "Marauder": 13,
+              "Marine": 14
+            },
+            "completed": {
+              "SupplyDepot": 5,
+              "Refinery": 1,
+              "Barracks": 2,
+              "BarracksTechLab": 1,
+              "CommandCenter": 1
+            },
+            "construction_durations_loops": [
+              480,
+              480,
+              480,
+              1040,
+              400,
+              1040,
+              480,
+              480,
+              1600,
+              480
+            ],
+            "last_stats": {
+              "loop": 10071,
+              "minerals": 1290,
+              "vespene": 430,
+              "workers": 9
+            }
+          }
+        ]
+      },
+      "files_sha256": {
+        "game.SC2Map": "2b40e0a2f69d65227239ea9e6a666ccc08c50e3c2af6e0dd7ac516ed637d2f05",
+        "game.SC2Replay": "fb09b3fa13f0b64d0b57ca35184b404a126648e64373ed8c7c07ccf7b15d9ba2",
+        "result.json": "9312ab659c41ec39f672250a76f1c023407799b438d3dc9dc9fd8a53eac8754f",
+        "economy-summary.json": "b93b8a6fa6237a13fcb9117571b7681b7ef7b808a2bc84bfa03df8533e8d6223",
+        "replay-verification.json": "eb677de55c3f9f3ebdadfe342ef42b136e7605e15df85f61b8252f02f64103ba"
+      },
+      "resource_snapshot_cleanup": false
+    },
+    {
+      "output": "reports/economy-realtime-2v2",
+      "python": "3.10.0",
+      "realtime": true,
+      "team_ids": [
+        7,
+        9,
+        7,
+        9
+      ],
+      "player_ids": [
+        1,
+        4,
+        2,
+        3
+      ],
+      "results_in_input_order": [
+        "Victory",
+        "Defeat",
+        "Victory",
+        "Defeat"
+      ],
+      "disable_fog": false,
+      "native_processes": [
+        {
+          "pid": 6343,
+          "api_port": 61692
+        },
+        {
+          "pid": 6391,
+          "api_port": 61723
+        },
+        {
+          "pid": 6421,
+          "api_port": 61745
+        },
+        {
+          "pid": 6446,
+          "api_port": 61769
+        }
+      ],
+      "economy": {
+        "passed": true,
+        "players": [
+          {
+            "player_index": 0,
+            "player_id": 1,
+            "team_id": 7,
+            "result": "Victory",
+            "trained": {
+              "SCV": 33,
+              "MARAUDER": 13,
+              "MARINE": 15
+            },
+            "completed": {
+              "SUPPLYDEPOT": 7,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "BARRACKSTECHLAB": 1,
+              "COMMANDCENTER": 1
+            },
+            "checks": {
+              "standard_start": true,
+              "mined_minerals_and_gas": true,
+              "spent_minerals_and_gas": true,
+              "completed_production_chain": true,
+              "trained_workers_and_army": true,
+              "observed_construction_progress": true,
+              "expanded": true,
+              "fought": true
+            },
+            "last_observation": {
+              "loop": 9341,
+              "game_seconds": 416.7,
+              "minerals": 2635,
+              "vespene": 397,
+              "collected_minerals": 7960.0,
+              "collected_vespene": 772.0,
+              "spent_minerals": 5375.0,
+              "spent_vespene": 375.0,
+              "workers": 44,
+              "army": 20,
+              "structures": {
+                "BARRACKS": 2,
+                "SUPPLYDEPOT": 7,
+                "REFINERY": 1,
+                "COMMANDCENTER": 2,
+                "BARRACKSTECHLAB": 1
+              },
+              "killed_units": 3375.0,
+              "killed_structures": 1750.0
+            },
+            "action_errors": {}
+          },
+          {
+            "player_index": 1,
+            "player_id": 4,
+            "team_id": 9,
+            "result": "Defeat",
+            "trained": {
+              "SCV": 16,
+              "MARAUDER": 9,
+              "MARINE": 8
+            },
+            "completed": {
+              "SUPPLYDEPOT": 5,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "BARRACKSTECHLAB": 1,
+              "COMMANDCENTER": 1
+            },
+            "checks": {
+              "standard_start": true,
+              "mined_minerals_and_gas": true,
+              "spent_minerals_and_gas": true,
+              "completed_production_chain": true,
+              "trained_workers_and_army": true,
+              "observed_construction_progress": true,
+              "expanded": true,
+              "fought": true
+            },
+            "last_observation": {
+              "loop": 9342,
+              "game_seconds": 416.74,
+              "minerals": 425,
+              "vespene": 302,
+              "collected_minerals": 4250.0,
+              "collected_vespene": 552.0,
+              "spent_minerals": 3875.0,
+              "spent_vespene": 250.0,
+              "workers": 0,
+              "army": 0,
+              "structures": {},
+              "killed_units": 425.0,
+              "killed_structures": 0.0
+            },
+            "action_errors": {}
+          },
+          {
+            "player_index": 2,
+            "player_id": 2,
+            "team_id": 7,
+            "result": "Victory",
+            "trained": {
+              "SCV": 33,
+              "MARAUDER": 14,
+              "MARINE": 15
+            },
+            "completed": {
+              "SUPPLYDEPOT": 6,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "BARRACKSTECHLAB": 1,
+              "COMMANDCENTER": 1
+            },
+            "checks": {
+              "standard_start": true,
+              "mined_minerals_and_gas": true,
+              "spent_minerals_and_gas": true,
+              "completed_production_chain": true,
+              "trained_workers_and_army": true,
+              "observed_construction_progress": true,
+              "expanded": true,
+              "fought": true
+            },
+            "last_observation": {
+              "loop": 9338,
+              "game_seconds": 416.56,
+              "minerals": 2600,
+              "vespene": 364,
+              "collected_minerals": 8025.0,
+              "collected_vespene": 764.0,
+              "spent_minerals": 5475.0,
+              "spent_vespene": 400.0,
+              "workers": 45,
+              "army": 17,
+              "structures": {
+                "SUPPLYDEPOT": 6,
+                "BARRACKSTECHLAB": 1,
+                "BARRACKS": 2,
+                "COMMANDCENTER": 2,
+                "REFINERY": 1
+              },
+              "killed_units": 3300.0,
+              "killed_structures": 1800.0
+            },
+            "action_errors": {}
+          },
+          {
+            "player_index": 3,
+            "player_id": 3,
+            "team_id": 9,
+            "result": "Defeat",
+            "trained": {
+              "SCV": 30,
+              "MARAUDER": 12,
+              "MARINE": 12
+            },
+            "completed": {
+              "SUPPLYDEPOT": 5,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "BARRACKSTECHLAB": 1,
+              "COMMANDCENTER": 1
+            },
+            "checks": {
+              "standard_start": true,
+              "mined_minerals_and_gas": true,
+              "spent_minerals_and_gas": true,
+              "completed_production_chain": true,
+              "trained_workers_and_army": true,
+              "observed_construction_progress": true,
+              "expanded": true,
+              "fought": true
+            },
+            "last_observation": {
+              "loop": 9341,
+              "game_seconds": 416.7,
+              "minerals": 1105,
+              "vespene": 399,
+              "collected_minerals": 6230.0,
+              "collected_vespene": 724.0,
+              "spent_minerals": 5175.0,
+              "spent_vespene": 325.0,
+              "workers": 9,
+              "army": 0,
+              "structures": {
+                "COMMANDCENTER": 1
+              },
+              "killed_units": 1100.0,
+              "killed_structures": 0.0
+            },
+            "action_errors": {}
+          }
+        ]
+      },
+      "replay": {
+        "passed": true,
+        "checks": {
+          "results_match_all_four_clients": true,
+          "native_win_and_loss": true,
+          "four_independent_clients": true,
+          "no_debug_requests": true,
+          "realtime_without_manual_steps": true,
+          "player_1_production": true,
+          "player_4_production": true,
+          "player_2_production": true,
+          "player_3_production": true
+        },
+        "duration_loops": 9357,
+        "duration_faster_seconds": 417.72,
+        "metadata_duration_normal_seconds": 585,
+        "request_counts": {
+          "ping": 5,
+          "join_game": 4,
+          "observation": 2320,
+          "action": 935,
+          "data": 4,
+          "game_info": 2304,
+          "query": 356,
+          "save_replay": 1
+        },
+        "replay_results": {
+          "1": "Victory",
+          "2": "Victory",
+          "3": "Defeat",
+          "4": "Defeat"
+        },
+        "players": [
+          {
+            "player_index": 0,
+            "player_id": 1,
+            "born_including_initial": {
+              "CommandCenter": 1,
+              "SCV": 45,
+              "Marauder": 13,
+              "Marine": 15
+            },
+            "completed": {
+              "SupplyDepot": 7,
+              "Refinery": 1,
+              "Barracks": 2,
+              "BarracksTechLab": 1,
+              "CommandCenter": 1
+            },
+            "construction_durations_loops": [
+              480,
+              480,
+              480,
+              1040,
+              400,
+              1040,
+              480,
+              480,
+              1600,
+              480,
+              480,
+              480
+            ],
+            "last_stats": {
+              "loop": 9350,
+              "minerals": 2655,
+              "vespene": 401,
+              "workers": 45
+            }
+          },
+          {
+            "player_index": 1,
+            "player_id": 4,
+            "born_including_initial": {
+              "CommandCenter": 1,
+              "SCV": 28,
+              "Marauder": 9,
+              "Marine": 8
+            },
+            "completed": {
+              "SupplyDepot": 5,
+              "Refinery": 1,
+              "Barracks": 2,
+              "BarracksTechLab": 1,
+              "CommandCenter": 1
+            },
+            "construction_durations_loops": [
+              480,
+              480,
+              480,
+              1040,
+              400,
+              1040,
+              480,
+              480,
+              480,
+              1600
+            ],
+            "last_stats": {
+              "loop": 9350,
+              "minerals": 425,
+              "vespene": 302,
+              "workers": 0
+            }
+          },
+          {
+            "player_index": 2,
+            "player_id": 2,
+            "born_including_initial": {
+              "CommandCenter": 1,
+              "SCV": 45,
+              "Marauder": 14,
+              "Marine": 15
+            },
+            "completed": {
+              "SupplyDepot": 6,
+              "Refinery": 1,
+              "Barracks": 2,
+              "BarracksTechLab": 1,
+              "CommandCenter": 1
+            },
+            "construction_durations_loops": [
+              480,
+              480,
+              480,
+              1040,
+              400,
+              1040,
+              480,
+              480,
+              1600,
+              480,
+              480
+            ],
+            "last_stats": {
+              "loop": 9350,
+              "minerals": 2615,
+              "vespene": 368,
+              "workers": 45
+            }
+          },
+          {
+            "player_index": 3,
+            "player_id": 3,
+            "born_including_initial": {
+              "CommandCenter": 1,
+              "SCV": 42,
+              "Marauder": 12,
+              "Marine": 12
+            },
+            "completed": {
+              "SupplyDepot": 5,
+              "Refinery": 1,
+              "Barracks": 2,
+              "BarracksTechLab": 1,
+              "CommandCenter": 1
+            },
+            "construction_durations_loops": [
+              480,
+              480,
+              480,
+              1040,
+              400,
+              1040,
+              480,
+              480,
+              480,
+              1600
+            ],
+            "last_stats": {
+              "loop": 9350,
+              "minerals": 1155,
+              "vespene": 399,
+              "workers": 9
+            }
+          }
+        ]
+      },
+      "files_sha256": {
+        "game.SC2Map": "f683f727bb868132b0dbacd95bc19e9ff8adbf91fa978484bdb081e291326c4b",
+        "game.SC2Replay": "39d4150fcdc1f76c1bd391e80d9620c8b981413abd0328b461ea9e7f20c35efd",
+        "result.json": "562442165faf66dcc1459507e6a0b0905018d9faa0e7e1300f6993364f85702d",
+        "economy-summary.json": "414878e6ee294d90eddfabb6b49542155353e7255b317481f3390d409eaa5725",
+        "replay-verification.json": "08f38345f9d14d5903667d82d26d79254deb539bb583a25810936ed0085dea40"
+      },
+      "resource_snapshot_cleanup": true
+    }
+  ],
+  "final_source_sha256": {
+    "src/mpsc2/main.py": "fb4601426207b0291d0f9eba57f1b2829f0c1b9298a47ad6545f8db4893f17ac",
+    "src/mpsc2/arena.py": "0cabbd8c77b24342173e099e8304bd62fd62a6886a8a9b6d5b6040db47c5ab70",
+    "src/mpsc2/RuntimeArena.galaxy": "e01694903e8649b94f4e4cda6408464a78e787ebbb5dbbec2459d6083aabdbc8",
+    "src/mpsc2/Melee.galaxy": "63e2ca2564c21af263779395d7d1f6acc4f391590985385c18db3b6f93124a5a",
+    "examples/full_game.py": "bdcec89919d04d47230c8d37147e24a5abb8fafe9e5809e5310d328b9fe69e43",
+    "scripts/build_melee_map.py": "7fad9a708c99bbafee55eaf0cbee006f278546783bb4f4e1dfd823104fde431e",
+    "scripts/verify_economy_replay.py": "3a3511ce247660d10fb2b71cbd997f1532efd1044669d67ae7a767bf0fc3d5c9",
+    "maps/MPSC2Melee.SC2Map": "8ff5697a9363ee6995381cdf5ff9a145c6aa4d9f435a5a39c6ce77e2993d2e00"
+  },
+  "notes": [
+    "The stepped run preceded the resource-snapshot cleanup; the realtime run used the final runtime code.",
+    "Economy scores/counts are the last active bot observations; replay tracker counts include terminal frames.",
+    "Both runs use the custom flat four-base economy fixture, with eight resource bases including expansions.",
+    "No resource grants or unit spawns after normal initial melee setup; ordinary production commands only.",
+    "Full economy live validation covers Terran 2v2. Arbitrary ladder maps and other platform/build backends are outside this validation."
+  ]
+}
