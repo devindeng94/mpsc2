@@ -6,6 +6,7 @@ Start with [installation](installation.md), then run a match from the
 | Task | Guide |
 | --- | --- |
 | Install Python dependencies and SC2 prerequisites | [Installation](installation.md) |
+| Detect and test a Windows SC2 installation | [Windows testing](windows.md) |
 | Understand supported builds, platforms and APIs | [Compatibility](compatibility.md) |
 | Adapt a python-sc2 bot | [Migration](migration.md) |
 | Configure matches, teams, callbacks and replays | [API reference](api.md) |

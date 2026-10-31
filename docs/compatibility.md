@@ -1,5 +1,9 @@
 # Compatibility and support
 
+Version 0.3.1a3 adds platform-aware Windows/Linux installation diagnostics and
+`doctor --mode standard`. It does not port the native multiplayer backend.
+See the [Windows testing guide](windows.md) for the supported testing path.
+
 The compatibility target is the pinned **burnysc2 7.3.0** public API. We reuse
 upstream objects rather than copying its unit/economy implementation. Private
 underscore-prefixed functions and implementation details are not a compatibility

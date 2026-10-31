@@ -155,17 +155,26 @@ normally, and the upstream class is never modified.
 `from mpsc2 import get_capabilities` returns a JSON-serializable support report
 with static local checks. `ready` does not guarantee graphics/game data/network
 runtime health; an actual game is the integration check.
+`installation` identifies the platform, root, discovery source, latest build and
+executable hash. `standard.ready` checks the upstream installation, while
+`multiplayer.ready` checks the native backend. An unsupported native platform
+has `backend`, `executable` and `expected_sha256` set to null, with an explanation
+in `errors`. Existing `standard_games` descriptive text is retained.
 
 ```sh
 mpsc2 --version
 mpsc2 maps
 mpsc2 doctor
+mpsc2 doctor --mode standard --output reports/doctor.json
 mpsc2 replay path.SC2Replay --speed 2
 mpsc2 replay path.SC2Replay --fast --step-size 224
 ```
 
 The same commands work as `python -m mpsc2`. Existing `mpsc2-smoke` and
 `mpsc2-probe` research diagnostics remain available.
+`doctor` defaults to `--mode multiplayer` for its exit status, even when the
+standard route is ready. Both modes print both capability sections. Output
+files must be new, preserving previous measurements. See [Windows testing](windows.md).
 
 For low-level policies, `mpsc2.native_session.NativeMultiplayerSession(...,
 players=N)` exposes 2–8 independent clients and their input-order native IDs.

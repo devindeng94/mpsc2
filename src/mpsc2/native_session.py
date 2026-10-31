@@ -26,9 +26,17 @@ BUILD = "96883"
 EXECUTABLE_SHA256 = "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb"
 
 
-def validate_executable(executable: Path):
+def require_native_platform():
     if platform.system() != "Darwin":
-        raise RuntimeError("The experimental native bridge supports macOS Base96883 only")
+        raise RuntimeError(
+            f"No native multiplayer backend for {platform.system()}. Bundled 2–8-client scenarios "
+            "require macOS Base96883. Run 'python -m mpsc2 doctor --mode standard' for "
+            "upstream one/two-player games, or 'python -m mpsc2.probe' for engine diagnostics."
+        )
+
+
+def validate_executable(executable: Path):
+    require_native_platform()
     actual = hashlib.sha256(executable.read_bytes()).hexdigest()
     if actual != EXECUTABLE_SHA256:
         raise RuntimeError(f"Unsupported SC2 executable SHA256 {actual}; refusing native bridge")
@@ -154,6 +162,7 @@ class NativeMultiplayerSession(MultiplayerSession):
         # Refuse before the try/finally report writer can touch prior evidence.
         if self.bridge_dir.exists() or (self.output / "native-session.json").exists():
             raise FileExistsError(f"Use a fresh output directory: {self.output} already contains a native session")
+        require_native_platform()
         host_task = None
         try:
             root = Path(os.environ.get("SC2PATH", "/Applications/StarCraft II")).resolve()

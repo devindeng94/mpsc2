@@ -30,12 +30,14 @@ python -m mpsc2 --version
 python -m mpsc2 maps
 ```
 
-On Windows, for offline development or the upstream standard-game route:
+On Windows, for offline development or the upstream standard-game route
+(see the [Windows testing guide](windows.md)):
 
 ```powershell
 py -3.10 -m venv .venv
 .venv\Scripts\python.exe -m pip install .
 .venv\Scripts\python.exe -m mpsc2 maps
+.venv\Scripts\python.exe -m mpsc2 doctor --mode standard
 ```
 
 A Windows/Linux installation does **not** enable the native multiplayer backend.
@@ -46,7 +48,7 @@ See [pip's local-install documentation](https://pip.pypa.io/en/stable/topics/loc
 A built wheel can also be installed directly:
 
 ```sh
-python -m pip install /path/to/mpsc2-0.3.1a2-py3-none-any.whl
+python -m pip install /path/to/mpsc2-0.3.1a3-py3-none-any.whl
 ```
 
 There is no assumed public PyPI release. Do not rely on `pip install mpsc2`
@@ -115,9 +117,13 @@ clang --version
 python -m mpsc2 doctor
 ```
 
-`doctor` checks the platform, compiler, executable/hash and packaged maps.
-Exit 0 means those static checks pass; it does not prove graphics, local
-networking or gameplay work. Exit 1 is expected on unsupported platforms.
+`doctor` detects the platform's installation and reports standard-game and native
+multiplayer readiness separately. Its default mode checks the native platform,
+compiler, pinned executable/hash and packaged maps. `doctor --mode standard`
+checks the upstream installation instead and does not require macOS or clang.
+Exit 0 means the selected mode's static checks pass; it does not prove graphics,
+local networking or gameplay work. The default mode exits 1 on Windows/Linux
+because there is no native multiplayer backend for those systems.
 The maps and C helper sources ship in the package; do not copy maps into the
 SC2 installation or precompile the helpers manually.
 

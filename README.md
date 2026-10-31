@@ -11,7 +11,9 @@ Existing bots use **burnysc2 7.3.0**. Keep your `sc2` imports and change the
 launcher, or use the equivalent `mpsc2` imports. MPSC2 is a game orchestration
 library; training algorithms, rewards and trajectory storage remain your code.
 
-**Alpha: 0.3.1a2.** The bundled multiplayer scenarios currently require
+**Alpha: 0.3.1a3.** Platform-aware installation diagnostics now include Windows
+and Linux; see the [Windows testing guide](docs/windows.md).
+The bundled multiplayer scenarios currently require
 **macOS and the exact supported SC2 5.0.15 / Base96883 executable**. Three or
 more clients use a native lobby bridge and a guarded observation fix in runtime
 memory. Installed SC2 files are unchanged. Windows/Linux multiplayer backends,
@@ -45,8 +47,11 @@ The equivalent requirements-file commands are `pip install -r requirements.txt`
 and `pip install -r requirements-dev.txt`, respectively.
 
 The maps and native helper sources are packaged; no map copying is needed.
-`doctor` checks multiplayer prerequisites without launching SC2. It exits 1
-when any check fails. This repository does not assume a published PyPI package.
+`doctor` detects the local SC2 installation and checks multiplayer prerequisites
+without launching SC2. Use `doctor --mode standard` to check the upstream
+one/two-player route on Windows/Linux. Its exit code follows the selected mode;
+a valid Windows installation does not enable the macOS native bridge.
+This repository does not assume a published PyPI package.
 See the [installation guide](docs/installation.md) for SC2 setup, custom paths,
 Windows/Linux offline development, dependencies and troubleshooting.
 
@@ -122,8 +127,9 @@ single-opponent assumptions as well as changing the launcher.
 Version 0.3.1a2 fixes the research-related observation crash for native player
 IDs ≥4. Live regression tests cover normal-resource research with every count
 from **2 through 8**, four-player realtime with zero `Step` requests, and
-four/eight-player replay views. **227 offline tests pass on Python 3.10 and
-3.13**, both from source and from the installed wheel.
+four/eight-player replay views. The offline test and packaging matrix covers
+Python **3.10–3.13**, including Windows, macOS and Linux jobs, with installed-wheel
+checks outside the source checkout.
 
 A six-client startup timed out before a successful retry. The eight-player
 macro fixture completed every upgrade but missed three expansions. These

@@ -9,14 +9,17 @@ python -m mpsc2 maps
 python -m mpsc2 doctor
 ```
 
-`doctor` is for the experimental multiplayer backend. Its failure on Windows or
-Linux does not diagnose upstream standard-game support.
+`doctor` reports the local platform's installation and both backend readiness
+sections. Its default exit code follows native multiplayer readiness. Use
+`doctor --mode standard` for the upstream route, and `--output reports/doctor.json`
+to save a new report. See [Windows testing](windows.md) for the live engine probe.
 
 | Symptom | What to check |
 | --- | --- |
 | `No module named mpsc2` | Activate the intended environment and install from the repository root with `python -m pip install .`. Use that same Python to run examples. |
 | Imports or upstream classes behave unexpectedly | Check for both `sc2` and `burnysc2` distributions. Use a clean environment with the pinned dependency from `pyproject.toml`. |
 | Missing executable or unexpected executable SHA256 | Check `SC2PATH`, the exact Base96883 executable and the hash shown by `doctor`. Another build requires backend work; do not bypass the checks. |
+| Windows diagnostics mention a Mac app path | Upgrade to 0.3.1a3, verify `python -m mpsc2 --version`, and check `installation.executable`. Set `SC2PATH` to the actual Windows root before starting Python. |
 | Missing `clang` or helper compilation failure | Install Apple's Command Line Tools. Inspect the compilation log under the run's `session/bridge/` directory. |
 | Bundled-map checksum failure | Reinstall an unchanged package or deliberately rebuild/review the map sources. Arbitrary replacements are unsupported. |
 | `FileExistsError` for an output/replay path | Choose a new output directory and replay name. Existing evidence is deliberately preserved. |

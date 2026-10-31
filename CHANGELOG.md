@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.3.1a3 — platform-aware installation diagnostics
+
+- Detect Windows `SC2_x64.exe`, macOS app executables and Linux `SC2_x64`, using
+  SC2PATH, ExecuteInfo.txt and upstream platform defaults in that order.
+- Report the latest installed build, executable hash, Support64 prerequisite
+  and actionable missing-installation errors without launching the game.
+- Separate standard-game readiness from native multiplayer readiness. Add
+  `doctor --mode standard` and `--output` JSON reports that preserve prior files.
+- Refuse native multiplayer on unsupported hosts before resolving macOS paths
+  or compiling helpers. Keep the exact macOS executable guard unchanged.
+- Resolve the engine probe's default map from the installed package, preserve
+  engine/build diagnostics and explicitly distinguish CreateGame acceptance
+  from joined clients or working gameplay.
+- Probe the stock two-client baseline with exactly two total participants,
+  avoiding the old two-client-plus-two-Computers setup that also violated 1v1.
+- Add Windows testing instructions. This release does not implement a Windows
+  native bridge or claim live Windows multiplayer validation.
+
 ## 0.3.1a2 — multiplayer research fix
 
 - Keep the macOS observation-guard path fixture in POSIX form on Windows CI.

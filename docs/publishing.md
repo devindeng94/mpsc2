@@ -19,7 +19,7 @@ python -m twine check dist/github-release/*
 
 Use a fresh distribution directory so an earlier version is not uploaded by
 accident. Check that `pyproject.toml` and `mpsc2.__version__` agree, and read the
-[current known issues](known-issues.md) and [release notes](release-notes-0.3.1a2.md).
+[current known issues](known-issues.md) and [release notes](release-notes-0.3.1a3.md).
 Live SC2 coverage is recorded separately; GitHub Actions runs offline checks only.
 
 ## Create the repository and first commit
@@ -91,9 +91,9 @@ and rebuild distributions after metadata changes.
 
 After reviewing the first CI result and local validation:
 
-1. Tag the intended commit `v0.3.1a2` and push that tag.
+1. Tag the intended commit `v0.3.1a3` and push that tag.
 2. Create a GitHub release for that tag and mark it **pre-release**.
-3. Copy the [prepared release notes](release-notes-0.3.1a2.md).
+3. Copy the [prepared release notes](release-notes-0.3.1a3.md).
 4. Attach the wheel and source archive from `dist/github-release/`.
 5. Keep the exact-build requirement and known limitations in the release text.
 

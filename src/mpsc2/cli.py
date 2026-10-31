@@ -1,6 +1,7 @@
 """Command-line diagnostics and replay viewer."""
 import argparse
 import json
+from pathlib import Path
 
 from . import __version__, maps
 from .capabilities import get_capabilities
@@ -11,7 +12,10 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog='mpsc2', description=__doc__)
     parser.add_argument('--version', action='version', version=f'mpsc2 {__version__}')
     commands = parser.add_subparsers(dest='command', required=True)
-    commands.add_parser('doctor', help='Check multiplayer prerequisites without starting SC2')
+    doctor = commands.add_parser('doctor', help='Detect the local SC2 installation and check backend prerequisites')
+    doctor.add_argument('--mode', choices=('multiplayer', 'standard'), default='multiplayer',
+                        help='Readiness used for the exit code (default: multiplayer); both reports are always included')
+    doctor.add_argument('--output', type=Path, help='Save UTF-8 JSON diagnostics to a new file')
     commands.add_parser('maps', help='List the installed multiplayer map paths')
     replay = commands.add_parser('replay', help='Watch a replay with python-sc2')
     replay.add_argument('path')
@@ -23,8 +27,15 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if args.command == 'doctor':
         capabilities = get_capabilities()
-        print(json.dumps(capabilities, indent=2))
-        return 0 if capabilities['multiplayer']['ready'] else 1
+        capabilities['mode'] = args.mode
+        capabilities['ready'] = capabilities[args.mode]['ready']
+        text = json.dumps(capabilities, indent=2)
+        if args.output:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            with args.output.open('x', encoding='utf-8') as output:
+                output.write(text + '\n')
+        print(text)
+        return 0 if capabilities['ready'] else 1
     if args.command == 'maps':
         for name in maps.available():
             print(f'{name}: {maps.get(name).path}')

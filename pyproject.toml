@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mpsc2"
-version = "0.3.1a2"
+version = "0.3.1a3"
 description = "Team-based multiplayer StarCraft II research with python-sc2-compatible APIs"
 readme = "README.md"
 license = "MIT"
