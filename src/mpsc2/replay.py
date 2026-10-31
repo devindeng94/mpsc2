@@ -22,6 +22,7 @@ from sc2.position import Point2
 from s2clientprotocol import sc2api_pb2 as api
 
 from .session import OwnedSC2Process, barrier
+from .versions import find_native_profile
 
 
 @contextmanager
@@ -151,22 +152,40 @@ async def run_replay_async(ai, replay_path, realtime=False, observed_id=0, *,
     if graphics_api is not None and (not isinstance(graphics_api, str) or not graphics_api):
         raise ValueError('graphics_api must be a nonempty string or None')
     build, data = get_replay_version(path)
+    profile = find_native_profile(platform.system(), int(build[4:]))
+    guarded_view = profile is not None and observed_id >= profile.replay_guard_min_player
     graphics_api = graphics_api or ('Metal' if platform.system() == 'Darwin' else None)
     async with AsyncExitStack() as stack:
-        if platform.system() == 'Darwin' and build == 'Base96883' and observed_id >= 4:
+        if guarded_view and profile.backend == 'macos-96883-v1':
             # The same 3-player_id lookup also crashes selected-player replays.
             # IDs 0..3 do not underflow; other builds keep their upstream path.
             import os
             from .native_session import (NativeProcess, build_observation_guard,
                                          observation_guard_environment, validate_executable)
             root = Path(os.environ.get('SC2PATH', '/Applications/StarCraft II')).expanduser().resolve()
-            executable = root / 'Versions' / build / 'SC2.app/Contents/MacOS/SC2'
-            validate_executable(executable)
+            executable = profile.executable(root)
+            validate_executable(executable, profile)
             output = Path(stack.enter_context(TemporaryDirectory(prefix='mpsc2-replay-')))
-            helper = build_observation_guard(output)
+            helper = build_observation_guard(output, profile)
             env = {k: v for k, v in os.environ.items() if not k.startswith('MPSC2_') and k != 'DYLD_INSERT_LIBRARIES'}
             process = NativeProcess(executable, root, output,
                 observation_guard_environment(env, helper, output), 0, resolution=window_size)
+            process._arguments['-dataVersion'] = data
+        elif guarded_view and profile.backend == 'windows-local-v1':
+            import os
+            from .installation import detect_installation
+            from .windows_session import WindowsProcess, build_bridge, validate_executable
+            installation = detect_installation()
+            if not installation['root']:
+                raise RuntimeError('Cannot locate Windows SC2 installation for replay')
+            root = Path(installation['root'])
+            executable = profile.executable(root)
+            validate_executable(executable, profile)
+            output = Path(stack.enter_context(TemporaryDirectory(prefix='mpsc2-replay-')))
+            helper = build_bridge(output, profile)
+            env = {k: v for k, v in os.environ.items() if not k.startswith('MPSC2_') and k != 'DYLD_INSERT_LIBRARIES'}
+            env['MPSC2_WINDOWS_GUARD_LOG'] = str(output / 'observation-guard.json')
+            process = WindowsProcess(executable, root, output, env, 0, resolution=window_size, helper=helper, profile=profile)
             process._arguments['-dataVersion'] = data
         else:
             process = OwnedSC2Process(fullscreen=False, resolution=window_size, base_build=build, data_hash=data)

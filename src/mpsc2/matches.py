@@ -22,6 +22,7 @@ class GameMatch:
     timeout: float = 90
     graphics_api: str | None = None
     window_size: tuple[int, int] | None = None
+    sc2_version: str | None = None
 
     @property
     def needed_sc2_count(self):
@@ -51,7 +52,8 @@ async def run_multiple_games_async(matches):
             from sc2.main import GameMatch as UpstreamMatch, a_run_multiple_games
             if isinstance(match, GameMatch):
                 if any((match.output_dir is not None, match.step_size != 8, match.timeout != 90,
-                        match.graphics_api is not None, match.window_size is not None, match.save_replay_as is not None)):
+                        match.graphics_api is not None, match.window_size is not None, match.save_replay_as is not None,
+                        match.sc2_version is not None)):
                     raise NotImplementedError('Standard batch matches use upstream GameMatch options; use run_game for replay saving')
                 match = UpstreamMatch(_standard_map(match.map_sc2), list(match.players), match.realtime,
                                       match.random_seed, match.disable_fog, match.sc2_config, match.game_time_limit)
@@ -72,7 +74,7 @@ async def run_multiple_games_async(matches):
             raise NotImplementedError('sc2_config is only supported for standard upstream matches')
         kwargs = {name: getattr(match, name, default) for name, default in {
             'team_ids': None, 'save_replay_as': None, 'game_time_limit': None, 'random_seed': None,
-            'output_dir': None, 'step_size': 8, 'timeout': 90, 'graphics_api': None, 'window_size': None,
+            'output_dir': None, 'step_size': 8, 'timeout': 90, 'graphics_api': None, 'window_size': None, 'sc2_version': None,
         }.items()}
         values = await run_game_async(match.map_sc2, match.players, match.realtime,
                                       disable_fog=bool(match.disable_fog), **kwargs)

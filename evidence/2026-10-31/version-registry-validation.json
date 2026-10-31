@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-31",
+  "mpsc2": "0.3.2a2",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.10.22",
+  "scope": "Version/profile registry regression, not new engine-build support",
+  "native_profiles": [
+    "windows-x86_64-93333-v1",
+    "macos-x86_64-96883-v1"
+  ],
+  "windows_executable_sha256_unchanged": "e67dcd28e5c5b21d3e4d9e38aada09ed522af28ac0cc5338d709357040493ee0",
+  "automated_tests": {
+    "source": {
+      "passed": 299,
+      "log": "reports/registry-tests-final-02.log"
+    },
+    "installed_wheel": {
+      "passed": 299,
+      "log": "reports/registry-wheel-tests.log"
+    },
+    "coverage": "Selection/refusal, upstream VERSIONS identity, incomplete builds, native guard harness, profile reports, macOS mocked 2/4/8-client handshakes and launch environment"
+  },
+  "live_games": [
+    {
+      "players": 2,
+      "realtime": false,
+      "selected_version": "Base93333",
+      "distribution": "source",
+      "passed": true,
+      "native_ids": [
+        1,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie"
+      ],
+      "independent_control_verified": true,
+      "owned_processes_closed": true,
+      "profile_id": "windows-x86_64-93333-v1",
+      "header_sha256": null,
+      "guard_observed_invalid_lookup_for_ids": [],
+      "artifact": "reports/registry-counts/2"
+    },
+    {
+      "players": 4,
+      "realtime": false,
+      "selected_version": "Base93333",
+      "distribution": "source",
+      "passed": true,
+      "native_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "independent_control_verified": true,
+      "owned_processes_closed": true,
+      "profile_id": "windows-x86_64-93333-v1",
+      "header_sha256": "910053e8258dd1adcbcf973a41e5bde336ad0557ab48285da17a313957afe055",
+      "guard_observed_invalid_lookup_for_ids": [],
+      "artifact": "reports/registry-counts/4"
+    },
+    {
+      "players": 8,
+      "realtime": false,
+      "selected_version": "Base93333",
+      "distribution": "source",
+      "passed": true,
+      "native_ids": [
+        1,
+        6,
+        7,
+        3,
+        5,
+        8,
+        4,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "independent_control_verified": true,
+      "owned_processes_closed": true,
+      "profile_id": "windows-x86_64-93333-v1",
+      "header_sha256": "910053e8258dd1adcbcf973a41e5bde336ad0557ab48285da17a313957afe055",
+      "guard_observed_invalid_lookup_for_ids": [],
+      "artifact": "reports/registry-counts/8"
+    },
+    {
+      "players": 4,
+      "realtime": true,
+      "selected_version": "5.0.14",
+      "distribution": "installed wheel",
+      "passed": true,
+      "native_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "independent_control_verified": true,
+      "owned_processes_closed": true,
+      "profile_id": "windows-x86_64-93333-v1",
+      "header_sha256": "910053e8258dd1adcbcf973a41e5bde336ad0557ab48285da17a313957afe055",
+      "guard_observed_invalid_lookup_for_ids": [],
+      "artifact": "reports/registry-wheel-realtime/4"
+    }
+  ],
+  "research_and_replay": {
+    "players": 4,
+    "passed": true,
+    "replay_observed_ids": [
+      0,
+      4
+    ],
+    "research_completions": [
+      {
+        "player_id": 4,
+        "upgrade": "zerglingmovementspeed",
+        "loop": 4676,
+        "count": 1
+      },
+      {
+        "player_id": 1,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5476,
+        "count": 1
+      },
+      {
+        "player_id": 2,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5588,
+        "count": 1
+      },
+      {
+        "player_id": 3,
+        "upgrade": "ProtossGroundWeaponsLevel1",
+        "loop": 5636,
+        "count": 1
+      }
+    ],
+    "own_upgrade_callbacks": true,
+    "owned_processes_closed": true,
+    "guard_observed_invalid_lookup_for_ids": [
+      4
+    ],
+    "artifact": "reports/registry-research/research-replay-verification.json"
+  },
+  "diagnostics": {
+    "selected_windows_profile_ready": true,
+    "Base75689_native_profile_refused": true,
+    "installed_builds": [
+      75689,
+      93333
+    ],
+    "incomplete_builds": [
+      92440
+    ]
+  },
+  "macos_preservation": {
+    "helpers_byte_identical_to_0_3_2a1": true,
+    "source_sha256": {
+      "native/local_four_bridge.c": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native/observation_guard.c": "7b8275a1f79cec21c0a8ba3e50398236de2ce748beb902e759254ffcaff74ef6"
+    },
+    "wheel_helpers_identical": true,
+    "live_macos_test_performed": false
+  },
+  "packaging": {
+    "wheel": "dist/mpsc2-0.3.2a2-py3-none-any.whl",
+    "wheel_sha256": "456330dd07fc6e318f14d0b4ad26192ee680da729b50cdb0feae76da78e6a5e1",
+    "wheel_matches_source": true
+  },
+  "limitations": [
+    "No new native profile for Windows Base75689; earlier standard-API validation remains applicable.",
+    "Base92440 is only an empty directory here and remains untested.",
+    "No live macOS rerun on this Windows host; preserved sources and mocked regression checks only.",
+    "This registry regression reran 2/4/8 stepped clients and 4 realtime clients; earlier 0.3.2a1 evidence covers every count 2 through 8."
+  ],
+  "artifact_sha256": {
+    "reports/registry-counts/validation.json": "b7e95a8bc0e0b59958304c022af01dc9503dc7dd7f8dcfd69fc80feaaf0f9192",
+    "reports/registry-wheel-realtime/validation.json": "cd135a5ceeaf28ea7dd6ee85b6158277aaae21d20a960c062f6812fd9cd63f43",
+    "reports/registry-research/research-replay-verification.json": "29ccc5be2e9e58118ea53bafb75fd7818cd097cbb1bc16c364868a418ed5033a",
+    "reports/registry-tests-final-02.log": "842df6fad70df8dd77e91ddd499368c4f4b5384313ddd7e70ad46a3a69593801",
+    "reports/registry-wheel-tests.log": "72d550ae58b59c7d79460300516867eca874b64e76c11a0e2aa2300aee4536b2",
+    "reports/registry-doctor-final.json": "4ccd165aaa0004dc968a39b6d0176dd000fc748ebe7cfe8a2bbdbbb709520a23",
+    "reports/registry-unsupported-doctor.json": "93ca5ae7275ff992419e871ce63248a71946f84d8f7b116cb1a814bd698ba586",
+    "src/mpsc2/versions.py": "b20900008e5f99d105f4abacf86bfd5c4b5644fa5295be4c76399ca0a7497686",
+    "src/mpsc2/native/windows_bridge.c": "1a8c0af133c20dcbfd1fc03c396d7b42a76e06862b07362b5a93ccd35c5761f9"
+  }
+}

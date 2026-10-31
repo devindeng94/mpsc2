@@ -22,6 +22,7 @@ reports/*
 !reports/.gitkeep
 *.SC2Replay
 *.dylib
+*.dll
 
 # Preserve original raw evidence locally; publish its hash manifest only.
 /evidence/2026-10-28/four-client-success/*

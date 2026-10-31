@@ -134,7 +134,7 @@ def test_realtime_recovers_native_game_over_during_actions():
 def test_realtime_failures_close_and_drain_all_clients(kind):
     async def exercise():
         session = Session()
-        session.timeout = 0.02
+        session.timeout = 0.02 if kind == "timeout" else 1
 
         async def tick(index, *args):
             if index == 0:

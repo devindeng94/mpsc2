@@ -9,8 +9,8 @@ import argparse
 import asyncio
 from collections import Counter
 import json
-import os
 from pathlib import Path
+from validate_alpha import assert_processes_closed
 
 import sc2reader
 
@@ -60,12 +60,7 @@ async def verify(output: Path, playback: bool) -> dict:
             'created_'+worker, 'created_'+army, 'complete_'+production, 'complete_'+gas))
         assert bot['events']['upgrade_'+expected[player['player_id']].upper()] == 1
         assert bot['collected'][0] > 1000 and bot['collected'][1] > 100
-        try:
-            os.kill(player['pid'], 0)
-        except ProcessLookupError:
-            pass
-        else:
-            raise AssertionError(f"Owned process still exists: {player['pid']}")
+        assert_processes_closed({'players': [player]})
     requests = Counter()
     for i in range(len(bots)):
         for line in (output/f'game/session/client-{i}/api.jsonl').read_text().splitlines():

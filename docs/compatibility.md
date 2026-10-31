@@ -1,7 +1,8 @@
 # Compatibility and support
 
-Version 0.3.1a3 adds platform-aware Windows/Linux installation diagnostics and
-`doctor --mode standard`. It does not port the native multiplayer backend.
+Version 0.3.2a2 registers the Windows Base93333 and macOS Base96883 native
+backends in explicit [compatibility profiles](version-profiles.md).
+Linux supports diagnostics and standard games.
 See the [Windows testing guide](windows.md) for the supported testing path.
 
 The compatibility target is the pinned **burnysc2 7.3.0** public API. We reuse
@@ -30,7 +31,7 @@ contract. Upgrading burnysc2 requires rechecking the lifecycle adapters.
 
 | Feature | Standard one/two-player route | Multiplayer scenario route (2–8) |
 | --- | --- | --- |
-| Engine/platform | Upstream support and installation requirements | macOS Base96883, exact validated executable; two clients use stock hosting, 3–8 use the bridge |
+| Engine/platform | Upstream support and installation requirements | Windows Base93333 or macOS Base96883, exact validated executable; two clients use stock hosting, 3–8 use the platform's bridge |
 | Maps | Installed upstream maps or explicit standard map path | Packaged `MPSC2TeamArena` and `MPSC2Melee`, resized per match |
 | BotAI | Yes | 2–8 distinct instances |
 | Human / built-in Computer | Upstream behavior | Unsupported; rejected before launch |
@@ -38,7 +39,8 @@ contract. Upgrading burnysc2 requires rechecking the lifecycle adapters.
 | Realtime / stepped | Upstream behavior | Both; independently observed / synchronized |
 | Teams | Upstream standard opponent setup; omit `team_ids` | Any partition of 2–8 bots into at least two teams |
 | Replay saving | Upstream single-game option | `save_replay_as`; existing file rejected |
-| Custom ports, build, RGB config | Upstream single-game options | Unsupported; explicit error |
+| Custom ports, RGB config | Upstream single-game options | Unsupported; explicit error |
+| Version selection | Upstream single-game behavior | `sc2_version` selects a registered native profile; defaults remain pinned |
 | Process arguments (`sc2_config`) | Upstream batch runner | Unsupported |
 | Fullscreen | Upstream player option | Windowed only |
 | Window size / graphics API | Upstream process configuration | `window_size`, `graphics_api` |

@@ -23,7 +23,7 @@ from s2clientprotocol import sc2api_pb2 as api
 def compatibility_modules():
     root = Path(mpsc2.__file__).parent
     for path in sorted(root.rglob('*.py')):
-        tree = ast.parse(path.read_text())
+        tree = ast.parse(path.read_text(encoding='utf-8'))
         for node in tree.body:
             if isinstance(node, ast.ImportFrom) and node.module and node.module.startswith('sc2.') and any(n.name == '*' for n in node.names):
                 yield path.relative_to(root).with_suffix('').as_posix().replace('/', '.'), node.module

@@ -9,8 +9,8 @@ import argparse
 import asyncio
 from collections import Counter
 import json
-import os
 from pathlib import Path
+import psutil
 
 from mpsc2 import GameMatch, allied_units, run_game_async, run_multiple_games_async, run_replay_async
 from mpsc2.bot_ai import BotAI
@@ -27,9 +27,15 @@ def write(path, data):
 
 def assert_processes_closed(report):
     for player in report['players']:
+        # os.kill(pid, 0) is a POSIX probe but can terminate a Windows process.
         try:
-            os.kill(player['pid'], 0)
-        except ProcessLookupError:
+            process = psutil.Process(player['pid'])
+            started = player.get('process_create_time')
+            if started is not None and process.create_time() != started:
+                continue  # Windows can recycle a PID immediately after cleanup.
+            if started is None and process.name().lower() not in {'sc2', 'sc2_x64.exe', 'sc2_x64'}:
+                continue  # compatibility with historical reports lacking identity
+        except psutil.NoSuchProcess:
             continue
         raise AssertionError(f"Owned SC2 process remains alive: {player['pid']}")
 
@@ -239,7 +245,7 @@ async def race_check(output, raw_selection=False, races=(Race.Terran, Race.Proto
         if realtime:
             assert not any(e['request'] == 'step' for e in journal)
     native = json.loads((output/'game/session/native-session.json').read_text())
-    if len(bots) > 2:
+    if native['observation_guard_required']:
         assert all(p['observation_guard']['applied'] for p in native['processes'])
     else:
         assert not native['observation_guard_required']

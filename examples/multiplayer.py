@@ -20,12 +20,13 @@ if __name__ == '__main__':
     parser.add_argument('--players', type=int, choices=range(2, 9), default=8)
     parser.add_argument('--teams', nargs='+', type=int, help='One integer per player; omit for free-for-all')
     parser.add_argument('--realtime', action='store_true')
+    parser.add_argument('--sc2-version', help='Verified native version label or Base<number>; default is platform-pinned')
     parser.add_argument('--output', type=Path, help='Fresh output directory, optionally with a replay')
     args = parser.parse_args()
     results = run_game(
         'MPSC2TeamArena', [Bot(Race.Terran, AttackBot()) for _ in range(args.players)],
         team_ids=args.teams, realtime=args.realtime, disable_fog=True,
-        output_dir=args.output,
+        output_dir=args.output, sc2_version=args.sc2_version,
         save_replay_as=args.output/'game.SC2Replay' if args.output else None,
     )
     print([result.name for result in results])

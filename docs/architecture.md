@@ -39,9 +39,13 @@ inference if it would stall other callbacks.
 The supported engine's stock API rejects more than two independent participants.
 The host-only lobby bridge completes a verified host transition, distributes
 local discovery traffic, and waits for every participant's native readiness.
-It changes process-local lobby data.
+It changes process-local lobby data. The Windows Base93333 backend is isolated
+in `windows_session.py` and `native/windows_bridge.c`; the existing macOS
+Base96883 implementation retains its own helpers. Windows uses MinHook for
+loopback UDP forwarding and atomically holds two unused readiness slots,
+because its engine counts boolean pairs rather than summing byte values.
 
-A separate observation guard runs in every 3–8-client process. Base96883's
+A separate macOS observation guard runs in every 3–8-client process. Base96883's
 private opponent-upgrade lookup assumes `3-player_id`; IDs ≥4 underflow.
 The guard changes seven bytes on a private executable-memory page to skip that
 lookup. Public own-upgrade data and the simulation remain intact. Selected-player
@@ -50,6 +54,13 @@ replay views with IDs ≥4 use the same guard on this build.
 These helpers require the exact executable hash, UUID and expected runtime
 instructions. Unknown binaries are refused; the installation is unchanged.
 See [MPSC2-001](known-issues.md) for the diagnosis and measured fix.
+
+Windows Base93333 uses an exact-fault vectored exception handler for the same
+invalid private upgrade lookup. It validates the executable hash, instruction
+signatures, player range, index, read type, and fault address, then resumes at
+the verified cleanup path. This preserves the engine's protected code mapping
+and public own-upgrade data. Only the host uses the socket hook; all 3–8-client
+processes and affected replay views load the observation guard.
 
 ## Maps and output
 

@@ -5,7 +5,7 @@
 | Use | Requirements |
 | --- | --- |
 | Import MPSC2 and run offline tests | Python 3.10+; no SC2 installation needed |
-| Bundled 2–8-client scenarios | macOS, the checksum-pinned SC2 Base96883 executable and its game data; `clang` for 3–8 clients |
+| Bundled 2–8-client scenarios | Checksum-pinned macOS Base96883 with `clang`, or Windows Base93333 with 64-bit Python and MinGW-w64 GCC; compilers needed for 3–8 clients |
 | Standard one/two-player games | The pinned python-sc2 dependency's supported SC2 installation and maps |
 | Replay views of native player IDs ≥4 on Base96883 | The supported macOS executable and `clang` for the observation guard |
 
@@ -30,7 +30,7 @@ python -m mpsc2 --version
 python -m mpsc2 maps
 ```
 
-On Windows, for offline development or the upstream standard-game route
+On Windows, for native multiplayer, offline development or the standard-game route
 (see the [Windows testing guide](windows.md)):
 
 ```powershell
@@ -40,7 +40,8 @@ py -3.10 -m venv .venv
 .venv\Scripts\python.exe -m mpsc2 doctor --mode standard
 ```
 
-A Windows/Linux installation does **not** enable the native multiplayer backend.
+A Windows installation needs the exact supported build and MinGW-w64 GCC for
+3–8 clients; follow the [Windows guide](windows.md). Linux has no native backend.
 Use `python -m pip install -e '.[dev,build]'` when editing the project. Editable
 installs pick up source edits; reinstall after changing package metadata.
 See [pip's local-install documentation](https://pip.pypa.io/en/stable/topics/local-project-installs/).
@@ -48,7 +49,7 @@ See [pip's local-install documentation](https://pip.pypa.io/en/stable/topics/loc
 A built wheel can also be installed directly:
 
 ```sh
-python -m pip install /path/to/mpsc2-0.3.1a3-py3-none-any.whl
+python -m pip install /path/to/mpsc2-0.3.2a1-py3-none-any.whl
 ```
 
 There is no assumed public PyPI release. Do not rely on `pip install mpsc2`
@@ -122,8 +123,8 @@ multiplayer readiness separately. Its default mode checks the native platform,
 compiler, pinned executable/hash and packaged maps. `doctor --mode standard`
 checks the upstream installation instead and does not require macOS or clang.
 Exit 0 means the selected mode's static checks pass; it does not prove graphics,
-local networking or gameplay work. The default mode exits 1 on Windows/Linux
-because there is no native multiplayer backend for those systems.
+local networking or gameplay work. The default mode exits 1 on Linux and on
+Windows/macOS when the pinned executable or required compiler is unavailable.
 The maps and C helper sources ship in the package; do not copy maps into the
 SC2 installation or precompile the helpers manually.
 

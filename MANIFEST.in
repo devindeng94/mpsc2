@@ -7,7 +7,8 @@ recursive-include examples *.md
 recursive-include scripts *.py
 recursive-include tests *.py
 recursive-include maps *.SC2Map *.galaxy *.md LICENSE.*
-recursive-include src/mpsc2 *.galaxy *.c *.SC2Map py.typed LICENSE.*
+recursive-include src/mpsc2 *.galaxy *.c *.h *.SC2Map py.typed LICENSE.*
+include src/mpsc2/native/minhook/LICENSE.txt src/mpsc2/licenses/minhook.txt
 prune reports
 include evidence/README.md evidence/*/*.json evidence/*/*.md
 include evidence/2026-10-28/four-client-success/sha256.json

@@ -1,107 +1,127 @@
-# Test MPSC2 on Windows
+# Windows multiplayer setup
 
-Version **0.3.1a3** fixes `mpsc2 doctor` always looking for the macOS binary.
-It finds Windows builds at `Versions\Base<number>\SC2_x64.exe` and reports the
-installed build and executable hash. Windows offline tests run in GitHub CI;
-SC2 gameplay must be tested on your installed Windows machine.
+Version **0.3.2a2** includes a separate Windows backend for 2–8 independent
+python-sc2 clients, including the bundled team arena and economy scenarios.
+The existing macOS Base96883 backend and observation guard remain intact.
+Build selection now uses the [version/profile registries](version-profiles.md).
+Use `python -m mpsc2 versions` to inspect them and `doctor --sc2-version 5.0.14`
+to check the Windows profile. Base75689 and Base92440 have no native profile.
 
-| Operation | Windows status |
-| --- | --- |
-| Install/import MPSC2; use BotAI, units, maps and offline utilities | Covered by offline CI |
-| Detect SC2 and inspect prerequisites | Supported by this release |
-| Standard one/two-player games, including BotAI versus Computer | Delegated to burnysc2; run a live smoke test below |
-| Bundled 2–8-client scenarios using `team_ids` | No Windows native backend yet |
-| Probe the engine's four-participant CreateGame behavior | Available; reports capability evidence, not a completed multiplayer match |
+## Requirements
 
-The native backend changes build-specific process memory using macOS helpers.
-A Windows executable needs its own validated backend; changing the file path
-or copying the macOS hash/offsets cannot supply it.
+- 64-bit Windows and Python 3.10 or later.
+- The exact validated **SC2 5.0.14 / Base93333** Windows executable and its
+  complete game data, including `Support64`.
+- **MinGW-w64 GCC targeting x86_64** for 3–8 clients. Two clients need no
+  compiler or DLL. A portable w64devkit installation works.
 
-## Install or update
+Executable SHA256:
+`e67dcd28e5c5b21d3e4d9e38aada09ed522af28ac0cc5338d709357040493ee0`.
+Other Windows builds are refused by the multiplayer route. An installation's
+newest build may differ: this backend deliberately selects Base93333, while
+standard games retain upstream's build selection.
 
-In PowerShell, install the published tag into a fresh Python 3.10+ environment:
+From the source directory, create an environment and install this checkout:
 
 ```powershell
 py -3 -m venv .venv
-.venv\Scripts\python.exe -m pip install --upgrade pip
-.venv\Scripts\python.exe -m pip install "https://github.com/devindeng94/mpsc2/archive/refs/tags/v0.3.1a3.zip"
-.venv\Scripts\python.exe -m mpsc2 --version
+.venv\Scripts\python.exe -m pip install .
+$env:SC2PATH = "E:\StarCraft II"
+$env:MPSC2_WINDOWS_CC = "D:\w64devkit\bin\gcc.exe"
+.venv\Scripts\python.exe -m mpsc2 doctor
 ```
 
-If already working from a clone, update it and reinstall with the same Python:
+Use paths appropriate to your machine. `SC2PATH` is optional if Blizzard's
+`Documents\StarCraft II\ExecuteInfo.txt` points to the installation.
+`MPSC2_WINDOWS_CC` is optional when the appropriate `gcc.exe` is on PATH.
+An invalid explicit compiler setting is reported rather than silently ignored.
+No public PyPI release or upstream GitHub tag for this local change is assumed.
+
+`doctor` checks the Windows executable hash, compiler availability, 64-bit
+Python, `Support64`, and bundled maps. Readiness is a static prerequisite check;
+only a live match confirms working game data, graphics, networking, and compiler.
+The default diagnostic covers 3–8 clients and therefore checks the compiler;
+two-client sessions themselves do not compile a helper.
+
+## Run a match
 
 ```powershell
-git pull --ff-only
-.venv\Scripts\python.exe -m pip install --upgrade .
+.venv\Scripts\python.exe examples/multiplayer.py --players 4 --teams 0 0 1 1 --output reports/windows-first
 ```
 
-No public PyPI release is assumed. Do not use a bare `pip install mpsc2` to
-upgrade this GitHub alpha.
+Use a **fresh output directory** for every run. Omit `--teams` for free-for-all,
+use `--teams 0 0 0 1` for 3v1, or choose any count from 2 through 8. Add
+`--realtime` to use the engine clock. The Python API remains `run_game(...)`
+with one distinct `BotAI` per player and the same `team_ids` arguments as macOS.
 
-## Locate the installed game
-
-Discovery uses `SC2PATH` first, then Blizzard's
-`Documents\StarCraft II\ExecuteInfo.txt`, then
-`C:\Program Files (x86)\StarCraft II`. The newest numbered `Base` directory is
-reported; an incomplete newest build is reported as an error instead of hidden
-by selecting an older one. Windows also needs the installation's `Support64`
-directory, as required by the upstream launcher.
-
-For a custom drive, OneDrive Documents folder or an incorrect saved path, set
-the root explicitly before starting Python. Replace this example with your
-actual folder containing **Versions**, **Support64** and the game data:
+For economy and research validation:
 
 ```powershell
-$env:SC2PATH = "D:\Games\StarCraft II"
-.venv\Scripts\python.exe -m mpsc2 doctor --mode standard --output reports/windows-doctor.json
+.venv\Scripts\python.exe scripts/validate_alpha.py --phase races --research-only --output reports/windows-research
 ```
 
-No `clang`, `.dylib`, Mac app bundle or macOS executable hash is required for
-the standard Windows route. `installation.executable` should end in
-`SC2_x64.exe`; `installation.source` explains which path setting was used.
-The report always includes both standard and native capability sections.
-
-Exit **0** means static checks passed for the selected mode. It does not prove
-graphics, game data, networking or a match will work. Plain `doctor` retains
-its default `--mode multiplayer`, so it still exits **1** on Windows while
-explaining the missing native backend. Use a new report filename on each run.
-
-## Check the Windows engine's protocol
-
-This command launches one owned SC2 process, records Ping build information,
-and tests four API participants in stepped and realtime CreateGame requests,
-then tries a standard two-participant 1v1, followed by one API participant with
-three Computers if needed. It stops at the first accepted
-CreateGame and closes its process. It does not join clients or run policies.
-The bundled map resolves even when the current directory is outside a clone.
+For the complete player-count matrix and realtime checks:
 
 ```powershell
-.venv\Scripts\python.exe -m mpsc2.probe --output reports/windows-engine.json --timeout 90
+.venv\Scripts\python.exe scripts/validate_player_counts.py --counts 2 3 4 5 6 7 8 --output reports/windows-counts
+.venv\Scripts\python.exe scripts/validate_player_counts.py --counts 4 --realtime --output reports/windows-realtime
 ```
 
-An `InvalidPlayerSetup` response with `Only 1v1 is supported when using multiple
-agents` is useful evidence of an engine restriction. It is not a failed path
-lookup. Conversely, an accepted CreateGame alone does not establish four-client
-support. Exit 0 means the probe completed; inspect each case's `accepted`,
-`error_name` and `error_details` fields. Exit 1 means the probe could not complete.
+## What changed
 
-## Run a normal economy match
+The Windows engine also rejects CreateGame with more than two API participants.
+Changing the OS name or executable path cannot remove this restriction.
+`windows_session.py` validates the exact Windows binary, launches it with
+`Support64` as its working directory, and loads a locally compiled helper into
+the child processes owned by that session. Only the host enables lobby and
+socket handling; every 3–8-player client enables the observation guard.
+Standard games remain delegated to
+burnysc2. No game executable or game data is patched on disk.
 
-Use a source checkout for the examples. Install an ordinary melee map separately;
-the bundled MPSC2 scenarios require their multiplayer handshake and cannot
-substitute for this standard-game test. This follows
-[python-sc2's installation and map setup](https://github.com/BurnySc2/python-sc2#starcraft-ii).
+The helper verifies runtime instruction signatures and the rejected lobby's
+state, participant count, roster, and absence of computer players. It promotes
+that local lobby, forwards loopback discovery packets to every guest, and waits
+for every player's native readiness. Each guest receives its own port pair.
+MinHook 1.3.4 provides process-local socket interception; its source and BSD
+license are packaged with MPSC2, so compilation needs no network downloads.
 
-```powershell
-.venv\Scripts\python.exe examples/versus_computer.py "D:\SC2Maps\YourMeleeMap.SC2Map" --seconds 60 --output reports/windows-economy
-```
+Windows counts **nonzero readiness pairs**, while the macOS build sums byte
+values. The Windows hold therefore reserves two unused slots (14 and 15), set
+atomically, until every real participant is ready. The macOS algorithm remains
+unchanged. These slots do not become players. Teams, ownership, simulation,
+actions, and native victory/defeat results still come from SC2.
 
-The example checks mining, worker training, supply construction and an active
-built-in opponent, and saves a replay and `validation.json`. Add `--realtime`
-and choose another output directory to test realtime execution. An assertion
-failure is evidence to investigate, even if the game window opened.
+Windows has the same private `3-player_id` upgrade-index bug at a different
+instruction. Its read-only code mapping refuses protection changes, so this
+backend registers a process-local vectored exception handler. It handles only
+the verified instruction's invalid read for IDs 4–8, checks the register/index
+and fault address, and resumes after the private opponent-upgrade block. Other
+exceptions retain normal engine handling. The public own-upgrade path remains
+intact; Windows SC2 code bytes are unchanged. Each client confirms guard setup
+before gameplay; selected-player replay views with IDs 4–8 use it as well.
 
-For follow-up diagnosis, retain the MPSC2 version, doctor report, engine probe,
-command, traceback and economy validation. Review local paths before posting
-them in an issue. The reports contain installation metadata and hashes; the
-game executable is not needed as an issue attachment.
+The Base96883 macOS observation patch is preserved separately.
+Windows validation results and remaining limits are recorded in
+[Windows validation](windows-validation.md).
+
+## Diagnostics
+
+Reports are under the chosen output directory: `result.json`, per-client API
+journals, `session/native-session.json`, bridge build/readiness logs, and the
+optional replay. A failed run keeps its logs. Processes and ports belong to the
+session; cleanup does not terminate unrelated SC2 instances.
+
+- **Compiler missing / wrong architecture:** set `MPSC2_WINDOWS_CC` to x64
+  MinGW-w64 GCC. Compiler subprocesses get its tool directory on PATH without
+  modifying the parent environment.
+- **Unsupported executable:** install the supported build or use standard
+  one/two-player games; never substitute an arbitrary hash or macOS offsets.
+- **Helper load failure:** inspect `bridge-build.log` and `bridge-error.json`.
+  Antivirus restrictions may prevent process-local helper loading. The library
+  does not change antivirus settings or elevate itself.
+- **Startup timeout:** retain the failed directory and try a fresh one with
+  fewer clients; each participant is a full game process.
+
+`python -m mpsc2.probe` deliberately measures the **unmodified** engine and will
+still report the stock 1v1 restriction. `doctor --mode standard` checks ordinary
+burnysc2 games, which do not require this native helper.

@@ -35,7 +35,8 @@ error inside an existing event loop; use their async counterparts there.
 | `timeout` | Positive finite seconds per multiplayer startup/API barrier or realtime observation/callback cycle; not a total match duration |
 | `graphics_api` | Optional multiplayer engine graphics API string, e.g. `Metal` on macOS |
 | `window_size` | Optional positive `(width, height)` multiplayer window dimensions |
-| `portconfig`, `rgb_render_config`, `sc2_version` | Standard single-game options only |
+| `portconfig`, `rgb_render_config` | Standard single-game options only |
+| `sc2_version` | Standard: upstream behavior. Native: registered version label/build; None preserves the platform default, unsupported selections fail without fallback |
 
 Multiplayer returns `list[Result]` in the **input player order**, independent
 of native join order. Standard calls preserve upstream scalar/list results.
@@ -160,11 +161,17 @@ executable hash. `standard.ready` checks the upstream installation, while
 `multiplayer.ready` checks the native backend. An unsupported native platform
 has `backend`, `executable` and `expected_sha256` set to null, with an explanation
 in `errors`. Existing `standard_games` descriptive text is retained.
+`get_capabilities(sc2_version="5.0.14")` checks a selected native profile;
+the standard section continues to describe the default installation. Installed
+executables and empty build directories are listed separately. See
+[version profiles](version-profiles.md) for the registries and selection rules.
 
 ```sh
 mpsc2 --version
 mpsc2 maps
+mpsc2 versions
 mpsc2 doctor
+mpsc2 doctor --sc2-version Base93333
 mpsc2 doctor --mode standard --output reports/doctor.json
 mpsc2 replay path.SC2Replay --speed 2
 mpsc2 replay path.SC2Replay --fast --step-size 224

@@ -1,4 +1,4 @@
-"""Experimental 2..8-client python-sc2 session for the pinned macOS SC2 build.
+"""Experimental 2..8-client session with isolated, build-pinned native backends.
 
 Each agent has its own SC2 process, WebSocket, Client and native player ID. The
 host-only bridge supplies missing local-lobby initialization/discovery behavior;
@@ -21,9 +21,10 @@ from sc2.portconfig import Portconfig
 from s2clientprotocol import sc2api_pb2 as api
 
 from .session import MultiplayerSession, OwnedSC2Process
+from .versions import MACOS_96883, get_native_profile, require_registered_profile
 
-BUILD = "96883"
-EXECUTABLE_SHA256 = "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb"
+BUILD = str(MACOS_96883.build)
+EXECUTABLE_SHA256 = MACOS_96883.executable_sha256
 
 
 def require_native_platform():
@@ -35,15 +36,24 @@ def require_native_platform():
         )
 
 
-def validate_executable(executable: Path):
+def validate_executable(executable: Path, profile=MACOS_96883):
     require_native_platform()
+    require_registered_profile(profile, 'macos-96883-v1')
     actual = hashlib.sha256(executable.read_bytes()).hexdigest()
-    if actual != EXECUTABLE_SHA256:
+    if actual != profile.executable_sha256:
         raise RuntimeError(f"Unsupported SC2 executable SHA256 {actual}; refusing native bridge")
 
 
-def build_bridge(output: Path) -> Path:
-    source = Path(__file__).parent / "native/local_four_bridge.c"
+def _macos_helper_source(profile, index):
+    require_registered_profile(profile, 'macos-96883-v1')
+    source = Path(__file__).parent / profile.helper_sources[index]
+    if hashlib.sha256(source.read_bytes()).hexdigest() != profile.helper_source_sha256[index]:
+        raise RuntimeError('macOS helper source differs from the verified compatibility profile')
+    return source
+
+
+def build_bridge(output: Path, profile=MACOS_96883) -> Path:
+    source = _macos_helper_source(profile, 0)
     target = output / "local_four_bridge.dylib"
     command = ["clang", "-arch", "x86_64", "-dynamiclib", "-O2", "-Wall", "-Wextra", str(source), "-o", str(target)]
     result = subprocess.run(command, text=True, capture_output=True, timeout=60)
@@ -53,8 +63,8 @@ def build_bridge(output: Path) -> Path:
     return target.resolve()
 
 
-def build_observation_guard(output: Path) -> Path:
-    source = Path(__file__).parent / 'native/observation_guard.c'
+def build_observation_guard(output: Path, profile=MACOS_96883) -> Path:
+    source = _macos_helper_source(profile, 1)
     target = output / 'observation_guard.dylib'
     command = ['clang', '-arch', 'x86_64', '-dynamiclib', '-O2', '-Wall', '-Wextra', str(source), '-o', str(target)]
     result = subprocess.run(command, text=True, capture_output=True, timeout=60)
@@ -135,13 +145,14 @@ class NativeMultiplayerSession(MultiplayerSession):
     def __init__(self, map_path: Path, *, output: Path, players=4, seed=1, disable_fog=False, timeout=90,
                  render_size: tuple[int, int] | None = None, graphics_api: str | None = None,
                  window_size: tuple[int, int] | None = None, races=None, names=None, realtime=False,
-                 raw_affects_selection=None):
+                 raw_affects_selection=None, sc2_version=None):
         if type(players) is not int or not 2 <= players <= 8:
             raise ValueError('Expected 2..8 independent players')
         super().__init__(map_path, players=players, seed=seed, disable_fog=disable_fog, timeout=timeout)
         self.output = output.resolve()
         self.bridge_dir = self.output / "bridge"
         self.native_metadata = {}
+        self.sc2_version = sc2_version
         self.render_size = render_size
         self.graphics_api = graphics_api
         self.window_size = window_size
@@ -162,18 +173,25 @@ class NativeMultiplayerSession(MultiplayerSession):
         # Refuse before the try/finally report writer can touch prior evidence.
         if self.bridge_dir.exists() or (self.output / "native-session.json").exists():
             raise FileExistsError(f"Use a fresh output directory: {self.output} already contains a native session")
+        if platform.system() == "Windows":
+            from .windows_session import enter_windows
+            return await enter_windows(self)
         require_native_platform()
         host_task = None
         try:
+            profile = get_native_profile('Darwin', self.sc2_version)
+            if self.players not in profile.players:
+                raise RuntimeError(f'{profile.id} does not support {self.players} players')
             root = Path(os.environ.get("SC2PATH", "/Applications/StarCraft II")).resolve()
-            executable = root / f"Versions/Base{BUILD}/SC2.app/Contents/MacOS/SC2"
-            validate_executable(executable)
+            executable = profile.executable(root)
+            validate_executable(executable, profile)
             self.bridge_dir.mkdir(parents=True)
-            helper = build_bridge(self.bridge_dir) if self.players > 2 else None
-            observation_helper = build_observation_guard(self.bridge_dir) if self.players > 2 else None
+            helper = build_bridge(self.bridge_dir, profile) if self.players > 2 else None
+            observation_helper = build_observation_guard(self.bridge_dir, profile) if self.players > 2 else None
             self.ports = Portconfig(guests=self.players-1)
             self.native_metadata = {
-                "executable": str(executable), "executable_sha256": EXECUTABLE_SHA256,
+                "executable": str(executable), "executable_sha256": profile.executable_sha256,
+                "profile": profile.summary(), "build": str(profile.build), "game_version": profile.game_version,
                 "helper_sha256": hashlib.sha256(helper.read_bytes()).hexdigest() if helper else None,
                 "helper_source_sha256": hashlib.sha256((Path(__file__).parent / "native/local_four_bridge.c").read_bytes()).hexdigest(),
                 "server_ports": self.ports.server, "guest_ports": self.ports.players,

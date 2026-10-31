@@ -8,6 +8,7 @@ Start with [installation](installation.md), then run a match from the
 | Install Python dependencies and SC2 prerequisites | [Installation](installation.md) |
 | Detect and test a Windows SC2 installation | [Windows testing](windows.md) |
 | Understand supported builds, platforms and APIs | [Compatibility](compatibility.md) |
+| Inspect or extend OS/build-specific settings | [Version profiles](version-profiles.md) |
 | Adapt a python-sc2 bot | [Migration](migration.md) |
 | Configure matches, teams, callbacks and replays | [API reference](api.md) |
 | Understand the multiplayer backend | [Architecture](architecture.md) |
@@ -20,6 +21,10 @@ Start with [installation](installation.md), then run a match from the
 
 These are dated measurements, not guarantees for every workload:
 
+- [Windows validation, 0.3.2a1](windows-validation.md): independent 2–8-client
+  games on Base93333, research, realtime, replays and package checks.
+- [Older Windows builds](windows-older-build-validation.md): Base75689 stock
+  gameplay and native signature checks; missing Base92440 executable.
 - [Research fix, 0.3.1a2](research-validation.md): normal-resource upgrades,
   native callbacks, 2–8 clients, realtime, replay effects and package checks.
 - [Alpha audit, 0.3.1a1](alpha-validation.md): upstream compatibility and the

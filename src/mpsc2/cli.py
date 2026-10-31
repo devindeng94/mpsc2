@@ -6,6 +6,7 @@ from pathlib import Path
 from . import __version__, maps
 from .capabilities import get_capabilities
 from .replay import run_replay
+from .versions import compatibility_catalog
 
 
 def main(argv=None):
@@ -16,6 +17,8 @@ def main(argv=None):
     doctor.add_argument('--mode', choices=('multiplayer', 'standard'), default='multiplayer',
                         help='Readiness used for the exit code (default: multiplayer); both reports are always included')
     doctor.add_argument('--output', type=Path, help='Save UTF-8 JSON diagnostics to a new file')
+    doctor.add_argument('--sc2-version', help='Native profile: version label or Base<number>; no fallback')
+    commands.add_parser('versions', help='List game metadata, verified native profiles and support observations')
     commands.add_parser('maps', help='List the installed multiplayer map paths')
     replay = commands.add_parser('replay', help='Watch a replay with python-sc2')
     replay.add_argument('path')
@@ -25,8 +28,13 @@ def main(argv=None):
     replay.add_argument('--step-size', type=int, default=4)
     replay.add_argument('--max-game-loop', type=int, help='Stop after a bounded preview')
     args = parser.parse_args(argv)
+    if args.command == 'versions':
+        print(json.dumps(compatibility_catalog(), indent=2))
+        return 0
     if args.command == 'doctor':
-        capabilities = get_capabilities()
+        if args.mode == 'standard' and args.sc2_version is not None:
+            parser.error('--sc2-version selects a native profile; use --mode multiplayer')
+        capabilities = get_capabilities(args.sc2_version) if args.sc2_version is not None else get_capabilities()
         capabilities['mode'] = args.mode
         capabilities['ready'] = capabilities[args.mode]['ready']
         text = json.dumps(capabilities, indent=2)

@@ -1,7 +1,7 @@
 import asyncio
 import json
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 import pytest
 
@@ -100,6 +100,10 @@ def test_incomplete_windows_installation_is_not_ready(tmp_path, monkeypatch, mis
     report = detect_installation()
     assert not report['ready'] and report['errors']
     assert report['build'] == 99999  # do not silently select an older build
+    if missing == 'executable':
+        assert report['installed_builds'] == [96883]
+        assert report['build_directories'] == [96883, 99999]
+        assert report['incomplete_builds'] == [99999]
 
 
 def test_old_and_unknown_platforms_are_reported_without_exit(tmp_path, monkeypatch):
@@ -125,10 +129,11 @@ def test_windows_doctor_separates_standard_and_native_support(tmp_path, monkeypa
         assert main(['doctor']) == 1
     assert info['standard']['ready']
     native = info['multiplayer']
-    assert not native['ready'] and not native['supported']
-    assert native['executable'] is None and native['expected_sha256'] is None
+    assert not native['ready'] and native['supported']
+    assert native['executable'].endswith('Base93333/SC2_x64.exe') or native['executable'].endswith('Base93333\\SC2_x64.exe')
+    assert native['expected_sha256']
     assert 'clang' not in native['checks']
-    assert 'Windows' in native['errors'][0]
+    assert 'Base93333' in native['errors'][0]
     saved = json.loads((tmp_path / 'doctor.json').read_text(encoding='utf-8'))
     assert saved['ready'] and saved['mode'] == 'standard'
     assert 'SC2.app' not in capsys.readouterr().out
@@ -143,16 +148,17 @@ def test_doctor_preserves_previous_report(tmp_path):
     assert output.read_text() == 'prior evidence'
 
 
-def test_native_launch_on_windows_refuses_before_paths_or_helpers(tmp_path):
+def test_native_launch_on_windows_dispatches_without_macos_helpers(tmp_path):
     source = tmp_path / 'map.SC2Map'
     source.write_bytes(b'map fixture')
     output = tmp_path / 'run'
     session = NativeMultiplayerSession(source, output=output)
     with patch('mpsc2.native_session.platform.system', return_value='Windows'), \
+         patch('mpsc2.windows_session.enter_windows', new_callable=AsyncMock, return_value=session) as windows, \
          patch('mpsc2.native_session.build_bridge') as compile_bridge, \
          patch('mpsc2.native_session.NativeProcess') as launch:
-        with pytest.raises(RuntimeError, match='No native multiplayer backend for Windows'):
-            asyncio.run(session.__aenter__())
+        assert asyncio.run(session.__aenter__()) is session
+    windows.assert_awaited_once_with(session)
     compile_bridge.assert_not_called()
     launch.assert_not_called()
     assert not output.exists()

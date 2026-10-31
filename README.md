@@ -11,19 +11,49 @@ Existing bots use **burnysc2 7.3.0**. Keep your `sc2` imports and change the
 launcher, or use the equivalent `mpsc2` imports. MPSC2 is a game orchestration
 library; training algorithms, rewards and trajectory storage remain your code.
 
-**Alpha: 0.3.1a3.** Platform-aware installation diagnostics now include Windows
-and Linux; see the [Windows testing guide](docs/windows.md).
-The bundled multiplayer scenarios currently require
-**macOS and the exact supported SC2 5.0.15 / Base96883 executable**. Three or
-more clients use a native lobby bridge and a guarded observation fix in runtime
-memory. Installed SC2 files are unchanged. Windows/Linux multiplayer backends,
-arbitrary multiplayer maps and remote hosts are not implemented.
-See [compatibility](docs/compatibility.md) and [known issues](docs/known-issues.md).
+**Alpha: 0.3.2a2.** Native multiplayer support is specific to the operating
+system, executable architecture and exact SC2 build. Installed SC2 files are
+unchanged.
+
+## Supported operating systems and StarCraft II versions
+
+| Operating system | SC2 version / build | Native MPSC2 scenarios (2–8 clients) | Validation and limitations |
+| --- | --- | --- | --- |
+| Windows, x86_64 | **5.0.14 / Base93333** | **Supported alpha profile** | Live player-count, stepped/realtime, research and replay checks; tested on Windows 10 x64 |
+| macOS, x86_64 SC2 executable | **5.0.15 / Base96883** | **Supported alpha profile** | Existing live Mac validation retained; this update preserves both Mac helpers byte-for-byte and passes offline regression checks; no new live Mac run on Windows |
+| Windows, x86_64 | 4.10.0 / Base75689 | **No native multiplayer profile** | Standard one/two-player API route tested; historical game-data parity remains unresolved |
+| Windows | Base92440 | **Unverified; no native profile** | Only an empty directory was present on the test machine; no executable could be tested |
+| Linux | Upstream-supported builds | **No native backend** | Standard one/two-player games delegate to burnysc2; offline Linux tests do not imply native multiplayer support |
+| Any OS | Other builds or executable hashes | **Unsupported for native multiplayer** | A known version label or an installed folder does not establish compatibility |
+
+The native profiles verify the **exact executable SHA256**, not just its version
+label. The macOS profile targets the x86_64 game executable, including an
+appropriate Rosetta installation. Three or more clients use a platform-specific
+local lobby bridge and observation guard. Arbitrary multiplayer maps and remote
+hosts are not implemented.
+
+Inspect the registry and check the local installation:
+
+```sh
+python -m mpsc2 versions
+python -m mpsc2 doctor --sc2-version 5.0.14  # Windows Base93333
+python -m mpsc2 doctor --sc2-version 5.0.15  # macOS Base96883
+```
+
+Use the version matching your OS. Native launches accept
+`sc2_version="5.0.14"` on Windows or `sc2_version="5.0.15"` on macOS; omitting it
+preserves those platform defaults. Unsupported requests are rejected before
+launch and never fall back to another build. SC2 data-version identifiers and
+executable SHA256 values serve different purposes; the
+[version/profile guide](docs/version-profiles.md) explains the registries and how
+to add verified support. See also [Windows setup](docs/windows.md),
+[older-build results](docs/windows-older-build-validation.md),
+[compatibility](docs/compatibility.md) and [known issues](docs/known-issues.md).
 
 ## Install
 
 Requirements: **Python 3.10+**, a separate SC2 installation, and Apple's
-`clang` command-line compiler for the native multiplayer backend. The tested
+`clang` on macOS or **x86_64 Windows Python and MinGW-w64 GCC** on Windows for 3–8 clients. The tested
 Python versions are 3.10 and 3.13; the declared minimum is 3.10.
 
 Clone the repository, then create an environment and install:
@@ -50,7 +80,7 @@ The maps and native helper sources are packaged; no map copying is needed.
 `doctor` detects the local SC2 installation and checks multiplayer prerequisites
 without launching SC2. Use `doctor --mode standard` to check the upstream
 one/two-player route on Windows/Linux. Its exit code follows the selected mode;
-a valid Windows installation does not enable the macOS native bridge.
+a Windows multiplayer installation must match its own pinned executable and compiler checks.
 This repository does not assume a published PyPI package.
 See the [installation guide](docs/installation.md) for SC2 setup, custom paths,
 Windows/Linux offline development, dependencies and troubleshooting.
@@ -108,9 +138,9 @@ at least two teams must compete. In notebooks, use `await run_game_async(...)`.
 | A standard installed melee map | Normal python-sc2 one/two-player routing, including one BotAI versus the built-in Computer; omit `team_ids` | [Computer opponent example](examples/versus_computer.py) |
 
 The bundled scenarios are research fixtures, not ladder maps. Two bots on these
-scenarios use stock two-client hosting within the supported macOS backend;
-three through eight use the native bridge. Standard games follow upstream's
-platform requirements and do not gain multiplayer support on other platforms.
+scenarios use stock two-client hosting on either supported native platform;
+three through eight use that platform's bridge. Standard games follow upstream's
+platform requirements.
 
 ```sh
 python examples/full_game.py --teams 7 9 7 9 --output reports/economy
@@ -124,7 +154,16 @@ single-opponent assumptions as well as changing the launcher.
 
 ## Validation and limitations
 
-Version 0.3.1a2 fixes the research-related observation crash for native player
+Version **0.3.2a2** passed **299 tests against both source and the installed wheel**
+on Windows. Explicit profile selection passed live stepped matches with 2, 4
+and 8 independent clients, an installed-wheel four-player realtime match,
+four-player research, and replay views 0 and 4. See the
+[version-registry validation record](evidence/2026-10-31/version-registry-validation.json).
+The [Windows backend record](evidence/2026-10-31/windows-validation.json) covers
+every player count from 2 through 8. The macOS helper sources remain unchanged;
+macOS was not live-tested again on this Windows host.
+
+The earlier macOS release 0.3.1a2 fixes the research-related observation crash for native player
 IDs ≥4. Live regression tests cover normal-resource research with every count
 from **2 through 8**, four-player realtime with zero `Step` requests, and
 four/eight-player replay views. The offline test and packaging matrix covers

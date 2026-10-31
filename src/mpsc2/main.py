@@ -120,8 +120,12 @@ async def run_game_async(
         return await run_standard_async(_standard_map(map_settings), players, realtime, portconfig,
                                         save_replay_as, game_time_limit, rgb_render_config,
                                         random_seed, sc2_version, disable_fog)
-    if portconfig is not None or rgb_render_config is not None or sc2_version is not None:
-        raise NotImplementedError("Multiplayer scenarios do not support portconfig, rgb_render_config or sc2_version overrides")
+    if portconfig is not None or rgb_render_config is not None:
+        raise NotImplementedError("Multiplayer scenarios do not support portconfig or rgb_render_config overrides")
+    if sc2_version is not None:
+        import platform
+        from .versions import get_native_profile
+        get_native_profile(platform.system(), sc2_version)  # refuse before output/map/process work
     if graphics_api is not None and (not isinstance(graphics_api, str) or not graphics_api):
         raise ValueError("graphics_api must be a nonempty string or None")
     if window_size is not None and (not isinstance(window_size, (tuple, list)) or len(window_size) != 2 or any(type(v) is not int or v <= 0 for v in window_size)):
@@ -137,7 +141,7 @@ async def run_game_async(
         game_map, players, realtime, team_ids=team_ids, save_replay_as=save_replay_as,
         game_time_limit=game_time_limit, random_seed=random_seed, disable_fog=disable_fog,
         output_dir=output_dir, step_size=step_size, timeout=timeout,
-        graphics_api=graphics_api, window_size=window_size,
+        graphics_api=graphics_api, window_size=window_size, sc2_version=sc2_version,
     )
 
 
@@ -419,6 +423,7 @@ async def _run_multiplayer_game_async(
     timeout: float = 90,
     graphics_api: str | None = None,
     window_size: tuple[int, int] | None = None,
+    sc2_version=None,
 ) -> list[Result]:
     """Awaitable equivalent of :func:`run_game`; see its parameter contract."""
     players, team_ids = tuple(players), tuple(team_ids)
@@ -441,6 +446,7 @@ async def _run_multiplayer_game_async(
             races=[p.race for p in players], names=[p.name or f"MPSC2-bot-{i+1}" for i, p in enumerate(players)],
             raw_affects_selection=[getattr(p.ai, 'raw_affects_selection', None) for p in players],
             realtime=realtime, graphics_api=graphics_api, window_size=window_size,
+            **({'sc2_version': sc2_version} if sc2_version is not None else {}),
         ) as session:
             report["players"] = [
                 {"index": i, "player_id": pid, "team_id": team_ids[i], "name": players[i].name,

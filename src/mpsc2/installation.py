@@ -56,7 +56,8 @@ def detect_installation() -> dict:
               'executable_present': False, 'build_supported': False,
               'working_directory': False}
     report = {'platform': target, 'source': None, 'root': None, 'build': None,
-              'installed_builds': [], 'executable': None, 'executable_sha256': None,
+              'installed_builds': [], 'build_directories': [], 'incomplete_builds': [],
+              'executable': None, 'executable_sha256': None,
               'working_directory': None, 'checks': checks, 'errors': errors,
               'warnings': warnings, 'ready': False}
     if not checks['supported_platform']:
@@ -84,7 +85,12 @@ def detect_installation() -> dict:
         checks['working_directory'] = cwd is None or cwd.is_dir()
         builds = sorted(int(p.name[4:]) for p in versions.iterdir()
                         if p.is_dir() and re.fullmatch(r'Base\d+', p.name)) if versions.is_dir() else []
-        report['installed_builds'] = builds
+        report['build_directories'] = builds
+        report['installed_builds'] = [build for build in builds
+            if (versions / f'Base{build}' / upstream.BINPATH[target]).is_file()]
+        report['incomplete_builds'] = [build for build in builds if build not in report['installed_builds']]
+        if report['incomplete_builds']:
+            warnings.append(f'Build directories without an executable: {report["incomplete_builds"]}')
         if builds:
             build = builds[-1]
             executable = versions / f'Base{build}' / upstream.BINPATH[target]

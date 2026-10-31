@@ -1,0 +1,262 @@
+{
+  "date": "2026-10-31",
+  "mpsc2": "0.3.2a1",
+  "python": "3.10.22",
+  "burnysc2": "7.3.0",
+  "installation_correction": {
+    "requested_75698_present": false,
+    "actual_older_build": 75689,
+    "Base92440": "Empty directory, no executable; cannot test"
+  },
+  "Base75689": {
+    "requested_build": 75689,
+    "executable": "E:\\StarCraft II\\Versions\\Base75689\\SC2_x64.exe",
+    "executable_exists": true,
+    "sha256_before": "b7cac088c463c64ce5ac84acafba546c8c2c13cb7df3613a9c09fb9b0e61f7f9",
+    "production_guard": {
+      "accepted": false,
+      "error": "Unsupported Windows SC2 executable; requires verified Base93333"
+    },
+    "requested_data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+    "stock_probe": {
+      "native_helper_loaded": false,
+      "memory_writes": false,
+      "cases": [
+        {
+          "players": 4,
+          "realtime": false,
+          "accepted": false,
+          "error": "Only 1v1 is supported when using multiple agents",
+          "error_code": 7
+        },
+        {
+          "players": 4,
+          "realtime": true,
+          "accepted": false,
+          "error": "Only 1v1 is supported when using multiple agents",
+          "error_code": 7
+        },
+        {
+          "players": 2,
+          "realtime": false,
+          "accepted": true,
+          "error": "",
+          "error_code": null
+        }
+      ],
+      "process": {
+        "pid": 25980,
+        "process_create_time": 1793452234.1180634
+      },
+      "engine": {
+        "game_version": "4.10.0.75689",
+        "base_build": 75689,
+        "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+      },
+      "base93333_signatures": {
+        "lobby_check": {
+          "rva": "0xd297f7",
+          "expected_base93333": "83fe02770c75064983f9027504b001",
+          "actual": "894424484c8d44244889742450488d",
+          "matches": false
+        },
+        "readiness_count": {
+          "rva": "0xf48b1f",
+          "expected_base93333": "4183f8020f8589000000",
+          "actual": "e0000000488d05c66ecc",
+          "matches": false
+        },
+        "opponent_upgrade_lookup": {
+          "rva": "0xb3dbe4",
+          "expected_base93333": "410fb6c6b9030000002bc80fb7844bcc000000",
+          "actual": "4883bb2801000000743280bc24b00000000074",
+          "matches": false
+        },
+        "own_upgrade_lookup": {
+          "rva": "0xb3db99",
+          "expected_base93333": "410fb6c60fb78443cc000000",
+          "actual": "48896c2440488b01ff5008eb",
+          "matches": false
+        },
+        "upgrade_cleanup": {
+          "rva": "0xb3dc2c",
+          "expected_base93333": "488d4dd7e8bb66ceff",
+          "actual": "24a800000089043148",
+          "matches": false
+        }
+      },
+      "owned_process_closed": true
+    },
+    "two_player_games": [
+      {
+        "realtime": false,
+        "passed": true,
+        "results": [
+          "Tie",
+          "Tie"
+        ],
+        "native_ids": [
+          1,
+          2
+        ],
+        "movement_observed": true,
+        "owned_processes_closed": true,
+        "scope": "Shared MPSC2 BotAI orchestration with an exact-build stock API test launcher; not native 3\u20138-player support"
+      },
+      {
+        "realtime": true,
+        "passed": true,
+        "results": [
+          "Tie",
+          "Tie"
+        ],
+        "native_ids": [
+          1,
+          2
+        ],
+        "movement_observed": true,
+        "owned_processes_closed": true,
+        "scope": "Shared MPSC2 BotAI orchestration with an exact-build stock API test launcher; not native 3\u20138-player support"
+      }
+    ],
+    "status": "audit_completed",
+    "sha256_after": "b7cac088c463c64ce5ac84acafba546c8c2c13cb7df3613a9c09fb9b0e61f7f9",
+    "installed_executable_unchanged": true
+  },
+  "stock_game_evidence": {
+    "stepped": {
+      "passed": true,
+      "request_counts": [
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "independent_processes_ports_ids": true,
+      "owned_processes_closed": true
+    },
+    "realtime": {
+      "passed": true,
+      "request_counts": [
+        {
+          "join_game": 1,
+          "observation": 15,
+          "action": 3,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 15,
+          "action": 3,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "independent_processes_ports_ids": true,
+      "owned_processes_closed": true
+    }
+  },
+  "unmodified_public_standard_route": {
+    "scope": "Unmodified public run_game_async standard route with sc2_version=4.10",
+    "passed": true,
+    "bots": [
+      {
+        "engine": {
+          "game_version": "4.10.0.75689",
+          "base_build": 75689,
+          "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+        },
+        "steps": 15,
+        "moved": true,
+        "result": "Tie"
+      },
+      {
+        "engine": {
+          "game_version": "4.10.0.75689",
+          "base_build": 75689,
+          "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+        },
+        "steps": 15,
+        "moved": true,
+        "result": "Tie"
+      }
+    ],
+    "results": [
+      "Tie",
+      "Tie"
+    ],
+    "owned_processes_closed": true
+  },
+  "data_version_discrepancy": {
+    "requested_and_ping": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+    "replay_metadata": "446907060311FB1CC29EB31E547BB9FD",
+    "explanation": "Unresolved; engine build is verified, historically exact 4.10 balance data is not established"
+  },
+  "native_backend_compatibility": {
+    "75689": false,
+    "92440": null
+  },
+  "production_backends_modified": false,
+  "native_helper_loaded_into_older_builds": false,
+  "installed_executables_unchanged": true,
+  "macos_native_sources_unchanged": true,
+  "scope_limits": [
+    "No Base92440 executable available",
+    "No 3\u20138-player session authorized on the incompatible old engine",
+    "Short gameplay fixtures, not full economy/research coverage",
+    "Replay metadata checked; replay playback not tested"
+  ],
+  "artifacts": [
+    {
+      "path": "reports/older-build-audit-01/Base92440/audit.json",
+      "sha256": "6a405ccdb882db2162f80ed2cd658b650bf2dccaa32316fa44e923cdf8dacb1f"
+    },
+    {
+      "path": "reports/older-build-audit-01/Base75689/audit.json",
+      "sha256": "bb2468cf32d0bf9f5eff0f8b0a40d2d197259c7d35cad994fda7e7b2c5c7e3f7"
+    },
+    {
+      "path": "reports/older-build-audit-01/Base75689/probe/probe.json",
+      "sha256": "e4561f9a520cb63426cd38e6217e3b7b6496700ff6a41168fa294985541a93f9"
+    },
+    {
+      "path": "reports/older-build-audit-01/Base75689/game-evidence-verification.json",
+      "sha256": "939f07e62acd258423867c5e0be80615c239042ff595d956e876e4cdfceffdd5"
+    },
+    {
+      "path": "reports/older-build-audit-01/Base75689/standard-public-api/verification.json",
+      "sha256": "634d8c220689433e2ac6b45b2b89533ec0ed4cd43546974660411b07d6e6a942"
+    },
+    {
+      "path": "reports/older-build-audit-01/Base75689/stepped/game.SC2Replay",
+      "sha256": "a984c7ab036f18aa72cb9c558e37683064d976ca92c52dba9ee741884887aa29"
+    },
+    {
+      "path": "reports/older-build-audit-01/Base75689/realtime/game.SC2Replay",
+      "sha256": "2775ad5142f767722a8f8c27affd956b419ddaf5294b2eebcc0f93b3759520ed"
+    },
+    {
+      "path": "reports/older-build-audit-01/Base75689/standard-public-api/game.SC2Replay",
+      "sha256": "e75a7fd1991efe02b7653ed7697a52ecd8590730989132e69d776dfabd01f836"
+    }
+  ]
+}

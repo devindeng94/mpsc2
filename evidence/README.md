@@ -12,6 +12,9 @@ outcomes and artifact hashes. Successes and failed attempts are both recorded.
 | [Player counts](2026-10-30/player-count-validation.json) | 2–8 players and the built-in Computer route |
 | [0.3.1a1 audit](2026-10-30/alpha-release-validation.json) | Broad audit, including the original research failure |
 | [0.3.1a2 research fix](2026-10-30/research-fix-validation.json) | Research and replay regression results, including retained failures |
+| [0.3.2a1 Windows backend](2026-10-31/windows-validation.json) | Windows 2–8 clients, research, replays, packaging, and macOS source preservation |
+| [Older Windows builds](2026-10-31/windows-older-build-validation.json) | Base75689 API/gameplay checks and native incompatibility; missing Base92440 executable |
+| [0.3.2a2 version registry](2026-10-31/version-registry-validation.json) | Source/wheel tests, explicit profile selection, live 2/4/8 clients, research/replays, and unchanged Mac helpers |
 
 Paths under `reports/` in these records identify **local artifacts**, not files
 available in a GitHub checkout. The original raw prototype directory is also

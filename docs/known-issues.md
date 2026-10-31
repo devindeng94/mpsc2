@@ -2,7 +2,8 @@
 
 ## MPSC2-001: upgrade observations assumed a single opponent
 
-**Fixed in 0.3.1a2 on the checksum-pinned macOS Base96883 build.**
+**Fixed in 0.3.1a2 on macOS Base96883, and in 0.3.2a1 on Windows Base93333.**
+Both backends require their exact validated executable checksum.
 
 The 0.3.1a1 audit reproduced a crash in four-client mixed-race games as soon
 as research began. The client with native player ID 4 received an
@@ -23,7 +24,7 @@ IDs. It is separate from the public `PlayerRaw.upgrade_ids` field 3 defined in
 There is no single opponent in a general multiplayer game, and the pinned
 Python bindings do not expose this extra field.
 
-The fix skips only that private opponent-upgrade block. Every independent
+The macOS fix skips only that private opponent-upgrade block. Every independent
 client in a 3–8-player session loads a small native guard. After SC2 unpacks
 its code, the guard checks the executable UUID, expected instructions and page
 permissions, writes a seven-byte branch on a private in-memory page, and
@@ -37,6 +38,13 @@ Own upgrade observations, callbacks, unit statistics, resources, actions and
 simulation rules are preserved. The two-client route does not load either
 helper. On this build, replay views with IDs >=4 use the same guard; other
 views retain the ordinary replay path.
+
+Windows Base93333 refuses code-page protection changes. Its separate guard
+validates instruction signatures, then handles only the access violation at
+the verified invalid lookup for player IDs 4–8. It checks the faulting address
+and registers before resuming after the private block. It changes no SC2 code
+bytes. See [Windows validation](windows-validation.md) for live research and
+replay results.
 
 Reproduce with a fresh output directory:
 
@@ -64,6 +72,6 @@ six native readiness events and never reached gameplay. A fresh six-client
 retry and later eight-client launches passed, but the initial cause is
 unconfirmed. The project has not
 established a startup failure rate, long-training reliability, remote-host
-support, other-platform native backends, or arbitrary-map compatibility.
+support, Linux native multiplayer, or arbitrary-map compatibility.
 See [player-count validation](player-count-validation.md) and the
 [alpha audit](alpha-validation.md).

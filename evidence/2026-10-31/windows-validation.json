@@ -1,0 +1,543 @@
+{
+  "date": "2026-10-31",
+  "mpsc2": "0.3.2a1",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.10.22",
+  "burnysc2": "7.3.0",
+  "sc2": {
+    "game_version": "5.0.14.93333",
+    "base_build": 93333,
+    "data_version": "446907060311FB1CC29EB31E547BB9FD"
+  },
+  "executable_sha256": "e67dcd28e5c5b21d3e4d9e38aada09ed522af28ac0cc5338d709357040493ee0",
+  "stock_create_game": [
+    {
+      "api_players": 4,
+      "computer_players": 0,
+      "realtime": false,
+      "accepted": false,
+      "error_code": 7,
+      "error_name": "InvalidPlayerSetup",
+      "error_details": "Only 1v1 is supported when using multiple agents"
+    },
+    {
+      "api_players": 4,
+      "computer_players": 0,
+      "realtime": true,
+      "accepted": false,
+      "error_code": 7,
+      "error_name": "InvalidPlayerSetup",
+      "error_details": "Only 1v1 is supported when using multiple agents"
+    },
+    {
+      "api_players": 2,
+      "computer_players": 0,
+      "realtime": false,
+      "accepted": true,
+      "error_code": null,
+      "error_name": null,
+      "error_details": ""
+    }
+  ],
+  "stepped_arena_counts": [
+    {
+      "count": 2,
+      "native_ids": [
+        1,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie"
+      ],
+      "passed": true
+    },
+    {
+      "count": 3,
+      "native_ids": [
+        1,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true
+    },
+    {
+      "count": 4,
+      "native_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true
+    },
+    {
+      "count": 5,
+      "native_ids": [
+        1,
+        5,
+        3,
+        4,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true
+    },
+    {
+      "count": 6,
+      "native_ids": [
+        1,
+        5,
+        3,
+        4,
+        6,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true
+    },
+    {
+      "count": 7,
+      "native_ids": [
+        1,
+        3,
+        6,
+        4,
+        5,
+        7,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true
+    },
+    {
+      "count": 8,
+      "native_ids": [
+        1,
+        6,
+        5,
+        4,
+        8,
+        3,
+        7,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true
+    }
+  ],
+  "realtime_arena": {
+    "count": 4,
+    "passed": true,
+    "step_requests": 0
+  },
+  "four_player_research": {
+    "passed": true,
+    "native_results": {
+      "1": "Tie",
+      "2": "Tie",
+      "3": "Tie",
+      "4": "Tie"
+    },
+    "research_completions": [
+      {
+        "player_id": 4,
+        "upgrade": "zerglingmovementspeed",
+        "loop": 4676,
+        "count": 1
+      },
+      {
+        "player_id": 1,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5476,
+        "count": 1
+      },
+      {
+        "player_id": 2,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5588,
+        "count": 1
+      },
+      {
+        "player_id": 3,
+        "upgrade": "ProtossGroundWeaponsLevel1",
+        "loop": 5636,
+        "count": 1
+      }
+    ],
+    "playback": [
+      {
+        "observed_id": 0,
+        "upgrades": [],
+        "upgrade_events": {},
+        "attack_levels": {
+          "16": 0,
+          "2": 1,
+          "1": 1,
+          "3": 1,
+          "4": 0
+        },
+        "result": null
+      },
+      {
+        "observed_id": 4,
+        "upgrades": [
+          "ZERGLINGMOVEMENTSPEED"
+        ],
+        "upgrade_events": {
+          "ZERGLINGMOVEMENTSPEED": 1
+        },
+        "attack_levels": {
+          "16": 0,
+          "1": 1,
+          "4": 0
+        },
+        "result": "Tie"
+      }
+    ],
+    "request_counts": {
+      "ping": 5,
+      "join_game": 4,
+      "step": 300,
+      "action": 107,
+      "observation": 296,
+      "data": 4,
+      "game_info": 296,
+      "query": 97,
+      "save_replay": 1
+    },
+    "independent_clients": true,
+    "own_upgrade_callbacks": true,
+    "owned_processes_closed": true
+  },
+  "eight_player_research": {
+    "passed": true,
+    "results": [
+      "Tie",
+      "Tie",
+      "Tie",
+      "Tie",
+      "Tie",
+      "Tie",
+      "Tie",
+      "Tie"
+    ],
+    "owned_processes_closed": true,
+    "expansion_required": false,
+    "bots": [
+      {
+        "race": "Terran",
+        "upgrade_events": {
+          "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1
+        }
+      },
+      {
+        "race": "Protoss",
+        "upgrade_events": {
+          "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1
+        }
+      },
+      {
+        "race": "Zerg",
+        "upgrade_events": {
+          "upgrade_ZERGLINGMOVEMENTSPEED": 1
+        }
+      },
+      {
+        "race": "Zerg",
+        "upgrade_events": {
+          "upgrade_ZERGLINGMOVEMENTSPEED": 1
+        }
+      },
+      {
+        "race": "Terran",
+        "upgrade_events": {
+          "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1
+        }
+      },
+      {
+        "race": "Protoss",
+        "upgrade_events": {
+          "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1
+        }
+      },
+      {
+        "race": "Zerg",
+        "upgrade_events": {
+          "upgrade_ZERGLINGMOVEMENTSPEED": 1
+        }
+      },
+      {
+        "race": "Protoss",
+        "upgrade_events": {
+          "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1
+        }
+      }
+    ]
+  },
+  "offline_tests": {
+    "passed": 270,
+    "failed": 0,
+    "log": "reports/pytest-source-final.log"
+  },
+  "macos_preservation": {
+    "src/mpsc2/native/local_four_bridge.c": {
+      "unchanged": true,
+      "sha256": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf"
+    },
+    "src/mpsc2/native/observation_guard.c": {
+      "unchanged": true,
+      "sha256": "7b8275a1f79cec21c0a8ba3e50398236de2ce748beb902e759254ffcaff74ef6"
+    },
+    "native_python_ast_unchanged": {
+      "require_native_platform": true,
+      "validate_executable": true,
+      "build_bridge": true,
+      "build_observation_guard": true,
+      "observation_guard_environment": true,
+      "wait_record": true,
+      "NativeProcess": true,
+      "NativeFourSession": true,
+      "RecordedClient": true,
+      "NativeMultiplayerSession_after_removing_windows_dispatch": true
+    },
+    "original_source_archive_sha256": "95b5258a2f46a2176b2a83a8abcc45b2e8900a008fa2be5f1edeaa134042e539"
+  },
+  "retained_failures": [
+    {
+      "path": "reports/windows-research",
+      "reason": "Unguarded player 4 private opponent-upgrade index fault"
+    },
+    {
+      "path": "reports/windows-research-guarded-03/validation.json",
+      "reason": "Game completed; old post-game os.kill(pid,0) probe failed on Windows; independent replay verification passed"
+    },
+    {
+      "path": "reports/windows-eight-research/validation.json",
+      "reason": "90-second join barrier timed out at 6/8 readiness events; fresh retry passed"
+    }
+  ],
+  "limitations": [
+    "Exact Windows Base93333 executable only",
+    "Live macOS regression was not run on this Windows machine",
+    "Bundled maps and local hosts only",
+    "No startup failure-rate or long-training reliability claim"
+  ],
+  "artifacts": [
+    {
+      "path": "reports/windows-baseline.json",
+      "sha256": "6f28ee69526a726fd862efa41f4d4e959c882d187062fa34b6f89e0b8d1c9202"
+    },
+    {
+      "path": "reports/windows-counts/validation.json",
+      "sha256": "524472c2bfcf8ee5802915dd6fe5e7be4be45a11528d87d3a88e52d935ad376a"
+    },
+    {
+      "path": "reports/windows-realtime/validation.json",
+      "sha256": "b5f7a37d6dd9015d980ef8d664f160287be1d1d2fda1156e9d7f2eb2dffd617a"
+    },
+    {
+      "path": "reports/windows-research-guarded-03/research-replay-verification.json",
+      "sha256": "3e975b6660cb6a291647c8260e84f1d307fccc298d1a75c6d2cdea815fcd10d4"
+    },
+    {
+      "path": "reports/windows-eight-research-02/validation.json",
+      "sha256": "63f1dce875adee04643de16759db96951ba8c8ef0b83e4becbef2aa4ca614059"
+    },
+    {
+      "path": "reports/pytest-source-final.log",
+      "sha256": "d9be8b0255bdfaaa81f5fc3946c009b77282e6fb28e60c9031559edf6e1acbd9"
+    },
+    {
+      "path": "reports/macos-source-preservation.json",
+      "sha256": "a03e15681fd4564c44059823a7106a156801edfbb649b2b885f6bea3475bf479"
+    },
+    {
+      "path": "reports/pytest-installed-final.log",
+      "sha256": "f0a7004d2e3cd426cabf8340784b861e7781e0da1ea0d5459588c0f874f355d8"
+    },
+    {
+      "path": "reports/windows-eight-research-02/research-replay-verification.json",
+      "sha256": "ae0086588e63ae060934df70acaab25eab75a449273ea6a1fb645dcf1cfbbac9"
+    },
+    {
+      "path": "reports/windows-wheel-realtime/validation.json",
+      "sha256": "0b6eb41e3e8ffe39128dc9e9dbf949006231dc9a01368c0b9cc849eb5ef9f873"
+    },
+    {
+      "path": "reports/windows-doctor-package.json",
+      "sha256": "d5451087bd5df60c714ab8e408c8b4fe61fd77ede3dc5b412176522c4890e52f"
+    }
+  ],
+  "eight_player_research_replay": {
+    "passed": true,
+    "native_results": {
+      "1": "Tie",
+      "2": "Tie",
+      "3": "Tie",
+      "4": "Tie",
+      "5": "Tie",
+      "6": "Tie",
+      "7": "Tie",
+      "8": "Tie"
+    },
+    "research_completions": [
+      {
+        "player_id": 5,
+        "upgrade": "zerglingmovementspeed",
+        "loop": 4676,
+        "count": 1
+      },
+      {
+        "player_id": 7,
+        "upgrade": "zerglingmovementspeed",
+        "loop": 4676,
+        "count": 1
+      },
+      {
+        "player_id": 3,
+        "upgrade": "zerglingmovementspeed",
+        "loop": 4676,
+        "count": 1
+      },
+      {
+        "player_id": 1,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5476,
+        "count": 1
+      },
+      {
+        "player_id": 6,
+        "upgrade": "ProtossGroundWeaponsLevel1",
+        "loop": 5636,
+        "count": 1
+      },
+      {
+        "player_id": 4,
+        "upgrade": "ProtossGroundWeaponsLevel1",
+        "loop": 5636,
+        "count": 1
+      },
+      {
+        "player_id": 2,
+        "upgrade": "ProtossGroundWeaponsLevel1",
+        "loop": 5636,
+        "count": 1
+      },
+      {
+        "player_id": 8,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5700,
+        "count": 1
+      }
+    ],
+    "playback": [
+      {
+        "observed_id": 0,
+        "upgrades": [],
+        "upgrade_events": {},
+        "attack_levels": {
+          "16": 0,
+          "1": 1,
+          "2": 1,
+          "3": 0,
+          "4": 1,
+          "5": 0,
+          "6": 1,
+          "7": 0,
+          "8": 1
+        },
+        "result": null
+      },
+      {
+        "observed_id": 8,
+        "upgrades": [
+          "TERRANINFANTRYWEAPONSLEVEL1"
+        ],
+        "upgrade_events": {
+          "TERRANINFANTRYWEAPONSLEVEL1": 1
+        },
+        "attack_levels": {
+          "16": 0,
+          "1": 1,
+          "5": 0,
+          "8": 1,
+          "3": 0
+        },
+        "result": "Tie"
+      }
+    ],
+    "request_counts": {
+      "ping": 9,
+      "join_game": 8,
+      "step": 600,
+      "action": 203,
+      "observation": 592,
+      "data": 8,
+      "game_info": 592,
+      "query": 1741,
+      "save_replay": 1
+    },
+    "independent_clients": true,
+    "own_upgrade_callbacks": true,
+    "owned_processes_closed": true
+  },
+  "installed_wheel_tests": {
+    "passed": 270,
+    "failed": 0,
+    "log": "reports/pytest-installed-final.log",
+    "tested_wheel_sha256": "1403046aac711827b21caeb5a9ea110d16842ad57b79ce7aed02f6952b5b14f1"
+  },
+  "installed_wheel_realtime": {
+    "counts": [
+      2,
+      4
+    ],
+    "passed": true,
+    "step_requests": 0,
+    "owned_processes_closed": true,
+    "validation": "reports/windows-wheel-realtime/validation.json"
+  },
+  "installed_executable_unchanged": true
+}

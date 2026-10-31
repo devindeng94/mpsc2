@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.3.2a2 — version and native compatibility registries
+
+- Separate game/data-version metadata from verified OS/architecture/build
+  profiles and executable checksums; retain the upstream `VERSIONS` export.
+- Select native profiles through `sc2_version`, diagnostics and replay metadata;
+  unknown selections fail without falling back to a different build.
+- Generate Windows helper constants from the selected profile and verify its ID
+  in helper reports. Bind unchanged Mac helpers by source and executable hashes.
+- Add `mpsc2 versions`, profile-aware `doctor`, and per-session profile evidence.
+- Distinguish empty build directories from installed executables. Record
+  Base75689 standard-only measurements and Base92440's missing executable.
+- Preserve the existing native defaults and standard-game delegation.
+
+## 0.3.2a1 — Windows native multiplayer
+
+- Add an isolated, checksum-pinned Windows Base93333 backend for 2–8 clients.
+- Launch with Support64, build an x64 DLL using MinGW-w64, and forward local
+  discovery using packaged BSD-licensed MinHook sources.
+- Handle Windows boolean readiness counters with two unused hold slots;
+  retain macOS helper sources, pinning, and observation-guard behavior.
+- Guard the verified Windows private upgrade-index fault for player IDs 4–8
+  in games and selected-player replays, preserving public own upgrades.
+- Replace POSIX process-existence probes in live validation with portable
+  process identity checks; record Windows process creation times.
+- Add Windows launch/refusal/cleanup tests, diagnostics, and setup instructions.
+- Read source fixtures as UTF-8 on Windows installations with a non-UTF-8 locale.
+
 ## 0.3.1a3 — platform-aware installation diagnostics
 
 - Detect Windows `SC2_x64.exe`, macOS app executables and Linux `SC2_x64`, using

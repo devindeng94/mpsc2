@@ -64,6 +64,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--counts', nargs='+', type=int, choices=range(2, 9), default=list(range(2, 9)))
     parser.add_argument('--realtime', action='store_true')
+    parser.add_argument('--sc2-version', help='Select a registered native profile explicitly')
     parser.add_argument('--scenario', choices=['arena', 'melee'], default='arena')
     parser.add_argument('--seconds', type=float)
     parser.add_argument('--step-size', type=int, default=8)
@@ -79,7 +80,7 @@ def main():
             'MPSC2Melee' if args.scenario == 'melee' else 'MPSC2TeamArena',
             [Bot(Race.Terran, bot) for bot in bots], team_ids=teams,
             realtime=args.realtime, game_time_limit=args.seconds or (60 if args.scenario == 'melee' else 5),
-            step_size=args.step_size, random_seed=37, disable_fog=True,
+            step_size=args.step_size, random_seed=37, disable_fog=True, sc2_version=args.sc2_version,
             output_dir=folder, save_replay_as=folder / 'game.SC2Replay',
         )
         report = json.loads((folder / 'result.json').read_text())
