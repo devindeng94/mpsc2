@@ -2,6 +2,7 @@
 
 ## 0.3.1a2 — multiplayer research fix
 
+- Keep the macOS observation-guard path fixture in POSIX form on Windows CI.
 - Prepare public-alpha onboarding, requirements entry points, installation and
   troubleshooting guides, GitHub issue/PR templates, and publishing instructions.
 - Exclude machine-specific raw evidence from Git uploads while retaining the

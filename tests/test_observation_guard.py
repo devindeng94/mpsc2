@@ -1,6 +1,6 @@
 import asyncio
 import os
-from pathlib import Path
+from pathlib import PurePosixPath
 from types import SimpleNamespace
 from unittest.mock import AsyncMock, Mock, patch
 
@@ -14,7 +14,8 @@ from mpsc2.session import OwnedSC2Process
 def test_guard_environment_is_local_and_preserves_host_bridge(tmp_path):
     environment = {'DYLD_INSERT_LIBRARIES': '/host/bridge.dylib', 'OTHER': 'value'}
     before = dict(os.environ)
-    result = observation_guard_environment(environment, Path('/guard.dylib'), tmp_path)
+    # DYLD paths belong to the macOS target, even when this offline test runs on Windows.
+    result = observation_guard_environment(environment, PurePosixPath('/guard.dylib'), tmp_path)
     assert result['DYLD_INSERT_LIBRARIES'] == '/guard.dylib:/host/bridge.dylib'
     assert result['MPSC2_OBSERVATION_GUARD_LOG'] == str(tmp_path/'observation-guard.json')
     assert environment == {'DYLD_INSERT_LIBRARIES': '/host/bridge.dylib', 'OTHER': 'value'}
