@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.3a1 — Linux SC2 4.10 multiplayer
+
+- Add a separate Linux x86_64 Base75689 backend for independent 2–8-client games.
+- Preserve normal host initialization and require every player to complete native readiness.
+- Guard the private opponent-upgrade lookup while preserving public research observations.
+- Add headless replay analysis, Linux diagnostics, installation instructions and regression tests.
+- Keep existing macOS/Windows native profiles and helpers unchanged.
+
 ## 0.3.2a4 — three Windows engine profiles
 
 - Add a checksum-pinned Base75689 native backend using verified lobby,

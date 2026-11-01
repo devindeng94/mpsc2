@@ -29,8 +29,9 @@ def get_capabilities(sc2_version=None) -> dict:
     except UnsupportedNativeProfile as error:
         errors.append(str(error))
     windows = profile is not None and profile.system == 'Windows'
+    linux = profile is not None and profile.system == 'Linux'
     executable = profile.executable(root) if profile and root else None
-    checks = {'platform_supported': system in ('Windows', 'Darwin') and system == installation['platform'],
+    checks = {'platform_supported': system in ('Windows', 'Darwin', 'Linux') and system == installation['platform'],
               'profile_available': profile is not None, 'executable_present': False,
               'executable_matches': False, 'bundled_maps': False}
     if windows:
@@ -41,6 +42,14 @@ def get_capabilities(sc2_version=None) -> dict:
         checks['python_64_bit'] = struct.calcsize('P') == 8
         checks['python_x86_64'] = sysconfig.get_platform().lower() == 'win-amd64'
         checks['working_directory'] = bool(root and (root / profile.working_directory).is_dir())
+    elif linux:
+        from .linux_session import compiler
+        import os
+        import struct
+        checks['linux_compiler'] = compiler() is not None
+        checks['python_64_bit'] = struct.calcsize('P') == 8
+        checks['python_x86_64'] = platform.machine().lower() in ('x86_64', 'amd64')
+        checks['executable_permission'] = bool(executable and os.access(executable, os.X_OK))
     elif profile:
         checks['clang'] = shutil.which('clang') is not None
     actual_hash = None
@@ -59,7 +68,9 @@ def get_capabilities(sc2_version=None) -> dict:
             errors.append('The native executable hash is unsupported; refusing build-specific memory changes.')
         if windows and not checks['windows_compiler']:
             errors.append('Windows 3–8 clients require MinGW-w64 gcc; set MPSC2_WINDOWS_CC to gcc.exe.')
-        elif not windows and not checks['clang']:
+        elif linux and not checks['linux_compiler']:
+            errors.append('Linux 3–8 clients require GCC; install gcc or set MPSC2_LINUX_CC.')
+        elif not windows and not linux and not checks['clang']:
             errors.append('The native backend requires Apple clang for 3–8 clients.')
         if windows and not checks['python_64_bit']:
             errors.append('Windows multiplayer requires 64-bit Python.')
@@ -67,6 +78,10 @@ def get_capabilities(sc2_version=None) -> dict:
             errors.append('The Windows x86_64 profile requires an x86_64 Windows Python interpreter.')
         if windows and not checks['working_directory']:
             errors.append('Windows multiplayer requires the installation Support64 directory.')
+        if linux and (not checks['python_64_bit'] or not checks['python_x86_64']):
+            errors.append('Linux native multiplayer requires x86_64 Linux and 64-bit Python.')
+        if linux and not checks['executable_permission']:
+            errors.append('The Linux SC2 binary must have execute permission.')
     try:
         scenarios = {name: validate_map(maps.get(name).path) for name in maps.available()}
         checks['bundled_maps'] = True

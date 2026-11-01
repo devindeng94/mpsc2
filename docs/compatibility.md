@@ -1,8 +1,8 @@
 # Compatibility and support
 
-Version 0.3.2a4 registers Windows Base75689/Base93333/Base98370 and macOS Base96883 native
+Version 0.3.3a1 registers Windows Base75689/Base93333/Base98370, Linux Base75689 and macOS Base96883 native
 backends in explicit [compatibility profiles](version-profiles.md).
-Linux supports diagnostics and standard games.
+Linux native games and replay analysis run headlessly; see [Linux setup](linux.md).
 See the [Windows testing guide](windows.md) for the supported testing path.
 
 The compatibility target is the pinned **burnysc2 7.3.0** public API. We reuse
@@ -31,7 +31,7 @@ contract. Upgrading burnysc2 requires rechecking the lifecycle adapters.
 
 | Feature | Standard one/two-player route | Multiplayer scenario route (2–8) |
 | --- | --- | --- |
-| Engine/platform | Upstream support and installation requirements | Windows Base75689/Base93333/Base98370 or macOS Base96883, exact validated executable; two clients use stock hosting, 3–8 use the platform's bridge |
+| Engine/platform | Upstream support and installation requirements | Windows Base75689/Base93333/Base98370, Linux Base75689 or macOS Base96883, exact validated executable; two clients use stock hosting, 3–8 use the platform's bridge |
 | Maps | Installed upstream maps or explicit standard map path | Packaged `MPSC2TeamArena` and `MPSC2Melee`, resized per match |
 | BotAI | Yes | 2–8 distinct instances |
 | Human / built-in Computer | Upstream behavior | Unsupported; rejected before launch |
@@ -70,7 +70,7 @@ participants. It validates the executable SHA256 and runtime state and refuses
 unknown binaries. The lobby bridge changes host runtime data. A separate
 observation guard skips an invalid 1v1-only opponent lookup in each 3–8-player
 client. macOS changes seven bytes of process-private executable memory;
-Windows uses a verified exception handler without changing code bytes. Game
+Windows uses a verified exception handler without changing code bytes. Linux changes three host count immediates and a five-byte private observation branch, after checking its ELF build ID and instruction signatures. Game
 installation files are not patched. See [the root cause and guard](known-issues.md).
 
 See [the engineering record](engineering-history.md) for raw-protocol evidence,

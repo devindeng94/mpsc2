@@ -50,7 +50,7 @@ on macOS. Low-level metadata lookups should use
 lookup without an OS is rejected.
 
 Omitting the argument preserves the existing defaults: Windows Base93333 and
-macOS Base96883. An explicit unknown or unsupported version is refused before
+macOS Base96883. Linux defaults to its separate Base75689 profile in 0.3.3a1; `4.10`, `4.10.0` and `Base75689` select it. An explicit unknown or unsupported version is refused before
 game launch; it never falls back to a different build. `latest` is deliberately
 not a native alias. Ordinary one/two-player games continue to delegate their
 version argument to burnysc2 unchanged. Standard batch matches retain upstream

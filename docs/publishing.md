@@ -19,7 +19,7 @@ python -m twine check dist/github-release/*
 
 Use a fresh distribution directory so an earlier version is not uploaded by
 accident. Check that `pyproject.toml` and `mpsc2.__version__` agree, and read the
-[current known issues](known-issues.md) and [release notes](release-notes-0.3.1a3.md).
+[current known issues](known-issues.md) and [release notes](release-notes-0.3.3a1.md).
 Live SC2 coverage is recorded separately; GitHub Actions runs offline checks only.
 
 ## Create the repository and first commit
@@ -44,7 +44,7 @@ git add .
 git diff --cached --stat
 git diff --cached --name-only
 git diff --cached --check
-git commit -m "Prepare MPSC2 0.3.1a2 public alpha"
+git commit -m "Release MPSC2 0.3.3a1 with Linux multiplayer"
 ```
 
 The staged list should contain source, examples, documentation, tests, maps,
@@ -73,7 +73,7 @@ the ZIP itself as the repository's only file would hide the README, source and C
 
 Suggested About description:
 
-> Team-based StarCraft II self-play with 2–8 independent API clients and python-sc2-compatible bots. Experimental macOS alpha.
+> Team-based StarCraft II self-play with 2–8 independent API clients and python-sc2-compatible bots. Alpha support for Linux, macOS and Windows.
 
 Suggested topics: `starcraft2`, `multi-agent`, `self-play`, `reinforcement-learning`,
 `python`, `python-sc2`.
@@ -89,12 +89,13 @@ and rebuild distributions after metadata changes.
 
 ## Create an alpha release
 
-After reviewing the first CI result and local validation:
+After reviewing CI and local validation for the intended commit:
 
-1. Tag the intended commit `v0.3.1a3` and push that tag.
+1. Tag the intended commit `v0.3.3a1` and push that tag.
 2. Create a GitHub release for that tag and mark it **pre-release**.
-3. Copy the [prepared release notes](release-notes-0.3.1a3.md).
-4. Attach the wheel and source archive from `dist/github-release/`.
+3. Copy the [prepared release notes](release-notes-0.3.3a1.md).
+4. Attach the wheel, source archive and their SHA256 checksums from the fresh
+   release directory. Verify uploaded asset hashes against the local files.
 5. Keep the exact-build requirement and known limitations in the release text.
 
 GitHub generates a source archive for the tag. Do not attach the SC2 installation,

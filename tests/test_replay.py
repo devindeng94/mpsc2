@@ -97,31 +97,43 @@ def test_missing_observed_player_and_stalled_replay_fail():
         asyncio.run(_play(client_for([observation(0), observation(0)]), None, 0, False, 1, 1, None))
 
 
-def test_playback_uses_explicit_steps_even_when_realtime(tmp_path):
+@pytest.mark.parametrize('system', ['Darwin', 'Linux'])
+def test_playback_uses_explicit_steps_even_when_realtime(tmp_path, system):
     path = tmp_path / 'game.SC2Replay'
     path.write_bytes(b'fixture')
     process = AsyncMock()
     process._arguments = {}
     controller = process.__aenter__.return_value
+    controller._execute.return_value = api.Response(start_replay=api.ResponseStartReplay(), status=api.in_replay)
     client = client_for([observation(0), observation(4, True)])
     with patch('mpsc2.replay.get_replay_version', return_value=('Base96883', 'A'*32)), \
+         patch('mpsc2.replay.platform.system', return_value=system), \
          patch('mpsc2.replay.OwnedSC2Process', return_value=process), \
          patch('mpsc2.replay.Client', return_value=client), \
          patch('mpsc2.replay.asyncio.sleep', new_callable=AsyncMock) as sleep:
         results = run_replay(None, path, realtime=True)
     assert len(results) == 4
-    assert controller.start_replay.call_args.kwargs['realtime'] is False
+    if system == 'Linux':
+        request = controller._execute.call_args.kwargs['start_replay']
+        assert not request.realtime and request.replay_data == b'fixture'
+        controller.start_replay.assert_not_awaited()
+    else:
+        assert controller.start_replay.call_args.kwargs['realtime'] is False
     client.step.assert_awaited_once_with(4)
     sleep.assert_awaited_once()
     process.__aexit__.assert_awaited_once()
 
 
-def test_callback_failure_releases_replay_process(tmp_path):
+@pytest.mark.parametrize('system', ['Darwin', 'Linux'])
+def test_callback_failure_releases_replay_process(tmp_path, system):
     path = tmp_path / 'game.SC2Replay'
     path.write_bytes(b'fixture')
     process = AsyncMock()
     process._arguments = {}
+    process.__aenter__.return_value._execute.return_value = api.Response(
+        start_replay=api.ResponseStartReplay(), status=api.in_replay)
     with patch('mpsc2.replay.get_replay_version', return_value=('Base96883', 'A'*32)), \
+         patch('mpsc2.replay.platform.system', return_value=system), \
          patch('mpsc2.replay.OwnedSC2Process', return_value=process), \
          patch('mpsc2.replay.Client'), patch('mpsc2.replay._play', new_callable=AsyncMock, side_effect=ValueError('observer failed')):
         with pytest.raises(ValueError, match='observer failed'):

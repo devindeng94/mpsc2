@@ -176,6 +176,9 @@ class NativeMultiplayerSession(MultiplayerSession):
         if platform.system() == "Windows":
             from .windows_session import enter_windows
             return await enter_windows(self)
+        if platform.system() == "Linux":
+            from .linux_session import enter_linux
+            return await enter_linux(self)
         require_native_platform()
         host_task = None
         try:

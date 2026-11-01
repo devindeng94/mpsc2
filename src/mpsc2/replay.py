@@ -194,6 +194,24 @@ async def run_replay_async(ai, replay_path, realtime=False, observed_id=0, *,
             # guarantee; the live ability table is inspected below.
             boot_data = data if installed_data else get_game_version(profile.game_version).data_version
             configure_data_version(process, profile, boot_data)
+        elif profile is not None and profile.backend == 'linux-local-v1':
+            import os
+            from .installation import detect_installation
+            from .linux_session import LinuxProcess, build_bridge, validate_executable
+            if graphics_api:
+                raise ValueError('Linux replay analysis is headless; graphics_api is not supported')
+            installation = detect_installation()
+            if not installation['root']:
+                raise RuntimeError('Cannot locate Linux SC2 installation for replay')
+            root = Path(installation['root'])
+            executable = profile.executable(root)
+            validate_executable(executable, profile)
+            output = Path(stack.enter_context(TemporaryDirectory(prefix='mpsc2-replay-')))
+            helper = build_bridge(output, profile) if guarded_view else None
+            env = {k: v for k, v in os.environ.items()
+                   if not k.startswith('MPSC2_') and k not in ('LD_PRELOAD', 'DYLD_INSERT_LIBRARIES')}
+            process = LinuxProcess(executable, root, output, env, 0, helper=helper)
+            process._arguments['-dataVersion'] = data
         else:
             process = OwnedSC2Process(fullscreen=False, resolution=window_size, base_build=build, data_hash=data)
         if graphics_api:
@@ -203,7 +221,19 @@ async def run_replay_async(ai, replay_path, realtime=False, observed_id=0, *,
             await verify_installed_data(controller, profile, data, timeout)
         # The public upstream functions are used; the observer loop above fixes
         # the NoRace classification and absent player-zero result in 7.3.0.
-        await barrier([controller.start_replay(str(path), realtime=False, observed_id=observed_id)], timeout, [controller])
+        if platform.system() == 'Linux':
+            # Upstream accepts Linux paths only in ~/Documents/StarCraft II/Replays.
+            # The protocol also accepts replay bytes, so analysis need not copy or
+            # move the user's replay into a global directory.
+            request = api.RequestStartReplay(
+                replay_data=path.read_bytes(), observed_player_id=observed_id, realtime=False,
+                options=api.InterfaceOptions(raw=True, score=True, show_cloaked=True,
+                                             raw_affects_selection=True, raw_crop_to_playable_area=False))
+            response = (await barrier([controller._execute(start_replay=request)], timeout, [controller]))[0]
+            if response.start_replay.HasField('error') or response.status != api.in_replay:
+                raise RuntimeError(f'Linux StartReplay failed: {response.start_replay}')
+        else:
+            await barrier([controller.start_replay(str(path), realtime=False, observed_id=observed_id)], timeout, [controller])
         if profile is not None and profile.detect_ability_layout:
             from .protocol_compat import ProfileClient
             client = ProfileClient(controller._ws, detect_layout=True)

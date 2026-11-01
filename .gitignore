@@ -23,6 +23,7 @@ reports/*
 *.SC2Replay
 *.dylib
 *.dll
+*.so
 
 # Preserve original raw evidence locally; publish its hash manifest only.
 /evidence/2026-10-28/four-client-success/*

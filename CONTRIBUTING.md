@@ -12,8 +12,8 @@ python -m pytest -q
 
 Offline tests require no game installation. CI is configured for Python 3.10/3.13
 on Linux/macOS/Windows and 3.11/3.12 on Linux, and builds a wheel/sdist.
-Native engine checks require a supported executable and `clang` on macOS or
-MinGW-w64 GCC on Windows; they are opt-in and are not simulated by CI.
+Native engine checks require a supported executable and `clang` on macOS,
+MinGW-w64 GCC on Windows or GCC on Linux; they are opt-in and are not simulated by CI.
 
 Start with the [installation guide](docs/installation.md) for environment setup.
 The root requirements files use `pyproject.toml` as their dependency source of
@@ -31,9 +31,11 @@ truth; the historical environment snapshot is not the current development lock.
   Do not substitute computer opponents or one shared-control client.
 - Scope native cleanup to owned processes. Never use a system-wide process kill
   or patch an installed SC2 binary.
-- The lobby bridge changes host data only. The macOS observation guard changes
+- The macOS and Windows lobby bridges change host data only. The macOS observation guard changes
   a seven-byte branch on a process-private executable page; Windows uses a
-  narrowly checked exception handler without changing code bytes. Keep each
+  narrowly checked exception handler without changing code bytes. Linux changes
+  three host count immediates and a five-byte observation branch on verified
+  process-private pages, preserving native initialization and readiness. Keep each
   profile's whole-file hash, runtime instruction and memory-state checks;
   refuse startup if any check fails. Never modify simulation or research rules.
 - Keep maps, bridge source, templates and license notices in built distributions.
@@ -59,8 +61,12 @@ Do not silently accept arbitrary checksums.
 
 ## Engine checks
 
-Run `python -m mpsc2 doctor` first. These commands launch visible local SC2
-processes. Use fresh output paths:
+Run `python -m mpsc2 doctor` first. These commands launch local SC2 processes
+(headless on Linux). Use fresh output paths:
+
+On Linux, see the [Linux guide](docs/linux.md) for the exact Base75689 executable,
+compiler and map-directory requirements. Cover every count in stepped and
+realtime mode, macro/research, selected-player replays and owned-process cleanup.
 
 On Windows, add `--sc2-version Base75689`, `Base93333` or `Base98370` to the
 player-count and alpha validation scripts to exercise each profile. Replay
@@ -99,7 +105,8 @@ Retain failed attempts alongside successes in local reports, and identify retrie
 in compact evidence. `NativeFourSession` is a compatibility wrapper; new session
 code belongs in `NativeMultiplayerSession`. The bridge's historical C filename is
 retained for provenance, but its arrays and readiness thresholds use the requested
-count. The slot-15 readiness sentinel must remain outside the playable roster.
+count. Where a profile uses a slot-15 readiness sentinel, it must remain outside
+the playable roster. Linux preserves normal readiness instead of using a sentinel.
 Research regressions must exercise native IDs >=4, own upgrade callbacks,
 independent replay tracker completions and selected-player replay playback.
 
@@ -130,7 +137,7 @@ Publishing is a separate maintainer action. This project does not automatically
 upload packages, push branches or create releases. The backend remains alpha
 until broader platform/build and long-run validation supports a stronger claim.
 See the [GitHub publishing guide](docs/publishing.md) and
-[prepared alpha release notes](docs/release-notes-0.3.1a2.md).
+[prepared alpha release notes](docs/release-notes-0.3.3a1.md).
 
 Report issues with Python, burnysc2 and SC2 versions, operating system,
 `mpsc2 doctor` output, reproduction steps and a relevant report excerpt.

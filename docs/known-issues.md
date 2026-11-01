@@ -3,7 +3,8 @@
 ## MPSC2-001: upgrade observations assumed a single opponent
 
 **Fixed in 0.3.1a2 on macOS Base96883, in 0.3.2a1 on Windows Base93333, and
-adapted in 0.3.2a3 for Windows Base98370 and 0.3.2a4 for Base75689.** Each profile requires its exact
+adapted in 0.3.2a3 for Windows Base98370, 0.3.2a4 for Windows Base75689,
+and 0.3.3a1 for Linux Base75689.** Each profile requires its exact
 validated executable checksum.
 
 The 0.3.1a1 audit reproduced a crash in four-client mixed-race games as soon
@@ -46,6 +47,10 @@ the verified invalid lookup for player IDs 4–8. It checks the faulting address
 and registers before resuming after the private block. It changes no SC2 code
 bytes. See [Windows validation](windows-validation.md) for live research and
 replay results.
+
+Linux Base75689 uses a five-byte branch to skip the same private field, with
+ELF build-ID, signature and page-protection checks. Its full-game and replay
+coverage is recorded in the [Linux guide](linux.md).
 
 Reproduce with a fresh output directory:
 

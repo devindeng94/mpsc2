@@ -1,0 +1,937 @@
+{
+  "version": "0.3.3a1",
+  "date": "2026-11-01",
+  "base_commit": "4f485e3",
+  "profile": "linux-x86_64-75689-v1",
+  "environment": {
+    "os": "Ubuntu 22.04.5 LTS",
+    "architecture": "x86_64",
+    "python": "3.10.12",
+    "gcc": "11.4.0",
+    "burnysc2": "7.3.0",
+    "headless": true
+  },
+  "engine": {
+    "build": 75689,
+    "game_version": "4.10.0.75689",
+    "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+    "sha256": "115f65a49191c504f6336f7d5b7818b23dbba3d7a45cacf9142c86c959abaa41",
+    "elf_build_id": "11fd8fb471f9ae89511cbc3ed2210fce6998f026",
+    "installed_executable_unchanged": true
+  },
+  "stock_probe": [
+    {
+      "api_players": 4,
+      "computer_players": 0,
+      "realtime": false,
+      "accepted": false,
+      "error_code": 7,
+      "error_name": "InvalidPlayerSetup",
+      "error_details": "Only 1v1 is supported when using multiple agents"
+    },
+    {
+      "api_players": 4,
+      "computer_players": 0,
+      "realtime": true,
+      "accepted": false,
+      "error_code": 7,
+      "error_name": "InvalidPlayerSetup",
+      "error_details": "Only 1v1 is supported when using multiple agents"
+    },
+    {
+      "api_players": 2,
+      "computer_players": 0,
+      "realtime": false,
+      "accepted": true,
+      "error_code": null,
+      "error_name": null,
+      "error_details": ""
+    }
+  ],
+  "player_counts": {
+    "stepped": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "realtime": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "checks": [
+      "distinct native IDs, PIDs, API ports and owned unit tags",
+      "allies, per-client actions and movement",
+      "on_end and replay player metadata",
+      "no Debug requests; no Step requests in realtime"
+    ]
+  },
+  "team_layouts": [
+    {
+      "layout": "ffa",
+      "team_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "player_ids": [
+        1,
+        4,
+        2,
+        3
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "allies_verified": true,
+      "owned_processes_closed": true
+    },
+    {
+      "layout": "3v1",
+      "team_ids": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "player_ids": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "allies_verified": true,
+      "owned_processes_closed": true
+    },
+    {
+      "layout": "2v2",
+      "team_ids": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "player_ids": [
+        1,
+        3,
+        4,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "allies_verified": true,
+      "owned_processes_closed": true
+    }
+  ],
+  "realtime_economy": {
+    "counts": [
+      4,
+      8
+    ],
+    "checks": [
+      "resource collection",
+      "worker production",
+      "supply-depot construction",
+      "zero Step and Debug requests"
+    ]
+  },
+  "macro_four": {
+    "passed": true,
+    "checks": [
+      "Terran, Protoss, Zerg and Random",
+      "ordinary minerals and gas",
+      "workers, buildings, army, expansions and research",
+      "ability/pathing/expansion queries",
+      "callbacks and owned-process cleanup"
+    ],
+    "replay_verification": {
+      "passed": true,
+      "native_results": {
+        "1": "Tie",
+        "2": "Tie",
+        "3": "Tie",
+        "4": "Tie"
+      },
+      "research_completions": [
+        {
+          "player_id": 2,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5284,
+          "count": 1
+        },
+        {
+          "player_id": 3,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5604,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5604,
+          "count": 1
+        }
+      ],
+      "playback": [
+        {
+          "observed_id": 0,
+          "upgrades": [],
+          "upgrade_events": {},
+          "attack_levels": {
+            "16": 0,
+            "3": 1,
+            "1": 1,
+            "2": 0,
+            "4": 1
+          },
+          "result": null
+        },
+        {
+          "observed_id": 4,
+          "upgrades": [
+            "PROTOSSGROUNDWEAPONSLEVEL1"
+          ],
+          "upgrade_events": {
+            "PROTOSSGROUNDWEAPONSLEVEL1": 1
+          },
+          "attack_levels": {
+            "16": 0,
+            "3": 1,
+            "4": 1
+          },
+          "result": "Tie"
+        }
+      ],
+      "request_counts": {
+        "join_game": 4,
+        "data": 8,
+        "step": 1012,
+        "action": 120,
+        "observation": 1008,
+        "game_info": 1008,
+        "ping": 4,
+        "query": 96,
+        "save_replay": 1
+      },
+      "independent_clients": true,
+      "own_upgrade_callbacks": true,
+      "owned_processes_closed": true
+    }
+  },
+  "macro_eight": {
+    "game_completed": true,
+    "production_and_research_verified": true,
+    "replay_verification": {
+      "passed": true,
+      "native_results": {
+        "1": "Tie",
+        "2": "Tie",
+        "3": "Tie",
+        "4": "Tie",
+        "5": "Tie",
+        "6": "Tie",
+        "7": "Tie",
+        "8": "Tie"
+      },
+      "research_completions": [
+        {
+          "player_id": 4,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 8,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 6,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4420,
+          "count": 1
+        },
+        {
+          "player_id": 7,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5284,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5284,
+          "count": 1
+        },
+        {
+          "player_id": 5,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5348,
+          "count": 1
+        },
+        {
+          "player_id": 3,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5636,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5860,
+          "count": 1
+        }
+      ],
+      "playback": [
+        {
+          "observed_id": 0,
+          "upgrades": [],
+          "upgrade_events": {},
+          "attack_levels": {
+            "5": 1,
+            "16": 0,
+            "4": 0,
+            "8": 0,
+            "1": 1,
+            "6": 0,
+            "7": 1,
+            "2": 1,
+            "3": 1
+          },
+          "result": null
+        },
+        {
+          "observed_id": 8,
+          "upgrades": [
+            "ZERGLINGMOVEMENTSPEED"
+          ],
+          "upgrade_events": {
+            "ZERGLINGMOVEMENTSPEED": 1
+          },
+          "attack_levels": {
+            "16": 0,
+            "4": 0,
+            "8": 0,
+            "1": 1,
+            "7": 1
+          },
+          "result": "Tie"
+        }
+      ],
+      "request_counts": {
+        "join_game": 8,
+        "data": 16,
+        "step": 2024,
+        "action": 231,
+        "observation": 2016,
+        "game_info": 2016,
+        "ping": 8,
+        "query": 4014,
+        "save_replay": 1
+      },
+      "independent_clients": true,
+      "own_upgrade_callbacks": true,
+      "owned_processes_closed": true
+    },
+    "expansion_limit": "The initial eight-player fixture failed its complete_HATCHERY assertion for a Zerg bot on the crowded map. All eight clients completed production and research; this is not recorded as an all-player expansion pass.",
+    "research_fixture": {
+      "phase": "races",
+      "passed": true,
+      "detail": {
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "bots": [
+          {
+            "race": "Terran",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_SCV": 9,
+              "construction_started": 7,
+              "complete_SUPPLYDEPOT": 3,
+              "complete_REFINERY": 1,
+              "complete_ENGINEERINGBAY": 1,
+              "complete_BARRACKS": 1,
+              "created_MARINE": 6,
+              "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1,
+              "complete_COMMANDCENTER": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 14.8623046875,
+              "expansion": [
+                14.5,
+                33.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              5125.0,
+              604.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Protoss",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_PROBE": 9,
+              "construction_started": 7,
+              "complete_PYLON": 3,
+              "complete_ASSIMILATOR": 1,
+              "complete_GATEWAY": 1,
+              "complete_FORGE": 1,
+              "created_ZEALOT": 6,
+              "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1,
+              "complete_NEXUS": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 15.85791015625,
+              "expansion": [
+                88.5,
+                33.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4770.0,
+              604.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 25,
+              "type_changed": 19,
+              "created_OVERLORD": 3,
+              "created_DRONE": 12,
+              "construction_started": 3,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+              "complete_HATCHERY": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 17.10986328125,
+              "expansion": [
+                14.5,
+                33.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4890.0,
+              624.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 21,
+              "type_changed": 18,
+              "created_OVERLORD": 3,
+              "created_DRONE": 11,
+              "construction_started": 2,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "upgrade_ZERGLINGMOVEMENTSPEED": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 16.259765625,
+              "expansion": [
+                113.5,
+                57.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4640.0,
+              600.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Terran",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_SCV": 9,
+              "construction_started": 7,
+              "complete_SUPPLYDEPOT": 3,
+              "complete_REFINERY": 1,
+              "complete_ENGINEERINGBAY": 1,
+              "complete_BARRACKS": 1,
+              "created_MARINE": 6,
+              "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1,
+              "complete_COMMANDCENTER": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 16.259765625,
+              "expansion": [
+                14.5,
+                82.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              5040.0,
+              608.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Protoss",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_PROBE": 9,
+              "construction_started": 6,
+              "complete_PYLON": 3,
+              "complete_ASSIMILATOR": 1,
+              "complete_GATEWAY": 1,
+              "complete_FORGE": 1,
+              "created_ZEALOT": 6,
+              "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 16.254150390625,
+              "expansion": [
+                113.5,
+                57.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4780.0,
+              600.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 25,
+              "type_changed": 19,
+              "created_OVERLORD": 3,
+              "created_DRONE": 12,
+              "construction_started": 3,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+              "complete_HATCHERY": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 13.885986328125,
+              "expansion": [
+                14.5,
+                82.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4955.0,
+              628.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 25,
+              "type_changed": 19,
+              "created_OVERLORD": 3,
+              "created_DRONE": 12,
+              "construction_started": 3,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+              "complete_HATCHERY": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 13.883056640625,
+              "expansion": [
+                78.5,
+                98.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4555.0,
+              652.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          }
+        ],
+        "owned_processes_closed": true,
+        "realtime": false,
+        "expansion_required": false
+      }
+    },
+    "research_fixture_replay": {
+      "passed": true,
+      "native_results": {
+        "1": "Tie",
+        "2": "Tie",
+        "3": "Tie",
+        "4": "Tie",
+        "5": "Tie",
+        "6": "Tie",
+        "7": "Tie",
+        "8": "Tie"
+      },
+      "research_completions": [
+        {
+          "player_id": 8,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4420,
+          "count": 1
+        },
+        {
+          "player_id": 7,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4548,
+          "count": 1
+        },
+        {
+          "player_id": 6,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5220,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5284,
+          "count": 1
+        },
+        {
+          "player_id": 3,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5604,
+          "count": 1
+        },
+        {
+          "player_id": 5,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5668,
+          "count": 1
+        }
+      ],
+      "playback": [
+        {
+          "observed_id": 0,
+          "upgrades": [],
+          "upgrade_events": {},
+          "attack_levels": {
+            "5": 1,
+            "16": 0,
+            "3": 1,
+            "1": 1,
+            "4": 0,
+            "2": 0,
+            "7": 0,
+            "8": 0,
+            "6": 1
+          },
+          "result": null
+        },
+        {
+          "observed_id": 8,
+          "upgrades": [
+            "ZERGLINGMOVEMENTSPEED"
+          ],
+          "upgrade_events": {
+            "ZERGLINGMOVEMENTSPEED": 1
+          },
+          "attack_levels": {
+            "16": 0,
+            "1": 1,
+            "2": 0,
+            "8": 0,
+            "6": 1
+          },
+          "result": "Tie"
+        }
+      ],
+      "request_counts": {
+        "join_game": 8,
+        "data": 16,
+        "step": 2024,
+        "action": 229,
+        "observation": 2016,
+        "game_info": 2016,
+        "ping": 8,
+        "query": 6123,
+        "save_replay": 1
+      },
+      "independent_clients": true,
+      "own_upgrade_callbacks": true,
+      "owned_processes_closed": true
+    }
+  },
+  "standard_games": {
+    "phase": "standard",
+    "passed": true,
+    "detail": {
+      "async_result": "Tie",
+      "async_steps": 168,
+      "standard_batch_result": "Tie",
+      "batch_steps": 113,
+      "async_pair_results": [
+        "Tie",
+        "Tie"
+      ],
+      "allocated_ports_released": true
+    }
+  },
+  "failures_and_cancellation": {
+    "phase": "failures",
+    "passed": true,
+    "detail": [
+      {
+        "case": "exception",
+        "error": "ValueError: intentional release-test policy failure",
+        "owned_processes_closed": true
+      },
+      {
+        "case": "cancel",
+        "error": "CancelledError: ",
+        "owned_processes_closed": true
+      }
+    ]
+  },
+  "ffa_combat": {
+    "players": 5,
+    "realtime": true,
+    "phase": "arena",
+    "passed": true,
+    "detail": {
+      "bots": [
+        {
+          "hidden_at_start": true,
+          "steps": 45,
+          "events": {
+            "entered_vision": 12,
+            "damage": 16,
+            "destroyed": 11,
+            "left_vision": 11
+          },
+          "result": "Victory"
+        },
+        {
+          "hidden_at_start": true,
+          "steps": 45,
+          "events": {
+            "entered_vision": 12,
+            "damage": 21,
+            "destroyed": 8,
+            "left_vision": 12
+          },
+          "result": "Defeat"
+        },
+        {
+          "hidden_at_start": true,
+          "steps": 45,
+          "events": {
+            "entered_vision": 12,
+            "damage": 26,
+            "destroyed": 12,
+            "left_vision": 12
+          },
+          "result": "Defeat"
+        },
+        {
+          "hidden_at_start": true,
+          "steps": 45,
+          "events": {
+            "entered_vision": 6,
+            "damage": 30,
+            "destroyed": 9,
+            "left_vision": 6
+          },
+          "result": "Defeat"
+        },
+        {
+          "hidden_at_start": true,
+          "steps": 45,
+          "events": {
+            "entered_vision": 12,
+            "damage": 35,
+            "destroyed": 11,
+            "left_vision": 6
+          },
+          "result": "Defeat"
+        }
+      ],
+      "owned_processes_closed": true
+    }
+  },
+  "regression": {
+    "linux_source_tests": {
+      "passed": 361,
+      "skipped": 3
+    },
+    "macos_source_tests": {
+      "passed": 359,
+      "skipped": 5
+    },
+    "macos_live": {
+      "players": 4,
+      "realtime": true,
+      "scenario": "arena",
+      "passed": true
+    },
+    "windows": "Existing offline tests pass; Windows helpers/layouts are unchanged. No Windows machine was accessed for this Linux port."
+  },
+  "installation_notes": [
+    "The server had separate Maps/ and maps/ directories. Added maps/Ladder2019Season1 -> ../Maps/Ladder2019Season1 without replacing the existing SMAC maps.",
+    "The standard upstream two-client teardown emitted connection-close/unclosed-session warnings after returning correct results; native multiplayer cleanup tests passed.",
+    "Linux replay analysis sends replay_data to support files outside the upstream fixed replay directory."
+  ],
+  "scope": [
+    "Only the exact registered Linux executable is supported.",
+    "Native clients run on one host over loopback.",
+    "Headless API gameplay and replay analysis; no RGB/window rendering validation.",
+    "Not a claim of all upgrades, all maps, distributed hosts or more than eight players."
+  ],
+  "source_sha256": {
+    "src/mpsc2/linux_session.py": "040374c38ffb77e9346e8d84541b2cb60154867fb37fa83972fdbbddefec474b",
+    "src/mpsc2/native/linux_bridge.c": "cc2c610a3bb0a055e88d5836e3ef4498e4472a7be2cca030613ea8c44ac38f99",
+    "src/mpsc2/replay.py": "483e4a91fc5f7b47c086e727b060f38c6bd5db7d1d6e103b589e1cea2ffc234a"
+  }
+}

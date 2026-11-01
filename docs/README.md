@@ -6,6 +6,7 @@ Start with [installation](installation.md), then run a match from the
 | Task | Guide |
 | --- | --- |
 | Install Python dependencies and SC2 prerequisites | [Installation](installation.md) |
+| Run headless Linux SC2 4.10 multiplayer | [Linux setup](linux.md) |
 | Detect and test a Windows SC2 installation | [Windows testing](windows.md) |
 | Understand supported builds, platforms and APIs | [Compatibility](compatibility.md) |
 | Inspect or extend OS/build-specific settings | [Version profiles](version-profiles.md) |
@@ -16,11 +17,13 @@ Start with [installation](installation.md), then run a match from the
 | Check current limitations | [Known issues](known-issues.md) |
 | Contribute or validate a change | [Contributing](../CONTRIBUTING.md) |
 | Upload the repository and prepare a release | [Publishing](publishing.md) |
+| Review the latest alpha changes | [0.3.3a1 release notes](release-notes-0.3.3a1.md) |
 
 ## Validation records
 
 These are dated measurements, not guarantees for every workload:
 
+- [Linux native multiplayer](linux.md): headless SC2 4.10 setup and validation.
 - [Windows three-build support, 0.3.2a4](windows-three-build-validation.md):
   Base75689/Base93333/Base98370, live ability-table detection and replay startup.
 - [Windows Base98370, 0.3.2a3](windows-98370-validation.md): the updated

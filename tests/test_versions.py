@@ -30,12 +30,13 @@ def test_native_loader_refuses_a_different_python_architecture(tmp_path):
 
 
 @pytest.mark.parametrize('value', ['4.10', '4.10.0', 'Base75689', '75689', 75689])
-def test_legacy_game_aliases_resolve_without_granting_other_platforms_native_permission(value):
+def test_legacy_game_aliases_resolve_only_for_registered_platforms(value):
     game = get_game_version(value)
     assert game.build == 75689 and game.data_version == 'B89B5D6FA7CBF6452E721311BFBC6CB2'
     with pytest.raises(UnsupportedNativeProfile, match='No verified native'):
-        get_native_profile('Linux', value)
+        get_native_profile('Darwin', value)
     assert get_native_profile('Windows', value).build == 75689
+    assert get_native_profile('Linux', value).build == 75689
 
 
 @pytest.mark.parametrize('system,version', [('Windows', 'Base92440'), ('Windows', '5.0.15.96883'),

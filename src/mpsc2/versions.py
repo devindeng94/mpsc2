@@ -184,11 +184,22 @@ MACOS_96883 = NativeProfile(
     executable_uuid='da36f25f-c234-30eb-be05-e4bc16017b08',
     evidence='evidence/2026-10-30/research-fix-validation.json',
 )
+LINUX_75689 = NativeProfile(
+    id='linux-x86_64-75689-v1', system='Linux', architecture='x86_64', build=75689,
+    game_version='4.10.0',
+    executable_sha256='115f65a49191c504f6336f7d5b7818b23dbba3d7a45cacf9142c86c959abaa41',
+    executable_relative_path='Versions/Base75689/SC2_x64', working_directory=None,
+    backend='linux-local-v1', readiness_strategy='private-native-count-comparison',
+    observation_strategy='private-opponent-field-branch', detect_ability_layout=True,
+    helper_sources=('native/linux_bridge.c',),
+    helper_source_sha256=('cc2c610a3bb0a055e88d5836e3ef4498e4472a7be2cca030613ea8c44ac38f99',),
+    evidence='evidence/2026-11-01/linux-validation.json',
+)
 NATIVE_PROFILES = MappingProxyType({
     (profile.system, profile.architecture, profile.build): profile
-    for profile in (WINDOWS_75689, WINDOWS_93333, WINDOWS_98370, MACOS_96883)
+    for profile in (WINDOWS_75689, WINDOWS_93333, WINDOWS_98370, MACOS_96883, LINUX_75689)
 })
-DEFAULT_NATIVE_BUILDS = MappingProxyType({'Windows': 93333, 'Darwin': 96883})
+DEFAULT_NATIVE_BUILDS = MappingProxyType({'Windows': 93333, 'Darwin': 96883, 'Linux': 75689})
 
 
 class UnsupportedNativeProfile(NotImplementedError):
@@ -259,8 +270,9 @@ def compatibility_catalog() -> dict:
              'evidence': 'evidence/2026-11-01/windows-three-build-validation.json'},
             {'system': 'Windows', 'build': 92440, 'standard_api': 'unverified', 'native_multiplayer': 'no profile',
              'note': 'Local directory was empty; version label/data identifier not inferred'},
-            {'system': 'Linux', 'build': None, 'standard_api': 'delegated to burnysc2',
-             'native_multiplayer': 'no backend'},
+            {'system': 'Linux', 'build': 75689, 'standard_api': 'delegated to burnysc2',
+             'native_multiplayer': 'registered profile',
+             'evidence': 'evidence/2026-11-01/linux-validation.json'},
         ],
     }
 

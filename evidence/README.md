@@ -5,6 +5,7 @@ outcomes and artifact hashes. Successes and failed attempts are both recorded.
 
 | Record | Scope |
 | --- | --- |
+| [0.3.3a1 Linux support](2026-11-01/linux-validation.json) | Linux Base75689, headless 2–8 clients, economy/research and replay analysis |
 | [0.3.2a4 Windows three-build support](2026-11-01/windows-three-build-validation.json) | Base75689/Base93333/Base98370 native profiles, live ability tables, exact-engine gameplay and replay verification |
 | [0.3.2a3 Windows Base98370](2026-11-01/windows-98370-validation.json) | New build/data profile, ability-ID translation, 2–8 clients, research/replays, realtime, source/wheel checks, and retained limitations |
 | [Four-client prototype](2026-10-28/four-client-success.md) | Original independent-client control, fog and native team results |

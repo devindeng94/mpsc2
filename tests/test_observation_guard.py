@@ -81,6 +81,9 @@ def test_replay_guards_only_affected_build_and_view(observed, system, build, gua
     replay.write_bytes(b'fixture')
     process = AsyncMock()
     process._arguments = {}
+    from s2clientprotocol import sc2api_pb2 as api
+    process.__aenter__.return_value._execute.return_value = api.Response(
+        start_replay=api.ResponseStartReplay(), status=api.in_replay)
     with patch('mpsc2.replay.get_replay_version', return_value=(build, 'A'*32)), \
          patch('mpsc2.replay.platform.system', return_value=system), \
          patch('mpsc2.native_session.validate_executable') as validate, \

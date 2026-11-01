@@ -83,6 +83,13 @@ def detect_installation() -> dict:
         checks['installation_directory'] = root.is_dir()
         checks['versions_directory'] = versions.is_dir()
         checks['working_directory'] = cwd is None or cwd.is_dir()
+        if target == 'Linux' and (root / 'Maps').is_dir():
+            missing = [p.name for p in (root / 'Maps').iterdir()
+                       if (p.is_dir() or p.suffix.lower() == '.sc2map') and not (root / 'maps' / p.name).exists()]
+            if missing:
+                warnings.append('Linux SC2 guests resolve installed maps under lowercase maps/. '
+                                'These entries exist only under Maps/: ' + ', '.join(sorted(missing)) +
+                                '. Add corresponding links under maps/ without replacing existing content.')
         builds = sorted(int(p.name[4:]) for p in versions.iterdir()
                         if p.is_dir() and re.fullmatch(r'Base\d+', p.name)) if versions.is_dir() else []
         report['build_directories'] = builds
