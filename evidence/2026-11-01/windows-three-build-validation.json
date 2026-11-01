@@ -1,0 +1,2609 @@
+{
+  "date": "2026-11-01",
+  "mpsc2": "0.3.2a4",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.10.22",
+  "burnysc2": "7.3.0",
+  "builds": [
+    {
+      "build": 75689,
+      "profile": {
+        "id": "windows-x86_64-75689-v1",
+        "system": "Windows",
+        "architecture": "x86_64",
+        "build": 75689,
+        "game_version": "4.10.0",
+        "executable_sha256": "b7cac088c463c64ce5ac84acafba546c8c2c13cb7df3613a9c09fb9b0e61f7f9",
+        "executable_relative_path": "Versions/Base75689/SC2_x64.exe",
+        "working_directory": "Support64",
+        "backend": "windows-local-v1",
+        "readiness_strategy": "boolean-pairs-two-hold-slots",
+        "observation_strategy": "vectored-exception-r14-rcx-rbx",
+        "helper_sources": [
+          "native/windows_bridge.c"
+        ],
+        "evidence": "evidence/2026-11-01/windows-three-build-validation.json",
+        "players": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "replay_guard_min_player": 4,
+        "helper_source_sha256": [],
+        "executable_uuid": null,
+        "data_selection": "explicit",
+        "ability_remaps": [],
+        "detect_ability_layout": true
+      },
+      "stepped_arena": [
+        {
+          "report": "reports/three-builds-counts-75689/2",
+          "passed": true,
+          "count": 2,
+          "realtime": false,
+          "native_ids": [
+            1,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-75689/3",
+          "passed": true,
+          "count": 3,
+          "realtime": false,
+          "native_ids": [
+            1,
+            3,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 85,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-75689/4",
+          "passed": true,
+          "count": 4,
+          "realtime": false,
+          "native_ids": [
+            1,
+            3,
+            4,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-75689/5",
+          "passed": true,
+          "count": 5,
+          "realtime": false,
+          "native_ids": [
+            1,
+            3,
+            5,
+            4,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-75689/6",
+          "passed": true,
+          "count": 6,
+          "realtime": false,
+          "native_ids": [
+            1,
+            3,
+            6,
+            5,
+            4,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-75689/7",
+          "passed": true,
+          "count": 7,
+          "realtime": false,
+          "native_ids": [
+            1,
+            4,
+            2,
+            7,
+            6,
+            5,
+            3
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-75689/8",
+          "passed": true,
+          "count": 8,
+          "realtime": false,
+          "native_ids": [
+            1,
+            8,
+            3,
+            7,
+            4,
+            6,
+            2,
+            5
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        }
+      ],
+      "realtime_arena": [
+        {
+          "report": "reports/three-builds-realtime-75689/4",
+          "passed": true,
+          "count": 4,
+          "realtime": true,
+          "native_ids": [
+            1,
+            4,
+            3,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 110,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-realtime-75689/8",
+          "passed": true,
+          "count": 8,
+          "realtime": true,
+          "native_ids": [
+            1,
+            5,
+            7,
+            4,
+            3,
+            2,
+            8,
+            6
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 123,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "legacy-4.10-3800",
+          "api_engine_identity": {
+            "game_version": "4.10.0.75689",
+            "base_build": 75689,
+            "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base75689",
+            "GameVersion": "4.10.0.75689",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        }
+      ],
+      "eight_player_research": {
+        "report": "reports/three-builds-research-75689/game",
+        "passed": true,
+        "count": 8,
+        "realtime": false,
+        "native_ids": [
+          1,
+          3,
+          7,
+          8,
+          6,
+          4,
+          2,
+          5
+        ],
+        "game_time_limit": 500,
+        "final_game_loop": 8005,
+        "step_size": 32,
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "ability_layout": "legacy-4.10-3800",
+        "api_engine_identity": {
+          "game_version": "4.10.0.75689",
+          "base_build": 75689,
+          "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+        },
+        "observed_upgrade_fault_ids": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "owned_processes_closed": true,
+        "replay_metadata": {
+          "BaseBuild": "Base75689",
+          "GameVersion": "4.10.0.75689",
+          "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+        },
+        "verification": {
+          "passed": true,
+          "native_results": {
+            "1": "Tie",
+            "2": "Tie",
+            "3": "Tie",
+            "4": "Tie",
+            "5": "Tie",
+            "6": "Tie",
+            "7": "Tie",
+            "8": "Tie"
+          },
+          "research_completions": [
+            {
+              "player_id": 2,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4292,
+              "count": 1
+            },
+            {
+              "player_id": 7,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4292,
+              "count": 1
+            },
+            {
+              "player_id": 1,
+              "upgrade": "TerranInfantryWeaponsLevel1",
+              "loop": 5284,
+              "count": 1
+            },
+            {
+              "player_id": 6,
+              "upgrade": "TerranInfantryWeaponsLevel1",
+              "loop": 5476,
+              "count": 1
+            },
+            {
+              "player_id": 3,
+              "upgrade": "ProtossGroundWeaponsLevel1",
+              "loop": 5604,
+              "count": 1
+            },
+            {
+              "player_id": 8,
+              "upgrade": "ProtossGroundWeaponsLevel1",
+              "loop": 5604,
+              "count": 1
+            },
+            {
+              "player_id": 5,
+              "upgrade": "ProtossGroundWeaponsLevel1",
+              "loop": 5668,
+              "count": 1
+            },
+            {
+              "player_id": 4,
+              "upgrade": "ProtossGroundWeaponsLevel1",
+              "loop": 5668,
+              "count": 1
+            }
+          ],
+          "playback": [
+            {
+              "observed_id": 0,
+              "upgrades": [],
+              "upgrade_events": {},
+              "attack_levels": {
+                "16": 0,
+                "1": 1,
+                "2": 0,
+                "3": 1,
+                "4": 1,
+                "5": 1,
+                "6": 1,
+                "7": 0,
+                "8": 1
+              },
+              "result": null
+            },
+            {
+              "observed_id": 8,
+              "upgrades": [
+                "PROTOSSGROUNDWEAPONSLEVEL1"
+              ],
+              "upgrade_events": {
+                "PROTOSSGROUNDWEAPONSLEVEL1": 1
+              },
+              "attack_levels": {
+                "16": 0,
+                "3": 1,
+                "4": 1,
+                "5": 1,
+                "8": 1
+              },
+              "result": "Tie"
+            }
+          ],
+          "request_counts": {
+            "ping": 9,
+            "join_game": 8,
+            "data": 16,
+            "step": 2024,
+            "action": 237,
+            "observation": 2016,
+            "game_info": 2016,
+            "query": 5038,
+            "save_replay": 1
+          },
+          "independent_clients": true,
+          "own_upgrade_callbacks": true,
+          "owned_processes_closed": true
+        }
+      },
+      "installed_wheel_realtime": {
+        "report": "reports/three-builds-wheel-75689/4",
+        "passed": true,
+        "count": 4,
+        "realtime": true,
+        "native_ids": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "game_time_limit": 5,
+        "final_game_loop": 108,
+        "step_size": 8,
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "ability_layout": "legacy-4.10-3800",
+        "api_engine_identity": {
+          "game_version": "4.10.0.75689",
+          "base_build": 75689,
+          "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2"
+        },
+        "observed_upgrade_fault_ids": [],
+        "owned_processes_closed": true,
+        "replay_metadata": {
+          "BaseBuild": "Base75689",
+          "GameVersion": "4.10.0.75689",
+          "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+        }
+      }
+    },
+    {
+      "build": 93333,
+      "profile": {
+        "id": "windows-x86_64-93333-v1",
+        "system": "Windows",
+        "architecture": "x86_64",
+        "build": 93333,
+        "game_version": "5.0.14.93333",
+        "executable_sha256": "e67dcd28e5c5b21d3e4d9e38aada09ed522af28ac0cc5338d709357040493ee0",
+        "executable_relative_path": "Versions/Base93333/SC2_x64.exe",
+        "working_directory": "Support64",
+        "backend": "windows-local-v1",
+        "readiness_strategy": "boolean-pairs-two-hold-slots",
+        "observation_strategy": "vectored-exception-r14-rcx-rbx",
+        "helper_sources": [
+          "native/windows_bridge.c"
+        ],
+        "evidence": "evidence/2026-10-31/windows-validation.json",
+        "players": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "replay_guard_min_player": 4,
+        "helper_source_sha256": [],
+        "executable_uuid": null,
+        "data_selection": "explicit",
+        "ability_remaps": [],
+        "detect_ability_layout": true
+      },
+      "stepped_arena": [
+        {
+          "report": "reports/three-builds-counts-93333/2",
+          "passed": true,
+          "count": 2,
+          "realtime": false,
+          "native_ids": [
+            1,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-93333/3",
+          "passed": true,
+          "count": 3,
+          "realtime": false,
+          "native_ids": [
+            1,
+            3,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-93333/4",
+          "passed": true,
+          "count": 4,
+          "realtime": false,
+          "native_ids": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-93333/5",
+          "passed": true,
+          "count": 5,
+          "realtime": false,
+          "native_ids": [
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-93333/6",
+          "passed": true,
+          "count": 6,
+          "realtime": false,
+          "native_ids": [
+            1,
+            5,
+            2,
+            4,
+            6,
+            3
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-93333/7",
+          "passed": true,
+          "count": 7,
+          "realtime": false,
+          "native_ids": [
+            1,
+            6,
+            7,
+            3,
+            4,
+            5,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 84,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-93333/8",
+          "passed": true,
+          "count": 8,
+          "realtime": false,
+          "native_ids": [
+            1,
+            5,
+            4,
+            7,
+            3,
+            2,
+            8,
+            6
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 84,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        }
+      ],
+      "realtime_arena": [
+        {
+          "report": "reports/three-builds-realtime-93333/4",
+          "passed": true,
+          "count": 4,
+          "realtime": true,
+          "native_ids": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 102,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-realtime-93333/8",
+          "passed": true,
+          "count": 8,
+          "realtime": true,
+          "native_ids": [
+            1,
+            2,
+            3,
+            6,
+            4,
+            7,
+            5,
+            8
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 114,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "canonical-4132",
+          "api_engine_identity": {
+            "game_version": "5.0.14.93333",
+            "base_build": 93333,
+            "data_version": "446907060311FB1CC29EB31E547BB9FD"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base93333",
+            "GameVersion": "5.0.14.93333",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        }
+      ],
+      "eight_player_research": {
+        "report": "reports/three-builds-research-93333/game",
+        "passed": true,
+        "count": 8,
+        "realtime": false,
+        "native_ids": [
+          1,
+          4,
+          3,
+          6,
+          8,
+          2,
+          7,
+          5
+        ],
+        "game_time_limit": 500,
+        "final_game_loop": 8005,
+        "step_size": 32,
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "ability_layout": "canonical-4132",
+        "api_engine_identity": {
+          "game_version": "5.0.14.93333",
+          "base_build": 93333,
+          "data_version": "446907060311FB1CC29EB31E547BB9FD"
+        },
+        "observed_upgrade_fault_ids": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "owned_processes_closed": true,
+        "replay_metadata": {
+          "BaseBuild": "Base93333",
+          "GameVersion": "5.0.14.93333",
+          "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+        },
+        "verification": {
+          "passed": true,
+          "native_results": {
+            "1": "Tie",
+            "2": "Tie",
+            "3": "Tie",
+            "4": "Tie",
+            "5": "Tie",
+            "6": "Tie",
+            "7": "Tie",
+            "8": "Tie"
+          },
+          "research_completions": [
+            {
+              "player_id": 3,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4292,
+              "count": 1
+            },
+            {
+              "player_id": 7,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4292,
+              "count": 1
+            },
+            {
+              "player_id": 5,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4420,
+              "count": 1
+            },
+            {
+              "player_id": 6,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4420,
+              "count": 1
+            },
+            {
+              "player_id": 8,
+              "upgrade": "TerranInfantryWeaponsLevel1",
+              "loop": 5156,
+              "count": 1
+            },
+            {
+              "player_id": 1,
+              "upgrade": "TerranInfantryWeaponsLevel1",
+              "loop": 5284,
+              "count": 1
+            },
+            {
+              "player_id": 4,
+              "upgrade": "ProtossGroundWeaponsLevel1",
+              "loop": 5476,
+              "count": 1
+            },
+            {
+              "player_id": 2,
+              "upgrade": "ProtossGroundWeaponsLevel1",
+              "loop": 5476,
+              "count": 1
+            }
+          ],
+          "playback": [
+            {
+              "observed_id": 0,
+              "upgrades": [],
+              "upgrade_events": {},
+              "attack_levels": {
+                "6": 0,
+                "16": 0,
+                "7": 0,
+                "4": 1,
+                "1": 1,
+                "5": 0,
+                "3": 0,
+                "2": 1,
+                "8": 1
+              },
+              "result": null
+            },
+            {
+              "observed_id": 8,
+              "upgrades": [
+                "TERRANINFANTRYWEAPONSLEVEL1"
+              ],
+              "upgrade_events": {
+                "TERRANINFANTRYWEAPONSLEVEL1": 1
+              },
+              "attack_levels": {
+                "16": 0,
+                "7": 0,
+                "1": 1,
+                "3": 0,
+                "8": 1
+              },
+              "result": "Tie"
+            }
+          ],
+          "request_counts": {
+            "ping": 9,
+            "join_game": 8,
+            "data": 16,
+            "step": 2024,
+            "action": 218,
+            "observation": 2016,
+            "game_info": 2016,
+            "query": 6422,
+            "save_replay": 1
+          },
+          "independent_clients": true,
+          "own_upgrade_callbacks": true,
+          "owned_processes_closed": true
+        }
+      },
+      "installed_wheel_realtime": {
+        "report": "reports/three-builds-wheel-93333/4",
+        "passed": true,
+        "count": 4,
+        "realtime": true,
+        "native_ids": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "game_time_limit": 5,
+        "final_game_loop": 103,
+        "step_size": 8,
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "ability_layout": "canonical-4132",
+        "api_engine_identity": {
+          "game_version": "5.0.14.93333",
+          "base_build": 93333,
+          "data_version": "446907060311FB1CC29EB31E547BB9FD"
+        },
+        "observed_upgrade_fault_ids": [],
+        "owned_processes_closed": true,
+        "replay_metadata": {
+          "BaseBuild": "Base93333",
+          "GameVersion": "5.0.14.93333",
+          "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+        }
+      }
+    },
+    {
+      "build": 98370,
+      "profile": {
+        "id": "windows-x86_64-98370-v1",
+        "system": "Windows",
+        "architecture": "x86_64",
+        "build": 98370,
+        "game_version": "5.0.15.98370",
+        "executable_sha256": "c68202849f8e64ed20d15bea0fb89f2c5b94028d075d9848e124a8264d130222",
+        "executable_relative_path": "Versions/Base98370/SC2_x64.exe",
+        "working_directory": "Support64",
+        "backend": "windows-local-v1",
+        "readiness_strategy": "boolean-pairs-two-hold-slots",
+        "observation_strategy": "vectored-exception-stack-rax-rdi",
+        "helper_sources": [
+          "native/windows_bridge.c"
+        ],
+        "evidence": "evidence/2026-11-01/windows-98370-validation.json",
+        "players": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "replay_guard_min_player": 4,
+        "helper_source_sha256": [],
+        "executable_uuid": null,
+        "data_selection": "installed-verified",
+        "ability_remaps": [
+          [
+            4124,
+            4121,
+            "MorphToBaneling",
+            "Baneling"
+          ],
+          [
+            4125,
+            4122,
+            "MorphToBaneling",
+            "Cancel"
+          ],
+          [
+            4127,
+            4124,
+            "MothershipCloak",
+            "OracleCloakField"
+          ],
+          [
+            4129,
+            4126,
+            "EnergyRecharge",
+            "EnergyRecharge"
+          ],
+          [
+            4131,
+            4128,
+            "SalvageEffect",
+            "Salvage"
+          ],
+          [
+            4133,
+            4130,
+            "SalvageSensorTowerRefund",
+            "Salvage"
+          ],
+          [
+            4135,
+            4132,
+            "WorkerStopIdleAbilityVespene",
+            "Gather"
+          ]
+        ],
+        "detect_ability_layout": true
+      },
+      "stepped_arena": [
+        {
+          "report": "reports/three-builds-counts-98370/2",
+          "passed": true,
+          "count": 2,
+          "realtime": false,
+          "native_ids": [
+            1,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-98370/3",
+          "passed": true,
+          "count": 3,
+          "realtime": false,
+          "native_ids": [
+            1,
+            3,
+            2
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-98370/4",
+          "passed": true,
+          "count": 4,
+          "realtime": false,
+          "native_ids": [
+            1,
+            2,
+            4,
+            3
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-98370/5",
+          "passed": true,
+          "count": 5,
+          "realtime": false,
+          "native_ids": [
+            1,
+            3,
+            2,
+            4,
+            5
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-98370/6",
+          "passed": true,
+          "count": 6,
+          "realtime": false,
+          "native_ids": [
+            1,
+            3,
+            2,
+            5,
+            6,
+            4
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-98370/7",
+          "passed": true,
+          "count": 7,
+          "realtime": false,
+          "native_ids": [
+            1,
+            6,
+            4,
+            2,
+            7,
+            3,
+            5
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-counts-98370/8",
+          "passed": true,
+          "count": 8,
+          "realtime": false,
+          "native_ids": [
+            1,
+            2,
+            6,
+            3,
+            8,
+            7,
+            5,
+            4
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 83,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        }
+      ],
+      "realtime_arena": [
+        {
+          "report": "reports/three-builds-realtime-98370/4",
+          "passed": true,
+          "count": 4,
+          "realtime": true,
+          "native_ids": [
+            1,
+            4,
+            2,
+            3
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 108,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        },
+        {
+          "report": "reports/three-builds-realtime-98370/8",
+          "passed": true,
+          "count": 8,
+          "realtime": true,
+          "native_ids": [
+            1,
+            3,
+            5,
+            6,
+            2,
+            7,
+            4,
+            8
+          ],
+          "game_time_limit": 5,
+          "final_game_loop": 111,
+          "step_size": 8,
+          "results": [
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie",
+            "Tie"
+          ],
+          "ability_layout": "shifted-4135",
+          "api_engine_identity": {
+            "game_version": "5.0.15.98370",
+            "base_build": 98370,
+            "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+          },
+          "observed_upgrade_fault_ids": [],
+          "owned_processes_closed": true,
+          "replay_metadata": {
+            "BaseBuild": "Base98370",
+            "GameVersion": "5.0.15.98370",
+            "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+          }
+        }
+      ],
+      "eight_player_research": {
+        "report": "reports/three-builds-research-98370/game",
+        "passed": true,
+        "count": 8,
+        "realtime": false,
+        "native_ids": [
+          1,
+          3,
+          2,
+          8,
+          6,
+          4,
+          5,
+          7
+        ],
+        "game_time_limit": 500,
+        "final_game_loop": 8004,
+        "step_size": 32,
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "ability_layout": "shifted-4135",
+        "api_engine_identity": {
+          "game_version": "5.0.15.98370",
+          "base_build": 98370,
+          "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+        },
+        "observed_upgrade_fault_ids": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "owned_processes_closed": true,
+        "replay_metadata": {
+          "BaseBuild": "Base98370",
+          "GameVersion": "5.0.15.98370",
+          "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+        },
+        "verification": {
+          "passed": true,
+          "native_results": {
+            "1": "Tie",
+            "2": "Tie",
+            "3": "Tie",
+            "4": "Tie",
+            "5": "Tie",
+            "6": "Tie",
+            "7": "Tie",
+            "8": "Tie"
+          },
+          "research_completions": [
+            {
+              "player_id": 5,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4292,
+              "count": 1
+            },
+            {
+              "player_id": 2,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4292,
+              "count": 1
+            },
+            {
+              "player_id": 8,
+              "upgrade": "zerglingmovementspeed",
+              "loop": 4420,
+              "count": 1
+            },
+            {
+              "player_id": 6,
+              "upgrade": "TerranInfantryWeaponsLevel1",
+              "loop": 5156,
+              "count": 1
+            },
+            {
+              "player_id": 1,
+              "upgrade": "TerranInfantryWeaponsLevel1",
+              "loop": 5284,
+              "count": 1
+            },
+            {
+              "player_id": 7,
+              "upgrade": "TerranInfantryWeaponsLevel1",
+              "loop": 5316,
+              "count": 1
+            },
+            {
+              "player_id": 3,
+              "upgrade": "ProtossGroundWeaponsLevel1",
+              "loop": 5444,
+              "count": 1
+            },
+            {
+              "player_id": 4,
+              "upgrade": "ProtossGroundWeaponsLevel1",
+              "loop": 5476,
+              "count": 1
+            }
+          ],
+          "playback": [
+            {
+              "observed_id": 0,
+              "upgrades": [],
+              "upgrade_events": {},
+              "attack_levels": {
+                "16": 0,
+                "1": 1,
+                "2": 0,
+                "3": 1,
+                "4": 1,
+                "5": 0,
+                "6": 1,
+                "7": 1,
+                "8": 0
+              },
+              "result": null
+            },
+            {
+              "observed_id": 8,
+              "upgrades": [
+                "ZERGLINGMOVEMENTSPEED"
+              ],
+              "upgrade_events": {
+                "ZERGLINGMOVEMENTSPEED": 1
+              },
+              "attack_levels": {
+                "16": 0,
+                "8": 0,
+                "7": 1,
+                "4": 1,
+                "3": 1
+              },
+              "result": "Tie"
+            }
+          ],
+          "request_counts": {
+            "ping": 9,
+            "join_game": 8,
+            "data": 16,
+            "step": 2024,
+            "action": 215,
+            "observation": 2016,
+            "game_info": 2016,
+            "query": 11936,
+            "save_replay": 1
+          },
+          "independent_clients": true,
+          "own_upgrade_callbacks": true,
+          "owned_processes_closed": true
+        }
+      },
+      "installed_wheel_realtime": {
+        "report": "reports/three-builds-wheel-98370/4",
+        "passed": true,
+        "count": 4,
+        "realtime": true,
+        "native_ids": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "game_time_limit": 5,
+        "final_game_loop": 107,
+        "step_size": 8,
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "ability_layout": "shifted-4135",
+        "api_engine_identity": {
+          "game_version": "5.0.15.98370",
+          "base_build": 98370,
+          "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+        },
+        "observed_upgrade_fault_ids": [],
+        "owned_processes_closed": true,
+        "replay_metadata": {
+          "BaseBuild": "Base98370",
+          "GameVersion": "5.0.15.98370",
+          "DataVersion": "84197ED58A0329FA79CC9426E07E5FB3"
+        }
+      }
+    }
+  ],
+  "packaging": {
+    "version": "0.3.2a4",
+    "source_tests": {
+      "passed": 334,
+      "log": "reports/three-builds-tests.log"
+    },
+    "installed_wheel_tests": {
+      "passed": 334,
+      "log": "reports/three-builds-installed-tests.log",
+      "outside_source": true
+    },
+    "wheel_source_files_verified": 87,
+    "raw_game_artifacts_excluded": true,
+    "tested_artifacts_sha256": {
+      "dist/0.3.2a4-tested/mpsc2-0.3.2a4-py3-none-any.whl": "35aae643bedebcf8ab9a3090ae6719d415d956d8efcabb2cd7ddeeb5ecfce506",
+      "dist/0.3.2a4-tested/mpsc2-0.3.2a4.tar.gz": "a666b9442410b58c6b46274fc358bee365fee5b7fcfe92fe90da80953459a4d8"
+    },
+    "packaged_source_sha256": {
+      "src/mpsc2/action.py": "a2817e413c5fded672379872e21486db736564f64f52e9d7d2e6223bb176a59c",
+      "src/mpsc2/arena.py": "eba36c3c570ffcb0700d278dc5d19ebf09566e561bd89773b3ec5df5cafcaf2f",
+      "src/mpsc2/bot_ai.py": "036a2077db7f285fa148fafe4187ce15ac5de4bf4dffe252ee3a10bb9735175b",
+      "src/mpsc2/bot_ai_internal.py": "792bcbf677f0102663d728fff88b01242680ec1db2eea73e9bada388011ae86b",
+      "src/mpsc2/cache.py": "c2dac7c194f1ac2e03e9cb8071726778e9f184eba2cfaa81dc99d9fdd00c4d88",
+      "src/mpsc2/capabilities.py": "bc39e55f0b446f1bfbebd578df972379dbc59ae2ec9dafb93bcfb72f4248151c",
+      "src/mpsc2/cli.py": "5bbeee505ba075c3d002a63b2fc2ca0a2e38980fb0cf2ae1dbd0f5cb56b0d22f",
+      "src/mpsc2/client.py": "44242d52727aa7a44d0076726efe833217412777a9772ee43d6e31e09d2212a1",
+      "src/mpsc2/constants.py": "754d36bb12aecbf43480b4049bf28b15bf23f9ca0d93b60373df432e9ca6b3e8",
+      "src/mpsc2/controller.py": "1da6d60faf9cb362ea5cebbd6d0e89a8f240830a1b1271b66c431019ddc9e7b4",
+      "src/mpsc2/data.py": "5844efb34b3d74357879db7c83ae85c322ade9778d4700a77477f552587ab88c",
+      "src/mpsc2/expiring_dict.py": "4214bec94fe7a5df31f92eb22f446757cb677c37e6c46315cbe208da048dbac3",
+      "src/mpsc2/game_data.py": "ad52dd2f94b19edbf9416bdb0adffee0351d3094a695816ac456cd35506924dd",
+      "src/mpsc2/game_info.py": "3a480385ca5b93422ef6f54b3556b41677667f9e25bea02cdd87fe41d94afeaf",
+      "src/mpsc2/game_state.py": "ec21dab3e518037ad497017cbc08cb35cc403ec568046e90f8c4ff97b9d282c7",
+      "src/mpsc2/installation.py": "d4c359670f2756f93b58e1b73d0426c52467813d3d222794ea0cce972d14f760",
+      "src/mpsc2/main.py": "b5cd334a5eaaa9defe169b2f6775edd352623803b6c41658da278ac3f2ca4492",
+      "src/mpsc2/maps.py": "a7ce6e874fdc786aba094457a61936c6d837f182bee2338040ca161cdeefad7b",
+      "src/mpsc2/matches.py": "88b5b07ee23b7ef23602881e4328b9d005c539a4256dcac95ba3c64788a82c4c",
+      "src/mpsc2/Melee.galaxy": "63e2ca2564c21af263779395d7d1f6acc4f391590985385c18db3b6f93124a5a",
+      "src/mpsc2/mpq.py": "83bf63dbf10039b7b971188af6e0ebf58ba5a967afe5f3589a3201d46b39ee2a",
+      "src/mpsc2/native_session.py": "8b0094818db4376ea51712d12db9e75f506b0457d1a2e7463bb06c0445dd2501",
+      "src/mpsc2/observer_ai.py": "f4375cf1f89f3b9c050d3bdf097958f6cd29545af303a6fcbf42ea186465f270",
+      "src/mpsc2/paths.py": "2ec269a64b6043471f6e4e9e34844c6361d1a316786cca25a99798631f7e9e50",
+      "src/mpsc2/pixel_map.py": "ba71209a1d77492c917c9a042dc887d1917e8b03784dda550dff150a4a85c8e4",
+      "src/mpsc2/player.py": "f5be9088a6738a267fcf6f172b7407260836901cbb806ba41f96c6e49209f61a",
+      "src/mpsc2/portconfig.py": "b8e3c5aa672d1e917c4fe08f1136e55e6fa2c73cddc7238e2e8f2cc17cb77062",
+      "src/mpsc2/position.py": "75a7de47ce0e3d7844fad5900840c08a521458db7fe36d2bd398e7a150061b63",
+      "src/mpsc2/power_source.py": "7cadb82e018add6f485d51cf65f287c331398630b54fa536b7f25df7da5e4f34",
+      "src/mpsc2/probe.py": "8ba019bc7f09aea63f7259d906699e791144a210c32b612f4b2d594051699113",
+      "src/mpsc2/protocol.py": "89dc31246ba73f8c78863f25fc947a572e2becec38379a3e6cf90ebb354fbfaf",
+      "src/mpsc2/protocol_compat.py": "137ce6581bde0948d297789e33a1ed2ca7afae903e7048fd4a77f83502755dab",
+      "src/mpsc2/proxy.py": "f90d937fefe7a6c388bc77effe777a75d970c5ee5289015d7f5c850ca2430e10",
+      "src/mpsc2/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/mpsc2/replay.py": "bf3cb91c45c24107445c0942629cfc14e581c0db5bdd8b7a7777355475ffb11b",
+      "src/mpsc2/RuntimeArena.galaxy": "9ba278547f63454290d93df7d1eca6b9653af38b2a423037dc18f93d716523d3",
+      "src/mpsc2/sc2process.py": "856a48bc7e2138cfd3760dff2ba81e0fbf3004b60bc7200e1173d6eeebf6bd06",
+      "src/mpsc2/score.py": "47ad10486671a597dde765a52351c1b11f8663fb93f4624cfe7c37a502b963c1",
+      "src/mpsc2/session.py": "b6df140581da78ccfaf6bb5138b62ea598e780d17a53626671af359990ea9cb3",
+      "src/mpsc2/smoke.py": "4ea70dc0280e18e4ef7c006655b390f513b4dc239736d4601d0d536a83594e2f",
+      "src/mpsc2/standard.py": "928524667bda77f71ecf6b85674c59a0716c1936398f619356fdd84d1696c30d",
+      "src/mpsc2/team.py": "5f053daed56088a990b65d8e33404eaac9601740a0a7190e9045f204211bc35f",
+      "src/mpsc2/unit.py": "586174bcae18faaded8c9cc81366d757d895990592341c7a56966670428257a4",
+      "src/mpsc2/units.py": "8b300ee0fb8f73596ddf163655f7299490df03efe9d91b5bc21f59ac9e235038",
+      "src/mpsc2/unit_command.py": "de857faf9e08f9a5382c7e82cdd55e3d0a20d38ac93aec70837730ff7a883e4c",
+      "src/mpsc2/versions.py": "72c25400e4784f9175b5bd9027bfd581573b52b2fffb2d08aa534ac742c4c9f8",
+      "src/mpsc2/windows_session.py": "b255fcba8297ba707c71d32d5746a7166c8eaa1b7867ed7917d9ff4f0387575b",
+      "src/mpsc2/__init__.py": "0ab669290235753b99621e3d939ff2e43cdae5014c2c9079ff3959a1e4fb88c7",
+      "src/mpsc2/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src/mpsc2/assets/MPSC2Melee.SC2Map": "8ff5697a9363ee6995381cdf5ff9a145c6aa4d9f435a5a39c6ce77e2993d2e00",
+      "src/mpsc2/assets/MPSC2TeamArena.SC2Map": "5067d76a0ba49bf93ab8aca43011d79955da65d0bbfcc2c32ef08088fdf02af8",
+      "src/mpsc2/dicts/generic_redirect_abilities.py": "836d1dbddaabe3ad84280c3140cb595b1859adcf3c88481e715eda18fe33d7cb",
+      "src/mpsc2/dicts/unit_abilities.py": "55a1c8e0e09bdfef56496c0e9299bfbc15d8fc1a5e70411eacf36c63b1309527",
+      "src/mpsc2/dicts/unit_research_abilities.py": "239caf4f07c4985cced98707a96a0628caa9e8567475bbce6932d193b4cda884",
+      "src/mpsc2/dicts/unit_tech_alias.py": "c25c8dcbd08f6947e84f9ec5211f40fe3274a89613dfcb3c62ee95cf223f0f0f",
+      "src/mpsc2/dicts/unit_trained_from.py": "2bbb218b3571c9c702f8a0cc0de6b934e7088876aadeacd7621304de9354005b",
+      "src/mpsc2/dicts/unit_train_build_abilities.py": "9577a501cef20199579c2ee6d971178d9b38be514ad5b7bfc947c6aa1d7b85ca",
+      "src/mpsc2/dicts/unit_unit_alias.py": "ca8ac95c147a8ff6659ae342ddda2459ac1d0e574dc4acc68391d3a3f8c0a770",
+      "src/mpsc2/dicts/upgrade_researched_from.py": "34de27e57bdb7c6db011cb0a06eb902c20338ae95f6f23011ff78af38a86fcf2",
+      "src/mpsc2/dicts/__init__.py": "0660ae3ec90eadf7b26e55b61cf19def5e4f8cfe760e26fbd4d9a0376ded6667",
+      "src/mpsc2/ids/ability_id.py": "084f89b9fefbb41b5b2003dc8b7c0020f75f5576bf5529fa7e0dc5aa123819ee",
+      "src/mpsc2/ids/buff_id.py": "8fa8655f29cc6f81d4c19c294c6962e6220097d4f40e6237f5b6ea760f468ddf",
+      "src/mpsc2/ids/effect_id.py": "b757c4a26e34c452f3e23c21455d045bfea65881c581fcf9769d16e533b5b682",
+      "src/mpsc2/ids/id_version.py": "e725f1deab0f5ccf7d2660f83b5205389098a740126682521d0a737e40381239",
+      "src/mpsc2/ids/unit_typeid.py": "9e85fe03868bef82da0948afd16e72033855b73f53f7bd19c9b9f13afc2c07d0",
+      "src/mpsc2/ids/upgrade_id.py": "1dd588ff1a77e2132e246cb2fbc50225c7302baca3014d8f5dfaaeaf5535a92f",
+      "src/mpsc2/ids/__init__.py": "f195277618375501aa5fa4c4c1609a417e200eca3c136e10b1838698132c8bdd",
+      "src/mpsc2/licenses/LICENSE.python-sc2": "74b446893e6c91d958871a1ed90fa4ff4bf4f2f4641a5f677d41e391dd691dc4",
+      "src/mpsc2/licenses/LICENSE.s2client-api": "95fe34da4157ca45d02ce57193d6427996e609b4c670d0ab78c4786dfae029a4",
+      "src/mpsc2/licenses/minhook.txt": "d5c2224982b0b95a16b098a561335fa93f3eaf4d0aa964b7843edb986df78dc8",
+      "src/mpsc2/native/local_four_bridge.c": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "src/mpsc2/native/observation_guard.c": "7b8275a1f79cec21c0a8ba3e50398236de2ce748beb902e759254ffcaff74ef6",
+      "src/mpsc2/native/windows_bridge.c": "8afbe6178200f8d7edd49a3ef1ae63f15ea1dd9597cd19f90d82da67bf74d2b0",
+      "src/mpsc2/native/minhook/LICENSE.txt": "d5c2224982b0b95a16b098a561335fa93f3eaf4d0aa964b7843edb986df78dc8",
+      "src/mpsc2/native/minhook/include/MinHook.h": "62dff05e63155c6bf8135c36a0d79dedbdcaaede9da26fe38daf0bea34323e38",
+      "src/mpsc2/native/minhook/src/buffer.c": "0ab484d7870c3a8e7a3a1ee61e2070072cf445ed85b619d4c4207fed34356d99",
+      "src/mpsc2/native/minhook/src/buffer.h": "9769702bd625249e59a19ede05c84365fcc7707e1fa0e5df08df42227cee13e3",
+      "src/mpsc2/native/minhook/src/hook.c": "edcce4c81985d7dd5b73feae96d6498c8f749b1bca4c3d2d9926ea9a17a84755",
+      "src/mpsc2/native/minhook/src/trampoline.c": "f13a169f803ff5a8e45c58ce668b4377a9878c0fc4452369b8a1325065186b2b",
+      "src/mpsc2/native/minhook/src/trampoline.h": "53ed9934492320617a27bfd952ffe7f5b7a4a1d09963d4512447082fe7b727b4",
+      "src/mpsc2/native/minhook/src/hde/hde32.c": "5da4941e9044f7b325c7f952b5840089e365f374740b7fe7318805d08c0d6c32",
+      "src/mpsc2/native/minhook/src/hde/hde32.h": "5132de5be8ac7a9d054420f5caef0fb01437faa892f03b3cdc77f795973bf15a",
+      "src/mpsc2/native/minhook/src/hde/hde64.c": "824eafa315322e6da105a7ce4ec1fc0e0adeee0106d32152fbb0b59e709bd15c",
+      "src/mpsc2/native/minhook/src/hde/hde64.h": "e99aa4997bda14b534c614c3d8cb78a72c4aca91a1212c8b03ec605d1d75e36e",
+      "src/mpsc2/native/minhook/src/hde/pstdint.h": "604d1cdf45c5a95bc9cf1bbf39ca05ef83013541101d34971c5cd7577e3d5247",
+      "src/mpsc2/native/minhook/src/hde/table32.h": "43bf687a9fff071b5f46070db4d36c846f8e069cdc57485ee897c499aacdde23",
+      "src/mpsc2/native/minhook/src/hde/table64.h": "b774446d2f110ce954fb0a710f4693c5562ddbd8d56fe84106f2ee80db8b50a2"
+    }
+  },
+  "macos": {
+    "helpers_unchanged": {
+      "native/local_four_bridge.c": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native/observation_guard.c": "7b8275a1f79cec21c0a8ba3e50398236de2ce748beb902e759254ffcaff74ef6"
+    },
+    "offline_regressions_passed": true,
+    "live_rerun": false
+  },
+  "installed_executables_unchanged": true,
+  "retained_failures": [
+    {
+      "artifacts": [
+        "reports/three-builds-investigation/dump75689.log"
+      ],
+      "failure": "Base75689 without -dataVersion did not establish an API connection; diagnostic launcher stopped",
+      "resolution": "Retain the historical boot hash for this engine; explicit launch and all public-route tests passed"
+    },
+    {
+      "artifacts": [
+        "reports/three-builds-75689-first"
+      ],
+      "failure": "Four native clients joined but the strict ability detector refused the unregistered legacy table",
+      "resolution": "Measured API names and added the separate legacy-4.10-3800 mapping; unknown layouts still fail closed"
+    }
+  ],
+  "limits": [
+    "Exact executable hashes and verified live ability layouts required; no fallback to another engine",
+    "Old-engine Ping boot hashes and replay installation labels differ; historical balance-data parity is not certified",
+    "Legacy content cannot supply abilities added after its release; unsupported numeric collisions are rejected",
+    "Bundled scenarios on one local Windows host; no arbitrary maps, remote hosts or Linux native backend",
+    "No live Mac rerun; original helper hashes and offline passthrough/dispatch checks are preserved",
+    "Bounded player-count/realtime checks and eight-player research do not validate every ability or long training campaign"
+  ],
+  "source_sha256": {
+    "src/mpsc2/action.py": "a2817e413c5fded672379872e21486db736564f64f52e9d7d2e6223bb176a59c",
+    "src/mpsc2/arena.py": "eba36c3c570ffcb0700d278dc5d19ebf09566e561bd89773b3ec5df5cafcaf2f",
+    "src/mpsc2/bot_ai.py": "036a2077db7f285fa148fafe4187ce15ac5de4bf4dffe252ee3a10bb9735175b",
+    "src/mpsc2/bot_ai_internal.py": "792bcbf677f0102663d728fff88b01242680ec1db2eea73e9bada388011ae86b",
+    "src/mpsc2/cache.py": "c2dac7c194f1ac2e03e9cb8071726778e9f184eba2cfaa81dc99d9fdd00c4d88",
+    "src/mpsc2/capabilities.py": "bc39e55f0b446f1bfbebd578df972379dbc59ae2ec9dafb93bcfb72f4248151c",
+    "src/mpsc2/cli.py": "5bbeee505ba075c3d002a63b2fc2ca0a2e38980fb0cf2ae1dbd0f5cb56b0d22f",
+    "src/mpsc2/client.py": "44242d52727aa7a44d0076726efe833217412777a9772ee43d6e31e09d2212a1",
+    "src/mpsc2/constants.py": "754d36bb12aecbf43480b4049bf28b15bf23f9ca0d93b60373df432e9ca6b3e8",
+    "src/mpsc2/controller.py": "1da6d60faf9cb362ea5cebbd6d0e89a8f240830a1b1271b66c431019ddc9e7b4",
+    "src/mpsc2/data.py": "5844efb34b3d74357879db7c83ae85c322ade9778d4700a77477f552587ab88c",
+    "src/mpsc2/expiring_dict.py": "4214bec94fe7a5df31f92eb22f446757cb677c37e6c46315cbe208da048dbac3",
+    "src/mpsc2/game_data.py": "ad52dd2f94b19edbf9416bdb0adffee0351d3094a695816ac456cd35506924dd",
+    "src/mpsc2/game_info.py": "3a480385ca5b93422ef6f54b3556b41677667f9e25bea02cdd87fe41d94afeaf",
+    "src/mpsc2/game_state.py": "ec21dab3e518037ad497017cbc08cb35cc403ec568046e90f8c4ff97b9d282c7",
+    "src/mpsc2/installation.py": "d4c359670f2756f93b58e1b73d0426c52467813d3d222794ea0cce972d14f760",
+    "src/mpsc2/main.py": "b5cd334a5eaaa9defe169b2f6775edd352623803b6c41658da278ac3f2ca4492",
+    "src/mpsc2/maps.py": "a7ce6e874fdc786aba094457a61936c6d837f182bee2338040ca161cdeefad7b",
+    "src/mpsc2/matches.py": "88b5b07ee23b7ef23602881e4328b9d005c539a4256dcac95ba3c64788a82c4c",
+    "src/mpsc2/mpq.py": "83bf63dbf10039b7b971188af6e0ebf58ba5a967afe5f3589a3201d46b39ee2a",
+    "src/mpsc2/native_session.py": "8b0094818db4376ea51712d12db9e75f506b0457d1a2e7463bb06c0445dd2501",
+    "src/mpsc2/observer_ai.py": "f4375cf1f89f3b9c050d3bdf097958f6cd29545af303a6fcbf42ea186465f270",
+    "src/mpsc2/paths.py": "2ec269a64b6043471f6e4e9e34844c6361d1a316786cca25a99798631f7e9e50",
+    "src/mpsc2/pixel_map.py": "ba71209a1d77492c917c9a042dc887d1917e8b03784dda550dff150a4a85c8e4",
+    "src/mpsc2/player.py": "f5be9088a6738a267fcf6f172b7407260836901cbb806ba41f96c6e49209f61a",
+    "src/mpsc2/portconfig.py": "b8e3c5aa672d1e917c4fe08f1136e55e6fa2c73cddc7238e2e8f2cc17cb77062",
+    "src/mpsc2/position.py": "75a7de47ce0e3d7844fad5900840c08a521458db7fe36d2bd398e7a150061b63",
+    "src/mpsc2/power_source.py": "7cadb82e018add6f485d51cf65f287c331398630b54fa536b7f25df7da5e4f34",
+    "src/mpsc2/probe.py": "8ba019bc7f09aea63f7259d906699e791144a210c32b612f4b2d594051699113",
+    "src/mpsc2/protocol.py": "89dc31246ba73f8c78863f25fc947a572e2becec38379a3e6cf90ebb354fbfaf",
+    "src/mpsc2/protocol_compat.py": "137ce6581bde0948d297789e33a1ed2ca7afae903e7048fd4a77f83502755dab",
+    "src/mpsc2/proxy.py": "f90d937fefe7a6c388bc77effe777a75d970c5ee5289015d7f5c850ca2430e10",
+    "src/mpsc2/replay.py": "bf3cb91c45c24107445c0942629cfc14e581c0db5bdd8b7a7777355475ffb11b",
+    "src/mpsc2/sc2process.py": "856a48bc7e2138cfd3760dff2ba81e0fbf3004b60bc7200e1173d6eeebf6bd06",
+    "src/mpsc2/score.py": "47ad10486671a597dde765a52351c1b11f8663fb93f4624cfe7c37a502b963c1",
+    "src/mpsc2/session.py": "b6df140581da78ccfaf6bb5138b62ea598e780d17a53626671af359990ea9cb3",
+    "src/mpsc2/smoke.py": "4ea70dc0280e18e4ef7c006655b390f513b4dc239736d4601d0d536a83594e2f",
+    "src/mpsc2/standard.py": "928524667bda77f71ecf6b85674c59a0716c1936398f619356fdd84d1696c30d",
+    "src/mpsc2/team.py": "5f053daed56088a990b65d8e33404eaac9601740a0a7190e9045f204211bc35f",
+    "src/mpsc2/unit.py": "586174bcae18faaded8c9cc81366d757d895990592341c7a56966670428257a4",
+    "src/mpsc2/units.py": "8b300ee0fb8f73596ddf163655f7299490df03efe9d91b5bc21f59ac9e235038",
+    "src/mpsc2/unit_command.py": "de857faf9e08f9a5382c7e82cdd55e3d0a20d38ac93aec70837730ff7a883e4c",
+    "src/mpsc2/versions.py": "72c25400e4784f9175b5bd9027bfd581573b52b2fffb2d08aa534ac742c4c9f8",
+    "src/mpsc2/windows_session.py": "b255fcba8297ba707c71d32d5746a7166c8eaa1b7867ed7917d9ff4f0387575b",
+    "src/mpsc2/__init__.py": "0ab669290235753b99621e3d939ff2e43cdae5014c2c9079ff3959a1e4fb88c7",
+    "src/mpsc2/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/mpsc2/dicts/generic_redirect_abilities.py": "836d1dbddaabe3ad84280c3140cb595b1859adcf3c88481e715eda18fe33d7cb",
+    "src/mpsc2/dicts/unit_abilities.py": "55a1c8e0e09bdfef56496c0e9299bfbc15d8fc1a5e70411eacf36c63b1309527",
+    "src/mpsc2/dicts/unit_research_abilities.py": "239caf4f07c4985cced98707a96a0628caa9e8567475bbce6932d193b4cda884",
+    "src/mpsc2/dicts/unit_tech_alias.py": "c25c8dcbd08f6947e84f9ec5211f40fe3274a89613dfcb3c62ee95cf223f0f0f",
+    "src/mpsc2/dicts/unit_trained_from.py": "2bbb218b3571c9c702f8a0cc0de6b934e7088876aadeacd7621304de9354005b",
+    "src/mpsc2/dicts/unit_train_build_abilities.py": "9577a501cef20199579c2ee6d971178d9b38be514ad5b7bfc947c6aa1d7b85ca",
+    "src/mpsc2/dicts/unit_unit_alias.py": "ca8ac95c147a8ff6659ae342ddda2459ac1d0e574dc4acc68391d3a3f8c0a770",
+    "src/mpsc2/dicts/upgrade_researched_from.py": "34de27e57bdb7c6db011cb0a06eb902c20338ae95f6f23011ff78af38a86fcf2",
+    "src/mpsc2/dicts/__init__.py": "0660ae3ec90eadf7b26e55b61cf19def5e4f8cfe760e26fbd4d9a0376ded6667",
+    "src/mpsc2/ids/ability_id.py": "084f89b9fefbb41b5b2003dc8b7c0020f75f5576bf5529fa7e0dc5aa123819ee",
+    "src/mpsc2/ids/buff_id.py": "8fa8655f29cc6f81d4c19c294c6962e6220097d4f40e6237f5b6ea760f468ddf",
+    "src/mpsc2/ids/effect_id.py": "b757c4a26e34c452f3e23c21455d045bfea65881c581fcf9769d16e533b5b682",
+    "src/mpsc2/ids/id_version.py": "e725f1deab0f5ccf7d2660f83b5205389098a740126682521d0a737e40381239",
+    "src/mpsc2/ids/unit_typeid.py": "9e85fe03868bef82da0948afd16e72033855b73f53f7bd19c9b9f13afc2c07d0",
+    "src/mpsc2/ids/upgrade_id.py": "1dd588ff1a77e2132e246cb2fbc50225c7302baca3014d8f5dfaaeaf5535a92f",
+    "src/mpsc2/ids/__init__.py": "f195277618375501aa5fa4c4c1609a417e200eca3c136e10b1838698132c8bdd",
+    "src/mpsc2/native/local_four_bridge.c": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+    "src/mpsc2/native/observation_guard.c": "7b8275a1f79cec21c0a8ba3e50398236de2ce748beb902e759254ffcaff74ef6",
+    "src/mpsc2/native/windows_bridge.c": "8afbe6178200f8d7edd49a3ef1ae63f15ea1dd9597cd19f90d82da67bf74d2b0",
+    "src/mpsc2/native/minhook/include/MinHook.h": "62dff05e63155c6bf8135c36a0d79dedbdcaaede9da26fe38daf0bea34323e38",
+    "src/mpsc2/native/minhook/src/buffer.c": "0ab484d7870c3a8e7a3a1ee61e2070072cf445ed85b619d4c4207fed34356d99",
+    "src/mpsc2/native/minhook/src/buffer.h": "9769702bd625249e59a19ede05c84365fcc7707e1fa0e5df08df42227cee13e3",
+    "src/mpsc2/native/minhook/src/hook.c": "edcce4c81985d7dd5b73feae96d6498c8f749b1bca4c3d2d9926ea9a17a84755",
+    "src/mpsc2/native/minhook/src/trampoline.c": "f13a169f803ff5a8e45c58ce668b4377a9878c0fc4452369b8a1325065186b2b",
+    "src/mpsc2/native/minhook/src/trampoline.h": "53ed9934492320617a27bfd952ffe7f5b7a4a1d09963d4512447082fe7b727b4",
+    "src/mpsc2/native/minhook/src/hde/hde32.c": "5da4941e9044f7b325c7f952b5840089e365f374740b7fe7318805d08c0d6c32",
+    "src/mpsc2/native/minhook/src/hde/hde32.h": "5132de5be8ac7a9d054420f5caef0fb01437faa892f03b3cdc77f795973bf15a",
+    "src/mpsc2/native/minhook/src/hde/hde64.c": "824eafa315322e6da105a7ce4ec1fc0e0adeee0106d32152fbb0b59e709bd15c",
+    "src/mpsc2/native/minhook/src/hde/hde64.h": "e99aa4997bda14b534c614c3d8cb78a72c4aca91a1212c8b03ec605d1d75e36e",
+    "src/mpsc2/native/minhook/src/hde/pstdint.h": "604d1cdf45c5a95bc9cf1bbf39ca05ef83013541101d34971c5cd7577e3d5247",
+    "src/mpsc2/native/minhook/src/hde/table32.h": "43bf687a9fff071b5f46070db4d36c846f8e069cdc57485ee897c499aacdde23",
+    "src/mpsc2/native/minhook/src/hde/table64.h": "b774446d2f110ce954fb0a710f4693c5562ddbd8d56fe84106f2ee80db8b50a2"
+  },
+  "local_artifact_sha256": {
+    "reports/three-builds-investigation/doctor-75689.json": "642edb808ad85fa8eee3b73bffa132b657a4992f9c97deaa23ae3fe0d9b85f8d",
+    "reports/three-builds-counts-75689/validation.json": "51ab01533d8c9481b18f25f9c9ebb0761a433e55835b775409199237aee9509f",
+    "reports/three-builds-counts-75689/2/session/client-0/launch.json": "3c6c3d9920d5a434322b30eca234b980501c861becdcf42d340a3c5838c77001",
+    "reports/three-builds-counts-75689/2/session/client-1/launch.json": "41a3755e73163be53968dd0d6dfbdfbab9616c297a1558ba1d7d8ef541311707",
+    "reports/three-builds-counts-75689/2/session/client-0/api.jsonl": "6e245611841796c413c7d805092f5721ba5084dfe39a0f2d3960d02913f024cf",
+    "reports/three-builds-counts-75689/2/session/client-1/api.jsonl": "7c8dafc8ea6a539d13e6d6321fb69285c7fd519ca7b611af332326b83c30333f",
+    "reports/three-builds-counts-75689/2/result.json": "56310e61d36be872bcab0d16b93ce1a95fe5a1d494c85cba06a522ec2f4353c0",
+    "reports/three-builds-counts-75689/2/session/native-session.json": "d52829f2151559371068f1957aaae89987ddaaf44703a75ff23902019ade1f04",
+    "reports/three-builds-counts-75689/2/game.SC2Replay": "ddd4453ff5181a9c0010b1a9997d39d6c0816dc4c03433d57c3fea1a705481b3",
+    "reports/three-builds-counts-75689/3/session/client-0/launch.json": "b4dd5fafae451ea4d788e61f6df1d415b2c54f0dcc3b4b663ae625bc58691830",
+    "reports/three-builds-counts-75689/3/session/client-1/launch.json": "a184ff49dea80ef79d49a71040a3f17819119aed88a88150db5f06900921902e",
+    "reports/three-builds-counts-75689/3/session/client-2/launch.json": "e749602a5dea4110177cc847b2ccc8506c0f34c6c18da343d5d747299013d0ad",
+    "reports/three-builds-counts-75689/3/session/client-0/observation-guard.json": "08eb0e3f38ac0a57a873834655888a567b4c4e17482b8aee3f4a792776715da6",
+    "reports/three-builds-counts-75689/3/session/client-0/api.jsonl": "170f8a5cd4c8e4d9c3af9653d312b08a39daafa1bd34939aed5cf9afbd16841d",
+    "reports/three-builds-counts-75689/3/session/client-1/observation-guard.json": "a62b3ed435f3018c6d344ec488faaf97a1f1e8e02d8026bfaa3785115682cb21",
+    "reports/three-builds-counts-75689/3/session/client-1/api.jsonl": "9db4e0c781bad5fcc599b17d73e6014d4cc9c55afeb14dfaf807817f1f9898a7",
+    "reports/three-builds-counts-75689/3/session/client-2/observation-guard.json": "c0592f311ccf2a8219cebe1bf8edddafcf112847c6e3f7a45ab6515fc9956da3",
+    "reports/three-builds-counts-75689/3/session/client-2/api.jsonl": "20eaed8cd446fef0ea2ef533f8b1c455975b644d1e82d84aaa3f26bcc06101a6",
+    "reports/three-builds-counts-75689/3/result.json": "d33405bc085a756f53472f2ea5fe236552b4e45198812cc9a567bca1c2ee689b",
+    "reports/three-builds-counts-75689/3/session/native-session.json": "3b145c8c47fb9df426631e619ee4585c7f4aec7c8c07920337aaf7b5c2b5202d",
+    "reports/three-builds-counts-75689/3/game.SC2Replay": "b211d33ebf297da85d193c3b697c4e9310fc0f137b7467e7b64d5ceb55f1ae9e",
+    "reports/three-builds-counts-75689/4/session/client-0/launch.json": "a9536e2cf531e55ef132f95822d417015447911e11ff1a3144f5976588a18957",
+    "reports/three-builds-counts-75689/4/session/client-1/launch.json": "7422ac3764b6774c28a2cca258c2afa057b8b63eee8b9f2d4053bafd36b31cbe",
+    "reports/three-builds-counts-75689/4/session/client-2/launch.json": "bcddd3bd116b76272101730549211964037799882e5c64778375958a88a26578",
+    "reports/three-builds-counts-75689/4/session/client-3/launch.json": "398638a1074230ca323fbfc34d53ef931faf877358116eaac7b05a54d3350744",
+    "reports/three-builds-counts-75689/4/session/client-0/observation-guard.json": "150db2a9bb1cf061457c0895fbb45bc86a754a47e7fbadab3279c3994dcf4443",
+    "reports/three-builds-counts-75689/4/session/client-0/api.jsonl": "08a86d74a0e63500e17d8eca5390f920f058858b980304b79519d39931ab14dd",
+    "reports/three-builds-counts-75689/4/session/client-1/observation-guard.json": "265224b7fde231fcd53c64a461c80cf00bf8811640dbd53afcb14310583cf070",
+    "reports/three-builds-counts-75689/4/session/client-1/api.jsonl": "3846814affe21ea930ff672ee5427980ab68766820b90a268055ed1cd9a74e38",
+    "reports/three-builds-counts-75689/4/session/client-2/observation-guard.json": "5d02b3eaa5fac6443cdc5d5211059c3296be1796aaf13eba9ceab00f9ae5bc83",
+    "reports/three-builds-counts-75689/4/session/client-2/api.jsonl": "6c04c48dbc2035979c0361a79494df05ac9d9a46dfb7b893982d2f9b002a71f1",
+    "reports/three-builds-counts-75689/4/session/client-3/observation-guard.json": "f304011f4b94b47fa39a4817324442e2a5642de65c9cc2e07d1743d91f0b11dd",
+    "reports/three-builds-counts-75689/4/session/client-3/api.jsonl": "d030b120a242e78368f187e5eec6da01cd44ec29a13ac64f845763b6c35cc57c",
+    "reports/three-builds-counts-75689/4/result.json": "60012d75de7bfdf64a6aee3630882fc3d86bd00b49280b25b9135d04805357ac",
+    "reports/three-builds-counts-75689/4/session/native-session.json": "49a64ed2c0c1cecb50a9b58530c50bae1053966e09b9c8acc58c561c66587021",
+    "reports/three-builds-counts-75689/4/game.SC2Replay": "c2a4378b5a1046942b23c48c448930c50523062a9d02e1d74219dbc45b6dc832",
+    "reports/three-builds-counts-75689/5/session/client-0/launch.json": "201d27b49cfc1ef132e6a6176a760457a47dc59784e7898f709de365e4b4c68b",
+    "reports/three-builds-counts-75689/5/session/client-1/launch.json": "8531fa4d07e25cc4c12e754f6880c4e5c86f643f33688bf2eb36b1c79892ba0f",
+    "reports/three-builds-counts-75689/5/session/client-2/launch.json": "1e7a404da436e66aa4e1a78ab615b65f1878f8d3a3d866f83f1189520b1908e8",
+    "reports/three-builds-counts-75689/5/session/client-3/launch.json": "26e3c920fdad37e2b640ca67063b4e5a021d9bdd02cfc1cdaa884024c4b7d609",
+    "reports/three-builds-counts-75689/5/session/client-4/launch.json": "defe9f2de0bcf91aa98a1d23a24cab1aab6a70e7485e8b4c385c5067240c935d",
+    "reports/three-builds-counts-75689/5/session/client-0/observation-guard.json": "6edeb4f1d63a89f4d819f2b2042420dea0e14d7498afb955561eb835e5d504fe",
+    "reports/three-builds-counts-75689/5/session/client-0/api.jsonl": "ed9cdc14bdeace7cfbbadd06037ef550662ebe839a5708fe48a092ee2eb55a89",
+    "reports/three-builds-counts-75689/5/session/client-1/observation-guard.json": "ab665d679267bca1c3aa6fbd112f320c2bf4a5ea243890e2557812e2eb7e8377",
+    "reports/three-builds-counts-75689/5/session/client-1/api.jsonl": "1cec0dfb041aa24118b16901594bbbf97cef0dd467f0b1d7987a65ca7ccf2482",
+    "reports/three-builds-counts-75689/5/session/client-2/observation-guard.json": "eaeddff3d932d6be77779c026db9d0caaf6888fafb3c3f4522604ef536630f3f",
+    "reports/three-builds-counts-75689/5/session/client-2/api.jsonl": "4bc8204048ae8a350e18468b9425b413eec27955438efc6e846d7b8313d89251",
+    "reports/three-builds-counts-75689/5/session/client-3/observation-guard.json": "9badf2941003f8fdf901045043e7e8bfe4ee8c32add798d98f58c11c1c256f54",
+    "reports/three-builds-counts-75689/5/session/client-3/api.jsonl": "c0bff63a3b8f482520c328be442f2c5aed9882f77b28049c2813ddd2d0256f96",
+    "reports/three-builds-counts-75689/5/session/client-4/observation-guard.json": "7480c19b3f84d1359e643c3d942fdbe58b6af5933169eed6e639a2d92433b17a",
+    "reports/three-builds-counts-75689/5/session/client-4/api.jsonl": "23ef99dd14fa8b0a6fb254479c2e7d8a2e1687aa7288356282fc5257d874f9ac",
+    "reports/three-builds-counts-75689/5/result.json": "d79482587c0e641031a79fda7cab0e1adb17d095e44c3a8db7b11ec747030707",
+    "reports/three-builds-counts-75689/5/session/native-session.json": "6baf5479a8db4d01af3dac41610b4eb4eb35258e3d385f215835c18003c6cce7",
+    "reports/three-builds-counts-75689/5/game.SC2Replay": "6cbf6c83cddd071691174c46a082b9c0903d2799110fd07ea194d4d2fc8ce195",
+    "reports/three-builds-counts-75689/6/session/client-0/launch.json": "8e22a5c7378bf0f9b108e505f4fa9d5c627ad478c0e57f3d2bd413d8e9984fee",
+    "reports/three-builds-counts-75689/6/session/client-1/launch.json": "16083bd2844bd916e325ed67e6700d073a66274ef939e108bb06a6374cc7288b",
+    "reports/three-builds-counts-75689/6/session/client-2/launch.json": "077e81dff3081091dd81a812322392a84cc20bb0778f47acca1db2c57d831355",
+    "reports/three-builds-counts-75689/6/session/client-3/launch.json": "97e8e153733daf15b03426a9823080ac89a754725307d90468f68494e2f48921",
+    "reports/three-builds-counts-75689/6/session/client-4/launch.json": "bce9ed68d505b07b7acb9c74a3c38dab66ccb383b29b44ec94b6c2699f99602f",
+    "reports/three-builds-counts-75689/6/session/client-5/launch.json": "8c99afe589aa6d12753fafb1500f8fd03418d7e7e541bc4725c79d64b8cc2a5f",
+    "reports/three-builds-counts-75689/6/session/client-0/observation-guard.json": "ef60f14835afa88d4eafe30effc764c874aece4e2e6ff8f6c878fc0b5786b97b",
+    "reports/three-builds-counts-75689/6/session/client-0/api.jsonl": "b98eca8ff420582122f96a787b0126672620bfb3a6103d6728f292f8775b6a51",
+    "reports/three-builds-counts-75689/6/session/client-1/observation-guard.json": "0ab242152e87019ab705a06ee7d74e8391b90aab005985db014823de27467a63",
+    "reports/three-builds-counts-75689/6/session/client-1/api.jsonl": "e48059d68483d62cb6b94a2652b68944175cd438256dd71f944c168fbdff38f2",
+    "reports/three-builds-counts-75689/6/session/client-2/observation-guard.json": "210ab9b0cf3029363a15463a0b7898d693a15429632ae574054671bf31052cb8",
+    "reports/three-builds-counts-75689/6/session/client-2/api.jsonl": "a68336bf176c49c5e9e949eca6b4047d5775bb7b6cf43bf446c454d503369978",
+    "reports/three-builds-counts-75689/6/session/client-3/observation-guard.json": "e647bcaf42f424c0820b2436a665f0d029ac521e0701001fb385ebd4fc9a6303",
+    "reports/three-builds-counts-75689/6/session/client-3/api.jsonl": "cf6916db26189409510e3cae5f6e2c24c3208b2790d2f6e714eb030d3202f24a",
+    "reports/three-builds-counts-75689/6/session/client-4/observation-guard.json": "ee0b38b82e0408db1e54c14fe8a5a368dcf7dbfbe4d2343588d1ee3237d0b147",
+    "reports/three-builds-counts-75689/6/session/client-4/api.jsonl": "653816ca2f982180d24e0ab143e057ca7eeaea3dc73f439212980321322c5717",
+    "reports/three-builds-counts-75689/6/session/client-5/observation-guard.json": "3f9478cffe3f7e18d6966a064a046c9ff9214809c1635fa4954b1e9700b02a32",
+    "reports/three-builds-counts-75689/6/session/client-5/api.jsonl": "23db3fdef9c2bed3c3a7d5f9bfab6f5d955b69b47b579700cf8c742318306003",
+    "reports/three-builds-counts-75689/6/result.json": "31436c5c93854493a46f9cdea1561af70df05b67cf40855c7317df73bf67730d",
+    "reports/three-builds-counts-75689/6/session/native-session.json": "15c64d963034a307868aa412f5b2a62017a5d2ffe5f2af574db0d68553d32190",
+    "reports/three-builds-counts-75689/6/game.SC2Replay": "8533c687b3abf366bf7c5f9d55289112ad83558f639bc2255e110f411d97a8aa",
+    "reports/three-builds-counts-75689/7/session/client-0/launch.json": "c2ff7e8cb19e3f00dacda8d8f1be74a6acf53f2fa5ee33f938243fc38049c918",
+    "reports/three-builds-counts-75689/7/session/client-1/launch.json": "f5374eea4030ce4f4a7f5d852283353b89f4896f28e7ad9148db55eb75241bd6",
+    "reports/three-builds-counts-75689/7/session/client-2/launch.json": "85467e2928ec512c8748597b1671af5a9f6453453a617c3bc115fb80a4ed00d3",
+    "reports/three-builds-counts-75689/7/session/client-3/launch.json": "dde2821f07bc4fb4f995664fc59e259079f962cd0a67b8b3fdc4d72302cd8973",
+    "reports/three-builds-counts-75689/7/session/client-4/launch.json": "becf8da771bab5463ab3e7898ffeefd8b194f5d7e3a97909ef231bca4e6611d4",
+    "reports/three-builds-counts-75689/7/session/client-5/launch.json": "b577f707be4b15c47edce9a60c69a560f4e819b961f1af28bedf230a2496e346",
+    "reports/three-builds-counts-75689/7/session/client-6/launch.json": "f51ab4ad12d5471c90c31a97d0c0bf377b2ffe9cc7983739baaaee1302f1dfce",
+    "reports/three-builds-counts-75689/7/session/client-0/observation-guard.json": "bba35c28134f81a7c2c00060dcc8682202829d85410f17c63af52730dd3c4fef",
+    "reports/three-builds-counts-75689/7/session/client-0/api.jsonl": "1534d675cf11377df5827c534f7909a9891031c4d499ec28ddd785db156f3da1",
+    "reports/three-builds-counts-75689/7/session/client-1/observation-guard.json": "a5460edca2def3e38c88c8b865470914663c87f2ab4890d354bb4ec83d5ee269",
+    "reports/three-builds-counts-75689/7/session/client-1/api.jsonl": "f3d87c35156244958393e01052db3a91a6048ef6f8426df2f9b3165fb8ab94c7",
+    "reports/three-builds-counts-75689/7/session/client-2/observation-guard.json": "45dd13945acfbcbc30c6eb7d99e5ff885bcb6f8b4036e783e7bbc99f92c68035",
+    "reports/three-builds-counts-75689/7/session/client-2/api.jsonl": "c72b06152b8c843969c4144d1883a48992327ca1998c712f1d239e057056f2df",
+    "reports/three-builds-counts-75689/7/session/client-3/observation-guard.json": "897483136bd0a8a8d189e7e3388c8d3e22da3f635f26849d66099066e48b1d6b",
+    "reports/three-builds-counts-75689/7/session/client-3/api.jsonl": "d5d60323bbb4cd86b57f9b142defd214eb161e55fe1d15af225f60d0a0630935",
+    "reports/three-builds-counts-75689/7/session/client-4/observation-guard.json": "8b4ca0f7177f725d8c3137df682bc16334735fafc7c9a5268243bcf09cf1b271",
+    "reports/three-builds-counts-75689/7/session/client-4/api.jsonl": "f73c2c443a65e356a7baee7ded2359666845f15eba77b3424ee75ed52fa04686",
+    "reports/three-builds-counts-75689/7/session/client-5/observation-guard.json": "411678ab8ce6e522080ac0e32fa04f7c950007e80f05134a0e2927456f22cc1b",
+    "reports/three-builds-counts-75689/7/session/client-5/api.jsonl": "8edefe98e2af312739ceaef3c19c935f351a50509971843b99f67a9e6b88a9c3",
+    "reports/three-builds-counts-75689/7/session/client-6/observation-guard.json": "0d71cd3dc0e4811070f054dace6ae1a3da272b8d68862573190e41bfbf6164c8",
+    "reports/three-builds-counts-75689/7/session/client-6/api.jsonl": "64a862de7884c85de1b4c66db28e7bc63c85e5b6a8ec469b61b887e706a7b6a0",
+    "reports/three-builds-counts-75689/7/result.json": "3f860bdddeb2e749d33e535fe3fb84a903ff105857005d546fae17b40fc2b07b",
+    "reports/three-builds-counts-75689/7/session/native-session.json": "22e8aa21adf4cc8dcd5145f6457bcde12807a8e5d410a78a26557706f046eb43",
+    "reports/three-builds-counts-75689/7/game.SC2Replay": "44229c3678d7b98b0ed9f77990d70ea2e1af172366248471d98875a6eb257850",
+    "reports/three-builds-counts-75689/8/session/client-0/launch.json": "1fc9d3b1153e0b742a280d367c89efa7ee2de5cfeac9074838a1b9cb7e1e2f5e",
+    "reports/three-builds-counts-75689/8/session/client-1/launch.json": "19fb50a5a6d59c40ffd392decab13db850f187e28911042d3056c3d7ea5ac62e",
+    "reports/three-builds-counts-75689/8/session/client-2/launch.json": "5cffba857f47f52fbc579776cc6d5740f00509fee2f99c7046a9d2eabc900ced",
+    "reports/three-builds-counts-75689/8/session/client-3/launch.json": "191ab3cdeaa8bbc681f6f09ca95276ee7fb129bb9ddbb68fb48271b8aa9190cb",
+    "reports/three-builds-counts-75689/8/session/client-4/launch.json": "9200d1384d1016ad2fa3578d8e430543caa87bc5a2576928fae73b7fa13d2234",
+    "reports/three-builds-counts-75689/8/session/client-5/launch.json": "10856691e3b7948096d2944697314f13f4f9d7f5c7284f3c54f15774cfe9de45",
+    "reports/three-builds-counts-75689/8/session/client-6/launch.json": "9e9570383bd17960e57968573f28c93ec3664088e905122785178c2472488b18",
+    "reports/three-builds-counts-75689/8/session/client-7/launch.json": "e8a498d319d9d55a40c7740c6cc69867f399a3393f0ee83832bb51f4a40448b0",
+    "reports/three-builds-counts-75689/8/session/client-0/observation-guard.json": "ade1bf350fb24526f6261cf18e1f365d0062175e330ef845fe35409ff6c05063",
+    "reports/three-builds-counts-75689/8/session/client-0/api.jsonl": "46ef7b339c79d026236e4fd97ee26b0a0dfba6da66774a9193e089382f1d543c",
+    "reports/three-builds-counts-75689/8/session/client-1/observation-guard.json": "39c184302563944781fbe4116579500ebfe4343cb5b32fbc6adbcf55562b3412",
+    "reports/three-builds-counts-75689/8/session/client-1/api.jsonl": "ca6a29cfcfcbec65befcd364c59d68a88b20f0a50bb36bb9de769a9a01ed9911",
+    "reports/three-builds-counts-75689/8/session/client-2/observation-guard.json": "cb6b486d4b5c8cce80312e60f172c310b69da4593ec8f4a41800264b4d34eae8",
+    "reports/three-builds-counts-75689/8/session/client-2/api.jsonl": "8c56f392642903289a97ac27e926eafc14d95a77d39b2b71beb6216ebbb58e3e",
+    "reports/three-builds-counts-75689/8/session/client-3/observation-guard.json": "fba9febf8788ee403bf589d44fbb8320e8123421b71cc85b8d39d0631a89d494",
+    "reports/three-builds-counts-75689/8/session/client-3/api.jsonl": "cdce9254e5aa90601d85b4e15d8d3e1fe4c5341497190c1a568aac303198a2a6",
+    "reports/three-builds-counts-75689/8/session/client-4/observation-guard.json": "cfd2706658b035de1c8045d70c0439c9347a6a3c596d28d5c19ccd359ca4c83f",
+    "reports/three-builds-counts-75689/8/session/client-4/api.jsonl": "8d665576fc79d9e8dcf503fdefb913008d7c13431b0570431c7a7d1e526a1ce1",
+    "reports/three-builds-counts-75689/8/session/client-5/observation-guard.json": "2836a7044f75715a970b007c29d87e06ae5ea35b57eb8079e04fdcee23af0a18",
+    "reports/three-builds-counts-75689/8/session/client-5/api.jsonl": "193b70dc3276fec57e58464ff1ca2191577f1e732d76d206139a0611120b0075",
+    "reports/three-builds-counts-75689/8/session/client-6/observation-guard.json": "c0592f311ccf2a8219cebe1bf8edddafcf112847c6e3f7a45ab6515fc9956da3",
+    "reports/three-builds-counts-75689/8/session/client-6/api.jsonl": "36debdd772755d211d499ca25c10a2adef58ed43301b0a4bd9b7a3ae1065fdb2",
+    "reports/three-builds-counts-75689/8/session/client-7/observation-guard.json": "b35a33d4985a07eeaf38fc57e3b0b53173a8987d1ed3899e17a6e42dd2be0a8f",
+    "reports/three-builds-counts-75689/8/session/client-7/api.jsonl": "ae455001ab1a877124af78ddd93916d7f8bc398381a173f7adcdcea1757963f2",
+    "reports/three-builds-counts-75689/8/result.json": "0d64d01895204a684b2853a1c919f635bc9beac4ead17eaf96fa3ca04f75fb19",
+    "reports/three-builds-counts-75689/8/session/native-session.json": "18478292157e37812e420ade5909977fcd0c7f0fc9ee45a41c5af3a9c4da7e63",
+    "reports/three-builds-counts-75689/8/game.SC2Replay": "9a2f1c6d6a1b4cd6b006b61359c53ee8574114e5228d841ca980e548be8ed931",
+    "reports/three-builds-realtime-75689/validation.json": "d2d1d679ed06ab9925c3fa9c273d847fe3d09d2d5ff341ae3e572bb42f6b6d1a",
+    "reports/three-builds-realtime-75689/4/session/client-0/launch.json": "baf7c358ff2a9a0b1bd1170ed2de96dd5597a93d76f93f1bb99bf596b9af18d3",
+    "reports/three-builds-realtime-75689/4/session/client-1/launch.json": "688a2cf31a9ddf7517dc1ef4836d9175cd18dc9be72c1556dcc313a22aa1f322",
+    "reports/three-builds-realtime-75689/4/session/client-2/launch.json": "84720aee5cf5d33621fea96ca891000c8ca8bcf119148b6e0dae4ccb21ca1a41",
+    "reports/three-builds-realtime-75689/4/session/client-3/launch.json": "8cc96b857d28768a2b7114d6cc9cd94d13cb492d1be0298104e5d4de515e32d2",
+    "reports/three-builds-realtime-75689/4/session/client-0/observation-guard.json": "0160bf8c0e54a20c97e32af52a89247957380a3c23855a3534c69d59987b1de6",
+    "reports/three-builds-realtime-75689/4/session/client-0/api.jsonl": "e9bc6bb582f9fc7f9960a99a4a1c6eaae0381e5e0ec142e668ed63551b11d847",
+    "reports/three-builds-realtime-75689/4/session/client-1/observation-guard.json": "0c509bb9b6d0c9df6122405b70fae83f8cd27e6c448871a8d3f117560d8fe787",
+    "reports/three-builds-realtime-75689/4/session/client-1/api.jsonl": "3deadc75e627fd744ec43c70ed9becf4f9c3f581e60b326617035b0618aedb6b",
+    "reports/three-builds-realtime-75689/4/session/client-2/observation-guard.json": "7fdce997da4290bd40ada19dcb3208a66c7bfe0f3bb70b86ec9c354a6cc9c6b0",
+    "reports/three-builds-realtime-75689/4/session/client-2/api.jsonl": "50a310a3787ae32e730d6379e31d7b7012b12a4a29564d28e5eeace98341f0a5",
+    "reports/three-builds-realtime-75689/4/session/client-3/observation-guard.json": "88a24699fd109f90bab64d0715288c045b5e34e90a20fbb21507f7782a6ce5a9",
+    "reports/three-builds-realtime-75689/4/session/client-3/api.jsonl": "5de38a6265a6939cf118453c93170fa8b1f6a9a548f00de124812d2792cdbbfc",
+    "reports/three-builds-realtime-75689/4/result.json": "65594cbfd00707705e10591cbf9cd7adef3bb9baa7d695728c3bf684a84c7c99",
+    "reports/three-builds-realtime-75689/4/session/native-session.json": "5f3356916ef34456a28d175510f689a49b20d5d43769ca3ac613868eb2bddd67",
+    "reports/three-builds-realtime-75689/4/game.SC2Replay": "86ee658cbf51964037f45b605421fd1525dd417ca69901ffbbcd2fd6ff3b3624",
+    "reports/three-builds-realtime-75689/8/session/client-0/launch.json": "5ad3ee0a5f0f6b3ba328648adee784fe18f65a5f495416510be91bae88c4ace2",
+    "reports/three-builds-realtime-75689/8/session/client-1/launch.json": "bec1d818183d4ca7f3c924c22dbbd0e0e38928340dbd82124a84bc84d05bb00e",
+    "reports/three-builds-realtime-75689/8/session/client-2/launch.json": "832daea02b3dbe8324822baf99da8bedd72ce6c288dd7749a2833191d52e7a45",
+    "reports/three-builds-realtime-75689/8/session/client-3/launch.json": "afbcfa8ceb9cde89e75eb684142ce8b8415dd48647a9a402d1e390f7bc3f7420",
+    "reports/three-builds-realtime-75689/8/session/client-4/launch.json": "183709136e6b188debd1a6b3b39f4bfce41bf946d8ef5052a9ee0906a5b0c24c",
+    "reports/three-builds-realtime-75689/8/session/client-5/launch.json": "87d13b1055523cc63d22bfe08b62d0d22a5dfcfcc4256025d4b783585b2295ab",
+    "reports/three-builds-realtime-75689/8/session/client-6/launch.json": "204d3f2b9a1e3c604f252951c9ce4611b7ed01d191264fa1ca7bfcda447178ef",
+    "reports/three-builds-realtime-75689/8/session/client-7/launch.json": "4d6ca802b6bd28de484e06f2803cd9e03385ad015ed61b60f4454d3e10d176b8",
+    "reports/three-builds-realtime-75689/8/session/client-0/observation-guard.json": "ffc01e30b2185169776f39cb7d9ce7d61d5eb2886c591538c819f3357f75df8e",
+    "reports/three-builds-realtime-75689/8/session/client-0/api.jsonl": "f6acf77fe3c230f1ecdf6dc6591ffc5a4559a1e3f81d0e7d18da7cedbd8f323d",
+    "reports/three-builds-realtime-75689/8/session/client-1/observation-guard.json": "3b9ffbca553fcf28eaf6d512217e0eddf2e8dde15245cdaf0e211399f0393f02",
+    "reports/three-builds-realtime-75689/8/session/client-1/api.jsonl": "3149b2d99cf7303546b8270ae7572eaa09456aa30b4a037271a2222206dbe80e",
+    "reports/three-builds-realtime-75689/8/session/client-2/observation-guard.json": "caed945195ffff77dedbefca7279eef82c73ef059908923e1a9205504fedf3bd",
+    "reports/three-builds-realtime-75689/8/session/client-2/api.jsonl": "0437a8d03327617c22f7ac4152b2e91b423bb0a8c07714adc6ce1379ae6b06fd",
+    "reports/three-builds-realtime-75689/8/session/client-3/observation-guard.json": "9282d99c7dcc5961226049e83190b5b4eccd62bfbeffa8c8fc4d389eb27ab990",
+    "reports/three-builds-realtime-75689/8/session/client-3/api.jsonl": "b1f81984f9130e804880e8f225841bed59a18c37c65d8389b3ef4411af64b2fc",
+    "reports/three-builds-realtime-75689/8/session/client-4/observation-guard.json": "5c6797da249db5e9ccf99fc71357692e38e8078cceba09a5f466a110cc698b19",
+    "reports/three-builds-realtime-75689/8/session/client-4/api.jsonl": "6d182cdd8a793e1cd98efc49dfbefec1c05720108cda9f6c1611d80140f8fb52",
+    "reports/three-builds-realtime-75689/8/session/client-5/observation-guard.json": "7ac3b8e993216a870b8cd68304fb5d52465a60e49c037d66d932591de6eb8145",
+    "reports/three-builds-realtime-75689/8/session/client-5/api.jsonl": "cbf6f3dbc92bf69524473a553b7836de751ae2ea635f69191451782bc36174d4",
+    "reports/three-builds-realtime-75689/8/session/client-6/observation-guard.json": "419c1bedd8372d7c1336d7177351e3331358dcdf67aa1cba0f91e1a41fe7ee64",
+    "reports/three-builds-realtime-75689/8/session/client-6/api.jsonl": "de397845eef6d5ec0cc9942ed421a57ad8aa78db4771e245d628169e0020fed4",
+    "reports/three-builds-realtime-75689/8/session/client-7/observation-guard.json": "4921c4b5ee46a28a98c9e7bc81cc5b0c7ffcf438ec81d6c7115c4bfdbb3a7ae2",
+    "reports/three-builds-realtime-75689/8/session/client-7/api.jsonl": "506c56273659e4443029cf1efcb3c84652a6bbc51b9023dc8e2deecb85b1a1bb",
+    "reports/three-builds-realtime-75689/8/result.json": "48cf4a66ba4aee6e1ee7ddcf973cce32cac0fde7354889283a7d627b1378266e",
+    "reports/three-builds-realtime-75689/8/session/native-session.json": "6580d67171dca67977caa8f414f31e7ac7c241dd367756fc69b9cecc1101d6e1",
+    "reports/three-builds-realtime-75689/8/game.SC2Replay": "ed5621aea0ba9976090aa4d77cabb37a1138490cf13662ce2e602a636ecb25aa",
+    "reports/three-builds-research-75689/game/session/client-0/launch.json": "4b3263e3d15527f71d13d5a35849d793ea2e6114bb557ad9633aaceaf4e94d3f",
+    "reports/three-builds-research-75689/game/session/client-1/launch.json": "0b62ad2ba71e496ea34b3f6fc99053d91f73bbfa77bfbad09c1eba3f7db4e077",
+    "reports/three-builds-research-75689/game/session/client-2/launch.json": "2b3a4910995f620f17ac8be21441b446a383a4294ac9de25a387c721383c480e",
+    "reports/three-builds-research-75689/game/session/client-3/launch.json": "4b4aba97ebb42d1bf58c10cd71bf246127a77c97183d6f8f128522e2133fa877",
+    "reports/three-builds-research-75689/game/session/client-4/launch.json": "9c90db34fe78c74d5314c6463e8288ce49b4919d4cdd0feae0030cf63ce0aaf4",
+    "reports/three-builds-research-75689/game/session/client-5/launch.json": "fe3cd43d0de1a27b5d921b1568d036c1b86f5406e5f6cb9d9da8f9020d698b8d",
+    "reports/three-builds-research-75689/game/session/client-6/launch.json": "ae34b8f7670389ee610fb8c77af65a6715ddb632bdc98cb64af6dacb44d86893",
+    "reports/three-builds-research-75689/game/session/client-7/launch.json": "9f2892cb4ca7191a0a59129eb261335d01b478a064faf6627e6adb1603b25591",
+    "reports/three-builds-research-75689/game/session/client-0/observation-guard.json": "48da4975728e0d36bc430ae4a8f51df2b87ee222c1a07cb58e316cf233323190",
+    "reports/three-builds-research-75689/game/session/client-0/api.jsonl": "b515ec3f89b7cb1c4a20536af3dd606173fed3e514a63a21d29c55e1ec267491",
+    "reports/three-builds-research-75689/game/session/client-1/observation-guard.json": "1c98428fea22528ed97581de59d0f36cc168a222be828ce991aaeab074b93f3a",
+    "reports/three-builds-research-75689/game/session/client-1/api.jsonl": "e72780abb27f2863d4ca2287973f8b090633ad5998129842b69b26baff90d47c",
+    "reports/three-builds-research-75689/game/session/client-2/observation-guard.json": "456bf68bc40812e43727b0be52f59c02c6377ebd3770254c0f811d7ab1bc5688",
+    "reports/three-builds-research-75689/game/session/client-2/api.jsonl": "fa14fa70595525090f235f2391995bc95f4f775f87560ed3afaae8fc9206b8cc",
+    "reports/three-builds-research-75689/game/session/client-3/observation-guard.json": "04f670b707aba982a78fadc27d1987f69195301d18df9b4920fb65c2f20e897d",
+    "reports/three-builds-research-75689/game/session/client-3/api.jsonl": "b6c4bdca470674590a587958e6555f4f4d965eb879e7d1099134cb069e0330a3",
+    "reports/three-builds-research-75689/game/session/client-4/observation-guard.json": "77e536132f198bda9cb2ff1bbdd9a51ce01fb9f380180ef30e471c408d3e50e0",
+    "reports/three-builds-research-75689/game/session/client-4/api.jsonl": "5284e3c8e4d4e5d12e22107866b2b86a4594a45598c92f25982e4f55db0a1d19",
+    "reports/three-builds-research-75689/game/session/client-5/observation-guard.json": "e250f14b291ab7cb2bf11e204d05f745108e734268e19fa13d3eded1d184ea8a",
+    "reports/three-builds-research-75689/game/session/client-5/api.jsonl": "bcedd773d14b227b1d300823118843c7e169621a2cc34e0f045753bd041a852b",
+    "reports/three-builds-research-75689/game/session/client-6/observation-guard.json": "b829b518abe0fe7782f6a6ce34e1ac177e3e786e2691231bb42b412996d47e4a",
+    "reports/three-builds-research-75689/game/session/client-6/api.jsonl": "72aa274e67842a1e0af9d1941832ed26a9e5f1c0cdee6c9e2dace2d976d36e08",
+    "reports/three-builds-research-75689/game/session/client-7/observation-guard.json": "077b1ce497e5787e4dd6aed7fda366e33cae358674f1306180785ac2f3eb088e",
+    "reports/three-builds-research-75689/game/session/client-7/api.jsonl": "c49d4705c5f5f996fac28bc1b24e4fa03816d986dae7c7acc2efb8f70a07b177",
+    "reports/three-builds-research-75689/game/result.json": "f77cd79df3aec5177e95a2c688d658b359e4fb2c7986d137f3a8756d61cfc021",
+    "reports/three-builds-research-75689/game/session/native-session.json": "98f87f8c82c81e91943d266e25752f08b4a312fb48ab1bda386fd12d3d4c8c16",
+    "reports/three-builds-research-75689/game.SC2Replay": "4a63ae1a9d1212c82be853b23d434a28b87ab36b6f9cf590883dbd3bd5e782ef",
+    "reports/three-builds-research-75689/validation.json": "1c2d70e0eb7c6f571c5fde747757183cfab300cea3d36f68004cf2b1983d0f44",
+    "reports/three-builds-research-75689/bots.json": "e6a3e797109f9c25580d381c7b689d238dffc13722293d7334f069054c58c2e2",
+    "reports/three-builds-research-75689/research-replay-verification.json": "5eff77d5dcb44af833f3c1b275acc16d5ead54a84261e642087fab8471f5e006",
+    "reports/three-builds-wheel-75689/validation.json": "cfaa275ef137c7e7d25a519615791dd9e45122c824e09690eef32bcceac42c46",
+    "reports/three-builds-wheel-75689/4/session/client-0/launch.json": "9753dd9ca2f0f2484d9a317f2a2c0c8a17db4cd76331e2184ed52a94ffc24b4a",
+    "reports/three-builds-wheel-75689/4/session/client-1/launch.json": "0ac28aaab1391f1b2def267226072533f1e12b3b89a937dc851e6052427d5e1c",
+    "reports/three-builds-wheel-75689/4/session/client-2/launch.json": "6389d660f41b217b93bbe382c9c0196d99873c680b3ec58f2866700ea478f80f",
+    "reports/three-builds-wheel-75689/4/session/client-3/launch.json": "9389df4e9687233b7f6880c2c1a06aa656fa2087478557df29dfd2f3ff13347d",
+    "reports/three-builds-wheel-75689/4/session/client-0/observation-guard.json": "ab2ddeb6601d800196efdafd62a9bf2a44f127809cb7935102de44771a0bde1e",
+    "reports/three-builds-wheel-75689/4/session/client-0/api.jsonl": "49a9efd81103cca39eddbb47071ea0f8ad73cb0adf7212104b93a34740023991",
+    "reports/three-builds-wheel-75689/4/session/client-1/observation-guard.json": "306c4ae3aa322007b962c38d500886f8df8a773778d995d517b5fdc6ae4d8c66",
+    "reports/three-builds-wheel-75689/4/session/client-1/api.jsonl": "080fbb4345dc7ae2adc632e49d1ee5f7d380360be2f95059a51217a2d2fd6eb1",
+    "reports/three-builds-wheel-75689/4/session/client-2/observation-guard.json": "70083e0b5bfb87cec78154ae925b37153b2e64aceb5ee93be4b86b6870375591",
+    "reports/three-builds-wheel-75689/4/session/client-2/api.jsonl": "7df96941f5f8b18bbbbe6612a12080e4108f9a33a4deba6142e84be2405ff3c7",
+    "reports/three-builds-wheel-75689/4/session/client-3/observation-guard.json": "0c426880a203346c3bd95af82cf235fcadca2a105c8ba83e454398cb8c05c52e",
+    "reports/three-builds-wheel-75689/4/session/client-3/api.jsonl": "4fdf9d6e1be2f23ad2e6b4abcc52cfaa41ae582bd188f877e0b6534ec78fb3ec",
+    "reports/three-builds-wheel-75689/4/result.json": "a3a2ac5dcfabbcf72bdc26e2534196c99f7ea21ea8b507aec818e0994e76e5e7",
+    "reports/three-builds-wheel-75689/4/session/native-session.json": "e3752045052696e28ea35afd11259f30f123bdf5b24e8fa20f793cc293a2892e",
+    "reports/three-builds-wheel-75689/4/game.SC2Replay": "9cd6f028ff1372eea413f353e4531c0f94fabf09c97373100dac59aa024e96dd",
+    "reports/three-builds-investigation/doctor-93333.json": "8001b78bdc5edd60fa62360c193ea48fbe44952bf36e7355a55dbc90eed4639b",
+    "reports/three-builds-counts-93333/validation.json": "7cdb44f9e1342ad260143a020b33e58f1dd040742f1eb5daeb415fc4a07afe90",
+    "reports/three-builds-counts-93333/2/session/client-0/launch.json": "1539fa107a790409b584fdabae026ab760f36f8383ee2ce9823aa1cd2bf0ebda",
+    "reports/three-builds-counts-93333/2/session/client-1/launch.json": "9857c0510c3764f502333f407a8fc33c9d948e2eb4681e8edcc57463a9a41983",
+    "reports/three-builds-counts-93333/2/session/client-0/api.jsonl": "6e245611841796c413c7d805092f5721ba5084dfe39a0f2d3960d02913f024cf",
+    "reports/three-builds-counts-93333/2/session/client-1/api.jsonl": "7c8dafc8ea6a539d13e6d6321fb69285c7fd519ca7b611af332326b83c30333f",
+    "reports/three-builds-counts-93333/2/result.json": "9abe5964726b513a4995ef1741f9241494b3beab3d0cc0fc5b2d198fa98d3a1a",
+    "reports/three-builds-counts-93333/2/session/native-session.json": "a57118226d941c1cbf5339faccb76c8e0cf9b70a3fb5e4272ca6c9f4d6604b2a",
+    "reports/three-builds-counts-93333/2/game.SC2Replay": "ce9699f918c9946e59b399dc6810fe4ad00afbb287ed4b8a809e51b9bcb34dd0",
+    "reports/three-builds-counts-93333/3/session/client-0/launch.json": "1d4f1588f20d7f8294ed96275bef8499f8d4eca30ca7c1648f28eca1e70129be",
+    "reports/three-builds-counts-93333/3/session/client-1/launch.json": "ef82b60b8b7d7cd2799d7e6ba48030a2a42f7c0fe366b7d9588d25b177be6c71",
+    "reports/three-builds-counts-93333/3/session/client-2/launch.json": "9473abce1ea84b86be49afaaaaa900ebd9994fc222901fcacb1c73ca2a84de1a",
+    "reports/three-builds-counts-93333/3/session/client-0/observation-guard.json": "fd0fa09563a5b84505ede68587625748ef8448b48e6f474a08792b2f7edd5914",
+    "reports/three-builds-counts-93333/3/session/client-0/api.jsonl": "83e8011dd3c3db29bd3c57b74ac3dca30ef4eb3ea23ee92514b584428d93fa85",
+    "reports/three-builds-counts-93333/3/session/client-1/observation-guard.json": "8f5361a1f4486fcd732ddee676a85ebc5437d00b7c01f352ccf662f69a4279d7",
+    "reports/three-builds-counts-93333/3/session/client-1/api.jsonl": "6e8214e0ef771e8d6987318d452403f053a6af8e38c5741812bf1e8b3cff2f94",
+    "reports/three-builds-counts-93333/3/session/client-2/observation-guard.json": "0e453c4b25041b52ba3169cb59cbe12919fa86fc6b2c304db73cf16f12b29398",
+    "reports/three-builds-counts-93333/3/session/client-2/api.jsonl": "686cdf2c7445a931b2c1869f9c4da820aee112fab17462c30bf2aa7d79c74ff0",
+    "reports/three-builds-counts-93333/3/result.json": "95393ffe5f20248fe28fb348e0af3ad4867d8eeae4589e4bc4b50ecdf5b4f186",
+    "reports/three-builds-counts-93333/3/session/native-session.json": "f68a1aa5de6672b8dd6ce8a02a22861f6f9203e968339fc7efddfce2ddf56224",
+    "reports/three-builds-counts-93333/3/game.SC2Replay": "8c42957b334b339eda572e644646bf28a55d5b187c00716d08f94be4abe541c4",
+    "reports/three-builds-counts-93333/4/session/client-0/launch.json": "57e75a8450a967b8d64f76ee2855b301c277a35c5f1819c9dd3f8ddb24bf52bd",
+    "reports/three-builds-counts-93333/4/session/client-1/launch.json": "493740a7afa46ebdf0a62ff6dfe07dbc9b8de81b039194da5b1d4121574d62be",
+    "reports/three-builds-counts-93333/4/session/client-2/launch.json": "df41a894167d83386b58dfc2cb97c9f088be0ebec26188c4ccb1fcd16d25cba1",
+    "reports/three-builds-counts-93333/4/session/client-3/launch.json": "ba9b1648df9f94d6357d6d81f0e9171966d8a7f0ba787a445b0ebe68a6405d72",
+    "reports/three-builds-counts-93333/4/session/client-0/observation-guard.json": "1cb4ea8130b15bd717f4562b94289ee85c301eb217a29c4594247a0bad9c47c2",
+    "reports/three-builds-counts-93333/4/session/client-0/api.jsonl": "08a86d74a0e63500e17d8eca5390f920f058858b980304b79519d39931ab14dd",
+    "reports/three-builds-counts-93333/4/session/client-1/observation-guard.json": "a44351fd7ceebd3ec434b9adf5968b498a1a13619ca27f268ccc6efd7c35ba45",
+    "reports/three-builds-counts-93333/4/session/client-1/api.jsonl": "d030b120a242e78368f187e5eec6da01cd44ec29a13ac64f845763b6c35cc57c",
+    "reports/three-builds-counts-93333/4/session/client-2/observation-guard.json": "af4a44cc0068030bf3a6e961337ff07ed537bf460fe0d0edb91cbe72940a35b6",
+    "reports/three-builds-counts-93333/4/session/client-2/api.jsonl": "3846814affe21ea930ff672ee5427980ab68766820b90a268055ed1cd9a74e38",
+    "reports/three-builds-counts-93333/4/session/client-3/observation-guard.json": "9eb06ca4c50f8db31274ef116ad4a17ef9804f4ba6ce0e139a0edae47635609f",
+    "reports/three-builds-counts-93333/4/session/client-3/api.jsonl": "6c04c48dbc2035979c0361a79494df05ac9d9a46dfb7b893982d2f9b002a71f1",
+    "reports/three-builds-counts-93333/4/result.json": "847423b910a2079de7d0c4209b135c661dadeb3d03deeae934cd90b311c5ee55",
+    "reports/three-builds-counts-93333/4/session/native-session.json": "67f8d1bd1435f9623bd8c5f16b185fafd1bb29e35745cefc92f06ceaf4084f84",
+    "reports/three-builds-counts-93333/4/game.SC2Replay": "848e60a9f4a3ecbe53d9321066e32168a9bd2bf079724def6eb6db29050a79d9",
+    "reports/three-builds-counts-93333/5/session/client-0/launch.json": "b0ea388e625217d69302df2cd51c286b560043616d67e212477ed6cd3d6cd567",
+    "reports/three-builds-counts-93333/5/session/client-1/launch.json": "0ce17d0143a8d557ee14ed5611bea76b03cdecd62dd133e58c7b2e46570f7417",
+    "reports/three-builds-counts-93333/5/session/client-2/launch.json": "6224915b532047acb7cf7bf419ee63b79641d488fd5f7e8eeaf630706f3543a9",
+    "reports/three-builds-counts-93333/5/session/client-3/launch.json": "03b19cb4c2ae909205f7ba79014ed3bf3e78409481b194b036a02e1d71fc0233",
+    "reports/three-builds-counts-93333/5/session/client-4/launch.json": "8d6328b6c151383976dfec14425466d2eeb0c7011c726a6032a92586de472388",
+    "reports/three-builds-counts-93333/5/session/client-0/observation-guard.json": "e74922bc8b4643ef8608bb2a76451fe674454e22a4b1943aed4731b74c89ab81",
+    "reports/three-builds-counts-93333/5/session/client-0/api.jsonl": "ed9cdc14bdeace7cfbbadd06037ef550662ebe839a5708fe48a092ee2eb55a89",
+    "reports/three-builds-counts-93333/5/session/client-1/observation-guard.json": "542da8509b202a6de6994d30264e58546b95cfb48734e4dfcf598c3eed78b3ce",
+    "reports/three-builds-counts-93333/5/session/client-1/api.jsonl": "23ef99dd14fa8b0a6fb254479c2e7d8a2e1687aa7288356282fc5257d874f9ac",
+    "reports/three-builds-counts-93333/5/session/client-2/observation-guard.json": "9232aca6323717876536968261fa2142763ed2ed3c170f3690e945d50b662cc2",
+    "reports/three-builds-counts-93333/5/session/client-2/api.jsonl": "1cec0dfb041aa24118b16901594bbbf97cef0dd467f0b1d7987a65ca7ccf2482",
+    "reports/three-builds-counts-93333/5/session/client-3/observation-guard.json": "05e2929be02733aa9e26896bf53bc808e13ae5835652b7b22186bb25d30ffdb7",
+    "reports/three-builds-counts-93333/5/session/client-3/api.jsonl": "4bc8204048ae8a350e18468b9425b413eec27955438efc6e846d7b8313d89251",
+    "reports/three-builds-counts-93333/5/session/client-4/observation-guard.json": "49c52574e4b9066b83a6e7ac435a38fc7ee08cf14857bafb0807da9d4456e725",
+    "reports/three-builds-counts-93333/5/session/client-4/api.jsonl": "c0bff63a3b8f482520c328be442f2c5aed9882f77b28049c2813ddd2d0256f96",
+    "reports/three-builds-counts-93333/5/result.json": "46d050853245aca3eaad7d74ad4c5ad701b16254b02e38312d03fbc96929fafe",
+    "reports/three-builds-counts-93333/5/session/native-session.json": "c6a359829fe2b6acb86305571263cbdf8371466f8ba0cdc1874dd6584a8325f2",
+    "reports/three-builds-counts-93333/5/game.SC2Replay": "da42519ee380890d935646df4e1512e37cabbfc26f1f15ed012d96b4410524fc",
+    "reports/three-builds-counts-93333/6/session/client-0/launch.json": "dc8d547dfcc7275860c5180467df47afb91f42ea0888b9cba1a6e0632c7072a4",
+    "reports/three-builds-counts-93333/6/session/client-1/launch.json": "f1c9fbafbc48a41fc72f5d31b361a7f3c8d5b7430187350c5886dccc62cc0d4f",
+    "reports/three-builds-counts-93333/6/session/client-2/launch.json": "3429e358cd17afce1042f587ad41715f609df3daceae23661ecbf81e5713df25",
+    "reports/three-builds-counts-93333/6/session/client-3/launch.json": "5d52cda316f99d46aea994662eb12739345f026416a53f866c3edfb89b9b2442",
+    "reports/three-builds-counts-93333/6/session/client-4/launch.json": "aa2c2ebac99e70ba8c48f5c85c55840557badeb1f4d33b7dccc4b6df16a6525c",
+    "reports/three-builds-counts-93333/6/session/client-5/launch.json": "c3daccef9e7547394dec650999b514852dfcff070fd9f2df6114915cc2b72aec",
+    "reports/three-builds-counts-93333/6/session/client-0/observation-guard.json": "4275fcffb831212dbafbf0c027f6afbec19faf619e46b450b41963d05371fde0",
+    "reports/three-builds-counts-93333/6/session/client-0/api.jsonl": "b98eca8ff420582122f96a787b0126672620bfb3a6103d6728f292f8775b6a51",
+    "reports/three-builds-counts-93333/6/session/client-1/observation-guard.json": "493892d0cc62b08586bf43f0c32bfdc4432f08fa6dbbf2d5acd5d71ba477f1f8",
+    "reports/three-builds-counts-93333/6/session/client-1/api.jsonl": "cf6916db26189409510e3cae5f6e2c24c3208b2790d2f6e714eb030d3202f24a",
+    "reports/three-builds-counts-93333/6/session/client-2/observation-guard.json": "6411b1868c726677a6d07de810afcfe08460045291c23812a6dd5dda3f19e895",
+    "reports/three-builds-counts-93333/6/session/client-2/api.jsonl": "23db3fdef9c2bed3c3a7d5f9bfab6f5d955b69b47b579700cf8c742318306003",
+    "reports/three-builds-counts-93333/6/session/client-3/observation-guard.json": "a951d8f2cf2ac4e5762ab95caef53534ac73ad3be495af76a6f6a7deee5cccfc",
+    "reports/three-builds-counts-93333/6/session/client-3/api.jsonl": "653816ca2f982180d24e0ab143e057ca7eeaea3dc73f439212980321322c5717",
+    "reports/three-builds-counts-93333/6/session/client-4/observation-guard.json": "1f72bdbf3e7955b8c203905a536fc00481b03685c03886e3454ba909873989e3",
+    "reports/three-builds-counts-93333/6/session/client-4/api.jsonl": "a68336bf176c49c5e9e949eca6b4047d5775bb7b6cf43bf446c454d503369978",
+    "reports/three-builds-counts-93333/6/session/client-5/observation-guard.json": "27d2f7c962ad704c4ba378974713df6347316c680513e44817f17493ad5aa82a",
+    "reports/three-builds-counts-93333/6/session/client-5/api.jsonl": "e48059d68483d62cb6b94a2652b68944175cd438256dd71f944c168fbdff38f2",
+    "reports/three-builds-counts-93333/6/result.json": "729154233c8051d698b452bd6a472c49571b15e9a770792d88c21d58874fe253",
+    "reports/three-builds-counts-93333/6/session/native-session.json": "bfbeca3593bb4ed135f8095d1e2b645ec94b5ea492fcce5ff8c7047b8ad50dc0",
+    "reports/three-builds-counts-93333/6/game.SC2Replay": "702c4f86b22f871eb1d2624862fee1eb2b0419928a4b8ce87e76ef7fde6434a1",
+    "reports/three-builds-counts-93333/7/session/client-0/launch.json": "18ad156b86e2cc45d1bff58c8bbed93b059cb5f40157a276ec7d43ef41d9e7bf",
+    "reports/three-builds-counts-93333/7/session/client-1/launch.json": "9e7e5554afc1da03f97dc7b036a3aee00705d61c2d247f95c5bb93db6000e30d",
+    "reports/three-builds-counts-93333/7/session/client-2/launch.json": "c163a699a4dd88ad5fb9edab7af1c0c68a1cc239fcee9d429d7d8afe235c0567",
+    "reports/three-builds-counts-93333/7/session/client-3/launch.json": "1657d93ea2021e6729ccada5b88fa716c77fa52290d74c928762dd87a92ab0d7",
+    "reports/three-builds-counts-93333/7/session/client-4/launch.json": "d8c5a96a62edfaf11e094a0e26d51d54e8246bb6b55cff55c663b9c3120caa3a",
+    "reports/three-builds-counts-93333/7/session/client-5/launch.json": "f10b6ed3a5de17dc1b43553f2fe511968856fc8b8c65d9a8aca4ffb93c45b217",
+    "reports/three-builds-counts-93333/7/session/client-6/launch.json": "45189cd525898d3bcc4be5f3368f036f4cfbf0204f6fafbc2471d207e7a8cf43",
+    "reports/three-builds-counts-93333/7/session/client-0/observation-guard.json": "2e810e075c61f9dfcd791871d5639225de1a3d0a12fabf16198dac1e809b41ab",
+    "reports/three-builds-counts-93333/7/session/client-0/api.jsonl": "1534d675cf11377df5827c534f7909a9891031c4d499ec28ddd785db156f3da1",
+    "reports/three-builds-counts-93333/7/session/client-1/observation-guard.json": "27c997dcb486c45770dbada59b55179d578ce8eaecb224701a56b0247a623b79",
+    "reports/three-builds-counts-93333/7/session/client-1/api.jsonl": "40640dc3e493083c3a825e020b084e9ba6745e5699a969affbba911b6f7621b4",
+    "reports/three-builds-counts-93333/7/session/client-2/observation-guard.json": "79090826e525d3fc8c3d82cd2333607066c9d09117a882c2cde87d01ff0796c3",
+    "reports/three-builds-counts-93333/7/session/client-2/api.jsonl": "989b11c9b20de0faeb149254d2b6ba15a492e637a73515db56c6728d9a388196",
+    "reports/three-builds-counts-93333/7/session/client-3/observation-guard.json": "a9712efc6fbf10aecbe9c07bce43e9b0d17bc43cee119c4191a516434d4a9e73",
+    "reports/three-builds-counts-93333/7/session/client-3/api.jsonl": "64a862de7884c85de1b4c66db28e7bc63c85e5b6a8ec469b61b887e706a7b6a0",
+    "reports/three-builds-counts-93333/7/session/client-4/observation-guard.json": "b407bc43a83972b70251be24cb0cfdeaca9dd04d98d0f66b32625be809d6611b",
+    "reports/three-builds-counts-93333/7/session/client-4/api.jsonl": "f3d87c35156244958393e01052db3a91a6048ef6f8426df2f9b3165fb8ab94c7",
+    "reports/three-builds-counts-93333/7/session/client-5/observation-guard.json": "02e1d3859ae705e408eac6866b68f1293c8e534e827519097a8d135a0dfb61a0",
+    "reports/three-builds-counts-93333/7/session/client-5/api.jsonl": "532320c6dc8cfe15b753fd0c3cc24da0cfee1b1d9c2382da89f39008cbe72134",
+    "reports/three-builds-counts-93333/7/session/client-6/observation-guard.json": "e69203c5c2f4f9ae02ee0496e37e5954fa4fa9116d4edf6a142046d048fe1e40",
+    "reports/three-builds-counts-93333/7/session/client-6/api.jsonl": "c72b06152b8c843969c4144d1883a48992327ca1998c712f1d239e057056f2df",
+    "reports/three-builds-counts-93333/7/result.json": "480be111d217289f86a10a4d31e9a29dd8b0875f3722a8911185e3d15fb425f3",
+    "reports/three-builds-counts-93333/7/session/native-session.json": "67c32ef0ab4a81def12e52c892db678b84e5e4ddde798837e2450988354175a2",
+    "reports/three-builds-counts-93333/7/game.SC2Replay": "106ed7dae4dc6f27c645e153244e338255b6fc517962d1a20f958942fcf2dd01",
+    "reports/three-builds-counts-93333/8/session/client-0/launch.json": "f0f1cd9e9341f7f880a9855c6e8550d3227630ba1235fe9b2f6c28bc524cf4d2",
+    "reports/three-builds-counts-93333/8/session/client-1/launch.json": "878900eb8ff3aa808e2e25edfb627551ce0960e8d7899ce9676ec36ebf63a1ad",
+    "reports/three-builds-counts-93333/8/session/client-2/launch.json": "532117c2290284aa200d07beff3e032df0b12e40f9a0780f79f1ef6f850c1526",
+    "reports/three-builds-counts-93333/8/session/client-3/launch.json": "67a159a5f983227b5d2b98b6f75e8ee578af50ac9a40e7242b1b87801feb9fab",
+    "reports/three-builds-counts-93333/8/session/client-4/launch.json": "a032fe3cb647e853e333e16e45f2fb37d958c3f9a6143fa73900660129dabd96",
+    "reports/three-builds-counts-93333/8/session/client-5/launch.json": "72ea9728c09e211bab8933740edc7f6adc4e35d68e155906bb7faa876eae7868",
+    "reports/three-builds-counts-93333/8/session/client-6/launch.json": "ed4535540ee3da29636c6bf95ec3185da3192b9681649062b9692bdd3ba808b3",
+    "reports/three-builds-counts-93333/8/session/client-7/launch.json": "c3416a84255c81f903294dbfb9ee22413b31d2401fea7470c41407fde1cfa374",
+    "reports/three-builds-counts-93333/8/session/client-0/observation-guard.json": "4af3db1cfd0184a9e6cd90cf0bb2cd52473a2138724dc071f78059bdfef450ed",
+    "reports/three-builds-counts-93333/8/session/client-0/api.jsonl": "46ef7b339c79d026236e4fd97ee26b0a0dfba6da66774a9193e089382f1d543c",
+    "reports/three-builds-counts-93333/8/session/client-1/observation-guard.json": "daec4117cc518be3360875cca98058e0fe4a92d6d938b2a3411416847d678c5f",
+    "reports/three-builds-counts-93333/8/session/client-1/api.jsonl": "ae455001ab1a877124af78ddd93916d7f8bc398381a173f7adcdcea1757963f2",
+    "reports/three-builds-counts-93333/8/session/client-2/observation-guard.json": "a05797f9dad316e02f90efce932b576fb1e134ead0a8e9b4aab696cd9ed54b98",
+    "reports/three-builds-counts-93333/8/session/client-2/api.jsonl": "8d665576fc79d9e8dcf503fdefb913008d7c13431b0570431c7a7d1e526a1ce1",
+    "reports/three-builds-counts-93333/8/session/client-3/observation-guard.json": "bb9312f30c12c683cb716d9ec651cea445bebbe52c540d7bc01b46cb5ab6125d",
+    "reports/three-builds-counts-93333/8/session/client-3/api.jsonl": "cfcf3084635a83254bb9ac3b990a324bbdb842b95efcd0df159a37987791b3cd",
+    "reports/three-builds-counts-93333/8/session/client-4/observation-guard.json": "8ea79cebcf4d462d90f2a05031834bc620f784934b1fd8f0edc1180082bd814a",
+    "reports/three-builds-counts-93333/8/session/client-4/api.jsonl": "8c56f392642903289a97ac27e926eafc14d95a77d39b2b71beb6216ebbb58e3e",
+    "reports/three-builds-counts-93333/8/session/client-5/observation-guard.json": "957f96df3a735cc924d51e7fbbf3bc7595acca52a3b3ab269edad337c0e37260",
+    "reports/three-builds-counts-93333/8/session/client-5/api.jsonl": "36debdd772755d211d499ca25c10a2adef58ed43301b0a4bd9b7a3ae1065fdb2",
+    "reports/three-builds-counts-93333/8/session/client-6/observation-guard.json": "88c301a8ed6b802de3783f74bea819eef25e26563b7ed14d9ea31795f2113db4",
+    "reports/three-builds-counts-93333/8/session/client-6/api.jsonl": "ca6a29cfcfcbec65befcd364c59d68a88b20f0a50bb36bb9de769a9a01ed9911",
+    "reports/three-builds-counts-93333/8/session/client-7/observation-guard.json": "b7947dcb3e9984ef9e4c25f51dd1be59b4de6a2100ff8d263b645bcf66bec8e6",
+    "reports/three-builds-counts-93333/8/session/client-7/api.jsonl": "193b70dc3276fec57e58464ff1ca2191577f1e732d76d206139a0611120b0075",
+    "reports/three-builds-counts-93333/8/result.json": "6717d793071deeaac6b2f674d859d064de419d59db469664d9115ee33e13f0d0",
+    "reports/three-builds-counts-93333/8/session/native-session.json": "5f6801a7af6287eb04cc6d1428605269378a1e52eeb6120250c89bfd88f30f0e",
+    "reports/three-builds-counts-93333/8/game.SC2Replay": "daceba89ced0b99e2a53bd11608452979ad171c2abb611e3ee6dccb0d6ffa17f",
+    "reports/three-builds-realtime-93333/validation.json": "6e28d8b14f45a84fbc2bfa0d9af20e8c2b5eb42639f840850d69fa7c611b0600",
+    "reports/three-builds-realtime-93333/4/session/client-0/launch.json": "acdcbcf4a16a134becbbd06d5262a7583a94ce0c6e16a156c49209030ca6e4ef",
+    "reports/three-builds-realtime-93333/4/session/client-1/launch.json": "edc45f02c357eabb22e6e0ef17cf66321b9dc4d4b3d367a7765952dd02db8cac",
+    "reports/three-builds-realtime-93333/4/session/client-2/launch.json": "e0d1c80b6b11ec3f5ae0f31dd75f9fda1632d2822dcd80a9f882f36fde812ae5",
+    "reports/three-builds-realtime-93333/4/session/client-3/launch.json": "6733130a13db2d5f009df0cd297b7927ec292a3c1c85ca43b4a23c5e503ea462",
+    "reports/three-builds-realtime-93333/4/session/client-0/observation-guard.json": "af81908efbe6930c34c3339fdd59929abefcac5b34b140847eb98b74202d5f46",
+    "reports/three-builds-realtime-93333/4/session/client-0/api.jsonl": "71511c0c6db1cd19250edf52d475a237c049a50b5e6a5b50a0fb7e96489b0ceb",
+    "reports/three-builds-realtime-93333/4/session/client-1/observation-guard.json": "c5d8f86f2ce4295060797d58431e956f1835d3a8a4d1f6fa4ac893486459414f",
+    "reports/three-builds-realtime-93333/4/session/client-1/api.jsonl": "1bf258caba6e0520bc675eb67d56da59378d9c4dfe82ce5c2cc030b3aae403e3",
+    "reports/three-builds-realtime-93333/4/session/client-2/observation-guard.json": "fa962838d5fe4febc83ae2454136e4a144783e3a81a6e5710efe9c95b7c2bc71",
+    "reports/three-builds-realtime-93333/4/session/client-2/api.jsonl": "07a36d1128183f54440776c805bc96f16f4c7845099db1276fc2862d3d386aeb",
+    "reports/three-builds-realtime-93333/4/session/client-3/observation-guard.json": "2d52610ef1ef612991947ed1a12ca45bf208c7f8e966d46cc1b8ab04c8d9b3e9",
+    "reports/three-builds-realtime-93333/4/session/client-3/api.jsonl": "cd62d38013387826e1559a42a42517b60511ef5a95ef316cc91768d172d120da",
+    "reports/three-builds-realtime-93333/4/result.json": "cb594ea5ac72a28c6ccea604bb5fe68bd391ecca6a63c2af23d076baaa7bc263",
+    "reports/three-builds-realtime-93333/4/session/native-session.json": "e17e490ab874a9538c34418dbd32a1ba472928e2230a1ceeb5f11a4b354f0d4f",
+    "reports/three-builds-realtime-93333/4/game.SC2Replay": "397903dc11fa4ce66b6405ed3de511cce946a1d99740db1170833f93ce9d4c4c",
+    "reports/three-builds-realtime-93333/8/session/client-0/launch.json": "a713bdb12543dfd5058c065192b8c046b608d02c3edd015d10331f64800da66c",
+    "reports/three-builds-realtime-93333/8/session/client-1/launch.json": "0b8390b1e5e04fd4cf754e456de5a52957117ca0b2e7867f8213ae95577e999d",
+    "reports/three-builds-realtime-93333/8/session/client-2/launch.json": "0e244f42341481d7f8e07b4ced2d1d9772ecdc914057cc7a9bbfa6fbc11b2197",
+    "reports/three-builds-realtime-93333/8/session/client-3/launch.json": "7d29b3a2a5f2a13c8d473f8e47835a7c5054d106800dfd7308ceabca7ff5168a",
+    "reports/three-builds-realtime-93333/8/session/client-4/launch.json": "325f144a874a7ef35d9dc5c6b0dcdc7b753e3ad80a98afa54e880d8300bdaa43",
+    "reports/three-builds-realtime-93333/8/session/client-5/launch.json": "83c057b45f820664460bce28ef6cc4ca36a10a9098997e5f64ad8461125460f1",
+    "reports/three-builds-realtime-93333/8/session/client-6/launch.json": "68761b5180265d6cf6974a24ac6d5cee3c55070ad8c21db852680e79bf71200e",
+    "reports/three-builds-realtime-93333/8/session/client-7/launch.json": "248725e279890fb64a151ac41c034665134255017d927f01c77c96943668884a",
+    "reports/three-builds-realtime-93333/8/session/client-0/observation-guard.json": "dfd2a42bd24d9a2f18a840fb852338a6e0e04c8367313727ea73b9d8724455c9",
+    "reports/three-builds-realtime-93333/8/session/client-0/api.jsonl": "6c579406d3ae80344154182c9710d0d389763cd16c72443b7b6a264ff6b58922",
+    "reports/three-builds-realtime-93333/8/session/client-1/observation-guard.json": "4cbc53a55e8702e17101285fa1645e7c020d0d9c71d3b8dca9482a495e85d4fc",
+    "reports/three-builds-realtime-93333/8/session/client-1/api.jsonl": "03230983f9094d72b27797765ecd75e5184a19a8438675c02c33a703cfa816b4",
+    "reports/three-builds-realtime-93333/8/session/client-2/observation-guard.json": "13ccfca31483f42dc465d9bc57c06bca12cd5ae67f3520b7d05f44c665fb55f9",
+    "reports/three-builds-realtime-93333/8/session/client-2/api.jsonl": "d87d9c676cc85a1efd46b28d9d281af11ff9783bd992f71c6f9582f1d80a7c10",
+    "reports/three-builds-realtime-93333/8/session/client-3/observation-guard.json": "68f7a57988a9fb66f35955d72a716f0673ea7cffb1f444a59cf77790b3984016",
+    "reports/three-builds-realtime-93333/8/session/client-3/api.jsonl": "3679ef4060d7cb37e70762714cadcc991d54e029f652fed26384a105ad4e08f5",
+    "reports/three-builds-realtime-93333/8/session/client-4/observation-guard.json": "aae6d0740b2ccea333a7df8b7e504ddeeacec1eac1a3818274cd2da859b2d57d",
+    "reports/three-builds-realtime-93333/8/session/client-4/api.jsonl": "54ef1a038faf750a76db4908ac2fa7118a1667935a8590183ee5acb0c8d15582",
+    "reports/three-builds-realtime-93333/8/session/client-5/observation-guard.json": "3dc27923a161542bd237b3730d19f541bb3257b0edd36e49fd10520ccd4ce8d4",
+    "reports/three-builds-realtime-93333/8/session/client-5/api.jsonl": "46b27539cc93025b33f5992a7c6f3cf380f38f745e71e73fe50fe5bc5376a816",
+    "reports/three-builds-realtime-93333/8/session/client-6/observation-guard.json": "422373fa81994b1333b23603294f179091b6ebf63a599f0c69d8a2b3cf6bfb30",
+    "reports/three-builds-realtime-93333/8/session/client-6/api.jsonl": "c4b4c3bbb936aa8937a253d4af92b177bff4a23854bde19e446ca433e788a8ba",
+    "reports/three-builds-realtime-93333/8/session/client-7/observation-guard.json": "bf70e8a8998a6984077afbf6395dd96a28939b7aa8550af3829eee6918b4378e",
+    "reports/three-builds-realtime-93333/8/session/client-7/api.jsonl": "a94226b4b39e0a3cb572c80e0e54afe83983e794b0729ba484cfa92ea9a5493d",
+    "reports/three-builds-realtime-93333/8/result.json": "ed7b5b47b322df008a5bbc0d41dca54a1dbcb12b4e40a45c1965f5d5ad6e7f14",
+    "reports/three-builds-realtime-93333/8/session/native-session.json": "aa5fd54606f0f9d38cc05a93d3c5fe73a24f45104f30c288cb2637a368f87477",
+    "reports/three-builds-realtime-93333/8/game.SC2Replay": "615bdce2381d1218d0733a31d964422a41bb8d91e256e465efe70704c510e07e",
+    "reports/three-builds-research-93333/game/session/client-0/launch.json": "64aaef9e75e23c60ca5ea2aee1a86f7df015a57ebeee911b89a23ea40f370026",
+    "reports/three-builds-research-93333/game/session/client-1/launch.json": "c30a918c4b469e16608573662d8722a16341eabe9328f4d1c4fdd9ed1148a26f",
+    "reports/three-builds-research-93333/game/session/client-2/launch.json": "9413b01df19f011bd9de8fb67342bd294ddb86de094bb05c0f7948596a9890e4",
+    "reports/three-builds-research-93333/game/session/client-3/launch.json": "0f99322980452bdcd7be879e931127872de1e8c2c8a70432c112b8f651cb2840",
+    "reports/three-builds-research-93333/game/session/client-4/launch.json": "7ea3afe99648d9947e6763c9603d718ef9b7d878b9d111a43c5c3e7f6b597ef6",
+    "reports/three-builds-research-93333/game/session/client-5/launch.json": "9d9dd1b38c49aeef8e8c8054d93df3678e6f8fc0a85f4fc4291ef60a02f49ef0",
+    "reports/three-builds-research-93333/game/session/client-6/launch.json": "25512d0e3395d559c73e0cbb3a644789c7954bfea9b62a4fdbdc1073e78a2722",
+    "reports/three-builds-research-93333/game/session/client-7/launch.json": "fd8032f0c4f7f92dda2ce7138eab18e25ed29ef8b1797df0ff6c07747729f59a",
+    "reports/three-builds-research-93333/game/session/client-0/observation-guard.json": "442469a5cf17874e8aec72714bec52cc54ffb1fe8af97266b9dba77d3ef573a0",
+    "reports/three-builds-research-93333/game/session/client-0/api.jsonl": "9e7e7d195eb7475877a59544599bffffcfe30d590fa273ded644eccd43de59ae",
+    "reports/three-builds-research-93333/game/session/client-1/observation-guard.json": "0566ed5ab7c592ac7a0bc57cfea9d6aebbd725f777acdc277d37ec01fded6831",
+    "reports/three-builds-research-93333/game/session/client-1/api.jsonl": "720856faf5728f5505c40958f7161f6e330059bf2a8f11b51fbeb05c9736806c",
+    "reports/three-builds-research-93333/game/session/client-2/observation-guard.json": "4bf9c1b3840fbdb68a6753ef66143bf51a1c570940b7f45cbd302c8d44ded424",
+    "reports/three-builds-research-93333/game/session/client-2/api.jsonl": "5acb641eca2c9643e525d56e8602c074a6eaa63b19b8d50dd2d964edbe8b3935",
+    "reports/three-builds-research-93333/game/session/client-3/observation-guard.json": "485b9af1df6e31e068a72f24b54584cde43b670313fcb8b03e9328391886e8e6",
+    "reports/three-builds-research-93333/game/session/client-3/api.jsonl": "0d517bf1443194c317d7d80324d52d01e8f225ae102d16d7ce1d4d8fd9ec5786",
+    "reports/three-builds-research-93333/game/session/client-4/observation-guard.json": "ad405fcb58165e0d1fea1e31758e89a33234cc255b261e813002e3594d7b5d0f",
+    "reports/three-builds-research-93333/game/session/client-4/api.jsonl": "26cab00650116fb3ac3acaf88ba0688538039de1eb7fa153dd64bae6299d096b",
+    "reports/three-builds-research-93333/game/session/client-5/observation-guard.json": "5a86a121e1c2af338fea937cb5a04c605e9e5dae6fda2eb40555a43f7c7de61e",
+    "reports/three-builds-research-93333/game/session/client-5/api.jsonl": "176e9ecdfd02259fef08f2b8a865f62b48ee2828025b5666366b74227433e2c7",
+    "reports/three-builds-research-93333/game/session/client-6/observation-guard.json": "2ff7bbbf1ab856ef00a5a47a945020aebd71afb419f2989a0f3c6ffb54ecac96",
+    "reports/three-builds-research-93333/game/session/client-6/api.jsonl": "c18207e60ae1b03b68eccad4ae6bfcf69d76da6867aea0b641563f04e914f9c2",
+    "reports/three-builds-research-93333/game/session/client-7/observation-guard.json": "a8f4c8ccd07746b7c8a343112c4aaac9224aee21d379c56cd385f0a4f002d78c",
+    "reports/three-builds-research-93333/game/session/client-7/api.jsonl": "47ca530eb1c96c21c805c44a7131456b4debbc7626da2ca9d4aeaef01afb7926",
+    "reports/three-builds-research-93333/game/result.json": "e4993f06df536a6136f81d518e41dcc8b6fddef2f3b66c9f895d84359d0a92f9",
+    "reports/three-builds-research-93333/game/session/native-session.json": "462b5402f44f51a3e8a46666cc091ebdf0b4e39f8b43193795cb29e5f276aa3d",
+    "reports/three-builds-research-93333/game.SC2Replay": "43b0f9ed94dbf768c9548e1988af0fb795c1e92579a56395c0288e19879ea3a7",
+    "reports/three-builds-research-93333/validation.json": "8bb9d6a0192d4b901763e5bcd3ab2fb7f553738656460ed694c248dcfbeee127",
+    "reports/three-builds-research-93333/bots.json": "9b23a061062520f4e5bb6aad387ebd33192db194333e67cd3b9b9b3fd985b835",
+    "reports/three-builds-research-93333/research-replay-verification.json": "3df1610a507fbce2901768c719f9d5707fb7bfdf7187b56be16c97c789518581",
+    "reports/three-builds-wheel-93333/validation.json": "a763fe9083dd0bd3e4e475bbd0baf20afe5dda500b918e0d4f403bfcb3295239",
+    "reports/three-builds-wheel-93333/4/session/client-0/launch.json": "94ad9425fb11c001f10b91051da728cf92429591038deefd226578be5f5c4e77",
+    "reports/three-builds-wheel-93333/4/session/client-1/launch.json": "d8fda6c7c3e517c2c7fa7905f87c9b988da7186151ef806c4e21019fa0816d46",
+    "reports/three-builds-wheel-93333/4/session/client-2/launch.json": "468f67c90e122f0b0f45e81be30b2a889bbb78370f358e9590f2ad9fe21bf3b9",
+    "reports/three-builds-wheel-93333/4/session/client-3/launch.json": "92e87d2d35cef101198e819ff3a86768a55ea14745f8182061c8e30b4b23d315",
+    "reports/three-builds-wheel-93333/4/session/client-0/observation-guard.json": "dd1cbe8874ac2397f0cc8fa962d3e7a6ad52d585d6b17a6b453842c47bfd6232",
+    "reports/three-builds-wheel-93333/4/session/client-0/api.jsonl": "620156f24388110dea5cc5f7cc8b5bbdeda4ae3c6c3fd3c62c0c6e67b0c7fba9",
+    "reports/three-builds-wheel-93333/4/session/client-1/observation-guard.json": "07decd371d19a6e662051046d59f27d17149b6153a7f5a5ee7088df4291c5a65",
+    "reports/three-builds-wheel-93333/4/session/client-1/api.jsonl": "0c92d5fc2117bbec2e7640b4db492cc220fd2548455d1f39c6bbb8677ce2e17b",
+    "reports/three-builds-wheel-93333/4/session/client-2/observation-guard.json": "864f9b3795d33bb1ced739cc32137d3dd2e3dbd8d8ba97ac73fcd6659f9db011",
+    "reports/three-builds-wheel-93333/4/session/client-2/api.jsonl": "977db468e93ff69b50753337b0328eb203fed6e54b79f242c70f0e7fbc07c476",
+    "reports/three-builds-wheel-93333/4/session/client-3/observation-guard.json": "ddb38ae2c78c776821204d6e9a4e5380962a2ea615da6e3943ec12a0f3cdbcad",
+    "reports/three-builds-wheel-93333/4/session/client-3/api.jsonl": "2740cc15708ea305d3386ccdb3ab13430bb58f87c2a2913f8a492d9cbda87342",
+    "reports/three-builds-wheel-93333/4/result.json": "e5f416e15015df2e98a1fa34641414dcca1ab52497ea11b7cb5d5ce9d7730e40",
+    "reports/three-builds-wheel-93333/4/session/native-session.json": "276819f56ab9826d9bc30c46159b5ed8ff0e424bd8ad4cda6d8d8a2c12f95468",
+    "reports/three-builds-wheel-93333/4/game.SC2Replay": "42a2aa5b5dba55e8935beb15c9a93815d9427209a51c01b1b35df687951502e5",
+    "reports/three-builds-investigation/doctor-98370.json": "a0bbbc0cedac76ab8e6ed181e421bdc4f930dc2bbcc1760ba13cdab77d164227",
+    "reports/three-builds-counts-98370/validation.json": "2c7527bc1b9a70cdbd487ea7df5a196d8185dba66a8b57204c567548c49104ac",
+    "reports/three-builds-counts-98370/2/session/client-0/launch.json": "a327e9514dfe29cd88a1a07ea6bf7e878ed81a44aa82a19463a944e927fe8d31",
+    "reports/three-builds-counts-98370/2/session/client-1/launch.json": "7c53450a0fbcad3fc8bb413d1352e8b5a52e29ec510e8f8c6a03b742477401d5",
+    "reports/three-builds-counts-98370/2/session/client-0/api.jsonl": "6e245611841796c413c7d805092f5721ba5084dfe39a0f2d3960d02913f024cf",
+    "reports/three-builds-counts-98370/2/session/client-1/api.jsonl": "7c8dafc8ea6a539d13e6d6321fb69285c7fd519ca7b611af332326b83c30333f",
+    "reports/three-builds-counts-98370/2/result.json": "fda666fb238c40ade0a23d762f121b37eefccd5d8c4330b9196d3a7cd934f956",
+    "reports/three-builds-counts-98370/2/session/native-session.json": "a0a33276a047cd05d2f7ee78aa80a2eb385c22a240435251a38f91b7f7f12651",
+    "reports/three-builds-counts-98370/2/game.SC2Replay": "12d6019129ddb1057c4f44000ad3bb81905bc9e7330e931bf22747ad12ef4524",
+    "reports/three-builds-counts-98370/3/session/client-0/launch.json": "9eec17ade953420188851fc228932e463ad78d65fcd5f4ac6a9f6fc0bf7dc1d2",
+    "reports/three-builds-counts-98370/3/session/client-1/launch.json": "fbf006bd7a61e6bb5fcf25ac7015bd63331222e86bd38d16e7e379f5bba6941d",
+    "reports/three-builds-counts-98370/3/session/client-2/launch.json": "873b9a4144a65bb0cf9a085d7cf8fa2614770a5f2ac7091e052ed512bde41153",
+    "reports/three-builds-counts-98370/3/session/client-0/observation-guard.json": "125f9d161aad38a20c6da714b221e36f92b1f2a10d5e2df92481235294a0b1d5",
+    "reports/three-builds-counts-98370/3/session/client-0/api.jsonl": "83e8011dd3c3db29bd3c57b74ac3dca30ef4eb3ea23ee92514b584428d93fa85",
+    "reports/three-builds-counts-98370/3/session/client-1/observation-guard.json": "b90599117d75f4222eb8413a5fcfa212c75f4079b3cf615e5d2aa04ec938a6e1",
+    "reports/three-builds-counts-98370/3/session/client-1/api.jsonl": "6e8214e0ef771e8d6987318d452403f053a6af8e38c5741812bf1e8b3cff2f94",
+    "reports/three-builds-counts-98370/3/session/client-2/observation-guard.json": "7483ac3590815149686ed54e6a41b31d9a3b30ce371a037fafe3f62c1bd6d4c8",
+    "reports/three-builds-counts-98370/3/session/client-2/api.jsonl": "686cdf2c7445a931b2c1869f9c4da820aee112fab17462c30bf2aa7d79c74ff0",
+    "reports/three-builds-counts-98370/3/result.json": "0b7d861fb4aedc7ffd0221a73428fe80018417c94da05e173f2d3e19735d8080",
+    "reports/three-builds-counts-98370/3/session/native-session.json": "2239e908398bf7c86fb38021a97fbc9f9cb2b3610d265f77be5e491a4b64ce5b",
+    "reports/three-builds-counts-98370/3/game.SC2Replay": "aa8dfd7f471687e665c1efe1bb42a1e32b9e260414036888e445fb04c715a271",
+    "reports/three-builds-counts-98370/4/session/client-0/launch.json": "c315330147419f1714fc30605da70a69d68b6add61681078341e3853676848d7",
+    "reports/three-builds-counts-98370/4/session/client-1/launch.json": "5c636f52dc28073f17a239fbc28f1db809383aefbb4511cd2b7055ae507a8fb5",
+    "reports/three-builds-counts-98370/4/session/client-2/launch.json": "111e50cda63c7877b829de483508cf726998b7ec8abe0b9d1fc707d3ec910142",
+    "reports/three-builds-counts-98370/4/session/client-3/launch.json": "19261f1b6ecbc987b687ab6d98b81600f18d92ade001bdc353fda36e4a4f3806",
+    "reports/three-builds-counts-98370/4/session/client-0/observation-guard.json": "18f91b1886018814a4255884ed0f9e1eed16829562eea357834fd28bf32217f2",
+    "reports/three-builds-counts-98370/4/session/client-0/api.jsonl": "08a86d74a0e63500e17d8eca5390f920f058858b980304b79519d39931ab14dd",
+    "reports/three-builds-counts-98370/4/session/client-1/observation-guard.json": "1fc3f1a87f14f09c0b95ff83692432d5992b25b9ba0b5eeceeea4523046d9cca",
+    "reports/three-builds-counts-98370/4/session/client-1/api.jsonl": "d030b120a242e78368f187e5eec6da01cd44ec29a13ac64f845763b6c35cc57c",
+    "reports/three-builds-counts-98370/4/session/client-2/observation-guard.json": "89e82041065c9620e08314eb2265e7afe33047b855115185ab1ec5b3be74b908",
+    "reports/three-builds-counts-98370/4/session/client-2/api.jsonl": "6c04c48dbc2035979c0361a79494df05ac9d9a46dfb7b893982d2f9b002a71f1",
+    "reports/three-builds-counts-98370/4/session/client-3/observation-guard.json": "524c27c7bf24ded478497459e5d503c64a0a9dcf81289df9583b8a5d42ea2a1b",
+    "reports/three-builds-counts-98370/4/session/client-3/api.jsonl": "3846814affe21ea930ff672ee5427980ab68766820b90a268055ed1cd9a74e38",
+    "reports/three-builds-counts-98370/4/result.json": "5b68b45747e92413efc516cc735654142fd9552ad9c1d0b4ac46298cac33fcf3",
+    "reports/three-builds-counts-98370/4/session/native-session.json": "23a1e8190d0cf6c7145dd991829f3b56286e351cec90ea8479a5adb671f862fd",
+    "reports/three-builds-counts-98370/4/game.SC2Replay": "c9b6c11ef1bde0f4942964844c751fb5ccacb1f8e6ae97d89df109fe66e98b26",
+    "reports/three-builds-counts-98370/5/session/client-0/launch.json": "d62de9219a31d57c272628730796645e974ed113cdac926ffc5dc6201b7c1010",
+    "reports/three-builds-counts-98370/5/session/client-1/launch.json": "863a833b88f1cd801ec4174b92e999d69964abfbd295b48227b77649be9cacf2",
+    "reports/three-builds-counts-98370/5/session/client-2/launch.json": "cbee2dda19e6477600903afec3e31c87e262aa424b9f7f9f64169f2702d85d1f",
+    "reports/three-builds-counts-98370/5/session/client-3/launch.json": "9a201d77fa997abbeb4855b1089ff60599896a1c6c3f419971a3b704eea17635",
+    "reports/three-builds-counts-98370/5/session/client-4/launch.json": "94d79fa621d5183fc45871660a6f781d01ddcfa9004c24e39f976ebe2ebd6942",
+    "reports/three-builds-counts-98370/5/session/client-0/observation-guard.json": "e9902955c1c970c79840a9a98d5dcc081190741df7b9819c41644c9ce354480a",
+    "reports/three-builds-counts-98370/5/session/client-0/api.jsonl": "ed9cdc14bdeace7cfbbadd06037ef550662ebe839a5708fe48a092ee2eb55a89",
+    "reports/three-builds-counts-98370/5/session/client-1/observation-guard.json": "992a7d49f0cdc6c8c32ded25e1280c9533d0818908301ca7c0e542b21f2aa53a",
+    "reports/three-builds-counts-98370/5/session/client-1/api.jsonl": "1cec0dfb041aa24118b16901594bbbf97cef0dd467f0b1d7987a65ca7ccf2482",
+    "reports/three-builds-counts-98370/5/session/client-2/observation-guard.json": "4b09b1e9983d381056eb93b6651359d0cda282fc58b2f48ecfb399247f3970d5",
+    "reports/three-builds-counts-98370/5/session/client-2/api.jsonl": "23ef99dd14fa8b0a6fb254479c2e7d8a2e1687aa7288356282fc5257d874f9ac",
+    "reports/three-builds-counts-98370/5/session/client-3/observation-guard.json": "d4449959cd3827aa3c7ce3302259117dc0f0fdec46b616d8e8d78b04751b1248",
+    "reports/three-builds-counts-98370/5/session/client-3/api.jsonl": "c0bff63a3b8f482520c328be442f2c5aed9882f77b28049c2813ddd2d0256f96",
+    "reports/three-builds-counts-98370/5/session/client-4/observation-guard.json": "d13976f6f4589c51ce5ad31c7ac60ec3a6daeadf9bdcc64c31e8f991c04ec978",
+    "reports/three-builds-counts-98370/5/session/client-4/api.jsonl": "4bc8204048ae8a350e18468b9425b413eec27955438efc6e846d7b8313d89251",
+    "reports/three-builds-counts-98370/5/result.json": "f04938f1fee9db4a9089b3a5730a64782a3831361a80373ea1ba281b25a78c46",
+    "reports/three-builds-counts-98370/5/session/native-session.json": "3b07cd7dde734b8bc0ad6eddc00cb07173821d5151af296402b2ae60a2e21c09",
+    "reports/three-builds-counts-98370/5/game.SC2Replay": "f2be4b4d78267aaf3c3b256b51269d766c9deeb23613312ea49aac73e469c742",
+    "reports/three-builds-counts-98370/6/session/client-0/launch.json": "6a1cc64da1732594f1f49475c4fc8a2c2d711953ab43c3a1cb04a521cc8b9528",
+    "reports/three-builds-counts-98370/6/session/client-1/launch.json": "d5a34286f881a3a55fffe8b099c3e5f5a1e1048dec5f9d474b903cb28bc808cf",
+    "reports/three-builds-counts-98370/6/session/client-2/launch.json": "ff8bd3cc1caa0ed5bcdf4850e7416facbdeb9567f362b51b6382831d30fad6db",
+    "reports/three-builds-counts-98370/6/session/client-3/launch.json": "548a546c76e57deca94949471c27edff298b0315b99c12d9b225650c72339325",
+    "reports/three-builds-counts-98370/6/session/client-4/launch.json": "2a16cc742e4777454be93bc84312854cacfed880f83b345bc726a90cbe51d5ef",
+    "reports/three-builds-counts-98370/6/session/client-5/launch.json": "7641818ea155a750d82248a4b79d9788bb577b8b31a7b7240fe5125a9c8e4eb4",
+    "reports/three-builds-counts-98370/6/session/client-0/observation-guard.json": "1b5d749803c4e1a1b24cdde9655af44f9772d5e0de5055a0ffc7563f36d5a16a",
+    "reports/three-builds-counts-98370/6/session/client-0/api.jsonl": "b98eca8ff420582122f96a787b0126672620bfb3a6103d6728f292f8775b6a51",
+    "reports/three-builds-counts-98370/6/session/client-1/observation-guard.json": "37ffebdc3f9c3a5438db51023b78ffd77afc0a2f25a6fd9d268b994d02e20a5b",
+    "reports/three-builds-counts-98370/6/session/client-1/api.jsonl": "e48059d68483d62cb6b94a2652b68944175cd438256dd71f944c168fbdff38f2",
+    "reports/three-builds-counts-98370/6/session/client-2/observation-guard.json": "87a4232ebaf66c6563eac86a118b98439336cf943beb6f0e574f93d025d1c1d4",
+    "reports/three-builds-counts-98370/6/session/client-2/api.jsonl": "23db3fdef9c2bed3c3a7d5f9bfab6f5d955b69b47b579700cf8c742318306003",
+    "reports/three-builds-counts-98370/6/session/client-3/observation-guard.json": "472574e6c8c6154891c81c8c70b4ad4474664fdb85aa88f523bc47a59a683318",
+    "reports/three-builds-counts-98370/6/session/client-3/api.jsonl": "cf6916db26189409510e3cae5f6e2c24c3208b2790d2f6e714eb030d3202f24a",
+    "reports/three-builds-counts-98370/6/session/client-4/observation-guard.json": "6cea37d8f5ee0f885cebc2133882d50be273bc24636b1411c4ad5f0a4cef3336",
+    "reports/three-builds-counts-98370/6/session/client-4/api.jsonl": "a68336bf176c49c5e9e949eca6b4047d5775bb7b6cf43bf446c454d503369978",
+    "reports/three-builds-counts-98370/6/session/client-5/observation-guard.json": "17be5a3d1b55aaf0187050c12b5d3fc298a9a2846a22d16bc12c022ae6bdbbed",
+    "reports/three-builds-counts-98370/6/session/client-5/api.jsonl": "653816ca2f982180d24e0ab143e057ca7eeaea3dc73f439212980321322c5717",
+    "reports/three-builds-counts-98370/6/result.json": "237226bbe42601679475e1e19439bbe99df6f8c4c07c163bc2c39859320dbf21",
+    "reports/three-builds-counts-98370/6/session/native-session.json": "f392c8c9e2e7bce35a8e7b90054eb43817c30609bf626b39facdca046f99e4a4",
+    "reports/three-builds-counts-98370/6/game.SC2Replay": "ed503b6af5401c28ee27889d759aa1000115587f0d2b98406ab1d81877dfc97a",
+    "reports/three-builds-counts-98370/7/session/client-0/launch.json": "e32c4bc0fd8463ffb806fbe3d1267083ca65ed983a8f1e49575d71d4afe61e49",
+    "reports/three-builds-counts-98370/7/session/client-1/launch.json": "2e1aeadd8cb456382b8122b7ba441203f209ff0ab463779f783a33b583da404d",
+    "reports/three-builds-counts-98370/7/session/client-2/launch.json": "00db735eaffe139cb1025ee7d2aa021d993412a4df2fd5f19c6d15fedc8b210e",
+    "reports/three-builds-counts-98370/7/session/client-3/launch.json": "135dd70e814a2e8eceaaefcbd9c24a5b2c5fd861a09052785f6ac2df75a53775",
+    "reports/three-builds-counts-98370/7/session/client-4/launch.json": "c5c069ece531da519e254cf1b4054c609bb5a5aa8bd687d80327b3022eae7a32",
+    "reports/three-builds-counts-98370/7/session/client-5/launch.json": "9bb0806b81b2f030d6a4b9177c04eb06eb3ee69815f89c926fc9f6708b77de42",
+    "reports/three-builds-counts-98370/7/session/client-6/launch.json": "52c34a94113fecfbc90294bd642bae7e39052d25fc560e57b95b7fbf82604448",
+    "reports/three-builds-counts-98370/7/session/client-0/observation-guard.json": "2f0eb4a9668ae9c18225f957a183abde1676b6eb97d286952a4801b270ebe134",
+    "reports/three-builds-counts-98370/7/session/client-0/api.jsonl": "1534d675cf11377df5827c534f7909a9891031c4d499ec28ddd785db156f3da1",
+    "reports/three-builds-counts-98370/7/session/client-1/observation-guard.json": "e3ed2e9bcc2b50e85d5b6197c9f7059673312760cccaebafe8b72f306d79bb44",
+    "reports/three-builds-counts-98370/7/session/client-1/api.jsonl": "f73c2c443a65e356a7baee7ded2359666845f15eba77b3424ee75ed52fa04686",
+    "reports/three-builds-counts-98370/7/session/client-2/observation-guard.json": "57e25e926090dc788a217fcbd3a801421228aa845884dc4372f70d2906f5b79d",
+    "reports/three-builds-counts-98370/7/session/client-2/api.jsonl": "f3d87c35156244958393e01052db3a91a6048ef6f8426df2f9b3165fb8ab94c7",
+    "reports/three-builds-counts-98370/7/session/client-3/observation-guard.json": "e92ed2c64ddb99064213cff6e4b1cd9e75282d14b1081965e53ee93f542cd0d4",
+    "reports/three-builds-counts-98370/7/session/client-3/api.jsonl": "c72b06152b8c843969c4144d1883a48992327ca1998c712f1d239e057056f2df",
+    "reports/three-builds-counts-98370/7/session/client-4/observation-guard.json": "2b288183ce0daebebaaa3c53e9e27fb8839c2f86bfa8f2ff850ae02b2e5cc435",
+    "reports/three-builds-counts-98370/7/session/client-4/api.jsonl": "d5d60323bbb4cd86b57f9b142defd214eb161e55fe1d15af225f60d0a0630935",
+    "reports/three-builds-counts-98370/7/session/client-5/observation-guard.json": "b736167a8c868b409a4e97b3699e95944705a36e228f4febdafcd73eaef3358b",
+    "reports/three-builds-counts-98370/7/session/client-5/api.jsonl": "64a862de7884c85de1b4c66db28e7bc63c85e5b6a8ec469b61b887e706a7b6a0",
+    "reports/three-builds-counts-98370/7/session/client-6/observation-guard.json": "40af22b0568c1be4db1401b789f08621d74e3eb432eec66de022c699b50fca04",
+    "reports/three-builds-counts-98370/7/session/client-6/api.jsonl": "8edefe98e2af312739ceaef3c19c935f351a50509971843b99f67a9e6b88a9c3",
+    "reports/three-builds-counts-98370/7/result.json": "934325e1862caa1b0912b7715e5542192921b18065759fa42d650b1b13e73686",
+    "reports/three-builds-counts-98370/7/session/native-session.json": "48519ea70fdbdbc2afb58cd3b69224650e92a4138892336a20e56bedca4cd8d8",
+    "reports/three-builds-counts-98370/7/game.SC2Replay": "b433a441b23fd17997a286204b747242177bdc69caece513b4f299dcd7e222a6",
+    "reports/three-builds-counts-98370/8/session/client-0/launch.json": "1c5872aa87746fe6ffc6bcbefdc0c760403f2277347d949336d2d41d9b5a50f5",
+    "reports/three-builds-counts-98370/8/session/client-1/launch.json": "0885b0cfd948e0d46d7fdfd9ebee4cd0613e9cc6c8f020abaf6a8f816533e414",
+    "reports/three-builds-counts-98370/8/session/client-2/launch.json": "3cc85698948163a8f0e5302a320f8216870e0bac9dc33e47e45f852a0c1cfab4",
+    "reports/three-builds-counts-98370/8/session/client-3/launch.json": "e686d1f9b32a6297f2fdd1c79a75b9227e3743f8c98877758462d4a9a49ff4ce",
+    "reports/three-builds-counts-98370/8/session/client-4/launch.json": "c0b89eb0205d936fd55fe630a7c0df80ced7875c565de3f53dad93a864f1ccde",
+    "reports/three-builds-counts-98370/8/session/client-5/launch.json": "af41d37edd9069bf4ecdc168c4bfa90a7907961c7d800cfb77104967c5078591",
+    "reports/three-builds-counts-98370/8/session/client-6/launch.json": "592dff92675e9b5c6ccb86b3677d47d90d3c6cb27793d8244576729f054f7ba8",
+    "reports/three-builds-counts-98370/8/session/client-7/launch.json": "2b1ffeee39b9221a58583e8eb3ecf6ac5a6fbdc55670146d9794022f92575600",
+    "reports/three-builds-counts-98370/8/session/client-0/observation-guard.json": "aba44cc66e8decb38b65b9740cae17356ad452c6776ca2d2ba893cd56c9f71e5",
+    "reports/three-builds-counts-98370/8/session/client-0/api.jsonl": "46ef7b339c79d026236e4fd97ee26b0a0dfba6da66774a9193e089382f1d543c",
+    "reports/three-builds-counts-98370/8/session/client-1/observation-guard.json": "5a80e8241cdb918af92d2bfb214c69a5542208d8192bf26336b4535f2f86d5b1",
+    "reports/three-builds-counts-98370/8/session/client-1/api.jsonl": "36debdd772755d211d499ca25c10a2adef58ed43301b0a4bd9b7a3ae1065fdb2",
+    "reports/three-builds-counts-98370/8/session/client-2/observation-guard.json": "2ce85823b1a892e99fde4f1469acab2f3031f628f02e921bc43bb090386d14f1",
+    "reports/three-builds-counts-98370/8/session/client-2/api.jsonl": "193b70dc3276fec57e58464ff1ca2191577f1e732d76d206139a0611120b0075",
+    "reports/three-builds-counts-98370/8/session/client-3/observation-guard.json": "58512108ddb008e2066dc33b3ecc2ff3d67783412a447044b70e9bfe7971e720",
+    "reports/three-builds-counts-98370/8/session/client-3/api.jsonl": "8c56f392642903289a97ac27e926eafc14d95a77d39b2b71beb6216ebbb58e3e",
+    "reports/three-builds-counts-98370/8/session/client-4/observation-guard.json": "4bca249a7c61bad854c395d46205a56a4235ec515444692119ca0ee839df0ec2",
+    "reports/three-builds-counts-98370/8/session/client-4/api.jsonl": "ca6a29cfcfcbec65befcd364c59d68a88b20f0a50bb36bb9de769a9a01ed9911",
+    "reports/three-builds-counts-98370/8/session/client-5/observation-guard.json": "60e86363f4e8b4fa503ce48bdc99e30c1b89a0c0e92148caaf00d1b0fa1bd9d5",
+    "reports/three-builds-counts-98370/8/session/client-5/api.jsonl": "cdce9254e5aa90601d85b4e15d8d3e1fe4c5341497190c1a568aac303198a2a6",
+    "reports/three-builds-counts-98370/8/session/client-6/observation-guard.json": "a5cf0f6da2e0ba9356e0815482a235f84394fa05e5f8999a6cc7e6a9060badd9",
+    "reports/three-builds-counts-98370/8/session/client-6/api.jsonl": "ae455001ab1a877124af78ddd93916d7f8bc398381a173f7adcdcea1757963f2",
+    "reports/three-builds-counts-98370/8/session/client-7/observation-guard.json": "ee5ac51af849eee49b0fa9add57769dd99d164c923b0a563c17f9d56b2ed2436",
+    "reports/three-builds-counts-98370/8/session/client-7/api.jsonl": "8d665576fc79d9e8dcf503fdefb913008d7c13431b0570431c7a7d1e526a1ce1",
+    "reports/three-builds-counts-98370/8/result.json": "d410dfe545b4c544e335283db74e9a39808db251a287d41590eb52d847a7da25",
+    "reports/three-builds-counts-98370/8/session/native-session.json": "35358058816c18491ad239c6aa7e7ffaec4debb405ec84b9f594435fac1244d8",
+    "reports/three-builds-counts-98370/8/game.SC2Replay": "db4e5313ba579071f275add909394115927d3e6ef1cd21d13749db2dcfb308d0",
+    "reports/three-builds-realtime-98370/validation.json": "934513dbccd9bb3cc122c315baa002295abc2d7b5e68222b5959d57a5b9203de",
+    "reports/three-builds-realtime-98370/4/session/client-0/launch.json": "4a15ccdc25641479692bab6ba3970c7129b7572acad9b05db25d49e797c4fe71",
+    "reports/three-builds-realtime-98370/4/session/client-1/launch.json": "c80979b50a6f0df0059b2088fcf1d4e2c9f95e44da7e69a915d5e9cbb32f86a1",
+    "reports/three-builds-realtime-98370/4/session/client-2/launch.json": "b28d2d103d91404b08db5736c56aa76c9c9cfe0b0399ed9ef035cd2a7f91ad28",
+    "reports/three-builds-realtime-98370/4/session/client-3/launch.json": "1efb7edd6f0fba4fff4f056d8b6d10b1fa1f8b1c645dd34700f1b10fc80ca09d",
+    "reports/three-builds-realtime-98370/4/session/client-0/observation-guard.json": "93b35ecd347dd1b53800e2e20ad1198c9cfb1bc1407c95bd9b7aba09e6154be4",
+    "reports/three-builds-realtime-98370/4/session/client-0/api.jsonl": "b0ceb87c656a9f935b7ea53a43b7a03457fdc1e800d7c4e691869b56ecc5e614",
+    "reports/three-builds-realtime-98370/4/session/client-1/observation-guard.json": "c8f41bf21b1f21325e9c1d95304ad6ba15175f0fecf903017c98ab3ddef1a11f",
+    "reports/three-builds-realtime-98370/4/session/client-1/api.jsonl": "6b17a4682542c511c4c308258a7c783a27fc82582d73f2ba1986918f4b4ef2bc",
+    "reports/three-builds-realtime-98370/4/session/client-2/observation-guard.json": "96b60f24c0c15fd0d1ccd25688ba4a41bb096023cdbddc1698aae00fff94a3f0",
+    "reports/three-builds-realtime-98370/4/session/client-2/api.jsonl": "2d413ddd8feabf6fd6170beea913f39add5cf5652cdde9f1715a02cc0fed0f2c",
+    "reports/three-builds-realtime-98370/4/session/client-3/observation-guard.json": "c9e0a8ce403da02bece8a042bf2b0acae599c3b99af5b30a1700d389c130a797",
+    "reports/three-builds-realtime-98370/4/session/client-3/api.jsonl": "9b6a1579cc5ae1d17479d8ef6826fe48a80dc65b662b5ae331cf49bfbee7ead1",
+    "reports/three-builds-realtime-98370/4/result.json": "e63b61d2094b6335634e3a4a8ff78f9e4071dc315732ba2ac53d03da711b70f6",
+    "reports/three-builds-realtime-98370/4/session/native-session.json": "67455ab140836065898d0923b4f63b3a38773572662f44fda5c737b505265847",
+    "reports/three-builds-realtime-98370/4/game.SC2Replay": "25ea3ccd8c84051ecdea3029b35110f3ce55a26584ce7eb90345deb41ec1b4cd",
+    "reports/three-builds-realtime-98370/8/session/client-0/launch.json": "a2ea0ca8ca5ab7f8f19d5c26eae4ad14e62a3b73a4698332a300874b3183b609",
+    "reports/three-builds-realtime-98370/8/session/client-1/launch.json": "a8f9e4baf684c431afd3c92c565f1fa084abad5c64b573abef1b574fc2132d00",
+    "reports/three-builds-realtime-98370/8/session/client-2/launch.json": "1b2b59132d408b7b7fad96da92718c3e8aff0c3ef0c905d41adf99a72fdc7aad",
+    "reports/three-builds-realtime-98370/8/session/client-3/launch.json": "fb405ec98fa6170e60f4ed5b12cdc843a10976a86b5754bca6b3b94ddc0b7d8a",
+    "reports/three-builds-realtime-98370/8/session/client-4/launch.json": "f6e30ff30ae66ed5def268e5dba8b7086efeed7e39224b4315c7f96cf55a8d3f",
+    "reports/three-builds-realtime-98370/8/session/client-5/launch.json": "664cb1bd9d357fd71893e09c7a9e1ad266d5a38a5ab4372315ba77c3f7350eba",
+    "reports/three-builds-realtime-98370/8/session/client-6/launch.json": "4895c392975c07c2b09f15b0745a099f894137d93b9bc0484a586254f4d008cc",
+    "reports/three-builds-realtime-98370/8/session/client-7/launch.json": "faf57a19300f294b2adee2aa93bf5dc8c713b20b1c9b1292d94a61d1ca3b65e9",
+    "reports/three-builds-realtime-98370/8/session/client-0/observation-guard.json": "dc4a9faeefd1f4f27ef687147872120e9e14f57183404fbfee27f3e17b8d5586",
+    "reports/three-builds-realtime-98370/8/session/client-0/api.jsonl": "955990fcd979f0ccc5a32037909b3dc21066bc247968928f362b47cd077de645",
+    "reports/three-builds-realtime-98370/8/session/client-1/observation-guard.json": "668284859c47c8139d3c04448927f4364f875e83f1563e3322199b12356c910b",
+    "reports/three-builds-realtime-98370/8/session/client-1/api.jsonl": "281d826166ce718775d0a9e42a93dd0928a096639661b9e7d9840942c7e6e400",
+    "reports/three-builds-realtime-98370/8/session/client-2/observation-guard.json": "e8d7999dc6491fb4461df4b9c9c47f5a790af62f56b3090d2f3659f2464bfc66",
+    "reports/three-builds-realtime-98370/8/session/client-2/api.jsonl": "80c361ff7b286cc3d6aef3a652cefedec483b7737107c66767b7aa008a9e434f",
+    "reports/three-builds-realtime-98370/8/session/client-3/observation-guard.json": "b45564339de9cb94b8c3d54ed62703236347be2226569ba9d810f2d543c7a49a",
+    "reports/three-builds-realtime-98370/8/session/client-3/api.jsonl": "a39927356356264d022bfc447e41296bb455f3c844aac30a1e1f473a28afa502",
+    "reports/three-builds-realtime-98370/8/session/client-4/observation-guard.json": "a0a5f0ed84d3041ee5f180bbe37c41b9a5f3832dc47f79f4f7f4876fc1b2cd21",
+    "reports/three-builds-realtime-98370/8/session/client-4/api.jsonl": "6f71356859dfb83d42ddf8141f34cd1fcbe87539452483d3c2b1694f5f61641d",
+    "reports/three-builds-realtime-98370/8/session/client-5/observation-guard.json": "4db63ef3498b503d6509fd6029e7a35740ef635a3f182ffff8f3dcc58db19e33",
+    "reports/three-builds-realtime-98370/8/session/client-5/api.jsonl": "a4b664eb878dc7632cf28cfc051ecf4fc4f8e1edd3fc4ba78eeab670a58fc54f",
+    "reports/three-builds-realtime-98370/8/session/client-6/observation-guard.json": "caad59a3456b98d3ceb427356c31fa43a7aee1ccd0c7f9d21a98e30f16b55e19",
+    "reports/three-builds-realtime-98370/8/session/client-6/api.jsonl": "951ba1ebe352a9da3660a4a1c2a635fbdde6097ffb0304df7d91cb6c446af48e",
+    "reports/three-builds-realtime-98370/8/session/client-7/observation-guard.json": "4d8f41295f2be847a56992c9f54fed6886aa48e2fa32d64c47886b7fc550cd39",
+    "reports/three-builds-realtime-98370/8/session/client-7/api.jsonl": "8b017e5401bc2d64ab8fcbf5b1e0edd6ba1bf0172a2733f5abf063e88ace5eda",
+    "reports/three-builds-realtime-98370/8/result.json": "be2f88a8075882f591a2edd4d11b6984d965c40947ad91c7a9a11b8d0b9314af",
+    "reports/three-builds-realtime-98370/8/session/native-session.json": "f564231f6dfc6d5400106453fef6a25c57f38785ea0cec26427e925e3c69df15",
+    "reports/three-builds-realtime-98370/8/game.SC2Replay": "f68085e1fc70655575e6232e1898f6dfa3ffb5cf0873744fb36e151e00f0fcdb",
+    "reports/three-builds-research-98370/game/session/client-0/launch.json": "aa5f4739e7e2f9212a70bf82ad76ebeffafb4d7bb1655c093ee1676962021652",
+    "reports/three-builds-research-98370/game/session/client-1/launch.json": "0bc4c587b4fd2f6afebbc0de2a7f8a907edd5aced11c056570caf8abf7453fa1",
+    "reports/three-builds-research-98370/game/session/client-2/launch.json": "71839550f1d11c237875c48bb8c7f945752eefb54f993f997c8699d81a8d2f71",
+    "reports/three-builds-research-98370/game/session/client-3/launch.json": "c961c7c81577a826759760facb9e7c596bba11d1fb969d3580ca2a48e24f2356",
+    "reports/three-builds-research-98370/game/session/client-4/launch.json": "c5a81dce1b4a5cc5957c50aad4dc07453a4e353ac2f2b013d329adb288c50584",
+    "reports/three-builds-research-98370/game/session/client-5/launch.json": "380dc0dbf27a60e3026d3787be5e912c1fbdd70e22a8edfdb1adbfd2c3d8471c",
+    "reports/three-builds-research-98370/game/session/client-6/launch.json": "dbe70379e26e1923c2cb2e1888f7964511b2bacf92e61b187526b911eac0e261",
+    "reports/three-builds-research-98370/game/session/client-7/launch.json": "18f3bc8ea24ac666f952b1505576bfbe89178538af278375747ae7ee4cda03be",
+    "reports/three-builds-research-98370/game/session/client-0/observation-guard.json": "9692f787f60067598630ef57b527e95c2f0dc2b9cc7068a1749f7693ac08d277",
+    "reports/three-builds-research-98370/game/session/client-0/api.jsonl": "7dd1197a216d0f8a6c9919ddb1ffda1de4c38080b611435863633c6d27d2e767",
+    "reports/three-builds-research-98370/game/session/client-1/observation-guard.json": "7627c9e245e32e97a77dad41008bac2ef0a2eb10c5ab39facb43652b303ea042",
+    "reports/three-builds-research-98370/game/session/client-1/api.jsonl": "f3f0a8b59ea6eeebe38dd14f53cd3e479045f30649f47f86e445caaa91ef3b0b",
+    "reports/three-builds-research-98370/game/session/client-2/observation-guard.json": "22f3c904a884d4ef1c62a586f67fa7ffc2b0053d0257ab6269f52ab97adcdeb5",
+    "reports/three-builds-research-98370/game/session/client-2/api.jsonl": "6630161229c12b4107827a360364b59fc39c90e56836f71e1f9aeab72f160566",
+    "reports/three-builds-research-98370/game/session/client-3/observation-guard.json": "6b75ace2bbf8c97880c20d7dcfdbc1d7d05b55c2a812430e783c0cf5af77812f",
+    "reports/three-builds-research-98370/game/session/client-3/api.jsonl": "248e8759fe558575d0e90230ad4bf936812b64884034421659abf78e83b06b3f",
+    "reports/three-builds-research-98370/game/session/client-4/observation-guard.json": "edc96e10d22d01561ef5b6863053e669742f051b844a4ef06678d60258bda73c",
+    "reports/three-builds-research-98370/game/session/client-4/api.jsonl": "89466ad21347b0f6703c1e9e3767c1b7873b76cdc85f9d77177fb6b6a54353e4",
+    "reports/three-builds-research-98370/game/session/client-5/observation-guard.json": "9640427e229df8d0c1b49846c2941f8aac713e63dcea48b42f7d61675cc42ddb",
+    "reports/three-builds-research-98370/game/session/client-5/api.jsonl": "cbfc3cb36ca970dedc78236663ba46f1c28fe241c96dc9fb258f73694dd41ce6",
+    "reports/three-builds-research-98370/game/session/client-6/observation-guard.json": "f76374b0fadeb3d88bf95078ed68815040f84f81f3e319f2a795ce0889429751",
+    "reports/three-builds-research-98370/game/session/client-6/api.jsonl": "432153dd4246da109249b8757c19692bb46b3e44359bc917a01b069bbadae836",
+    "reports/three-builds-research-98370/game/session/client-7/observation-guard.json": "d14823a1b67cf639f6f15fd0c5d219e5a29e64c1534a4c154c3cb33a6d5946d1",
+    "reports/three-builds-research-98370/game/session/client-7/api.jsonl": "8a3c6a926a463d916adc7ff0d5a59f2c76bc9f6f7bc3766faa9ca0fae19b2b26",
+    "reports/three-builds-research-98370/game/result.json": "cfdabd70624354f911b01be5d390a683b96a9668b0ecf0bdf853e81eddd9dd89",
+    "reports/three-builds-research-98370/game/session/native-session.json": "105a71c43a5d8dc5ae84cdd72cae2508f78c5e4148751fe9f5fadb4f252139ff",
+    "reports/three-builds-research-98370/game.SC2Replay": "2d5dddad33eea179e3d3626d5f0471805acd3c6374c59de6846806f0db80efcf",
+    "reports/three-builds-research-98370/validation.json": "b03ad254b7da2e6a08545fca97eb2ba2ce68fbe9e4054d6117d6636e9e856e35",
+    "reports/three-builds-research-98370/bots.json": "d38731642cff9ea210957ab8d2bc82bc6530eea3e2aea85fe888cc6f0a162b45",
+    "reports/three-builds-research-98370/research-replay-verification.json": "8dea5ad7f12f7c3aa82798fa5d30643df0fd20a9bf2fad6d86ec5af7868d167e",
+    "reports/three-builds-wheel-98370/validation.json": "44da4850831823c21ae19918cfae4700410f2e264aea14b013abe3af2be26c0a",
+    "reports/three-builds-wheel-98370/4/session/client-0/launch.json": "a22b1e524345f00ad15963e266a19c432cf432c278973145890e4fc097571248",
+    "reports/three-builds-wheel-98370/4/session/client-1/launch.json": "4c7a5fae0879da45307ed22092ba64527efa13c6eaf4a1d70c570704c406f2e0",
+    "reports/three-builds-wheel-98370/4/session/client-2/launch.json": "f6e31ce62f2a17515e6a125492b034d569a96a6726c1c0ed9e497329713f3c5f",
+    "reports/three-builds-wheel-98370/4/session/client-3/launch.json": "158f299e98cb20194ad5e499bece2c4b6d4ec55afe04673f9d6c7d9736f59ae8",
+    "reports/three-builds-wheel-98370/4/session/client-0/observation-guard.json": "94c9d6c639224bf623e6a772efc51b22010a95a8cb4bf15bd9c16156506d7b40",
+    "reports/three-builds-wheel-98370/4/session/client-0/api.jsonl": "219c0bd45dcfbc5cc668e74bd0c9292cee07be88c4477dc62cfc6a6ab6784981",
+    "reports/three-builds-wheel-98370/4/session/client-1/observation-guard.json": "324e2f00cc510b034c5a397ac48d6580644a2b3b28a71d6afd2ae5d62370aa7c",
+    "reports/three-builds-wheel-98370/4/session/client-1/api.jsonl": "43381fce2b6a7a8ec06ea925629ac091fe4438c6dc3e569c7a02ca0517d5fac9",
+    "reports/three-builds-wheel-98370/4/session/client-2/observation-guard.json": "100fe2bab980d20f9b813f459ed001268f52a3c2ea6aba7ed68754494e353531",
+    "reports/three-builds-wheel-98370/4/session/client-2/api.jsonl": "d93e639db7d99ca488cba0f00a4287ef5b76fd82bcace9cf54cdf514654e7174",
+    "reports/three-builds-wheel-98370/4/session/client-3/observation-guard.json": "85a37616d4d9d1930085d5407c9a2e41600d0fce86ae8ab3eb093e692d535a9b",
+    "reports/three-builds-wheel-98370/4/session/client-3/api.jsonl": "97bd32fc967c6ac15c8e29e8a917344317e939abd1d0b8d0c4089dc78f9209d9",
+    "reports/three-builds-wheel-98370/4/result.json": "f3b4810df0a186915f6ae35013fd25cfbcc52b0ae75224c7d9d33fd48df2148b",
+    "reports/three-builds-wheel-98370/4/session/native-session.json": "a7e7c027014b3e47e9361352578b80d318e23e0c0589ca2be69160030b5a0d2d",
+    "reports/three-builds-wheel-98370/4/game.SC2Replay": "aedcbe236a47caaa6438cf02bf583112b9e13a0cac884e238ac58019754215e3",
+    "reports/three-builds-tests.log": "e93d11cd299a9502220d08c4aa2a292a8995c3dc85461cd74c8e3b7b2c2f0a7a",
+    "reports/three-builds-installed-tests.log": "1e6ce40844bc40808d6489fa42f14174f90ea0a41da65b67752f4c51846cd538",
+    "reports/three-builds-investigation/75689-game-data.json": "1d2eb46937c2e7eac197cdbb8096ecb4754402bfce256ef4ffafcda534d9eda6",
+    "reports/three-builds-pip-check.log": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+  }
+}

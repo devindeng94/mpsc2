@@ -73,7 +73,7 @@ def get_capabilities(sc2_version=None) -> dict:
     except (ValueError, OSError) as error:
         scenarios = {}
         errors.append(str(error))
-    game = get_game_version(sc2_version if sc2_version is not None else profile.game_version) if profile else None
+    game = get_game_version(sc2_version if sc2_version is not None else profile.game_version, system=system) if profile else None
     return {
         'mpsc2': __version__, 'python': platform.python_version(), 'platform': platform.platform(),
         'burnysc2': version('burnysc2'), 'installation': installation,

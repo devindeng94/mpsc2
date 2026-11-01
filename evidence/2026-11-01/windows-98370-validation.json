@@ -1,0 +1,817 @@
+{
+  "date": "2026-11-01",
+  "mpsc2": "0.3.2a3",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.10.22",
+  "burnysc2": "7.3.0",
+  "sc2": {
+    "game_version": "5.0.15.98370",
+    "base_build": 98370,
+    "data_version": "84197ED58A0329FA79CC9426E07E5FB3"
+  },
+  "profile": {
+    "id": "windows-x86_64-98370-v1",
+    "system": "Windows",
+    "architecture": "x86_64",
+    "build": 98370,
+    "game_version": "5.0.15.98370",
+    "executable_sha256": "c68202849f8e64ed20d15bea0fb89f2c5b94028d075d9848e124a8264d130222",
+    "executable_relative_path": "Versions/Base98370/SC2_x64.exe",
+    "working_directory": "Support64",
+    "backend": "windows-local-v1",
+    "readiness_strategy": "boolean-pairs-two-hold-slots",
+    "observation_strategy": "vectored-exception-stack-rax-rdi",
+    "helper_sources": [
+      "native/windows_bridge.c"
+    ],
+    "evidence": "evidence/2026-11-01/windows-98370-validation.json",
+    "players": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "replay_guard_min_player": 4,
+    "helper_source_sha256": [],
+    "executable_uuid": null,
+    "data_selection": "installed-verified",
+    "ability_remaps": [
+      [
+        4124,
+        4121,
+        "MorphToBaneling",
+        "Baneling"
+      ],
+      [
+        4125,
+        4122,
+        "MorphToBaneling",
+        "Cancel"
+      ],
+      [
+        4127,
+        4124,
+        "MothershipCloak",
+        "OracleCloakField"
+      ],
+      [
+        4129,
+        4126,
+        "EnergyRecharge",
+        "EnergyRecharge"
+      ],
+      [
+        4131,
+        4128,
+        "SalvageEffect",
+        "Salvage"
+      ],
+      [
+        4133,
+        4130,
+        "SalvageSensorTowerRefund",
+        "Salvage"
+      ],
+      [
+        4135,
+        4132,
+        "WorkerStopIdleAbilityVespene",
+        "Gather"
+      ]
+    ]
+  },
+  "stepped_arena_counts": [
+    {
+      "count": 2,
+      "realtime": false,
+      "native_ids": [
+        1,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    },
+    {
+      "count": 3,
+      "realtime": false,
+      "native_ids": [
+        1,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    },
+    {
+      "count": 4,
+      "realtime": false,
+      "native_ids": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    },
+    {
+      "count": 5,
+      "realtime": false,
+      "native_ids": [
+        1,
+        4,
+        3,
+        5,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    },
+    {
+      "count": 6,
+      "realtime": false,
+      "native_ids": [
+        1,
+        4,
+        5,
+        6,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    },
+    {
+      "count": 7,
+      "realtime": false,
+      "native_ids": [
+        1,
+        5,
+        4,
+        7,
+        6,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    },
+    {
+      "count": 8,
+      "realtime": false,
+      "native_ids": [
+        1,
+        5,
+        6,
+        3,
+        2,
+        7,
+        4,
+        8
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    }
+  ],
+  "realtime_arena": [
+    {
+      "count": 4,
+      "realtime": true,
+      "native_ids": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    },
+    {
+      "count": 8,
+      "realtime": true,
+      "native_ids": [
+        1,
+        3,
+        5,
+        7,
+        2,
+        6,
+        4,
+        8
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": []
+    }
+  ],
+  "research_and_replay": [
+    {
+      "count": 4,
+      "realtime": false,
+      "native_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": [
+        4
+      ],
+      "verification": {
+        "passed": true,
+        "native_results": {
+          "1": "Tie",
+          "2": "Tie",
+          "3": "Tie",
+          "4": "Tie"
+        },
+        "research_completions": [
+          {
+            "player_id": 3,
+            "upgrade": "zerglingmovementspeed",
+            "loop": 4292,
+            "count": 1
+          },
+          {
+            "player_id": 1,
+            "upgrade": "TerranInfantryWeaponsLevel1",
+            "loop": 5284,
+            "count": 1
+          },
+          {
+            "player_id": 2,
+            "upgrade": "ProtossGroundWeaponsLevel1",
+            "loop": 5444,
+            "count": 1
+          },
+          {
+            "player_id": 4,
+            "upgrade": "ProtossGroundWeaponsLevel1",
+            "loop": 5700,
+            "count": 1
+          }
+        ],
+        "playback": [
+          {
+            "observed_id": 0,
+            "upgrades": [],
+            "upgrade_events": {},
+            "attack_levels": {
+              "1": 1,
+              "16": 0,
+              "2": 1,
+              "4": 1,
+              "3": 0
+            },
+            "result": null
+          },
+          {
+            "observed_id": 4,
+            "upgrades": [
+              "PROTOSSGROUNDWEAPONSLEVEL1"
+            ],
+            "upgrade_events": {
+              "PROTOSSGROUNDWEAPONSLEVEL1": 1
+            },
+            "attack_levels": {
+              "16": 0,
+              "2": 1,
+              "4": 1
+            },
+            "result": "Tie"
+          }
+        ],
+        "request_counts": {
+          "ping": 5,
+          "join_game": 4,
+          "step": 1012,
+          "action": 119,
+          "observation": 1008,
+          "data": 4,
+          "game_info": 1008,
+          "query": 96,
+          "save_replay": 1
+        },
+        "independent_clients": true,
+        "own_upgrade_callbacks": true,
+        "owned_processes_closed": true
+      },
+      "game_time_limit_seconds": 500
+    },
+    {
+      "count": 8,
+      "realtime": false,
+      "native_ids": [
+        1,
+        4,
+        6,
+        2,
+        7,
+        8,
+        3,
+        5
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "passed": true,
+      "owned_processes_closed": true,
+      "observed_upgrade_fault_ids": [
+        4,
+        6,
+        7,
+        8,
+        5
+      ],
+      "verification": {
+        "passed": true,
+        "native_results": {
+          "1": "Tie",
+          "2": "Tie",
+          "3": "Tie",
+          "4": "Tie",
+          "5": "Tie",
+          "6": "Tie",
+          "7": "Tie",
+          "8": "Tie"
+        },
+        "research_completions": [
+          {
+            "player_id": 6,
+            "upgrade": "zerglingmovementspeed",
+            "loop": 4292,
+            "count": 1
+          },
+          {
+            "player_id": 3,
+            "upgrade": "zerglingmovementspeed",
+            "loop": 4292,
+            "count": 1
+          },
+          {
+            "player_id": 1,
+            "upgrade": "TerranInfantryWeaponsLevel1",
+            "loop": 5220,
+            "count": 1
+          },
+          {
+            "player_id": 5,
+            "upgrade": "TerranInfantryWeaponsLevel1",
+            "loop": 5316,
+            "count": 1
+          },
+          {
+            "player_id": 2,
+            "upgrade": "TerranInfantryWeaponsLevel1",
+            "loop": 5348,
+            "count": 1
+          },
+          {
+            "player_id": 7,
+            "upgrade": "TerranInfantryWeaponsLevel1",
+            "loop": 5412,
+            "count": 1
+          },
+          {
+            "player_id": 4,
+            "upgrade": "ProtossGroundWeaponsLevel1",
+            "loop": 5444,
+            "count": 1
+          },
+          {
+            "player_id": 8,
+            "upgrade": "ProtossGroundWeaponsLevel1",
+            "loop": 5476,
+            "count": 1
+          }
+        ],
+        "playback": [
+          {
+            "observed_id": 0,
+            "upgrades": [],
+            "upgrade_events": {},
+            "attack_levels": {
+              "16": 0,
+              "1": 1,
+              "2": 1,
+              "3": 0,
+              "4": 1,
+              "5": 1,
+              "6": 0,
+              "7": 1,
+              "8": 1
+            },
+            "result": null
+          },
+          {
+            "observed_id": 8,
+            "upgrades": [
+              "PROTOSSGROUNDWEAPONSLEVEL1"
+            ],
+            "upgrade_events": {
+              "PROTOSSGROUNDWEAPONSLEVEL1": 1
+            },
+            "attack_levels": {
+              "16": 0,
+              "4": 1,
+              "5": 1,
+              "2": 1,
+              "8": 1
+            },
+            "result": "Tie"
+          }
+        ],
+        "request_counts": {
+          "ping": 9,
+          "join_game": 8,
+          "step": 2024,
+          "action": 239,
+          "observation": 2016,
+          "data": 8,
+          "game_info": 2016,
+          "query": 456,
+          "save_replay": 1
+        },
+        "independent_clients": true,
+        "own_upgrade_callbacks": true,
+        "owned_processes_closed": true
+      },
+      "game_time_limit_seconds": 500
+    }
+  ],
+  "installed_wheel_realtime": {
+    "count": 4,
+    "realtime": true,
+    "native_ids": [
+      1,
+      4,
+      3,
+      2
+    ],
+    "results": [
+      "Tie",
+      "Tie",
+      "Tie",
+      "Tie"
+    ],
+    "passed": true,
+    "owned_processes_closed": true,
+    "observed_upgrade_fault_ids": []
+  },
+  "previous_windows_profile_regression": {
+    "count": 4,
+    "realtime": false,
+    "native_ids": [
+      1,
+      3,
+      4,
+      2
+    ],
+    "results": [
+      "Tie",
+      "Tie",
+      "Tie",
+      "Tie"
+    ],
+    "passed": true,
+    "owned_processes_closed": true,
+    "observed_upgrade_fault_ids": [],
+    "replay_engine": "5.0.14.93333",
+    "replay_data_version": "84197ED58A0329FA79CC9426E07E5FB3",
+    "requested_data_version": "446907060311FB1CC29EB31E547BB9FD",
+    "historical_data_parity": false,
+    "scope": "Four-player arena/native handshake only; research with the updated data was not revalidated for this older profile"
+  },
+  "packaging": {
+    "source_tests": 321,
+    "installed_wheel_tests": 321,
+    "wheel": "dist/0.3.2a3-tested-02/mpsc2-0.3.2a3-py3-none-any.whl",
+    "wheel_sha256": "fdafc741c875c32f69f576a513de59999831e5cc915948233ddad6d8879efc8e",
+    "packaged_source_files_matching": 87,
+    "native_guard_abi_tests": "both Windows profiles passed",
+    "source_log": "reports/build98370-tests-final-02.log",
+    "installed_log": "reports/build98370-installed-tests-final.log"
+  },
+  "macos": {
+    "helpers_unchanged": {
+      "native/local_four_bridge.c": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+      "native/observation_guard.c": "7b8275a1f79cec21c0a8ba3e50398236de2ce748beb902e759254ffcaff74ef6"
+    },
+    "offline_regressions_passed": true,
+    "live_rerun": false
+  },
+  "installed_executables_unchanged": true,
+  "retained_failures": [
+    {
+      "artifacts": [
+        "reports/build98370-four-01",
+        "reports/build98370-four-diagnostic",
+        "reports/build98370-two-profile",
+        "reports/build98370-two-no-name"
+      ],
+      "failure": "Offline startup-chat null read when explicit -dataVersion was passed, including two clients",
+      "resolution": "Profile-specific installed-data selection, verified by per-client Ping and replay metadata"
+    },
+    {
+      "artifacts": [
+        "reports/build98370-research-four"
+      ],
+      "failure": "KeyError: 4135 in worker order decoding",
+      "resolution": "Seven ability IDs translated in both directions using verified engine link/button names"
+    }
+  ],
+  "limits": [
+    "Exact executable/data identity required; future installed data changes are rejected",
+    "No new live macOS run; source hashes and offline checks retained",
+    "No Linux native multiplayer backend; no arbitrary maps or remote hosts",
+    "Long campaigns and every new ability/spell are not validated",
+    "Base93333 arena passed but replay used updated content despite historical data request; select Base98370 for updated-installation research"
+  ],
+  "source_sha256": {
+    "src/mpsc2/action.py": "a2817e413c5fded672379872e21486db736564f64f52e9d7d2e6223bb176a59c",
+    "src/mpsc2/arena.py": "eba36c3c570ffcb0700d278dc5d19ebf09566e561bd89773b3ec5df5cafcaf2f",
+    "src/mpsc2/bot_ai.py": "036a2077db7f285fa148fafe4187ce15ac5de4bf4dffe252ee3a10bb9735175b",
+    "src/mpsc2/bot_ai_internal.py": "792bcbf677f0102663d728fff88b01242680ec1db2eea73e9bada388011ae86b",
+    "src/mpsc2/cache.py": "c2dac7c194f1ac2e03e9cb8071726778e9f184eba2cfaa81dc99d9fdd00c4d88",
+    "src/mpsc2/capabilities.py": "bc39e55f0b446f1bfbebd578df972379dbc59ae2ec9dafb93bcfb72f4248151c",
+    "src/mpsc2/cli.py": "5bbeee505ba075c3d002a63b2fc2ca0a2e38980fb0cf2ae1dbd0f5cb56b0d22f",
+    "src/mpsc2/client.py": "44242d52727aa7a44d0076726efe833217412777a9772ee43d6e31e09d2212a1",
+    "src/mpsc2/constants.py": "754d36bb12aecbf43480b4049bf28b15bf23f9ca0d93b60373df432e9ca6b3e8",
+    "src/mpsc2/controller.py": "1da6d60faf9cb362ea5cebbd6d0e89a8f240830a1b1271b66c431019ddc9e7b4",
+    "src/mpsc2/data.py": "5844efb34b3d74357879db7c83ae85c322ade9778d4700a77477f552587ab88c",
+    "src/mpsc2/expiring_dict.py": "4214bec94fe7a5df31f92eb22f446757cb677c37e6c46315cbe208da048dbac3",
+    "src/mpsc2/game_data.py": "ad52dd2f94b19edbf9416bdb0adffee0351d3094a695816ac456cd35506924dd",
+    "src/mpsc2/game_info.py": "3a480385ca5b93422ef6f54b3556b41677667f9e25bea02cdd87fe41d94afeaf",
+    "src/mpsc2/game_state.py": "ec21dab3e518037ad497017cbc08cb35cc403ec568046e90f8c4ff97b9d282c7",
+    "src/mpsc2/installation.py": "d4c359670f2756f93b58e1b73d0426c52467813d3d222794ea0cce972d14f760",
+    "src/mpsc2/main.py": "b5cd334a5eaaa9defe169b2f6775edd352623803b6c41658da278ac3f2ca4492",
+    "src/mpsc2/maps.py": "a7ce6e874fdc786aba094457a61936c6d837f182bee2338040ca161cdeefad7b",
+    "src/mpsc2/matches.py": "88b5b07ee23b7ef23602881e4328b9d005c539a4256dcac95ba3c64788a82c4c",
+    "src/mpsc2/mpq.py": "83bf63dbf10039b7b971188af6e0ebf58ba5a967afe5f3589a3201d46b39ee2a",
+    "src/mpsc2/native_session.py": "45cefe639447164cb234c3717e293c5b3630283bda491ea27e7807879278bb29",
+    "src/mpsc2/observer_ai.py": "f4375cf1f89f3b9c050d3bdf097958f6cd29545af303a6fcbf42ea186465f270",
+    "src/mpsc2/paths.py": "2ec269a64b6043471f6e4e9e34844c6361d1a316786cca25a99798631f7e9e50",
+    "src/mpsc2/pixel_map.py": "ba71209a1d77492c917c9a042dc887d1917e8b03784dda550dff150a4a85c8e4",
+    "src/mpsc2/player.py": "f5be9088a6738a267fcf6f172b7407260836901cbb806ba41f96c6e49209f61a",
+    "src/mpsc2/portconfig.py": "b8e3c5aa672d1e917c4fe08f1136e55e6fa2c73cddc7238e2e8f2cc17cb77062",
+    "src/mpsc2/position.py": "75a7de47ce0e3d7844fad5900840c08a521458db7fe36d2bd398e7a150061b63",
+    "src/mpsc2/power_source.py": "7cadb82e018add6f485d51cf65f287c331398630b54fa536b7f25df7da5e4f34",
+    "src/mpsc2/probe.py": "8ba019bc7f09aea63f7259d906699e791144a210c32b612f4b2d594051699113",
+    "src/mpsc2/protocol.py": "89dc31246ba73f8c78863f25fc947a572e2becec38379a3e6cf90ebb354fbfaf",
+    "src/mpsc2/protocol_compat.py": "d26bc21a4a201deb8225c19ebba18769165ed282608edce6d4013ffba4c9e1cf",
+    "src/mpsc2/proxy.py": "f90d937fefe7a6c388bc77effe777a75d970c5ee5289015d7f5c850ca2430e10",
+    "src/mpsc2/replay.py": "d5e7c8328379a747919940bbb5c1b8e20bce044b35f270f30ca299d94dcbd420",
+    "src/mpsc2/sc2process.py": "856a48bc7e2138cfd3760dff2ba81e0fbf3004b60bc7200e1173d6eeebf6bd06",
+    "src/mpsc2/score.py": "47ad10486671a597dde765a52351c1b11f8663fb93f4624cfe7c37a502b963c1",
+    "src/mpsc2/session.py": "b6df140581da78ccfaf6bb5138b62ea598e780d17a53626671af359990ea9cb3",
+    "src/mpsc2/smoke.py": "4ea70dc0280e18e4ef7c006655b390f513b4dc239736d4601d0d536a83594e2f",
+    "src/mpsc2/standard.py": "928524667bda77f71ecf6b85674c59a0716c1936398f619356fdd84d1696c30d",
+    "src/mpsc2/team.py": "5f053daed56088a990b65d8e33404eaac9601740a0a7190e9045f204211bc35f",
+    "src/mpsc2/unit.py": "586174bcae18faaded8c9cc81366d757d895990592341c7a56966670428257a4",
+    "src/mpsc2/units.py": "8b300ee0fb8f73596ddf163655f7299490df03efe9d91b5bc21f59ac9e235038",
+    "src/mpsc2/unit_command.py": "de857faf9e08f9a5382c7e82cdd55e3d0a20d38ac93aec70837730ff7a883e4c",
+    "src/mpsc2/versions.py": "1de4f9e7e2a149b816e733fcd0d8c368e02df942eac4004558bf107ac7304ee2",
+    "src/mpsc2/windows_session.py": "4c49b70d4991a97a52c90fda849f9e7fb1bb30a0e38b6f5bef96a7780a80f2bd",
+    "src/mpsc2/__init__.py": "289669d403ef25042855ca57d8171209d44894c9bf9ec8f347055e7ac8724fdc",
+    "src/mpsc2/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/mpsc2/dicts/generic_redirect_abilities.py": "836d1dbddaabe3ad84280c3140cb595b1859adcf3c88481e715eda18fe33d7cb",
+    "src/mpsc2/dicts/unit_abilities.py": "55a1c8e0e09bdfef56496c0e9299bfbc15d8fc1a5e70411eacf36c63b1309527",
+    "src/mpsc2/dicts/unit_research_abilities.py": "239caf4f07c4985cced98707a96a0628caa9e8567475bbce6932d193b4cda884",
+    "src/mpsc2/dicts/unit_tech_alias.py": "c25c8dcbd08f6947e84f9ec5211f40fe3274a89613dfcb3c62ee95cf223f0f0f",
+    "src/mpsc2/dicts/unit_trained_from.py": "2bbb218b3571c9c702f8a0cc0de6b934e7088876aadeacd7621304de9354005b",
+    "src/mpsc2/dicts/unit_train_build_abilities.py": "9577a501cef20199579c2ee6d971178d9b38be514ad5b7bfc947c6aa1d7b85ca",
+    "src/mpsc2/dicts/unit_unit_alias.py": "ca8ac95c147a8ff6659ae342ddda2459ac1d0e574dc4acc68391d3a3f8c0a770",
+    "src/mpsc2/dicts/upgrade_researched_from.py": "34de27e57bdb7c6db011cb0a06eb902c20338ae95f6f23011ff78af38a86fcf2",
+    "src/mpsc2/dicts/__init__.py": "0660ae3ec90eadf7b26e55b61cf19def5e4f8cfe760e26fbd4d9a0376ded6667",
+    "src/mpsc2/ids/ability_id.py": "084f89b9fefbb41b5b2003dc8b7c0020f75f5576bf5529fa7e0dc5aa123819ee",
+    "src/mpsc2/ids/buff_id.py": "8fa8655f29cc6f81d4c19c294c6962e6220097d4f40e6237f5b6ea760f468ddf",
+    "src/mpsc2/ids/effect_id.py": "b757c4a26e34c452f3e23c21455d045bfea65881c581fcf9769d16e533b5b682",
+    "src/mpsc2/ids/id_version.py": "e725f1deab0f5ccf7d2660f83b5205389098a740126682521d0a737e40381239",
+    "src/mpsc2/ids/unit_typeid.py": "9e85fe03868bef82da0948afd16e72033855b73f53f7bd19c9b9f13afc2c07d0",
+    "src/mpsc2/ids/upgrade_id.py": "1dd588ff1a77e2132e246cb2fbc50225c7302baca3014d8f5dfaaeaf5535a92f",
+    "src/mpsc2/ids/__init__.py": "f195277618375501aa5fa4c4c1609a417e200eca3c136e10b1838698132c8bdd",
+    "src/mpsc2/native/local_four_bridge.c": "d136951af71ae8e6e070b6c0cb813f7ce0aa61ee76ad58647429697eb9b45fdf",
+    "src/mpsc2/native/observation_guard.c": "7b8275a1f79cec21c0a8ba3e50398236de2ce748beb902e759254ffcaff74ef6",
+    "src/mpsc2/native/windows_bridge.c": "8afbe6178200f8d7edd49a3ef1ae63f15ea1dd9597cd19f90d82da67bf74d2b0",
+    "src/mpsc2/native/minhook/include/MinHook.h": "62dff05e63155c6bf8135c36a0d79dedbdcaaede9da26fe38daf0bea34323e38",
+    "src/mpsc2/native/minhook/src/buffer.c": "0ab484d7870c3a8e7a3a1ee61e2070072cf445ed85b619d4c4207fed34356d99",
+    "src/mpsc2/native/minhook/src/buffer.h": "9769702bd625249e59a19ede05c84365fcc7707e1fa0e5df08df42227cee13e3",
+    "src/mpsc2/native/minhook/src/hook.c": "edcce4c81985d7dd5b73feae96d6498c8f749b1bca4c3d2d9926ea9a17a84755",
+    "src/mpsc2/native/minhook/src/trampoline.c": "f13a169f803ff5a8e45c58ce668b4377a9878c0fc4452369b8a1325065186b2b",
+    "src/mpsc2/native/minhook/src/trampoline.h": "53ed9934492320617a27bfd952ffe7f5b7a4a1d09963d4512447082fe7b727b4",
+    "src/mpsc2/native/minhook/src/hde/hde32.c": "5da4941e9044f7b325c7f952b5840089e365f374740b7fe7318805d08c0d6c32",
+    "src/mpsc2/native/minhook/src/hde/hde32.h": "5132de5be8ac7a9d054420f5caef0fb01437faa892f03b3cdc77f795973bf15a",
+    "src/mpsc2/native/minhook/src/hde/hde64.c": "824eafa315322e6da105a7ce4ec1fc0e0adeee0106d32152fbb0b59e709bd15c",
+    "src/mpsc2/native/minhook/src/hde/hde64.h": "e99aa4997bda14b534c614c3d8cb78a72c4aca91a1212c8b03ec605d1d75e36e",
+    "src/mpsc2/native/minhook/src/hde/pstdint.h": "604d1cdf45c5a95bc9cf1bbf39ca05ef83013541101d34971c5cd7577e3d5247",
+    "src/mpsc2/native/minhook/src/hde/table32.h": "43bf687a9fff071b5f46070db4d36c846f8e069cdc57485ee897c499aacdde23",
+    "src/mpsc2/native/minhook/src/hde/table64.h": "b774446d2f110ce954fb0a710f4693c5562ddbd8d56fe84106f2ee80db8b50a2"
+  },
+  "local_artifact_sha256": {
+    "reports/build98370-counts/2/result.json": "975db34f21e7e870b84ff72889b22534521d586917222e1cc8e39b997b98cfd9",
+    "reports/build98370-counts/2/session/native-session.json": "d22661ec9c6a6b42a95c243398dcdeeb04b9c078c46ffdb4781ff03cd6960b0a",
+    "reports/build98370-counts/2/game.SC2Replay": "c4df5acb1ae36846ad9c93147a97c89c94a557ba473ad062d18e9c121a55d56f",
+    "reports/build98370-counts/3/result.json": "b5e9e7d5ee18e19eb3cea2ddf7f809aea54ee5e5bc17c51f9de4e5801badfd1e",
+    "reports/build98370-counts/3/session/native-session.json": "d29091e9a2630c871cc85f7cf59718ba258c1c4e8081fdae8e71a474ffb21797",
+    "reports/build98370-counts/3/session/client-0/observation-guard.json": "eae701ea409754dd85f9468dd730ded607baf17b1f1fb5b1f26dee85d65c0fa4",
+    "reports/build98370-counts/3/session/client-1/observation-guard.json": "5bd342eb8bed6717b5e82909683d70dec084b51dbaec9a66162896c27b4a26b5",
+    "reports/build98370-counts/3/session/client-2/observation-guard.json": "6790f6d71cb887619e7e5cd1c194b1e3ce99ac2759c10f976a2bb3bd3956929a",
+    "reports/build98370-counts/3/game.SC2Replay": "b0ab82d585ef82a24646be4e84140e8641a018a6697b638ac8beacc108ebffdb",
+    "reports/build98370-counts/4/result.json": "bf3a4e72775de6e44262ab235e583dfbe292506b14c89ad3ed9a44d668b1cc7c",
+    "reports/build98370-counts/4/session/native-session.json": "0ee2ea72c408931f20e064ff611646efbd25165eb43c6d529f4567c449b1aed1",
+    "reports/build98370-counts/4/session/client-0/observation-guard.json": "3ec803bc9d0b9fc4e5dd3a5b5d4f489906c5de0ed643f9120efed63dee59398e",
+    "reports/build98370-counts/4/session/client-1/observation-guard.json": "3f9092278dee7fa5e8a977a6b9a87984c44e43e91b4928e8cbe0597a357cd2f6",
+    "reports/build98370-counts/4/session/client-2/observation-guard.json": "ace83696b9c9a3524ed95f491b5996ede375ec6d7daf438efc8dfe0eb49f6259",
+    "reports/build98370-counts/4/session/client-3/observation-guard.json": "5c3fa7713fb36330bd8e054049cea30a17b005e4cd739dd097976044e2360786",
+    "reports/build98370-counts/4/game.SC2Replay": "0737fc05965e17a19674d85c1d9cf33ee3d1709dc05ab0a3aabdaa509a86bca3",
+    "reports/build98370-counts/5/result.json": "a831a4f7b40b8e94cc1c34f6b60821e97012704c4a1cfc0c48a6c8da3a5d13a7",
+    "reports/build98370-counts/5/session/native-session.json": "2cca4db31809c9b6c8573f3d2b278cadf82716354a732fc9d02aef6924f9a178",
+    "reports/build98370-counts/5/session/client-0/observation-guard.json": "7f2477fd73a6743884c755e17a785fded8b742500fc4812cafcd9175073e8c38",
+    "reports/build98370-counts/5/session/client-1/observation-guard.json": "8e548631cda5aa432574371e7218aa71b1e792492c83d4c92c0234ca9325f263",
+    "reports/build98370-counts/5/session/client-2/observation-guard.json": "b3f84fa5ca850f7dd566a1d332b5c03e17a24e7cb24743c7b7815cf2109f9aff",
+    "reports/build98370-counts/5/session/client-3/observation-guard.json": "a55463137d9eb2bf07ac266fde9b100ea3863f8ab6a3b750fca12590c0280e5d",
+    "reports/build98370-counts/5/session/client-4/observation-guard.json": "fff9de6179ae3766f7ff424c6ca4b0b1984ea69c9eb41473925028847204a015",
+    "reports/build98370-counts/5/game.SC2Replay": "a2734ea46450d346df55d5d7a4081197a34cf6dfbd99e8106d6987ce19639e91",
+    "reports/build98370-counts/6/result.json": "88f35dd96b04eaa1760711225821f0ecc29c93814587484190f36333b9a77ec6",
+    "reports/build98370-counts/6/session/native-session.json": "1179c1d1b6095570935968436b1d17eb5a9853c5c2ca3d163b6da4e71856daa5",
+    "reports/build98370-counts/6/session/client-0/observation-guard.json": "2804b6fbe4e0e1292b63e6ee5c58d33c47102c38e07d790a42bd98ba6c0c6a20",
+    "reports/build98370-counts/6/session/client-1/observation-guard.json": "b1be5be5d8b59cc1211934b6ac400f00317959bd8cc9857b1c40e5dd213ad406",
+    "reports/build98370-counts/6/session/client-2/observation-guard.json": "0b0837c9c48d16cc8c8a7cf8f3440f5f3a9e027f5b799705b2b8b5cc14193c04",
+    "reports/build98370-counts/6/session/client-3/observation-guard.json": "36739592ba5e4d7b61e0fdebcaa3ae0d5bcbc562d12f5b51cce0775952afa48e",
+    "reports/build98370-counts/6/session/client-4/observation-guard.json": "f22d1803986a5268365ac8d9f985b6b0e8e0a89411feab00b22886d5b9dc9889",
+    "reports/build98370-counts/6/session/client-5/observation-guard.json": "6d40c3ff1490a897307332c5a85ed13bf7522c6c53d0de80cbb9e47197123262",
+    "reports/build98370-counts/6/game.SC2Replay": "d0ee4b9d3e8ebc948f0515247b38347ecb2cacbf870780717383500fe4cd912b",
+    "reports/build98370-counts/7/result.json": "de671ab33b9282df040d399d8d3cab9884a0c8ba4fcd4b9fa3e4ce8e8ee29889",
+    "reports/build98370-counts/7/session/native-session.json": "52cbc4eae344ef910680da564ffa47a25f02b59dca03b2a65991306a27a64f9b",
+    "reports/build98370-counts/7/session/client-0/observation-guard.json": "b0c4c255073b609c64f876e8f59c0dad57de299e2a54de3010a96a10edde105b",
+    "reports/build98370-counts/7/session/client-1/observation-guard.json": "0c5214f22eef716071bfb8a18f0aac9c24241cf0cb0963dbca498f6dbf2ed495",
+    "reports/build98370-counts/7/session/client-2/observation-guard.json": "a7df4db85302765bf4cd2506498d8d57d17fcccdd7e6bdc60c5d50ea934d30b7",
+    "reports/build98370-counts/7/session/client-3/observation-guard.json": "534fa252fc71559f06a12887a0f57588a72483b4950a4b5949d8c9415e107dd1",
+    "reports/build98370-counts/7/session/client-4/observation-guard.json": "1ae0efacc72eb6224c259d5d96854a36f033b59df95b7a137699dbcdd3f0524e",
+    "reports/build98370-counts/7/session/client-5/observation-guard.json": "d7001c8e6496826ee8db88a154447df0a20d5b31fe2095e1598600a52466f549",
+    "reports/build98370-counts/7/session/client-6/observation-guard.json": "ae71e28ea53e34f6894591fb3e9ae9860ea31616ed20faf6328b81cb044ccbd3",
+    "reports/build98370-counts/7/game.SC2Replay": "34472c7306d68e1b6421f6cc12eb3c1131d767cce7263c764341a934cf7c036d",
+    "reports/build98370-counts/8/result.json": "6442f4426885c513569b99ef9f952e8291fe72fbf98daffc3c6d8f6e95d6bab4",
+    "reports/build98370-counts/8/session/native-session.json": "410bef0bf4389f88667bd2de8d032e2d65638ee82ecb1100e393dd18cc43f6fa",
+    "reports/build98370-counts/8/session/client-0/observation-guard.json": "9f9ec841f66cc350aa0f57d37de8daceb8a9d4dbecc48c9fd4b71e7d378e1514",
+    "reports/build98370-counts/8/session/client-1/observation-guard.json": "d3d6014e06df58c100db4191deedf10a7f2540b0a28f7c6c3bdd87d020fa8368",
+    "reports/build98370-counts/8/session/client-2/observation-guard.json": "10127382be30babd1b81afac46724d17b1259fa963f93715503de3d58959bae3",
+    "reports/build98370-counts/8/session/client-3/observation-guard.json": "329f6201802cbdf3f93cd797b2443ec997978b1d3c70d555df2da69d26ed57aa",
+    "reports/build98370-counts/8/session/client-4/observation-guard.json": "efb94f787ef105a522e2b1c8286dc32b39a6c68b7269782023bea8c389c06992",
+    "reports/build98370-counts/8/session/client-5/observation-guard.json": "c327dee34cd4771b270ad35d2fe2a970bcfcda34ca6fb80c684ae7cf4c0c2a5f",
+    "reports/build98370-counts/8/session/client-6/observation-guard.json": "70fd4e5965e302ae75f314409b9acef789bd62fbcafe8b7630a60b70610b50a5",
+    "reports/build98370-counts/8/session/client-7/observation-guard.json": "16a9211f9665a7d58e4ebf26aa12482d178f7f1efd3c2200d82b974b2f928b79",
+    "reports/build98370-counts/8/game.SC2Replay": "5c82aec526e9ffd4e2d26f0446dfa5785878c95a6350d4a986cb9f1fe1602382",
+    "reports/build98370-realtime/4/result.json": "39c8df2f748d2b68d432613c4cce7177cf569f84cdc8f156429219e811a070b4",
+    "reports/build98370-realtime/4/session/native-session.json": "ffeedc2277adba0b1623299044069eb509ac434e2413834a0a76ab35d6a60b58",
+    "reports/build98370-realtime/4/session/client-0/observation-guard.json": "957b80c89bd98aaf11f7907afdcc6911a5f63ef594a7a59de038d94e8b8cdf6b",
+    "reports/build98370-realtime/4/session/client-1/observation-guard.json": "be526b89b2a777b90e1452e274689c1f5415b3de6713ea505fc42ba42839f972",
+    "reports/build98370-realtime/4/session/client-2/observation-guard.json": "e54e228fd9e5bac33d517f8e75d80a375cbb79915a15a91540686ed43e2a67a7",
+    "reports/build98370-realtime/4/session/client-3/observation-guard.json": "793278fe7c2044f442c23ec70d58faecd9d518437b11f1072dc2d91ef9ed8739",
+    "reports/build98370-realtime/4/game.SC2Replay": "e60a3879ece0bd224071255c544d93a5b7d569eeff712e9227c7d0ea4c36b8dd",
+    "reports/build98370-realtime/8/result.json": "26fc4dcb5d1b8c5509610f6afea09bf72a8296b8f7f54639607a4e1aeed3d228",
+    "reports/build98370-realtime/8/session/native-session.json": "312ece1720f61a535c54643e5f26c44526ceabb46d20a09eb301890a9fd47f7e",
+    "reports/build98370-realtime/8/session/client-0/observation-guard.json": "47dd21d60d32b8d328c05231e0a3cf1cf37cf9f1637e73b4b93f5b97427a9ce8",
+    "reports/build98370-realtime/8/session/client-1/observation-guard.json": "b638eaf72f6696831a1fbc4a326a819a869c7e17b8199d267f2480ff3676b1f6",
+    "reports/build98370-realtime/8/session/client-2/observation-guard.json": "2b288183ce0daebebaaa3c53e9e27fb8839c2f86bfa8f2ff850ae02b2e5cc435",
+    "reports/build98370-realtime/8/session/client-3/observation-guard.json": "a3357362c5c51efe74ed56903f5391658684028257dd1cd176a7f33c4ab5c11f",
+    "reports/build98370-realtime/8/session/client-4/observation-guard.json": "846167632304ad7243f4badba313b8b895ae3f650b4d55e1656e56e065b73e8d",
+    "reports/build98370-realtime/8/session/client-5/observation-guard.json": "18d2b03f50a689ccc2b0fbe0b1abcd9e8c5ae8316e09d8188c48a11f6cd7e67a",
+    "reports/build98370-realtime/8/session/client-6/observation-guard.json": "9cba3c4c5294091d6734add2db418f88f9cd45f190314399c24a055e8fbce8bd",
+    "reports/build98370-realtime/8/session/client-7/observation-guard.json": "ea33c5440e4ccab4e1812738ac69dd1d9456c9bcfd08a9cbf18f7eb43492e87e",
+    "reports/build98370-realtime/8/game.SC2Replay": "c3c91f35d0ecb3c58f1446aca1e2331ee846db9db3f72c2906e92dd2ca6e4177",
+    "reports/build98370-research-four-02/game/result.json": "3f69b7f58323dedb3852507c2d13446908411719ebb7391c6b1fbe5ddb948e1b",
+    "reports/build98370-research-four-02/game/session/native-session.json": "c9758745101be5d7de6149cb0041452259e4915fac31fd40e4819f0801a5c4f5",
+    "reports/build98370-research-four-02/game/session/client-0/observation-guard.json": "41c99b290f11f014fee98c5a8466b61430a7061ed49a632410397bd68a05a656",
+    "reports/build98370-research-four-02/game/session/client-1/observation-guard.json": "086d3e60f592f47e3ef1d4589b4f37264d69bd8b46c5e60dde1d0a1a84a51869",
+    "reports/build98370-research-four-02/game/session/client-2/observation-guard.json": "d98324f61b61c5205119d34af493913511f9bf8d415c85f77fb5b02a12b02ea1",
+    "reports/build98370-research-four-02/game/session/client-3/observation-guard.json": "0b0ab226828c97db1f5e426c363ae6ffa01d348d466f7026379cd62d5afdd81d",
+    "reports/build98370-research-four-02/validation.json": "0f49f6240c2766f0cb627e7c434d2c2916d5d58701d405567af28f1f9c9484eb",
+    "reports/build98370-research-four-02/bots.json": "f4cef69b78227b6ace7383358f2a5e485d4a46c351706c554617aa96566066b3",
+    "reports/build98370-research-four-02/research-replay-verification.json": "46fb1a8e4216cc9e8abb835d168e176f6f577b877b0518e09b34b526f98f048e",
+    "reports/build98370-research-four-02/game.SC2Replay": "946e01f0e21158a4a2c9a26aa6282c9d66e8c55bdc823578cfac2beeecdde69e",
+    "reports/build98370-research-eight/game/result.json": "478df9134b858d4e40ca9225ce61d33d7fc47bf22591baeeff5245bbf39b4b42",
+    "reports/build98370-research-eight/game/session/native-session.json": "8c2c8d351a2ac4fc67fdcdff5e604c127dd40d975fd32209810343cf8dd76d4b",
+    "reports/build98370-research-eight/game/session/client-0/observation-guard.json": "7b8b5502c67eccf26ba08bf500cb5b53a37da183f1bed565a3dbbefe7ecf5e33",
+    "reports/build98370-research-eight/game/session/client-1/observation-guard.json": "96480c93f9f43eadfe60ee343c32c502eb5fc47638b3117376b5387b9dc78509",
+    "reports/build98370-research-eight/game/session/client-2/observation-guard.json": "5eee130aeb9dec9a0e1287a851d592a2095b3c1bbf80173a6f285875e7593a6b",
+    "reports/build98370-research-eight/game/session/client-3/observation-guard.json": "7c031aa6f7d40e28eae0d7b9280968d5806e7d187901071d479c640dba65d05b",
+    "reports/build98370-research-eight/game/session/client-4/observation-guard.json": "847bde9062e5e47699e6713b9d545fa5ab546d32a94408a578481b6c101c6f34",
+    "reports/build98370-research-eight/game/session/client-5/observation-guard.json": "fd6ab06b1234a4224e17afadd4236e93bb95d3b072231980766315bbd37be217",
+    "reports/build98370-research-eight/game/session/client-6/observation-guard.json": "868d637af6e5e42c2c94b22d1a22e0d2764f5ed72a22c0c14df6c649e17db8d2",
+    "reports/build98370-research-eight/game/session/client-7/observation-guard.json": "8d3fb5e4ff8f52cd7247748c7b56b264c5029fc25c5d14bd4371be29472033e5",
+    "reports/build98370-research-eight/validation.json": "b0402194e7a8182020ac6c3f3864f130f21055926db460b2a492fd291b582964",
+    "reports/build98370-research-eight/bots.json": "404c1a68e805bb2f7e9ddfda0e9fb379610dbc89a5296d42bca79867d1ecdac8",
+    "reports/build98370-research-eight/research-replay-verification.json": "fe35874802dabb6303c35e2ade04e9c7a00627f7b749c7d9dc2e0c2e238f2616",
+    "reports/build98370-research-eight/game.SC2Replay": "0cf9640efd2e160f3ed29356f4bff5eb117b1ce797e96d8bb7ced3691e1c45a5",
+    "reports/build98370-wheel-realtime-02/4/result.json": "db574484ed056ddd8fd24f0c1ba4751c71717900f93a7598ab4c7e2344a9249c",
+    "reports/build98370-wheel-realtime-02/4/session/native-session.json": "ab2e7f5a9f07556ccfb4f26e5f7b728bd1cbb2cfdfb6b43d5c7daddcb8b325f4",
+    "reports/build98370-wheel-realtime-02/4/session/client-0/observation-guard.json": "9a8d3a59685547893732aa8a6b0370fa7f8c48ddc5dd613ba2526ed36f3a4ee1",
+    "reports/build98370-wheel-realtime-02/4/session/client-1/observation-guard.json": "aef08ba4d7a9cdda4d8e67964c2ec17f401681f3131bcba0461435bae046b82f",
+    "reports/build98370-wheel-realtime-02/4/session/client-2/observation-guard.json": "4a031d7fd3fa9f5eb414b303da8a47620c49a51957cad08d18638fecdcc28afe",
+    "reports/build98370-wheel-realtime-02/4/session/client-3/observation-guard.json": "f7ca5dea4aef81a9421ca32c157d087ef4cb745a64fbc5e7e83f5de655a1e2ba",
+    "reports/build98370-wheel-realtime-02/4/game.SC2Replay": "bc6b3b33390f48ab145c7f02e032533d3874a473512aa8feae3894bca4c0a2d3",
+    "reports/build98370-old-profile-regression-02/4/game.SC2Replay": "0a0ff78db9bc9e3b8696c545baf3b44a0e5547bd62a9d2f101d8a8a543be5701",
+    "reports/build98370-old-profile-regression-02/4/result.json": "481413cefca13e12fe7e00b55f3369b4710313e18afd84e7ffacd57cfa38d92d",
+    "reports/build98370-old-profile-regression-02/4/session/native-session.json": "61f716956b0b0cb4d4642a7561149a22007b4bca0df5550695050c1507f96a24",
+    "reports/build98370-old-profile-regression-02/4/session/client-0/observation-guard.json": "594b790ac72669b711509bd89caef5299246c5acb52c729ef5bd6e913560e5e2",
+    "reports/build98370-old-profile-regression-02/4/session/client-1/observation-guard.json": "4ab3b0635cdf9adbfd3e47de246f839a9e8e6c4f182574599b9f5b22df292e40",
+    "reports/build98370-old-profile-regression-02/4/session/client-2/observation-guard.json": "593a697139771ab599761af63dba4104f6e6cc14fe3db3ac8c8d03d4a86f79b6",
+    "reports/build98370-old-profile-regression-02/4/session/client-3/observation-guard.json": "c1cbb4c659412e27a893381ad6018641af82faeed2a1f54c991f0c6b8ba26a9d",
+    "reports/build98370-tests-final-02.log": "059ba2e6e20c1fab99ca796bbb5e1a9151a129d569e760ebfb662f74cb0ef5f3",
+    "reports/build98370-installed-tests-final.log": "84a671e0c13bc018e68763efc72ee4d389e35d74e4c792d57fb4a0ad05bd1f79",
+    "reports/build98370-stock-audit/Base98370/audit.json": "0ecaf7e7cfb83d2c0eaa1247c6de22a5ceac39e6de798cd2acca9c7d85fe1248",
+    "reports/build98370-investigation/game-data.json": "e2797cfe68096f055b91f2d8d10e0179baf2654c15e4ec9f6a9c6a23db820449"
+  }
+}

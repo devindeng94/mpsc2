@@ -211,14 +211,14 @@ class AuditObserver(ObserverAI):
         self.result = result.name if result is not None else None
 
 
-async def race_check(output, raw_selection=False, races=(Race.Terran, Race.Protoss, Race.Zerg, Race.Random), research=True, realtime=False, step_size=112, require_expansion=True):
+async def race_check(output, raw_selection=False, races=(Race.Terran, Race.Protoss, Race.Zerg, Race.Random), research=True, realtime=False, step_size=112, require_expansion=True, sc2_version=None):
     bots = [RaceBot(raw_selection,research) for _ in races]
     try:
         results = await run_game_async('MPSC2Melee',
             [Bot(r, b) for r, b in zip(races, bots)],
             realtime=realtime,
             team_ids=[7 if i % 2 == 0 else 9 for i in range(len(bots))], game_time_limit=500, step_size=step_size, random_seed=71,
-            output_dir=output/'game', save_replay_as=output/'game.SC2Replay')
+            output_dir=output/'game', save_replay_as=output/'game.SC2Replay', sc2_version=sc2_version)
     finally:
         write(output/'bots.json', [b.summary() for b in bots])
     metrics = [b.summary() for b in bots]
@@ -377,9 +377,12 @@ async def main():
     parser.add_argument('--races', nargs='+', choices=['Terran','Protoss','Zerg','Random'],
                         default=['Terran','Protoss','Zerg','Random'], help='Race probe roster, 2..8 players')
     parser.add_argument('--skip-research', action='store_true', help='Run the production-only control without upgrades')
+    parser.add_argument('--sc2-version', help='Select an exact native profile for the race/research check')
     args = parser.parse_args()
+    if args.sc2_version and args.phase != 'races':
+        parser.error('--sc2-version is currently supported only with --phase races')
     args.output.mkdir(parents=True, exist_ok=False)
-    checks = {'races':lambda out: race_check(out,args.raw_selection,tuple(Race[name] for name in args.races),not args.skip_research,args.realtime,args.step_size,not args.research_only),
+    checks = {'races':lambda out: race_check(out,args.raw_selection,tuple(Race[name] for name in args.races),not args.skip_research,args.realtime,args.step_size,not args.research_only,args.sc2_version),
               'arena':arena_check,'failures':failure_check,
               'standard':lambda out: standard_check(out,args.standard_map),
               'replay':lambda out: replay_check(out,args.replay)}

@@ -2,8 +2,9 @@
 
 ## MPSC2-001: upgrade observations assumed a single opponent
 
-**Fixed in 0.3.1a2 on macOS Base96883, and in 0.3.2a1 on Windows Base93333.**
-Both backends require their exact validated executable checksum.
+**Fixed in 0.3.1a2 on macOS Base96883, in 0.3.2a1 on Windows Base93333, and
+adapted in 0.3.2a3 for Windows Base98370 and 0.3.2a4 for Base75689.** Each profile requires its exact
+validated executable checksum.
 
 The 0.3.1a1 audit reproduced a crash in four-client mixed-race games as soon
 as research began. The client with native player ID 4 received an
@@ -60,6 +61,12 @@ coverage and the original failed attempts. These checks do not establish every
 upgrade, ability, build or platform as supported.
 
 ## Startup reliability and broader coverage
+
+Windows Base98370 crashes during offline chat when launched with an explicit
+`-dataVersion` on the tested installation. Its profile omits that flag and
+verifies installed data before games and replays. It refuses a different loaded
+build or data hash; historical data forcing is not supported for this profile.
+See [the Base98370 record](windows-98370-validation.md).
 
 The bounded eight-player macro fixture completes research for every player,
 but three slots do not complete their attempted expansions before its time

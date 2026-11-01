@@ -176,6 +176,32 @@ class WindowsProcess(NativeProcess):
         return ws
 
 
+def configure_data_version(process, profile, data_version):
+    """Base98370 crashes on offline chat with an explicit -dataVersion.
+
+    Its installed content is usable only after the API confirms the expected
+    build and data identifier. Older profiles retain their launch arguments.
+    """
+    if profile.data_selection == 'installed-verified':
+        process._arguments.pop('-dataVersion', None)
+    elif profile.data_selection == 'explicit':
+        if data_version:
+            process._arguments['-dataVersion'] = data_version
+    else:
+        raise RuntimeError(f'Unsupported data selection strategy: {profile.data_selection}')
+
+
+async def verify_installed_data(controller, profile, data_version, timeout):
+    ping = (await asyncio.wait_for(controller.ping(), timeout)).ping
+    engine = {'game_version': ping.game_version, 'base_build': ping.base_build,
+              'data_version': ping.data_version}
+    if ping.base_build != profile.build or (profile.data_selection == 'installed-verified' and
+                                           ping.data_version.upper() != data_version.upper()):
+        raise RuntimeError(f'Installed SC2 data does not match Base{profile.build}/{data_version}: {engine}. '
+                           'This profile cannot force historical data with -dataVersion.')
+    return engine
+
+
 async def enter_windows(session):
     """Platform-isolated counterpart of the proven macOS session handshake."""
     host_task = None
@@ -183,7 +209,7 @@ async def enter_windows(session):
         profile = get_native_profile('Windows', session.sc2_version)
         if session.players not in profile.players:
             raise RuntimeError(f'{profile.id} does not support {session.players} players')
-        version = get_game_version(session.sc2_version if session.sc2_version is not None else profile.game_version)
+        version = get_game_version(session.sc2_version if session.sc2_version is not None else profile.game_version, system='Windows')
         installation = detect_installation()
         if not installation.get('root') or installation.get('platform', 'Windows') != 'Windows':
             raise RuntimeError('Cannot locate a Windows SC2 installation for the selected profile')
@@ -218,16 +244,18 @@ async def enter_windows(session):
                                      resolution=session.window_size or session.render_size or (640,480),
                                      graphics_api=session.graphics_api, helper=helper,
                                      bridge_dir=session.bridge_dir, profile=profile)
-            if version.data_version:
-                process._arguments['-dataVersion'] = version.data_version
+            configure_data_version(process, profile, version.data_version)
             session.processes.append(process)
             controller = await asyncio.wait_for(session.stack.enter_async_context(process), session.timeout)
             session.controllers.append(controller)
-            client = RecordedClient(controller._ws, session.output / f'client-{i}/api.jsonl', render_size=session.render_size)
+            engine = await verify_installed_data(controller, profile, version.data_version, session.timeout)
+            client = RecordedClient(controller._ws, session.output / f'client-{i}/api.jsonl',
+                                    render_size=session.render_size, detect_layout=profile.detect_ability_layout)
             if session.raw_affects_selection[i] is not None:
                 client.raw_affects_selection = session.raw_affects_selection[i]
             session.clients.append(client)
             session.native_metadata['processes'].append({'pid': process._process.pid, 'api_port': process._port,
+                **({'engine': engine} if engine is not None else {}),
                 'process_create_time': psutil.Process(process._process.pid).create_time(),
                 'observation_guard': getattr(process, 'observation_guard', None)})
         request = api.RequestCreateGame(local_map=api.LocalMap(map_path=str(session.map_path)),
@@ -266,6 +294,10 @@ async def enter_windows(session):
         if set(session.player_ids) != set(range(1, session.players+1)):
             raise RuntimeError(f'Invalid player IDs: {session.player_ids}')
         session.native_metadata['player_ids'] = session.player_ids
+        # The launch hash may be echoed by Ping while newer content is loaded.
+        # Inspect real game metadata before any policy or setup actions run.
+        await session.call([client.get_game_data() for client in session.clients])
+        session.native_metadata['ability_layouts'] = [client.ability_layout for client in session.clients]
         print(f'{session.players} Windows participants joined: {session.player_ids}', flush=True)
         return session
     except BaseException:

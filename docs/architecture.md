@@ -39,7 +39,7 @@ inference if it would stall other callbacks.
 The supported engine's stock API rejects more than two independent participants.
 The host-only lobby bridge completes a verified host transition, distributes
 local discovery traffic, and waits for every participant's native readiness.
-It changes process-local lobby data. The Windows Base93333 backend is isolated
+It changes process-local lobby data. The Windows Base75689/Base93333/Base98370 backend is isolated
 in `windows_session.py` and `native/windows_bridge.c`; the existing macOS
 Base96883 implementation retains its own helpers. Windows uses MinHook for
 loopback UDP forwarding and atomically holds two unused readiness slots,
@@ -61,6 +61,12 @@ signatures, player range, index, read type, and fault address, then resumes at
 the verified cleanup path. This preserves the engine's protected code mapping
 and public own-upgrade data. Only the host uses the socket hook; all 3–8-client
 processes and affected replay views load the observation guard.
+
+Base98370 selects a separate register/stack predicate and verified instruction
+layout from the registry. Its launch path verifies installed data, and its
+client protocol adapter translates the relocated ability IDs in both
+directions. Earlier profiles use neither adaptation; see the
+[Base98370 record](windows-98370-validation.md).
 
 ## Maps and output
 

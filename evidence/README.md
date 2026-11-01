@@ -5,6 +5,8 @@ outcomes and artifact hashes. Successes and failed attempts are both recorded.
 
 | Record | Scope |
 | --- | --- |
+| [0.3.2a4 Windows three-build support](2026-11-01/windows-three-build-validation.json) | Base75689/Base93333/Base98370 native profiles, live ability tables, exact-engine gameplay and replay verification |
+| [0.3.2a3 Windows Base98370](2026-11-01/windows-98370-validation.json) | New build/data profile, ability-ID translation, 2–8 clients, research/replays, realtime, source/wheel checks, and retained limitations |
 | [Four-client prototype](2026-10-28/four-client-success.md) | Original independent-client control, fog and native team results |
 | [Prototype artifact hashes](2026-10-28/four-client-success/sha256.json) | Checksums of the preserved local raw evidence |
 | [Full economy](2026-10-29/full-economy-validation.json) | Four-player mining, construction, production, expansion and combat |

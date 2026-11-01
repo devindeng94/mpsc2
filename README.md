@@ -11,7 +11,7 @@ Existing bots use **burnysc2 7.3.0**. Keep your `sc2` imports and change the
 launcher, or use the equivalent `mpsc2` imports. MPSC2 is a game orchestration
 library; training algorithms, rewards and trajectory storage remain your code.
 
-**Alpha: 0.3.2a2.** Native multiplayer support is specific to the operating
+**Alpha: 0.3.2a4.** Native multiplayer support is specific to the operating
 system, executable architecture and exact SC2 build. Installed SC2 files are
 unchanged.
 
@@ -19,9 +19,10 @@ unchanged.
 
 | Operating system | SC2 version / build | Native MPSC2 scenarios (2–8 clients) | Validation and limitations |
 | --- | --- | --- | --- |
+| Windows, x86_64 | **5.0.15 / Base98370** | **Supported alpha profile** | Live 2–8-player games, research and replays; build-specific native guard, ability IDs and installed-data selection; see [validation](docs/windows-three-build-validation.md) |
 | Windows, x86_64 | **5.0.14 / Base93333** | **Supported alpha profile** | Live player-count, stepped/realtime, research and replay checks; tested on Windows 10 x64 |
+| Windows, x86_64 | **4.10.0 / Base75689** | **Supported alpha profile** | Separate native layout, legacy ability table and replay startup settings; see the [three-build validation](docs/windows-three-build-validation.md) |
 | macOS, x86_64 SC2 executable | **5.0.15 / Base96883** | **Supported alpha profile** | Existing live Mac validation retained; this update preserves both Mac helpers byte-for-byte and passes offline regression checks; no new live Mac run on Windows |
-| Windows, x86_64 | 4.10.0 / Base75689 | **No native multiplayer profile** | Standard one/two-player API route tested; historical game-data parity remains unresolved |
 | Windows | Base92440 | **Unverified; no native profile** | Only an empty directory was present on the test machine; no executable could be tested |
 | Linux | Upstream-supported builds | **No native backend** | Standard one/two-player games delegate to burnysc2; offline Linux tests do not imply native multiplayer support |
 | Any OS | Other builds or executable hashes | **Unsupported for native multiplayer** | A known version label or an installed folder does not establish compatibility |
@@ -36,19 +37,32 @@ Inspect the registry and check the local installation:
 
 ```sh
 python -m mpsc2 versions
+python -m mpsc2 doctor --sc2-version 4.10    # Windows Base75689
 python -m mpsc2 doctor --sc2-version 5.0.14  # Windows Base93333
-python -m mpsc2 doctor --sc2-version 5.0.15  # macOS Base96883
+python -m mpsc2 doctor --sc2-version 5.0.15  # Windows Base98370 / macOS Base96883
 ```
 
-Use the version matching your OS. Native launches accept
-`sc2_version="5.0.14"` on Windows or `sc2_version="5.0.15"` on macOS; omitting it
-preserves those platform defaults. Unsupported requests are rejected before
+Use `sc2_version="5.0.15"` for the updated Windows build or the existing Mac
+build; the alias resolves by OS. Exact selectors such as `"Base98370"` also
+work. Omitting the argument preserves the previous defaults: Windows Base93333
+and macOS Base96883. Unsupported requests are rejected before
 launch and never fall back to another build. SC2 data-version identifiers and
 executable SHA256 values serve different purposes; the
 [version/profile guide](docs/version-profiles.md) explains the registries and how
 to add verified support. See also [Windows setup](docs/windows.md),
 [older-build results](docs/windows-older-build-validation.md),
 [compatibility](docs/compatibility.md) and [known issues](docs/known-issues.md).
+
+Windows Base98370 uses the installed game data and verifies its build and data
+identifier through the API before play. Explicit `-dataVersion` causes an
+offline chat crash in this build. If a later SC2 update changes its installed
+data, MPSC2 refuses a mismatch instead of silently loading different content.
+
+Windows also accepts exact selectors `"Base75689"`, `"Base93333"` and
+`"Base98370"`. Each selects that executable with no fallback. Every Windows
+client checks the live ability metadata before play; older engines keep their
+required startup hashes. A launch hash or replay data label alone does not
+prove historical balance data. See the [three-build guide](docs/windows-three-build-validation.md).
 
 ## Install
 
@@ -96,6 +110,8 @@ python examples/multiplayer.py --players 4 --teams 0 0 1 1 --output reports/firs
 Use a **fresh output directory** for every run. Add `--realtime` for automatic
 engine advancement, use `--teams 0 0 0 1` for 3v1, or omit `--teams` for
 free-for-all. Set `--players` to any count from 2 through 8.
+For Windows Base98370, add `--sc2-version 5.0.15` to this command (or
+`sc2_version="5.0.15"` to the Python call below).
 
 The equivalent Python API is:
 
@@ -154,7 +170,23 @@ single-opponent assumptions as well as changing the launcher.
 
 ## Validation and limitations
 
-Version **0.3.2a2** passed **299 tests against both source and the installed wheel**
+Version **0.3.2a4** passed **334 tests against both source and the installed
+wheel** on Windows. **Base75689, Base93333 and Base98370** each passed stepped
+games with every player count from **2 through 8**, eight-player mixed-race
+normal-resource research, and replay views **0 and 8**. Each also passed
+**four- and eight-player realtime** checks, plus a separate four-player
+realtime game from the installed wheel. See the
+[three-build validation](docs/windows-three-build-validation.md) for exact
+coverage, executable identities, ability layouts and retained failed attempts.
+Boot hashes and replay labels do not by themselves prove historical balance
+data; the actual ability metadata is checked separately for each client.
+
+The preceding **0.3.2a3** passed 321 source/wheel tests and introduced
+Base98370's native guard, installed-data launch mode and seven ability-ID
+translations. Its [dated report](docs/windows-98370-validation.md) retains
+the initial startup/research failures and earlier measurements.
+
+The preceding version **0.3.2a2** passed **299 tests against both source and the installed wheel**
 on Windows. Explicit profile selection passed live stepped matches with 2, 4
 and 8 independent clients, an installed-wheel four-player realtime match,
 four-player research, and replay views 0 and 4. See the

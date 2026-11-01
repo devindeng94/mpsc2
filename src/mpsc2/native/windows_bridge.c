@@ -53,14 +53,26 @@ static void guard_report(const wchar_t *path,const char *error) {
 static LONG CALLBACK guard_invalid_opponent_upgrade(EXCEPTION_POINTERS *info) {
     CONTEXT *ctx=info->ContextRecord;
     EXCEPTION_RECORD *record=info->ExceptionRecord;
-    unsigned player=(unsigned)(ctx->R14&0xff);
     /* Only recover the verified unsigned 3-player_id READ at this one
      * instruction. Every other access violation keeps normal engine handling.
      * This build maps its code SEC_NO_CHANGE, so no code page is rewritten. */
     if(record->ExceptionCode!=EXCEPTION_ACCESS_VIOLATION || record->NumberParameters<2 ||
-       record->ExceptionInformation[0]!=0 || ctx->Rip!=(uintptr_t)base+MPSC2_UPGRADE_FAULT_RVA ||
-       player<4 || player>8 || ctx->Rcx!=(uint32_t)(3u-player) ||
+       record->ExceptionInformation[0]!=0 || ctx->Rip!=(uintptr_t)base+MPSC2_UPGRADE_FAULT_RVA)return EXCEPTION_CONTINUE_SEARCH;
+#if MPSC2_OBSERVATION_STRATEGY == 1
+    unsigned player=(unsigned)(ctx->R14&0xff);
+    if(player<4 || player>8 || ctx->Rcx!=(uint32_t)(3u-player) ||
        record->ExceptionInformation[1]!=ctx->Rbx+2*ctx->Rcx+0xcc)return EXCEPTION_CONTINUE_SEARCH;
+#elif MPSC2_OBSERVATION_STRATEGY == 2
+    /* Base98370 keeps the player ID at rbp+0x6f, unsigned opponent index in
+     * eax and upgrade table in rdi. Read the saved ID without risking a
+     * second exception, then validate all operands of this exact cmp. */
+    unsigned char player=0;SIZE_T got=0;
+    if(!ReadProcessMemory(GetCurrentProcess(),(void *)(uintptr_t)(ctx->Rbp+0x6f),&player,1,&got) || got!=1 ||
+       player<4 || player>8 || ctx->Rax!=(uint32_t)(3u-player) || ctx->Rcx!=0xd0db ||
+       record->ExceptionInformation[1]!=ctx->Rdi+2*ctx->Rax+0xcc)return EXCEPTION_CONTINUE_SEARCH;
+#else
+#error Unsupported observation strategy
+#endif
     ctx->Rip=(uintptr_t)base+MPSC2_UPGRADE_CLEANUP_RVA;
     if(InterlockedIncrement(&observation_faults)==1)guard_report(observation_report,NULL);
     return EXCEPTION_CONTINUE_EXECUTION;

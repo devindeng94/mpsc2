@@ -18,7 +18,9 @@ to save a new report. See [Windows testing](windows.md) for the live engine prob
 | --- | --- |
 | `No module named mpsc2` | Activate the intended environment and install from the repository root with `python -m pip install .`. Use that same Python to run examples. |
 | Imports or upstream classes behave unexpectedly | Check for both `sc2` and `burnysc2` distributions. Use a clean environment with the pinned dependency from `pyproject.toml`. |
-| Missing executable or unexpected executable SHA256 | Check `SC2PATH`, macOS Base96883 or Windows Base93333, and the hash shown by `doctor`. Another build requires backend work; do not bypass the checks. |
+| Missing executable or unexpected executable SHA256 | Check `SC2PATH`, macOS Base96883 or Windows Base75689/Base93333/Base98370, and the hash shown by `doctor --sc2-version <version>`. Another build requires backend work; do not bypass the checks. |
+| Unrecognized SC2 ability layout | Preserve `session/native-session.json` and client journals. The loaded data does not match a verified table; changing only the executable profile or launch hash cannot establish compatibility. |
+| Base98370 installed-data mismatch | This profile verifies its installed content before play. It cannot force historical data with `-dataVersion`; see [the build-specific limitation](windows-98370-validation.md). |
 | Windows diagnostics mention a Mac app path | Upgrade to 0.3.2a1, verify `python -m mpsc2 --version`, and check `installation.executable`. Set `SC2PATH` to the actual Windows root before starting Python. |
 | Missing `clang` or helper compilation failure | Install Apple's Command Line Tools. Inspect the compilation log under the run's `session/bridge/` directory. |
 | Windows helper compilation fails | Use x64 MinGW-w64 GCC and set `MPSC2_WINDOWS_CC` to its `gcc.exe`; see the [Windows guide](windows.md). |

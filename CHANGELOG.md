@@ -1,5 +1,35 @@
 # Changelog
 
+## 0.3.2a4 — three Windows engine profiles
+
+- Add a checksum-pinned Base75689 native backend using verified lobby,
+  readiness and observation addresses with the existing guarded strategy.
+- Inspect each Windows client's live ability metadata before gameplay and
+  select legacy 4.10, canonical or shifted-ID translation independently.
+- Translate legacy rock-tower IDs, reject conflicting outgoing constants,
+  and retain upstream enum identities and macOS behavior.
+- Select the exact Windows executable and required boot hash for every replay
+  view, including observer zero; load the observation guard only where needed.
+- Verify each running engine's build, record its API-reported data identity
+  and detected ability layout, and document the separate replay-label limits.
+- Validate every stepped count from 2–8, realtime counts 4/8 and eight-player
+  research/replay playback on all three Windows builds; preserve Mac helpers.
+
+## 0.3.2a3 — Windows SC2 5.0.15 / Base98370
+
+- Add the verified Base98370 executable, data identifier and native layout.
+- Handle the new observation serializer's saved player ID and register layout
+  without changing the Base93333 or macOS guards.
+- Avoid Base98370's offline-chat crash with installed-data selection; verify
+  the build/data identity before games and replay playback and reject mismatches.
+- Translate seven relocated ability IDs at this profile's client boundary,
+  including worker gas-gather orders; retain existing python-sc2 constants and
+  translate outgoing commands back to the engine IDs. Validate ability metadata.
+- Resolve `5.0.15` by OS: Base98370 on Windows, Base96883 on macOS. Keep the
+  existing omitted-argument defaults and require explicit selection on Windows.
+- Extend native guard and data-selection regression tests and document the
+  new build's live validation and limits.
+
 ## 0.3.2a2 — version and native compatibility registries
 
 - Separate game/data-version metadata from verified OS/architecture/build

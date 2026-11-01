@@ -1,5 +1,9 @@
 # Older Windows build compatibility audit
 
+Historical audit: 0.3.2a4 subsequently added and tested a separate Base75689
+native profile. See the [three-build guide](windows-three-build-validation.md)
+for current support. The measurements below describe the earlier code.
+
 Tested on 2026-10-31 using the existing Windows installation, Python 3.10.22,
 burnysc2 7.3.0, and MPSC2 0.3.2a1. This audit adds no supported native build.
 

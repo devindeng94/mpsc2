@@ -15,7 +15,7 @@ import platform
 import subprocess
 from types import SimpleNamespace
 
-from sc2.client import Client
+from .protocol_compat import ProfileClient
 from sc2.data import Race
 from sc2.portconfig import Portconfig
 from s2clientprotocol import sc2api_pb2 as api
@@ -296,10 +296,10 @@ class NativeFourSession(NativeMultiplayerSession):
         super().__init__(map_path, players=4, **kwargs)
 
 
-class RecordedClient(Client):
+class RecordedClient(ProfileClient):
     """Small request/status journal, including the last known simulation frame."""
-    def __init__(self, ws, journal, *, render_size=None):
-        super().__init__(ws)
+    def __init__(self, ws, journal, *, render_size=None, ability_remaps=(), detect_layout=False):
+        super().__init__(ws, ability_remaps=ability_remaps, detect_layout=detect_layout)
         self.journal = journal
         self.render_size = render_size
 

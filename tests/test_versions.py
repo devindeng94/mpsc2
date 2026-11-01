@@ -8,7 +8,7 @@ from unittest.mock import AsyncMock, patch
 
 import pytest
 import mpsc2
-from mpsc2.versions import (GAME_VERSIONS, NATIVE_PROFILES, WINDOWS_93333, MACOS_96883,
+from mpsc2.versions import (GAME_VERSIONS, NATIVE_PROFILES, WINDOWS_93333, WINDOWS_98370, MACOS_96883,
     UnsupportedNativeProfile, get_game_version, get_native_profile, compatibility_catalog, write_windows_header)
 
 
@@ -30,14 +30,15 @@ def test_native_loader_refuses_a_different_python_architecture(tmp_path):
 
 
 @pytest.mark.parametrize('value', ['4.10', '4.10.0', 'Base75689', '75689', 75689])
-def test_game_aliases_resolve_to_data_metadata_not_native_permission(value):
+def test_legacy_game_aliases_resolve_without_granting_other_platforms_native_permission(value):
     game = get_game_version(value)
     assert game.build == 75689 and game.data_version == 'B89B5D6FA7CBF6452E721311BFBC6CB2'
     with pytest.raises(UnsupportedNativeProfile, match='No verified native'):
-        get_native_profile('Windows', value)
+        get_native_profile('Linux', value)
+    assert get_native_profile('Windows', value).build == 75689
 
 
-@pytest.mark.parametrize('system,version', [('Windows', 'Base92440'), ('Windows', '5.0.15'),
+@pytest.mark.parametrize('system,version', [('Windows', 'Base92440'), ('Windows', '5.0.15.96883'),
     ('Darwin', '5.0.14'), ('Linux', '5.0.14'), ('Windows', 'latest'), ('Windows', '../Base93333')])
 def test_no_fallback_for_unknown_or_foreign_profiles(system, version):
     with pytest.raises(UnsupportedNativeProfile):
@@ -52,7 +53,7 @@ def test_defaults_and_binary_architecture_are_explicit():
         get_native_profile('Windows', architecture='arm64')
     assert len(get_game_version('5.0.14').data_version) == 32
     assert len(WINDOWS_93333.executable_sha256) == 64
-    assert get_game_version('5.0.15').data_version is None  # do not invent an unrecorded value
+    assert get_game_version('5.0.15', system='Darwin').data_version is None  # do not invent an unrecorded value
 
 
 def test_registries_and_profile_settings_cannot_be_mutated():
@@ -110,8 +111,8 @@ def test_unsupported_public_selection_refuses_before_map_or_output(tmp_path):
     from mpsc2.bot_ai import BotAI
     players = [Bot(Race.Terran, BotAI()) for _ in range(4)]
     with patch('platform.system', return_value='Windows'), patch('mpsc2.main.NativeMultiplayerSession') as session:
-        with pytest.raises(UnsupportedNativeProfile, match='Base75689'):
-            mpsc2.run_game('MPSC2TeamArena', players, sc2_version='4.10', output_dir=tmp_path/'run')
+        with pytest.raises(UnsupportedNativeProfile, match='Base96883'):
+            mpsc2.run_game('MPSC2TeamArena', players, sc2_version='Base96883', output_dir=tmp_path/'run')
     session.assert_not_called()
     assert not (tmp_path/'run').exists()
 
@@ -138,7 +139,7 @@ def test_catalog_is_available_without_installation_or_compiler(capsys):
          patch('subprocess.Popen', side_effect=AssertionError('must not launch')):
         assert main(['versions']) == 0
     catalog = json.loads(capsys.readouterr().out)
-    assert {p['build'] for p in catalog['native_profiles']} == {93333, 96883}
+    assert {p['build'] for p in catalog['native_profiles']} == {75689, 93333, 96883, 98370}
     assert any(o['build'] == 92440 and o['standard_api'] == 'unverified' for o in catalog['observations'])
 
 
@@ -147,9 +148,9 @@ def test_doctor_explicit_unsupported_build_reports_failure(tmp_path, monkeypatch
     from mpsc2.installation import upstream
     monkeypatch.setenv('SC2PATH', str(tmp_path))
     with patch('platform.system', return_value='Windows'), patch.object(upstream, 'platform_detect', return_value='Windows'):
-        native = get_capabilities('4.10')['multiplayer']
+        native = get_capabilities('Base96883')['multiplayer']
     assert not native['ready'] and not native['supported'] and native['profile'] is None
-    assert 'Base75689' in native['errors'][0]
+    assert 'Base96883' in native['errors'][0]
 
 
 def test_native_batch_forwards_version_selection():
@@ -232,3 +233,14 @@ def test_macos_profile_preserves_session_handshake_and_environment(tmp_path, mon
             assert ('MPSC2_BRIDGE_DIR' in env) == (index == 0)
             assert env['MPSC2_OBSERVATION_GUARD_LOG'].endswith('observation-guard.json')
         assert 'MPSC2_WINDOWS_GUARD_LOG' not in env
+
+
+def test_same_patch_label_selects_the_platform_specific_build():
+    assert get_native_profile('Windows', '5.0.15') is WINDOWS_98370
+    assert get_native_profile('Darwin', '5.0.15') is MACOS_96883
+    assert get_game_version('5.0.15', system='Windows').data_version == '84197ED58A0329FA79CC9426E07E5FB3'
+    with pytest.raises(ValueError, match='Ambiguous'):
+        get_game_version('5.0.15')
+    with pytest.raises(UnsupportedNativeProfile):
+        get_native_profile('Darwin', 'Base98370')
+    assert get_native_profile('Windows', 98370) is WINDOWS_98370

@@ -11,8 +11,9 @@ python -m pytest -q
 ```
 
 Offline tests require no game installation. CI is configured for Python 3.10/3.13
-on Linux/macOS/Windows and 3.11/3.12 on Linux, and builds a wheel/sdist. Native engine checks require the supported macOS
-installation and `clang`; they are opt-in and are not simulated by CI.
+on Linux/macOS/Windows and 3.11/3.12 on Linux, and builds a wheel/sdist.
+Native engine checks require a supported executable and `clang` on macOS or
+MinGW-w64 GCC on Windows; they are opt-in and are not simulated by CI.
 
 Start with the [installation guide](docs/installation.md) for environment setup.
 The root requirements files use `pyproject.toml` as their dependency source of
@@ -30,9 +31,10 @@ truth; the historical environment snapshot is not the current development lock.
   Do not substitute computer opponents or one shared-control client.
 - Scope native cleanup to owned processes. Never use a system-wide process kill
   or patch an installed SC2 binary.
-- The lobby bridge changes host data only. The observation guard changes a
-  seven-byte branch on a process-private executable page in each affected
-  client. Keep whole-file hash, UUID, instruction and page-protection guards;
+- The lobby bridge changes host data only. The macOS observation guard changes
+  a seven-byte branch on a process-private executable page; Windows uses a
+  narrowly checked exception handler without changing code bytes. Keep each
+  profile's whole-file hash, runtime instruction and memory-state checks;
   refuse startup if any check fails. Never modify simulation or research rules.
 - Keep maps, bridge source, templates and license notices in built distributions.
   Do not include replays, videos, engine logs, game executables or game data.
@@ -59,6 +61,12 @@ Do not silently accept arbitrary checksums.
 
 Run `python -m mpsc2 doctor` first. These commands launch visible local SC2
 processes. Use fresh output paths:
+
+On Windows, add `--sc2-version Base75689`, `Base93333` or `Base98370` to the
+player-count and alpha validation scripts to exercise each profile. Replay
+playback selects its engine from the recorded base build. See the
+[three-build guide](docs/windows-three-build-validation.md) for measured
+coverage and the difference between startup hashes and actual ability tables.
 
 ```sh
 python scripts/validate_api.py --output reports/api-new

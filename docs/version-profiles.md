@@ -23,8 +23,8 @@ python -m mpsc2 doctor --sc2-version Base75689
 `versions` lists known game records, native profiles, defaults and measured
 support observations. It does not claim those builds are installed. `doctor`
 checks the selected native profile against the local executable, compiler and
-platform prerequisites. The Base75689 command reports no native profile and
-returns a nonzero exit code.
+platform prerequisites. Since 0.3.2a4, Base75689 has its own native profile;
+`4.10`, `4.10.0` and `4.10.0.75689` also select it on Windows.
 
 Use the existing `sc2_version` argument to select a registered native profile:
 
@@ -42,6 +42,12 @@ On Windows this alias selects the exact Base93333 profile. The full label
 `5.0.14.93333` and `Base93333` select it as well. macOS accepts `5.0.15`,
 `5.0.15.96883` and `Base96883`. Native `GameMatch` objects and the low-level
 `NativeMultiplayerSession` also accept `sc2_version`.
+
+Starting in 0.3.2a3, Windows also supports `5.0.15`, `5.0.15.98370` and
+`Base98370`. The `5.0.15` alias resolves to Base98370 on Windows and Base96883
+on macOS. Low-level metadata lookups should use
+`get_game_version("5.0.15", system="Windows")` or an exact build; an ambiguous
+lookup without an OS is rejected.
 
 Omitting the argument preserves the existing defaults: Windows Base93333 and
 macOS Base96883. An explicit unknown or unsupported version is refused before
@@ -67,7 +73,7 @@ from mpsc2 import GAME_VERSIONS, NATIVE_PROFILES
 
 profile = NATIVE_PROFILES[("Windows", "x86_64", 93333)]
 game = GAME_VERSIONS[profile.game_version]
-print(game.data_version)               # SC2 content selection
+print(game.data_version)               # SC2 launch data identifier
 print(profile.executable_sha256)       # Exact executable identity
 print(profile.windows_layout.lobby_state)
 ```
@@ -84,7 +90,9 @@ instruction signatures from that header. Its reports include the profile ID;
 Python checks both the profile ID and owned-process PID before gameplay. The
 session report records the profile, executable checksum, data identifier and
 generated-header checksum. Selected-player replay guards resolve their profile
-from the replay's build and use the replay's own data identifier.
+from the replay's build. Windows profiles also control the startup argument:
+old engines require their boot identifiers even when a replay labels the data
+with a newer installation hash; Base98370 uses verified installed data.
 
 The macOS Base96883 helpers remain byte-for-byte unchanged. Its profile binds
 their existing implementation by source SHA256, executable SHA256 and UUID.
@@ -103,8 +111,9 @@ be passed to helper compilation.
 | Target | Registry status |
 | --- | --- |
 | Windows Base93333 | Native 2–8-client profile; earlier live validation and registry regression checks |
+| Windows Base98370 | Native 2–8-client profile; separate layout, observation strategy and installed-data launch setting; [validation](windows-98370-validation.md) |
 | macOS Base96883 | Existing native profile and historical validation; unchanged C sources and offline regression checks on this machine |
-| Windows Base75689 / 4.10.0 | Game metadata and tested standard API recorded; no native multiplayer profile |
+| Windows Base75689 / 4.10.0 | Native profile added in 0.3.2a4; separate layout and legacy ability-table translation; [three-build guide](windows-three-build-validation.md) |
 | Windows Base92440 | Unverified observation only; its local directory was empty; no guessed version label/data identifier |
 | Linux | Standard upstream support; no MPSC2 native backend |
 
@@ -135,6 +144,30 @@ native launch validates its explicitly selected profile's executable.
 
 The registry organizes verified support. PySC2 metadata, version labels and
 checksums cannot supply the private addresses or prove engine compatibility.
+
+## Base98370 data selection
+
+The profile's `data_selection="installed-verified"` omits `-dataVersion`.
+On the tested installation, forcing the engine's own reported hash caused an
+access violation during offline chat, including stock two-player games.
+Allowing installed-data selection passed the same fixture. Every client must
+report Base98370 and `84197ED58A0329FA79CC9426E07E5FB3` before CreateGame.
+Replay playback checks the replay's data identifier before StartReplay, even
+for the unguarded all-player view. Mismatches fail with cleanup; no historical
+data fallback or additional native exception handler is used.
+
+Other profiles retain their existing data-selection behavior and defaults.
+
+Its `ability_remaps` table also records seven relocated engine ability IDs and
+their API names. A per-client adapter translates these to/from burnysc2's IDs
+for metadata, observations, queries and commands. The upstream enums are never
+mutated, so older Windows and macOS clients retain their original behavior.
+
+Since 0.3.2a4, all Windows profiles set `detect_ability_layout=True`: each client
+selects a verified translation from its live API metadata before setup actions.
+Base75689/93333 retain their boot arguments, and all replay views select the
+matching Windows process profile. See the [three-build guide](windows-three-build-validation.md)
+for why boot hashes, replay labels and live ability data are recorded separately.
 
 ## Validation of 0.3.2a2
 

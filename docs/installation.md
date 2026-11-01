@@ -5,9 +5,9 @@
 | Use | Requirements |
 | --- | --- |
 | Import MPSC2 and run offline tests | Python 3.10+; no SC2 installation needed |
-| Bundled 2–8-client scenarios | Checksum-pinned macOS Base96883 with `clang`, or Windows Base93333 with 64-bit Python and MinGW-w64 GCC; compilers needed for 3–8 clients |
+| Bundled 2–8-client scenarios | Checksum-pinned macOS Base96883 with `clang`, or Windows Base75689/Base93333/Base98370 with 64-bit Python and MinGW-w64 GCC; compilers needed for 3–8 clients; select an exact Windows build with `sc2_version="Base75689"`, `"Base93333"` or `"Base98370"` |
 | Standard one/two-player games | The pinned python-sc2 dependency's supported SC2 installation and maps |
-| Replay views of native player IDs ≥4 on Base96883 | The supported macOS executable and `clang` for the observation guard |
+| Replay views of native player IDs ≥4 | The matching supported executable and platform compiler for its observation guard |
 
 The alpha was validated locally on Python 3.10.0 and 3.13.2. Python 3.11/3.12
 are configured in offline CI; this is not a claim of live engine validation on
@@ -49,7 +49,7 @@ See [pip's local-install documentation](https://pip.pypa.io/en/stable/topics/loc
 A built wheel can also be installed directly:
 
 ```sh
-python -m pip install /path/to/mpsc2-0.3.2a1-py3-none-any.whl
+python -m pip install /path/to/mpsc2-0.3.2a4-py3-none-any.whl
 ```
 
 There is no assumed public PyPI release. Do not rely on `pip install mpsc2`

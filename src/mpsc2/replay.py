@@ -22,7 +22,7 @@ from sc2.position import Point2
 from s2clientprotocol import sc2api_pb2 as api
 
 from .session import OwnedSC2Process, barrier
-from .versions import find_native_profile
+from .versions import find_native_profile, get_game_version
 
 
 @contextmanager
@@ -154,6 +154,7 @@ async def run_replay_async(ai, replay_path, realtime=False, observed_id=0, *,
     build, data = get_replay_version(path)
     profile = find_native_profile(platform.system(), int(build[4:]))
     guarded_view = profile is not None and observed_id >= profile.replay_guard_min_player
+    installed_data = profile is not None and profile.data_selection == 'installed-verified'
     graphics_api = graphics_api or ('Metal' if platform.system() == 'Darwin' else None)
     async with AsyncExitStack() as stack:
         if guarded_view and profile.backend == 'macos-96883-v1':
@@ -171,10 +172,11 @@ async def run_replay_async(ai, replay_path, realtime=False, observed_id=0, *,
             process = NativeProcess(executable, root, output,
                 observation_guard_environment(env, helper, output), 0, resolution=window_size)
             process._arguments['-dataVersion'] = data
-        elif guarded_view and profile.backend == 'windows-local-v1':
+        elif profile is not None and profile.backend == 'windows-local-v1':
             import os
             from .installation import detect_installation
-            from .windows_session import WindowsProcess, build_bridge, validate_executable
+            from .windows_session import (WindowsProcess, build_bridge, validate_executable,
+                                          configure_data_version, verify_installed_data)
             installation = detect_installation()
             if not installation['root']:
                 raise RuntimeError('Cannot locate Windows SC2 installation for replay')
@@ -182,20 +184,32 @@ async def run_replay_async(ai, replay_path, realtime=False, observed_id=0, *,
             executable = profile.executable(root)
             validate_executable(executable, profile)
             output = Path(stack.enter_context(TemporaryDirectory(prefix='mpsc2-replay-')))
-            helper = build_bridge(output, profile)
+            helper = build_bridge(output, profile) if guarded_view else None
             env = {k: v for k, v in os.environ.items() if not k.startswith('MPSC2_') and k != 'DYLD_INSERT_LIBRARIES'}
-            env['MPSC2_WINDOWS_GUARD_LOG'] = str(output / 'observation-guard.json')
+            if helper:
+                env['MPSC2_WINDOWS_GUARD_LOG'] = str(output / 'observation-guard.json')
             process = WindowsProcess(executable, root, output, env, 0, resolution=window_size, helper=helper, profile=profile)
-            process._arguments['-dataVersion'] = data
+            # Old executables need their boot hash even when the replay was
+            # labelled with the installation's newer hash. It is not a balance-data
+            # guarantee; the live ability table is inspected below.
+            boot_data = data if installed_data else get_game_version(profile.game_version).data_version
+            configure_data_version(process, profile, boot_data)
         else:
             process = OwnedSC2Process(fullscreen=False, resolution=window_size, base_build=build, data_hash=data)
         if graphics_api:
             process._arguments['-graphicsapi'] = graphics_api
         controller = await asyncio.wait_for(stack.enter_async_context(process), timeout)
+        if profile is not None and profile.backend == 'windows-local-v1':
+            await verify_installed_data(controller, profile, data, timeout)
         # The public upstream functions are used; the observer loop above fixes
         # the NoRace classification and absent player-zero result in 7.3.0.
         await barrier([controller.start_replay(str(path), realtime=False, observed_id=observed_id)], timeout, [controller])
-        client = Client(controller._ws)
+        if profile is not None and profile.detect_ability_layout:
+            from .protocol_compat import ProfileClient
+            client = ProfileClient(controller._ws, detect_layout=True)
+            await barrier([client.get_game_data()], timeout, [client])
+        else:
+            client = Client(controller._ws)
         client.game_step = step_size
         with _observer_callbacks(ai):
             return await _play(client, ai, observed_id, realtime, speed, timeout, max_game_loop)

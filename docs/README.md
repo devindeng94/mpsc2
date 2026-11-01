@@ -21,6 +21,10 @@ Start with [installation](installation.md), then run a match from the
 
 These are dated measurements, not guarantees for every workload:
 
+- [Windows three-build support, 0.3.2a4](windows-three-build-validation.md):
+  Base75689/Base93333/Base98370, live ability-table detection and replay startup.
+- [Windows Base98370, 0.3.2a3](windows-98370-validation.md): the updated
+  5.0.15 executable, observation guard and installed-data launch behavior.
 - [Windows validation, 0.3.2a1](windows-validation.md): independent 2–8-client
   games on Base93333, research, realtime, replays and package checks.
 - [Older Windows builds](windows-older-build-validation.md): Base75689 stock

@@ -1,25 +1,32 @@
 # Windows multiplayer setup
 
-Version **0.3.2a2** includes a separate Windows backend for 2–8 independent
+Version **0.3.2a4** includes a separate Windows backend for 2–8 independent
 python-sc2 clients, including the bundled team arena and economy scenarios.
 The existing macOS Base96883 backend and observation guard remain intact.
 Build selection now uses the [version/profile registries](version-profiles.md).
-Use `python -m mpsc2 versions` to inspect them and `doctor --sc2-version 5.0.14`
-to check the Windows profile. Base75689 and Base92440 have no native profile.
+Use `python -m mpsc2 versions` to inspect them and `doctor --sc2-version 5.0.15`
+to check Base98370. Use `5.0.14` for Base93333 or `4.10` for Base75689.
+Base92440 has no native profile.
 
 ## Requirements
 
 - 64-bit Windows and Python 3.10 or later.
-- The exact validated **SC2 5.0.14 / Base93333** Windows executable and its
+- The exact validated **SC2 4.10 / Base75689**, **5.0.14 / Base93333** or
+  **5.0.15 / Base98370** Windows executable and its
   complete game data, including `Support64`.
 - **MinGW-w64 GCC targeting x86_64** for 3–8 clients. Two clients need no
   compiler or DLL. A portable w64devkit installation works.
 
-Executable SHA256:
-`e67dcd28e5c5b21d3e4d9e38aada09ed522af28ac0cc5338d709357040493ee0`.
+Executable SHA256 values:
+
+- Base75689: `b7cac088c463c64ce5ac84acafba546c8c2c13cb7df3613a9c09fb9b0e61f7f9`
+- Base98370: `c68202849f8e64ed20d15bea0fb89f2c5b94028d075d9848e124a8264d130222`
+- Base93333: `e67dcd28e5c5b21d3e4d9e38aada09ed522af28ac0cc5338d709357040493ee0`
+
 Other Windows builds are refused by the multiplayer route. An installation's
-newest build may differ: this backend deliberately selects Base93333, while
-standard games retain upstream's build selection.
+newest build may differ: use `sc2_version="5.0.15"` to select Base98370.
+The omitted-argument default remains Base93333, and standard games retain
+upstream's build selection.
 
 From the source directory, create an environment and install this checkout:
 
@@ -28,7 +35,7 @@ py -3 -m venv .venv
 .venv\Scripts\python.exe -m pip install .
 $env:SC2PATH = "E:\StarCraft II"
 $env:MPSC2_WINDOWS_CC = "D:\w64devkit\bin\gcc.exe"
-.venv\Scripts\python.exe -m mpsc2 doctor
+.venv\Scripts\python.exe -m mpsc2 doctor --sc2-version 5.0.15
 ```
 
 Use paths appropriate to your machine. `SC2PATH` is optional if Blizzard's
@@ -46,7 +53,7 @@ two-client sessions themselves do not compile a helper.
 ## Run a match
 
 ```powershell
-.venv\Scripts\python.exe examples/multiplayer.py --players 4 --teams 0 0 1 1 --output reports/windows-first
+.venv\Scripts\python.exe examples/multiplayer.py --players 4 --teams 0 0 1 1 --sc2-version 5.0.15 --output reports/windows-first
 ```
 
 Use a **fresh output directory** for every run. Omit `--teams` for free-for-all,
@@ -57,14 +64,14 @@ with one distinct `BotAI` per player and the same `team_ids` arguments as macOS.
 For economy and research validation:
 
 ```powershell
-.venv\Scripts\python.exe scripts/validate_alpha.py --phase races --research-only --output reports/windows-research
+.venv\Scripts\python.exe scripts/validate_alpha.py --phase races --research-only --sc2-version 5.0.15 --output reports/windows-research
 ```
 
 For the complete player-count matrix and realtime checks:
 
 ```powershell
-.venv\Scripts\python.exe scripts/validate_player_counts.py --counts 2 3 4 5 6 7 8 --output reports/windows-counts
-.venv\Scripts\python.exe scripts/validate_player_counts.py --counts 4 --realtime --output reports/windows-realtime
+.venv\Scripts\python.exe scripts/validate_player_counts.py --counts 2 3 4 5 6 7 8 --sc2-version 5.0.15 --output reports/windows-counts
+.venv\Scripts\python.exe scripts/validate_player_counts.py --counts 4 --realtime --sc2-version 5.0.15 --output reports/windows-realtime
 ```
 
 ## What changed
@@ -102,7 +109,16 @@ before gameplay; selected-player replay views with IDs 4–8 use it as well.
 
 The Base96883 macOS observation patch is preserved separately.
 Windows validation results and remaining limits are recorded in
-[Windows validation](windows-validation.md).
+[the three-build guide](windows-three-build-validation.md), with earlier
+measurements retained in [Windows validation](windows-validation.md).
+The separate [Base98370 validation](windows-98370-validation.md) covers the
+updated executable. Its installed data is verified at startup; forcing
+`-dataVersion` triggers an offline-chat crash in this build. If its installed
+data changes, the profile refuses to run until compatible content is available.
+Base75689 and Base93333 retain their required historical startup hashes.
+All three profiles identify the actual ability table after joining and before
+bot actions; a boot hash or replay label alone does not prove historical
+balance-data parity. Per-client layouts and engine identities are recorded.
 
 ## Diagnostics
 
