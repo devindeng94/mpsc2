@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mpsc2"
-version = "0.3.3a1"
+version = "0.3.4a1"
 description = "Team-based multiplayer StarCraft II research with python-sc2-compatible APIs"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "src/mpsc2/licenses/*"]
 requires-python = ">=3.10"
-dependencies = ["burnysc2==7.3.0", "mpyq==0.2.5", "psutil>=5.9"]
+dependencies = ["burnysc2==7.3.0", "mpyq==0.2.5", "psutil>=5.9", "aiohttp>=3.11.10,<4", "protobuf>=3.20"]
 keywords = ["starcraft2", "multi-agent", "self-play", "reinforcement-learning", "python-sc2"]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -45,7 +45,7 @@ mpsc2-probe = "mpsc2.probe:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-mpsc2 = ["native/*.c", "native/minhook/LICENSE.txt", "native/minhook/include/*.h", "native/minhook/src/*.c", "native/minhook/src/*.h", "native/minhook/src/hde/*.c", "native/minhook/src/hde/*.h", "*.galaxy", "assets/*.SC2Map", "licenses/*", "py.typed"]
+mpsc2 = ["native/*.c", "native/minhook/LICENSE.txt", "native/minhook/include/*.h", "native/minhook/src/*.c", "native/minhook/src/*.h", "native/minhook/src/hde/*.c", "native/minhook/src/hde/*.h", "*.galaxy", "assets/*.SC2Map", "assets/*.json", "licenses/*", "py.typed"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

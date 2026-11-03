@@ -121,6 +121,42 @@ def test_unreadable_executable_is_reported(tmp_path, monkeypatch):
     assert not report['ready'] and 'denied' in report['errors'][0]
 
 
+@pytest.mark.parametrize('target,digest,expected', [
+    ('Darwin', 'cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1', True),
+    ('Darwin', '0' * 64, False),
+    ('Windows', 'cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1', False),
+])
+def test_update_warning_requires_matching_platform_build_and_executable(tmp_path, monkeypatch, target, digest, expected):
+    installation(tmp_path, monkeypatch, target, builds=(98310,))
+    with patch('mpsc2.installation.file_sha256', return_value=digest), \
+         patch('mpsc2.capabilities.platform.system', return_value=target):
+        info = get_capabilities()
+    assert info['installation']['ready']  # Files exist; this is not a live API check.
+    assert bool(info['installation']['compatibility_observations']) == expected
+    assert any('did not expose the SC2 API' in w for w in info['standard']['warnings']) == expected
+    assert 'API startup and gameplay are not verified' in info['standard']['note']
+
+
+@pytest.mark.parametrize('valid', [True, False])
+def test_doctor_identifies_compatibility_engine_without_claiming_new_binary_support(tmp_path, monkeypatch, valid):
+    from mpsc2.versions import MACOS_96883
+    root = installation(tmp_path, monkeypatch, 'Darwin', builds=(96883,))
+    (root / '.build.info').write_text('snapshot')
+    receipt = {'format': 1, 'profile': MACOS_96883.id if valid else 'forged',
+               'source_build': 98310, 'source_root': '/fixture/retail',
+               'content_selection': 'snapshot', 'build_info_sha256': MACOS_96883.executable_sha256}
+    (root / 'mpsc2-compat-engine.json').write_text(json.dumps(receipt))
+    with patch('mpsc2.installation.file_sha256', return_value=MACOS_96883.executable_sha256):
+        report = detect_installation()
+    if valid:
+        assert report['compatibility_engine']['engine_build'] == 96883
+        assert report['compatibility_engine']['source_build'] == 98310
+        assert report['compatibility_engine']['native_base98310_support'] is False
+    else:
+        assert report['compatibility_engine'] is None
+        assert any('Cannot verify compatibility-engine receipt' in w for w in report['warnings'])
+
+
 def test_windows_doctor_separates_standard_and_native_support(tmp_path, monkeypatch, capsys):
     installation(tmp_path, monkeypatch)
     with patch('mpsc2.capabilities.platform.system', return_value='Windows'):

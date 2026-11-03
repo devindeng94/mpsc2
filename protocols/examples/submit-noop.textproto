@@ -1,0 +1,4 @@
+# An explicit no-op for a connection already bound to one player.
+request_id: "turn-example-0"
+match { match_id: "example-match" generation: "example-generation" }
+submit { epoch: 0 expected_game_loop: 16 actions {} }

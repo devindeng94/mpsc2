@@ -1,0 +1,480 @@
+{
+  "date": "2026-11-03",
+  "project_version": "0.3.3a2 / unreleased",
+  "scope": "Linux Base75689 JoinGame diagnosis, bounded startup recovery and passive failure diagnostics",
+  "engine": {
+    "platform": "Linux x86_64",
+    "version": "4.10.0",
+    "build": 75689,
+    "sha256": "115f65a49191c504f6336f7d5b7818b23dbba3d7a45cacf9142c86c959abaa41"
+  },
+  "original_failure": {
+    "source": "evidence/2026-11-03/linux-multiplayer-service.json",
+    "local_report": "reports/linux-service-20261103/raw/legacy-realtime/7/session/native-session.json",
+    "players": 7,
+    "realtime": true,
+    "timeout_seconds": 90,
+    "successful_join_responses": 0,
+    "game_started_markers": 0,
+    "failed_client_observation": "Last client received native lobby traffic from the host but no other guests.",
+    "stage": "Native lobby/peer establishment before policies; exact trigger unconfirmed"
+  },
+  "investigation": {
+    "unchanged_code_original_settings_repetitions": [
+      {
+        "name": "original-0",
+        "exit_code": 0
+      },
+      {
+        "name": "original-1",
+        "exit_code": 0
+      },
+      {
+        "name": "original-2",
+        "exit_code": 0
+      },
+      {
+        "name": "original-3",
+        "exit_code": 0
+      },
+      {
+        "name": "original-4",
+        "exit_code": 0
+      },
+      {
+        "name": "original-5",
+        "exit_code": 0
+      },
+      {
+        "name": "original-6",
+        "exit_code": 0
+      },
+      {
+        "name": "original-7",
+        "exit_code": 0
+      },
+      {
+        "name": "original-8",
+        "exit_code": 0
+      },
+      {
+        "name": "original-9",
+        "exit_code": 0
+      },
+      {
+        "name": "original-10",
+        "exit_code": 0
+      },
+      {
+        "name": "original-11",
+        "exit_code": 0
+      }
+    ],
+    "api_delay_seconds_tested": [
+      0,
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1,
+      2,
+      10
+    ],
+    "api_delay_cases_passed": 8,
+    "native_host_connect_delay_seconds": 5,
+    "native_host_connect_delay_passed": true,
+    "hypothesis": "Timing-sensitive native peer/readiness negotiation; not a confirmed instruction-level cause.",
+    "new_unforced_stalls": [
+      {
+        "players": 7,
+        "realtime": false,
+        "recovered": true,
+        "failed_report": "reports/linux-join-20261103/raw/updated-stepped/7/session/failed-join-attempt-1/native-session.json"
+      },
+      {
+        "players": 7,
+        "realtime": true,
+        "recovered": true,
+        "failed_report": "reports/linux-join-20261103/raw/updated-realtime/7/session/failed-join-attempt-1/native-session.json"
+      },
+      {
+        "players": 8,
+        "realtime": true,
+        "recovered": true,
+        "failed_report": "reports/linux-join-20261103/raw/updated-realtime/8/session/failed-join-attempt-1/native-session.json"
+      }
+    ],
+    "concurrency_note": "Some follow-up engine checks overlapped on the same server. The unforced seven-player stepped stall had no configured API/game-port overlap with those service matches. No startup failure rate is inferred."
+  },
+  "change": {
+    "backend": "Python Linux session only; native helpers unchanged",
+    "maximum_attempts": 2,
+    "eligible_counts": "3..8",
+    "retry_boundary": "Only a JoinGame timeout before any returned player ID, with all engine logs available and no native start or queued JoinGame response markers.",
+    "excluded": "Partial joins, native start markers, missing logs, cancellation, other startup errors, later game-data errors and gameplay.",
+    "archive": "session/failed-join-attempt-1/",
+    "diagnostics": [
+      "startup stage",
+      "per-input-client join outcomes and timings",
+      "owned loopback socket snapshot on timeout",
+      "attempt report paths"
+    ],
+    "service": "Replacement engines are re-Pinged, interfaces reapplied, and final physical bindings returned by StartMatch. Logical slots, teams, credentials and generation persist."
+  },
+  "controlled_native_stall": {
+    "injection": "Pause only the first attempt's final guest at native host TCP connect for 60 seconds; use a 30-second JoinGame deadline.",
+    "before": {
+      "passed": false,
+      "seconds": 48.031357906758785,
+      "error": "TimeoutError: Multiplayer barrier timed out after 30.0s"
+    },
+    "after": {
+      "passed": true,
+      "seconds": 76.53933814167976,
+      "attempt_outcomes": [
+        "join_timeout",
+        "joined"
+      ]
+    },
+    "limitation": "Demonstrates recovery from a stalled lobby, not reproduction of the original intermittent trigger."
+  },
+  "public_service_recovery": {
+    "passed": true,
+    "players": 7,
+    "realtime": true,
+    "attempt_outcomes": [
+      "join_timeout",
+      "joined"
+    ],
+    "physical_instances_replaced": true,
+    "callbacks": [
+      {
+        "starts": 1,
+        "ends": 1,
+        "steps": 8,
+        "moved": true
+      },
+      {
+        "starts": 1,
+        "ends": 1,
+        "steps": 8,
+        "moved": true
+      },
+      {
+        "starts": 1,
+        "ends": 1,
+        "steps": 8,
+        "moved": true
+      },
+      {
+        "starts": 1,
+        "ends": 1,
+        "steps": 8,
+        "moved": true
+      },
+      {
+        "starts": 1,
+        "ends": 1,
+        "steps": 8,
+        "moved": true
+      },
+      {
+        "starts": 1,
+        "ends": 1,
+        "steps": 8,
+        "moved": true
+      },
+      {
+        "starts": 1,
+        "ends": 1,
+        "steps": 8,
+        "moved": true
+      }
+    ],
+    "replay_players": 7,
+    "socket_snapshot": [
+      {
+        "client_index": 0,
+        "process_alive_at_snapshot": true,
+        "socket_states": {
+          "NONE": 1,
+          "ESTABLISHED": 5,
+          "LISTEN": 2
+        },
+        "error": null
+      },
+      {
+        "client_index": 1,
+        "process_alive_at_snapshot": true,
+        "socket_states": {
+          "ESTABLISHED": 6,
+          "LISTEN": 2,
+          "NONE": 1
+        },
+        "error": null
+      },
+      {
+        "client_index": 2,
+        "process_alive_at_snapshot": true,
+        "socket_states": {
+          "NONE": 1,
+          "ESTABLISHED": 7,
+          "LISTEN": 2
+        },
+        "error": null
+      },
+      {
+        "client_index": 3,
+        "process_alive_at_snapshot": true,
+        "socket_states": {
+          "LISTEN": 2,
+          "ESTABLISHED": 6,
+          "NONE": 1
+        },
+        "error": null
+      },
+      {
+        "client_index": 4,
+        "process_alive_at_snapshot": true,
+        "socket_states": {
+          "ESTABLISHED": 7,
+          "LISTEN": 2,
+          "NONE": 1
+        },
+        "error": null
+      },
+      {
+        "client_index": 5,
+        "process_alive_at_snapshot": true,
+        "socket_states": {
+          "ESTABLISHED": 7,
+          "LISTEN": 2,
+          "NONE": 1
+        },
+        "error": null
+      },
+      {
+        "client_index": 6,
+        "process_alive_at_snapshot": true,
+        "socket_states": {
+          "NONE": 1,
+          "LISTEN": 2
+        },
+        "error": null
+      }
+    ],
+    "local_report": "reports/linux-join-20261103/raw/service-recovery-final/result.json"
+  },
+  "ordinary_games": [
+    {
+      "players": 2,
+      "realtime": false,
+      "completed": true,
+      "attempt_outcomes": [
+        "joined"
+      ],
+      "native_player_ids": [
+        1,
+        2
+      ],
+      "all_bots_moved": true,
+      "all_bots_ended": true,
+      "replay_players": 2,
+      "local_report": "reports/linux-join-20261103/raw/updated-stepped/2/session/native-session.json"
+    },
+    {
+      "players": 4,
+      "realtime": false,
+      "completed": true,
+      "attempt_outcomes": [
+        "joined"
+      ],
+      "native_player_ids": [
+        1,
+        4,
+        2,
+        3
+      ],
+      "all_bots_moved": true,
+      "all_bots_ended": true,
+      "replay_players": 4,
+      "local_report": "reports/linux-join-20261103/raw/updated-stepped/4/session/native-session.json"
+    },
+    {
+      "players": 7,
+      "realtime": false,
+      "completed": true,
+      "attempt_outcomes": [
+        "join_timeout",
+        "joined"
+      ],
+      "native_player_ids": [
+        1,
+        3,
+        6,
+        4,
+        7,
+        5,
+        2
+      ],
+      "all_bots_moved": true,
+      "all_bots_ended": true,
+      "replay_players": 7,
+      "local_report": "reports/linux-join-20261103/raw/updated-stepped/7/session/native-session.json"
+    },
+    {
+      "players": 8,
+      "realtime": false,
+      "completed": true,
+      "attempt_outcomes": [
+        "joined"
+      ],
+      "native_player_ids": [
+        1,
+        2,
+        6,
+        8,
+        4,
+        5,
+        7,
+        3
+      ],
+      "all_bots_moved": true,
+      "all_bots_ended": true,
+      "replay_players": 8,
+      "local_report": "reports/linux-join-20261103/raw/updated-stepped/8/session/native-session.json"
+    },
+    {
+      "players": 2,
+      "realtime": true,
+      "completed": true,
+      "attempt_outcomes": [
+        "joined"
+      ],
+      "native_player_ids": [
+        1,
+        2
+      ],
+      "all_bots_moved": true,
+      "all_bots_ended": true,
+      "replay_players": 2,
+      "local_report": "reports/linux-join-20261103/raw/updated-realtime/2/session/native-session.json"
+    },
+    {
+      "players": 4,
+      "realtime": true,
+      "completed": true,
+      "attempt_outcomes": [
+        "joined"
+      ],
+      "native_player_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "all_bots_moved": true,
+      "all_bots_ended": true,
+      "replay_players": 4,
+      "local_report": "reports/linux-join-20261103/raw/updated-realtime/4/session/native-session.json"
+    },
+    {
+      "players": 7,
+      "realtime": true,
+      "completed": true,
+      "attempt_outcomes": [
+        "join_timeout",
+        "joined"
+      ],
+      "native_player_ids": [
+        1,
+        7,
+        5,
+        2,
+        6,
+        4,
+        3
+      ],
+      "all_bots_moved": true,
+      "all_bots_ended": true,
+      "replay_players": 7,
+      "local_report": "reports/linux-join-20261103/raw/updated-realtime/7/session/native-session.json"
+    },
+    {
+      "players": 8,
+      "realtime": true,
+      "completed": true,
+      "attempt_outcomes": [
+        "join_timeout",
+        "joined"
+      ],
+      "native_player_ids": [
+        1,
+        3,
+        4,
+        5,
+        2,
+        6,
+        7,
+        8
+      ],
+      "all_bots_moved": true,
+      "all_bots_ended": true,
+      "replay_players": 8,
+      "local_report": "reports/linux-join-20261103/raw/updated-realtime/8/session/native-session.json"
+    }
+  ],
+  "additional_service_eight": {
+    "passed": true,
+    "players": 8,
+    "realtime": false,
+    "replay_players": 8,
+    "local_report": "reports/linux-join-20261103/raw/service-eight/result.json"
+  },
+  "tests": {
+    "linux": {
+      "python": "3.10.12",
+      "pytest": "8.4.2",
+      "passed": 468,
+      "skipped": 3,
+      "local_log": "reports/linux-join-20261103/raw/linux-final-tests.log"
+    },
+    "macos": {
+      "python": "3.13.2",
+      "pytest": "9.2.0",
+      "passed": 466,
+      "skipped": 5,
+      "local_log": "reports/linux-join-20261103/local-final-tests.log"
+    },
+    "resolved_test_environment_failures": [
+      "Initial sandboxed macOS tests could not bind loopback ports; rerun with loopback access passed.",
+      "One Linux full-suite run used the wrong cwd and could not find a textproto fixture; rerun from the project root passed."
+    ]
+  },
+  "cleanup": {
+    "owned_process_identities_checked": 268,
+    "still_alive": [],
+    "installed_package_unchanged": "0.3.3a1",
+    "engine_checksum_unchanged": true
+  },
+  "artifact": {
+    "local_archive": "reports/linux-join-20261103/results.tar.gz",
+    "sha256": "a8a7f5fa455368e75431030f9dad9447808c393b89d28ea4f0ad72468773fb33",
+    "bytes": 5566873,
+    "verified_raw_files": 1561,
+    "manifest": "reports/linux-join-20261103/raw/raw-sha256.json",
+    "tested_installation": "Isolated pre-change test-wheel copy with revised linux_session.py overlaid; installed package left unchanged.",
+    "coverage_note": "The core recovery was tested before adding passive socket snapshots. The final diagnostic-enabled module was exercised by service-recovery-final and the final full test suites. Earlier natural stalls retain engine logs but predate the new socket field.",
+    "final_source_sha256": {
+      "src/mpsc2/linux_session.py": "2a2ff7c51c70819b08a7be020a81f718d81e824841aff4825db9a03f01082c8f",
+      "tests/test_linux_session.py": "6164cec7355882adfbd437471b825e810840186267f588b39ccc1af5b09fee1e",
+      "src/mpsc2/native/linux_bridge.c": "cc2c610a3bb0a055e88d5836e3ef4498e4472a7be2cca030613ea8c44ac38f99"
+    }
+  },
+  "limits": [
+    "Precise native trigger remains unconfirmed.",
+    "Recovery does not eliminate the native issue; a second stalled attempt still fails.",
+    "No long-training reliability or startup failure rate claim.",
+    "No new macOS or Windows gameplay validation in this follow-up."
+  ]
+}

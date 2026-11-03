@@ -1,0 +1,351 @@
+{
+  "date": "2026-11-02",
+  "platform": "macOS, x86_64 SC2 on Apple Silicon",
+  "objective": "Run the actual Base98310 engine through MPSC2; no fallback counted as success",
+  "native_base98310_support_achieved": false,
+  "base98310_ping_obtained": false,
+  "battle_net_required_for_existing_supported_mac_backend": false,
+  "direct_launch_comparison": [
+    {
+      "name": "current-retail",
+      "base_build_requested": 98310,
+      "executable_sha256": "cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1",
+      "api_connected": false,
+      "process_closed": true,
+      "failure": "SC2LaunchError: process exited with code 1 before API connection"
+    },
+    {
+      "name": "current-historical-data",
+      "base_build_requested": 98310,
+      "executable_sha256": "cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1",
+      "api_connected": false,
+      "process_closed": true,
+      "failure": "SC2LaunchError: process exited with code 1 before API connection"
+    },
+    {
+      "name": "known-working-control",
+      "base_build_requested": 96883,
+      "executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb",
+      "api_connected": true,
+      "process_closed": true,
+      "ping": {
+        "game_version": "5.0.15.96883",
+        "base_build": 96883,
+        "data_version": "B49DA51995BA9767F4C624034C211342"
+      },
+      "create_game_accepted": true
+    },
+    {
+      "name": "old-engine-retail-data",
+      "base_build_requested": 96883,
+      "executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb",
+      "api_connected": true,
+      "process_closed": true,
+      "ping": {
+        "game_version": "5.0.15.96883",
+        "base_build": 96883,
+        "data_version": "B49DA51995BA9767F4C624034C211342"
+      },
+      "create_game_accepted": true
+    },
+    {
+      "name": "isolated-current-historical-data",
+      "base_build_requested": 98310,
+      "executable_sha256": "cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1",
+      "api_connected": false,
+      "process_closed": true,
+      "failure": "SC2LaunchError: process exited with code 1 before API connection"
+    }
+  ],
+  "data_selection_caution": "Pointing -dataDir at retail did not change Base96883 Ping data identity. This does not validate new balance data.",
+  "application_launcher": {
+    "launch_method": "macOS LaunchServices, no Battle.net",
+    "port": 54213,
+    "args": [
+      "-listen",
+      "127.0.0.1",
+      "-port",
+      "54213",
+      "-displayMode",
+      "0",
+      "-graphicsapi",
+      "Metal"
+    ],
+    "ping_attempts": [
+      {
+        "second": 0,
+        "error": "ClientConnectorError: Cannot connect to host 127.0.0.1:54213 ssl:default [Connect call failed ('127.0.0.1', 54213)]"
+      },
+      {
+        "second": 14,
+        "error": "ClientConnectorError: Cannot connect to host 127.0.0.1:54213 ssl:default [Connect call failed ('127.0.0.1', 54213)]"
+      },
+      {
+        "second": 29,
+        "error": "ClientConnectorError: Cannot connect to host 127.0.0.1:54213 ssl:default [Connect call failed ('127.0.0.1', 54213)]"
+      },
+      {
+        "second": 44,
+        "error": "ClientConnectorError: Cannot connect to host 127.0.0.1:54213 ssl:default [Connect call failed ('127.0.0.1', 54213)]"
+      }
+    ],
+    "owned_engine_pids": [],
+    "launcher_returncode_before_cleanup": 0,
+    "api_connected": false,
+    "cleanup_complete": true
+  },
+  "battle_net_ui_route": {
+    "executed": false,
+    "reason": "Computer-use access was not approved; user noted the existing direct-launch route does not need Battle.net. No attempt was made to bypass the app-control restriction."
+  },
+  "binary_comparison": {
+    "Base98310": {
+      "size": 78718656,
+      "sha256": "cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1",
+      "markers": {
+        "sc2api.proto": 0,
+        "SC2API": 0,
+        "RequestPing": 0,
+        "ResponsePing": 0,
+        "RequestCreateGame": 0,
+        "RequestJoinGame": 0,
+        "feature_layer": 0,
+        "disable_fog": 0,
+        "/sc2api": 0,
+        "bgs.protocol": 512,
+        "websocket": 25
+      }
+    },
+    "Base96883": {
+      "size": 81262848,
+      "sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb",
+      "markers": {
+        "sc2api.proto": 2,
+        "SC2API": 458,
+        "RequestPing": 3,
+        "ResponsePing": 3,
+        "RequestCreateGame": 3,
+        "RequestJoinGame": 3,
+        "feature_layer": 3,
+        "disable_fog": 4,
+        "/sc2api": 4,
+        "bgs.protocol": 512,
+        "websocket": 25
+      }
+    },
+    "Base98310_initialized_TEXT": {
+      "size": 71868416,
+      "sha256": "07d8637740be1a47a83fe266753cbce2ba963166d24dba5db7bb0ab1bbfa4428",
+      "markers": {
+        "sc2api.proto": 0,
+        "SC2API": 0,
+        "RequestPing": 0,
+        "ResponsePing": 0,
+        "RequestCreateGame": 0,
+        "RequestJoinGame": 0,
+        "feature_layer": 0,
+        "disable_fog": 0,
+        "/sc2api": 0,
+        "bgs.protocol": 512,
+        "websocket": 25
+      }
+    },
+    "inference": "API-specific descriptors and type names present in the working build are absent in Base98310; this does not prove the vendor build configuration."
+  },
+  "official_install_manifest": {
+    "source": "https://us.cdn.blizzard.com/tpr/sc2/data/be/b2/beb2a81d0d2b7c713d6b8fce600a76f0",
+    "entries": 723,
+    "mac_game_executables": 1,
+    "regions_share_same_mac_executable": true,
+    "separate_sc2_api_library_found": false
+  },
+  "interpretation": "Measurements suggest API implementation is absent in this exact Mac executable. They do not establish vendor compile flags or prove that all possible approaches are impossible. No usable replacement API launch path found.",
+  "diagnostic_additions": {
+    "expected_base_build": "Requires actual Ping build before CreateGame; rejects an older fallback",
+    "attach_port": "Localhost Ping only; no launch, game actions, LeaveGame or Quit",
+    "live_attached_control": {
+      "first_ping": {
+        "startup": {
+          "api_connected": true,
+          "process_owned": false,
+          "endpoint": "ws://127.0.0.1:55491/sc2api"
+        },
+        "sc2": {
+          "game_version": "5.0.15.96883",
+          "base_build": 96883,
+          "data_version": "B49DA51995BA9767F4C624034C211342"
+        }
+      },
+      "process_alive_after_disconnect": true,
+      "mismatch_error": "Expected Base98310, but the API reports Base96883; no game was created",
+      "wrong_build_ping": {
+        "startup": {
+          "api_connected": true,
+          "process_owned": false,
+          "endpoint": "ws://127.0.0.1:55491/sc2api"
+        },
+        "sc2": {
+          "game_version": "5.0.15.96883",
+          "base_build": 96883,
+          "data_version": "B49DA51995BA9767F4C624034C211342"
+        }
+      },
+      "third_ping": {
+        "startup": {
+          "api_connected": true,
+          "process_owned": false,
+          "endpoint": "ws://127.0.0.1:55491/sc2api"
+        },
+        "sc2": {
+          "game_version": "5.0.15.96883",
+          "base_build": 96883,
+          "data_version": "B49DA51995BA9767F4C624034C211342"
+        }
+      },
+      "process_alive_after_three_disconnects": true,
+      "passed": true,
+      "owned_process_cleaned": true
+    }
+  },
+  "additional_upstream_launch_controls": {
+    "retail-cli": {
+      "api_connected": false,
+      "ping": null,
+      "create_game_cases": [],
+      "passed": false
+    },
+    "retail-captured": {
+      "api_connected": false,
+      "ping": null,
+      "create_game_cases": [],
+      "passed": false
+    },
+    "compat-captured": {
+      "api_connected": true,
+      "ping": {
+        "game_version": "5.0.15.96883",
+        "base_build": 96883,
+        "data_version": "B49DA51995BA9767F4C624034C211342"
+      },
+      "create_game_cases": [
+        {
+          "api_players": 4,
+          "computer_players": 0,
+          "realtime": false,
+          "accepted": false,
+          "error_code": 7,
+          "error_name": "InvalidPlayerSetup",
+          "error_details": "Only 1v1 is supported when using multiple agents"
+        },
+        {
+          "api_players": 4,
+          "computer_players": 0,
+          "realtime": true,
+          "accepted": false,
+          "error_code": 7,
+          "error_name": "InvalidPlayerSetup",
+          "error_details": "Only 1v1 is supported when using multiple agents"
+        },
+        {
+          "api_players": 2,
+          "computer_players": 0,
+          "realtime": false,
+          "accepted": true,
+          "error_code": null,
+          "error_name": null,
+          "error_details": ""
+        }
+      ],
+      "passed": true
+    },
+    "compat-original-stderr": {
+      "api_connected": true,
+      "ping": {
+        "game_version": "5.0.15.96883",
+        "base_build": 96883,
+        "data_version": "B49DA51995BA9767F4C624034C211342"
+      },
+      "create_game_cases": [
+        {
+          "api_players": 4,
+          "computer_players": 0,
+          "realtime": false,
+          "accepted": false,
+          "error_code": 7,
+          "error_name": "InvalidPlayerSetup",
+          "error_details": "Only 1v1 is supported when using multiple agents"
+        },
+        {
+          "api_players": 4,
+          "computer_players": 0,
+          "realtime": true,
+          "accepted": false,
+          "error_code": 7,
+          "error_name": "InvalidPlayerSetup",
+          "error_details": "Only 1v1 is supported when using multiple agents"
+        },
+        {
+          "api_players": 2,
+          "computer_players": 0,
+          "realtime": false,
+          "accepted": true,
+          "error_code": null,
+          "error_name": null,
+          "error_details": ""
+        }
+      ],
+      "passed": true
+    }
+  },
+  "failed_attempts_preserved": [
+    {
+      "artifact": "direct-matrix.json",
+      "reason": "Initial fixture incorrectly used sc2api_pb2.Terran; Ping measurements valid, CreateGame not reached; corrected fixture rerun"
+    },
+    {
+      "artifact": "compat-cli.json",
+      "reason": "Initial plain upstream probe on Base96883 exited code 1 before Ping; later captured and unchanged-stderr retries passed; cause not established"
+    },
+    {
+      "artifact": "upstream-captured.json",
+      "reason": "Diagnostic monkeypatch used a function instead of a Popen subclass; Ping/CreateGame passed but upstream cleanup isinstance check failed; corrected subclass rerun and final process audit passed"
+    }
+  ],
+  "regression_tests": {
+    "source": "417 passed, 5 skipped",
+    "log": "reports/macos-98310-retest-20261102/pytest-verified.log",
+    "installed_wheel": "not rerun in this retest; previous dated wheel evidence remains unchanged"
+  },
+  "preservation": {
+    "retail_app_files_checked": 129,
+    "mismatches": [],
+    "retail_build_info_sha256": "25a50223a5321624c33c63974660485fd25455330dbc3dd5340bc9a91120ff12"
+  },
+  "cleanup": {
+    "terminated_owned_pids": [],
+    "owned_processes_remaining": [],
+    "unrelated_processes_terminated": false,
+    "other_sc2_processes": [],
+    "temporary_cloned_app_removed": true,
+    "final_audit_SC2_processes": []
+  },
+  "publication": {
+    "github_pushed": false,
+    "new_native_profile": false
+  },
+  "sources": [
+    "https://github.com/Blizzard/s2client-proto/blob/master/docs/protocol.md",
+    "https://github.com/Blizzard/s2client-proto/blob/master/buildinfo/versions.json",
+    "https://github.com/golergka/jev-plays-starcraft-2/blob/main/docs/PROCEDURE.md"
+  ],
+  "local_artifacts_root": "reports/macos-98310-retest-20261102",
+  "artifact_sha256": {
+    "direct-matrix-verified.json": "9fa6e7e2859806bbdf1a3db845b32aa6a9d598a1ff6256486def89b216be78ab",
+    "binary-comparison.json": "c5aaaba346e199369ea75b0cf98db335cb2d41eb96990f58abc8035ec2a5b534",
+    "launchservices.json": "2780cdfe0e28702294594038c05f179c20b86c687abfe0ee94df984c4841c049",
+    "attached-control-final/result.json": "67b6d85aa3a8deb0248fb77229780f0adbcbd6dd5ed37496e925fd257ef33efd",
+    "preservation.json": "224a249c7222be13632bcff632faef962b1aea4d0729f483842e2f86c06f0617",
+    "cleanup.json": "6f329cc07d402130503daf059bf03e2b6ffd948a6c29d7ad57828807d2fbbf84",
+    "pytest-verified.log": "e989b877da49aaab74215663a91a0fe6c9990f44da22f72b576a50e0c3a9051b"
+  }
+}

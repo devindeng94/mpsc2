@@ -11,7 +11,7 @@ Existing bots use **burnysc2 7.3.0**. Keep your `sc2` imports and change the
 launcher, or use the equivalent `mpsc2` imports. MPSC2 is a game orchestration
 library; training algorithms, rewards and trajectory storage remain your code.
 
-**Alpha: 0.3.3a1.** Native multiplayer support is specific to the operating
+**Alpha: 0.3.4a1.** Native multiplayer support is specific to the operating
 system, executable architecture and exact SC2 build. Installed SC2 files are
 unchanged.
 
@@ -22,10 +22,15 @@ unchanged.
 | Windows, x86_64 | **5.0.15 / Base98370** | **Supported alpha profile** | Live 2–8-player games, research and replays; build-specific native guard, ability IDs and installed-data selection; see [validation](docs/windows-three-build-validation.md) |
 | Windows, x86_64 | **5.0.14 / Base93333** | **Supported alpha profile** | Live player-count, stepped/realtime, research and replay checks; tested on Windows 10 x64 |
 | Windows, x86_64 | **4.10.0 / Base75689** | **Supported alpha profile** | Separate native layout, legacy ability table and replay startup settings; see the [three-build validation](docs/windows-three-build-validation.md) |
-| macOS, x86_64 SC2 executable | **5.0.15 / Base96883** | **Supported alpha profile** | Both Mac helpers preserved byte-for-byte; four-player realtime regression passed during the Linux port; earlier full-game evidence retained |
+| macOS, x86_64 SC2 executable | **5.0.15 / Base96883** | **Supported alpha profile** | Existing helpers preserved; explicit separate-engine recovery available after the Base98310 retail update |
 | Windows | Base92440 | **Unverified; no native profile** | Only an empty directory was present on the test machine; no executable could be tested |
 | Linux, x86_64 | **4.10.0 / Base75689** | **Supported alpha profile** | Headless independent clients; GCC required for 3–8 players and replay views ≥4; see [Linux setup](docs/linux.md) |
 | Any OS | Other builds or executable hashes | **Unsupported for native multiplayer** | A known version label or an installed folder does not establish compatibility |
+
+Updated your Mac game to **5.0.17 / Base98310**? MPSC2 can prepare a
+[separate compatibility engine](docs/macos-98310-investigation.md#prepare-the-separate-engine)
+without changing the retail installation. Research sessions explicitly use
+**Base96883 and 5.0.15 game data**; Base98310 itself remains unsupported.
 
 The native profiles verify the **exact executable SHA256**, not just its version
 label. The macOS profile targets the x86_64 game executable, including an
@@ -170,6 +175,23 @@ single-opponent assumptions as well as changing the launcher.
 
 ## Validation and limitations
 
+Version **0.3.4a1** adds the experimental multiplayer service and bounded Linux
+startup recovery. The final recovery regression passed **468 tests on Linux**
+and **466 on macOS**. Live Linux checks completed 2-, 4-, 7- and 8-player games
+in both timing modes; three naturally stalled starts recovered automatically.
+The native stall's precise cause remains unconfirmed. See the
+[release notes](docs/release-notes-0.3.4a1.md),
+[service guide](docs/service.md) and
+[startup investigation](docs/linux-startup-recovery.md) for measured coverage
+and limitations. This release also includes the Mac compatibility work below.
+
+The **0.3.3a2 development build** restores a separate Mac research engine after the retail
+Base98310 update. It passed **403 regression tests**, stepped games with every
+count from **2–8**, four/eight-player realtime economy, eight-player mixed-race
+research, standard games, and replay views 0/8. See the [compatibility validation record](evidence/2026-11-01/macos-compat-engine.json)
+and [release notes](docs/release-notes-0.3.3a2.md) for measured coverage, the
+retained intermittent join timeout, and the distinction from native Base98310 support.
+
 Version **0.3.3a1** passed **361 tests against both source and the installed wheel**
 on Linux, plus live stepped and realtime games with every count from **2 through
 8**, team layouts, economy, research and replay analysis. The macOS regression
@@ -231,3 +253,10 @@ MPSC2's original code is [MIT licensed](LICENSE). It is an independent research
 project, unaffiliated with Blizzard. SC2 itself is installed separately.
 Upstream Python and terrain notices are retained in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Experimental multiplayer service
+
+For explicit match orchestration and simultaneous research rounds, see the
+[local protocol 1.0 service](docs/service.md). It preserves independent native
+clients and wraps the existing verified engine backends. `mpsc2.run_game` remains
+available unchanged. Automatic support for unknown SC2 builds is not implemented.

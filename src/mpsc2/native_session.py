@@ -39,6 +39,13 @@ def require_native_platform():
 def validate_executable(executable: Path, profile=MACOS_96883):
     require_native_platform()
     require_registered_profile(profile, 'macos-96883-v1')
+    if not executable.is_file():
+        raise FileNotFoundError(
+            f'The selected macOS native profile requires {executable}. An SC2 update may have '
+            'removed this build. Run python -m mpsc2 doctor to inspect installed builds; '
+            'another build cannot use this profile\'s native helpers. For the Base98310 update, '
+            'see python -m mpsc2 prepare-macos-compat --help for explicit separate-engine setup.'
+        )
     actual = hashlib.sha256(executable.read_bytes()).hexdigest()
     if actual != profile.executable_sha256:
         raise RuntimeError(f"Unsupported SC2 executable SHA256 {actual}; refusing native bridge")
@@ -141,11 +148,14 @@ class NativeMultiplayerSession(MultiplayerSession):
     Alliances are set by the map. Guest IDs are assigned
     by connection order, so always use player_ids rather than process indices.
     With realtime=True the engine advances automatically; step() is unavailable.
+    Linux 3..8-client sessions may recover once from a fully stalled JoinGame
+    before returning clients to the caller. Failed evidence is retained, and
+    prepared_hook is called again with the replacement processes and clients.
     """
     def __init__(self, map_path: Path, *, output: Path, players=4, seed=1, disable_fog=False, timeout=90,
                  render_size: tuple[int, int] | None = None, graphics_api: str | None = None,
                  window_size: tuple[int, int] | None = None, races=None, names=None, realtime=False,
-                 raw_affects_selection=None, sc2_version=None):
+                 raw_affects_selection=None, sc2_version=None, installation_root=None, prepared_hook=None):
         if type(players) is not int or not 2 <= players <= 8:
             raise ValueError('Expected 2..8 independent players')
         super().__init__(map_path, players=players, seed=seed, disable_fog=disable_fog, timeout=timeout)
@@ -153,6 +163,8 @@ class NativeMultiplayerSession(MultiplayerSession):
         self.bridge_dir = self.output / "bridge"
         self.native_metadata = {}
         self.sc2_version = sc2_version
+        self.installation_root = Path(installation_root).resolve() if installation_root is not None else None
+        self.prepared_hook = prepared_hook
         self.render_size = render_size
         self.graphics_api = graphics_api
         self.window_size = window_size
@@ -185,7 +197,7 @@ class NativeMultiplayerSession(MultiplayerSession):
             profile = get_native_profile('Darwin', self.sc2_version)
             if self.players not in profile.players:
                 raise RuntimeError(f'{profile.id} does not support {self.players} players')
-            root = Path(os.environ.get("SC2PATH", "/Applications/StarCraft II")).resolve()
+            root = self.installation_root or Path(os.environ.get("SC2PATH", "/Applications/StarCraft II")).resolve()
             executable = profile.executable(root)
             validate_executable(executable, profile)
             self.bridge_dir.mkdir(parents=True)
@@ -225,6 +237,8 @@ class NativeMultiplayerSession(MultiplayerSession):
                     self.clients[-1].raw_affects_selection = self.raw_affects_selection[i]
                 self.native_metadata["processes"].append({"pid": process._process.pid, "api_port": process._port,
                     "observation_guard": getattr(process, 'observation_guard', None)})
+            if self.prepared_hook is not None:
+                await self.prepared_hook(self)
             request = api.RequestCreateGame(local_map=api.LocalMap(map_path=str(self.map_path)),
                                             realtime=self.realtime, random_seed=self.seed, disable_fog=self.disable_fog)
             for _ in range(self.players):
@@ -305,8 +319,11 @@ class RecordedClient(ProfileClient):
         super().__init__(ws, ability_remaps=ability_remaps, detect_layout=detect_layout)
         self.journal = journal
         self.render_size = render_size
+        self.join_options = None
 
     async def _execute(self, **kwargs):
+        if "join_game" in kwargs and self.join_options is not None:
+            kwargs["join_game"].options.CopyFrom(self.join_options)
         # Capture the engine's RGB frames without python-sc2's interactive
         # pygame renderer. Each independent process supplies its own image.
         if "join_game" in kwargs and self.render_size:

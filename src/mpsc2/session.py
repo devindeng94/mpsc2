@@ -14,8 +14,41 @@ from sc2.portconfig import Portconfig
 from sc2.sc2process import SC2Process
 
 
+class SC2LaunchError(RuntimeError):
+    """An owned engine exited before its API connection was established."""
+
+    def __init__(self, process):
+        self.pid = process.pid
+        self.returncode = process.returncode
+        args = process.args
+        self.executable = str(args[0]) if isinstance(args, (list, tuple)) and args else str(args)
+        super().__init__(
+            f'SC2 process {self.pid} exited with code {self.returncode} before its API became available '
+            f'({self.executable}). Check the engine startup log and SC2 installation/version; '
+            'no game was created.'
+        )
+
+
 class OwnedSC2Process(SC2Process):
     """Scope cleanup to this session, avoiding upstream's global KillSwitch."""
+
+    async def _connect(self):
+        # Upstream retries for 180 seconds even when the child has already died.
+        # Keep its WebSocket behavior, but watch the specific child we launched.
+        connection = asyncio.create_task(super()._connect())
+        try:
+            while True:
+                done, _ = await asyncio.wait({connection}, timeout=0.1)
+                if done:
+                    return connection.result()
+                if self._process is None:
+                    raise RuntimeError('SC2 process was cleaned up before API connection')
+                if self._process.poll() is not None:
+                    raise SC2LaunchError(self._process)
+        finally:
+            if not connection.done():
+                connection.cancel()
+            await asyncio.gather(connection, return_exceptions=True)
 
     async def __aenter__(self):
         try:

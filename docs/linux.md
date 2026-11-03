@@ -103,7 +103,80 @@ other Linux executables. RGB rendering, distributed hosts, arbitrary multiplayer
 maps and more than eight API players are outside this alpha's supported scope.
 Ordinary one/two-player maps still use the upstream burnysc2 route.
 
+## Experimental service API
+
+The optional [protocol 1.0 service](service.md) also runs on this Linux profile.
+Select the installation explicitly; the service does not need a different SC2
+engine or an update to the existing Linux native helper:
+
+```sh
+python examples/service_joint_turns.py \
+  --sc2-path "$SC2PATH" --sc2-version 4.10.0 \
+  --teams 0 0 1 1 --move --output reports/linux-service-joint
+
+python examples/service_botai.py \
+  --sc2-path "$SC2PATH" --sc2-version 4.10.0 \
+  --teams 0 0 1 1 --game-time-limit 600 --output reports/linux-service-macro
+```
+
+Add `--realtime` to the BotAI example for automatic progression. The service
+uses loopback endpoints on the Linux host; this does not enable distributed
+engine hosts. It forwards native ability IDs, while its BotAI client applies
+the existing SC2 4.10 catalog translation.
+
+Run the service smoke matrix with a fresh output directory:
+
+```sh
+python scripts/validate_service.py \
+  --sc2-path "$SC2PATH" --sc2-version 4.10.0 \
+  --output reports/linux-service-matrix
+```
+
+The [2026-11-03 service validation](../evidence/2026-11-03/linux-multiplayer-service.json)
+records 454 installed-wheel tests passed (three platform skips), all 11 service
+smoke cases, full four-player economy/combat, and Terran/Protoss/Zerg/Random
+production, research, expansion and replay playback. The smoke cases cover
+2–8 joint-turn clients, four-player FFA/3v1/2v2, actual movement and a short
+four-player realtime game. Matches are bounded; these results do not establish
+long-running training reliability or other Linux builds as supported.
+
+The same audit checked the existing launcher with 2–8 players in stepped and
+realtime modes, Bot-versus-Computer and two-agent standard games, mixed-race
+research/replay playback, policy exceptions and cancellation. One seven-player
+realtime attempt timed out at native JoinGame after 90 seconds. Fresh seven-
+and eight-player matches passed, as did a seven-player comparison with the
+retained 0.3.3a1 package. The initial failure remains in the evidence; its cause
+is unconfirmed. Standard-game teardown also retained the existing upstream
+connection/session-close warnings despite passing gameplay and port-release
+checks.
+
+No new runtime code change was needed for these tests. The installed SC2
+executable checksum and the previous package were preserved. All 151 recorded
+native process identities were checked after the runs, with none left alive;
+no processes using the selected SC2 executable remained.
+
 ## Implementation boundaries
+
+### JoinGame timeout recovery
+
+The follow-up [startup investigation](linux-startup-recovery.md) adds bounded
+recovery for a fully stalled 3–8-client Linux lobby. This applies to both the
+existing launcher and the service. If JoinGame times out without any returned
+player ID or logged native start/JoinGame response, MPSC2 closes the owned
+processes and sockets, archives their evidence under
+`session/failed-join-attempt-1/`, and tries once with new processes and distinct
+multiplayer ports. The timeout applies to each attempt, so recovery can extend
+startup time. There are no retries after clients reach the caller or policies
+start running. Two-player stock sessions retain one attempt.
+
+`session/native-session.json` records the startup stage, `join_progress` for
+each input slot, `join_network` snapshots of owned loopback sockets on timeout,
+and `startup_attempts` with paths to earlier evidence. A final
+`LinuxJoinTimeout` remains a `TimeoutError` and names the failed stage and
+number of completed joins. Missing logs, a partial join, native start markers,
+cancellation, configuration errors and later request failures do not trigger
+recovery. This is a reliability mitigation, not proof that the underlying
+engine race has been eliminated.
 
 Python verifies the full executable hash and binds the helper source by hash.
 The helper verifies the ELF build ID, loopback launch arguments, instruction

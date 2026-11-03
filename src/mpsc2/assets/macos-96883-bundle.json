@@ -1,0 +1,1004 @@
+{
+  "format": 1,
+  "source_build": 98310,
+  "engine_build": 96883,
+  "install_manifest": "e9dd5cc8d44a96248a7b1c27fb937b14",
+  "files": [
+    {
+      "path": "Contents/PkgInfo",
+      "size": 8,
+      "sha256": "b4ae6b7a8da814cf63d5bd67ea14069510a5dfe43db063ec9a1f1bee1f8b5488",
+      "source_md5": "253fabe995c7d46b183ad7d15730fc69",
+      "source_size": 8
+    },
+    {
+      "path": "Contents/Info.plist",
+      "size": 2407,
+      "sha256": "ea5f8b86cd7782a29a9a38cb323d52ea7058b4ad403f55eaabdda00996088684",
+      "source_md5": "fcd16dbf0a27da2a6733712b1d3c9ef2",
+      "source_size": 2407,
+      "download": {
+        "encoding_key": "5ce472f130516900182fac42165e6cec",
+        "encoded_size": 876,
+        "archive": {
+          "key": "439fe13e2c73f51553e3b823fc119aac",
+          "offset": 27449869,
+          "size": 876
+        }
+      }
+    },
+    {
+      "path": "Contents/Frameworks/ClampCursor.framework/ClampCursor",
+      "size": 183264,
+      "sha256": "7ed4fad0db013585c5206a176efa1003931d86483e82d9cfc3da15ff01518706",
+      "source_md5": "362ab00033e30d6692a2377b3442cfd2",
+      "source_size": 183264,
+      "download": {
+        "encoding_key": "9af6c3716420ed59f48c29ba11e47cda",
+        "encoded_size": 57967,
+        "archive": {
+          "key": "439fe13e2c73f51553e3b823fc119aac",
+          "offset": 27450745,
+          "size": 57967
+        }
+      }
+    },
+    {
+      "path": "Contents/Frameworks/ClampCursor.framework/_CodeSignature/CodeResources",
+      "size": 2924,
+      "sha256": "90f5f3fb713c2f0c27a968aa26630f1fcea67c6c472704397f81248ed6891f11",
+      "source_md5": "b5b66016a8eedb46fe5e333cfdb70915",
+      "source_size": 2924,
+      "download": {
+        "encoding_key": "576d8cc2e75699611f74f1125a7f9911",
+        "encoded_size": 827,
+        "archive": {
+          "key": "439fe13e2c73f51553e3b823fc119aac",
+          "offset": 10614524,
+          "size": 827
+        }
+      }
+    },
+    {
+      "path": "Contents/Frameworks/ClampCursor.framework/Helpers/ClampCursorProcess",
+      "size": 56672,
+      "sha256": "004710cf865425bafa9ad763791ee0d556c0f9bf75bf08ca54d32eb5014beaf3",
+      "source_md5": "ad7097917b98406f95b2f498b1b94994",
+      "source_size": 56672,
+      "download": {
+        "encoding_key": "2938414dd1e088185fb3e2fb28ee8809",
+        "encoded_size": 19368,
+        "archive": {
+          "key": "439fe13e2c73f51553e3b823fc119aac",
+          "offset": 27508712,
+          "size": 19368
+        }
+      }
+    },
+    {
+      "path": "Contents/Frameworks/ClampCursor.framework/Resources/Info.plist",
+      "size": 1174,
+      "sha256": "22bedcf24487c67d89380455e1c57a3d4b42c3c6c1fbdeeec0f0405dca3575f5",
+      "source_md5": "96aee703021c4ce533adbeafe0c192e1",
+      "source_size": 1174,
+      "download": {
+        "encoding_key": "168f1cfb47f5cd82f163006fb119bb1b",
+        "encoded_size": 484,
+        "archive": {
+          "key": "fdbb16e65343f4d976b96600fafdcd65",
+          "offset": 187955350,
+          "size": 484
+        }
+      }
+    },
+    {
+      "path": "Contents/_CodeSignature/CodeResources",
+      "size": 25966,
+      "sha256": "1a269036cf5a1064687db4913e226721e29516c9d37d86fb9d05bdc77a2e2571",
+      "source_md5": "228adbabc53b87673ea9d67f56f67d6a",
+      "source_size": 25966,
+      "download": {
+        "encoding_key": "e4e92166cf53721e50a00e88c9c47b72",
+        "encoded_size": 4694,
+        "archive": {
+          "key": "439fe13e2c73f51553e3b823fc119aac",
+          "offset": 10615351,
+          "size": 4694
+        }
+      }
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Info.plist",
+      "size": 1397,
+      "sha256": "ed671d8b39cb17fe5f8adbd967a1b45d6e37cb13701b21d7d8692160124d687b",
+      "source_md5": "3058c4e3fed03876818aa49352f9292c",
+      "source_size": 1397
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Chromium Embedded Framework",
+      "size": 64481984,
+      "sha256": "b7a82a4ce9ad7aaaef972cf0d53e8e78e91af3bcc491ffe0d297435b9be09eba",
+      "source_md5": "2187489cdfc16cb18e2872b4c446fcf4",
+      "source_size": 64481984,
+      "download": {
+        "encoding_key": "e28b060f14479ce36630754c77e12d4c",
+        "encoded_size": 25776169
+      }
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/_CodeSignature/CodeResources",
+      "size": 27553,
+      "sha256": "91605ba1472f03fc282da45b57266ccf1a28eafb1c748e03caaf94d0a46d3ecf",
+      "source_md5": "48b8b6ab8792301980fec4c00a6e2cb4",
+      "source_size": 27553
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/devtools_resources.pak",
+      "size": 4458139,
+      "sha256": "e945674e0c656ca34d532598d31ac0eac233ccdaddbb41f3db88b0f025ca4b5f",
+      "source_md5": "1bd01ff1fea83ce2f76edd56f2ed2bfe",
+      "source_size": 4458139
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/snapshot_blob.bin",
+      "size": 569580,
+      "sha256": "76ad03981ac40de3af97f8175d8a418df6c4a86b0f1500abf4d8ebbd9e51b885",
+      "source_md5": "5ff41fc0f5f54851ddc4f9aa794a80b3",
+      "source_size": 569580
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/cef_200_percent.pak",
+      "size": 625609,
+      "sha256": "005b9bca929f4f04cce447209f0e6d4d162057e7d3525d3dd93fba5869a5dc73",
+      "source_md5": "701422e069ef9e1c22acd5bab85bfd6a",
+      "source_size": 625609
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/cef_100_percent.pak",
+      "size": 470207,
+      "sha256": "23aae13037fccc08b4e64ab9db438d9d14b036d44e7538d5ee16a6a812f50c45",
+      "source_md5": "cee409ad644f7e7429d1a1f7d3446dd5",
+      "source_size": 470207
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/crash_inspector",
+      "size": 57420,
+      "sha256": "f1c68aa9335a62cb6daf2c6910d4286ea05d3344a1bfb14fe6c9fad715eea330",
+      "source_md5": "f21ea1285226ae0ece5ba69ea811e34c",
+      "source_size": 57420
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/icudtl.dat",
+      "size": 10207504,
+      "sha256": "640de24aff1bbf0cab6eb87f81a7eab82d60c639b826928646d134b36bec0cc2",
+      "source_md5": "d59b13c25b710107cea7ad1462c1b077",
+      "source_size": 10207504
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/Info.plist",
+      "size": 1465,
+      "sha256": "5ec9cc007289bccdd32c14bd612fadb8a1f2dd19297e2fa1f2061356600033cf",
+      "source_md5": "5ac63e3ded2835b63723d5aef80f8b16",
+      "source_size": 1465
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/natives_blob.bin",
+      "size": 410937,
+      "sha256": "6e5559c8d22e41be6858cecc82ce3dfd659aeb71100cf49711cd11b6fa670b2b",
+      "source_md5": "6a85e2542e9cece0220c057d1b911461",
+      "source_size": 410937
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/cef.pak",
+      "size": 2188014,
+      "sha256": "bc123646d8731ed625dbca8b2badef088db234d060f75af28ea81b3bce1ae71e",
+      "source_md5": "deee0a0891c706d098500673b5739478",
+      "source_size": 2188014
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/he.lproj/locale.pak",
+      "size": 18691,
+      "sha256": "1cbddb0077621a7c48ae7387a4a2a10d7582fe96e4ba3e5696f4dd3f34eddee5",
+      "source_md5": "c71094793efe309ad7f6876ec756fde5",
+      "source_size": 18691
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/tr.lproj/locale.pak",
+      "size": 15720,
+      "sha256": "9f33e7fae0e9eb25dfdb9c71dbf4e7c197bee1fe73c7c71ccfc30b6b5f3a4bc5",
+      "source_md5": "4426826b6c6094581c635f7a1d095c83",
+      "source_size": 15720
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/el.lproj/locale.pak",
+      "size": 28064,
+      "sha256": "42d10eb58f4d762fd36db05d97dd2e980fc6c2fe110090388c05df3ffef6fbbf",
+      "source_md5": "4845d38c4cc3ae74fe208f4f933a167c",
+      "source_size": 28064
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/cs.lproj/locale.pak",
+      "size": 16393,
+      "sha256": "88511a9c8af169ba4ea50707283f5872166074c12da962706cfc3c9cfa957747",
+      "source_md5": "24c7444092913bf8749de1d8e2cc5a8a",
+      "source_size": 16393
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/pt_PT.lproj/locale.pak",
+      "size": 16366,
+      "sha256": "278d83820d800881667c2e1c70879d017b216f55f56d94313fbf0ef337cf06c7",
+      "source_md5": "caa37ee540c31e17aeb1279efb44e901",
+      "source_size": 16366
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/sw.lproj/locale.pak",
+      "size": 15572,
+      "sha256": "19f05c0f4074184074a21cdda1913b801bd84b73ff9bf95951cca595d9e86edc",
+      "source_md5": "e57cba9b534244c1cdbb39afc890f501",
+      "source_size": 15572
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/nl.lproj/locale.pak",
+      "size": 15883,
+      "sha256": "b0f06e2a3aeb57e164fbd164489338b643dcc7ed3b4949666e5b80c0f755174d",
+      "source_md5": "02ec884897bca895f098796deb0a161f",
+      "source_size": 15883
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/fr.lproj/locale.pak",
+      "size": 17709,
+      "sha256": "313fd9a05f8945b467770e7b9a3d98121aef220545d4d1614b41c1227cc86bdc",
+      "source_md5": "ad588bcba2702334da0907e57e79a0ee",
+      "source_size": 17709
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/it.lproj/locale.pak",
+      "size": 16159,
+      "sha256": "029b01c5bb09735f155c3df526c1ea0cf41abd1f72e4f7ddcef90e99eebe1296",
+      "source_md5": "8c425d683c7bcaaee965b6d50c14aca1",
+      "source_size": 16159
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/fa.lproj/locale.pak",
+      "size": 21819,
+      "sha256": "9af8361a3ed9d028ac1d8a6f7e394576fbc3f7f17f5edd40e4b0748effd34d68",
+      "source_md5": "e6af5bcfd63939c600ac2a7886017c4e",
+      "source_size": 21819
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/sk.lproj/locale.pak",
+      "size": 17032,
+      "sha256": "6b4f4bb287b23244574defdd615f039f8073082c751b20fd1088a034a079a7e8",
+      "source_md5": "2689eaa98b722dafa3124d8d4d70bb9e",
+      "source_size": 17032
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/de.lproj/locale.pak",
+      "size": 16594,
+      "sha256": "786994d9aaf5f99948104957526afd05d4d894134d07b2f7fb25d4bfb31dc9a4",
+      "source_md5": "53e9fec423ba3a58be58f435ae56fcce",
+      "source_size": 16594
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/te.lproj/locale.pak",
+      "size": 34557,
+      "sha256": "19a16a0c4fec0aeb4f7609d8d31fda122d44aa96735dcfdcc7d161eb83e71deb",
+      "source_md5": "250dae00cfd9fa67a78641f84dfab5b1",
+      "source_size": 34557
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/da.lproj/locale.pak",
+      "size": 15123,
+      "sha256": "499036e5a3ac8cc37d2c64c6fd1ceadb96f8f088ce3d1d2dfa69f94c10c19f68",
+      "source_md5": "09efd40cf6effef56d9b4ba8fd97a113",
+      "source_size": 15123
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ru.lproj/locale.pak",
+      "size": 24407,
+      "sha256": "e42189cb7757c93ba0c7bb92277485829dad82a4a7611b08d0f057593d25c4b3",
+      "source_md5": "75b92bf342835ead22ebf72c03c5bcef",
+      "source_size": 24407
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ca.lproj/locale.pak",
+      "size": 17317,
+      "sha256": "6ac6d1bc5ab1915970821fffec9486492442de6e263ebbf34aaa8f4d7bf9ac48",
+      "source_md5": "b02c9d7b92e6007d197b401627f18dbb",
+      "source_size": 17317
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/en_GB.lproj/locale.pak",
+      "size": 14079,
+      "sha256": "86fd86872054895ca135a79f7fd2745f5a20d2114b21851881f85c446f76595e",
+      "source_md5": "2be4e4492a3cf1e4bca1c13987e29136",
+      "source_size": 14079
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/zh_CN.lproj/locale.pak",
+      "size": 13796,
+      "sha256": "b3cf562cf404c7845ad18313f5c5066ee376cc6ae650a3649134ca633bffda2c",
+      "source_md5": "c610b99952259ed36a02bedb2e98093d",
+      "source_size": 13796
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/es_419.lproj/locale.pak",
+      "size": 16792,
+      "sha256": "8eba97397d1e88b1939e6f401c90192894467d8e72be2f9825b6a04831783a1d",
+      "source_md5": "514bac1f73f6dc8bc1c51e1e6fb28be6",
+      "source_size": 16792
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ko.lproj/locale.pak",
+      "size": 16343,
+      "sha256": "7bc00e7bc0f261260777e1cdbd1419c5040a63852f2695a57940e69d7ef1b08f",
+      "source_md5": "f4e05b8d49a0133b219e7db5a33434e9",
+      "source_size": 16343
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/lv.lproj/locale.pak",
+      "size": 17308,
+      "sha256": "268e42332f408a075c69907b2b9c0ea865ca7632c96a51226333c9865e4625ff",
+      "source_md5": "eafcf9864296ec992da3289f2043899f",
+      "source_size": 17308
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/bn.lproj/locale.pak",
+      "size": 32153,
+      "sha256": "5c5b1b7ae5b341e52629ed513d023246f7f2292786ba90277a991ab92d8a0df0",
+      "source_md5": "f2f9df4a61ae9368d12274cb6b02b428",
+      "source_size": 32153
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/fi.lproj/locale.pak",
+      "size": 16215,
+      "sha256": "1a9f48e1dbe7ff91191f2863ce09f11c54656a070bd4a138b7ee660df81115ec",
+      "source_md5": "21cb75f84d7eefc86c451ed53c642556",
+      "source_size": 16215
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/kn.lproj/locale.pak",
+      "size": 34201,
+      "sha256": "b788d1f213da6c9bba7300a92bfa2c48a21bed4827d6797d8599d94d72a33b8e",
+      "source_md5": "935b8f463580e3b86590c23fa88f3794",
+      "source_size": 34201
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/sr.lproj/locale.pak",
+      "size": 23986,
+      "sha256": "e642f271ebd094b6db8ef18a68bcebc5edddeda91666fbae74264793f06a232c",
+      "source_md5": "04a5d8128f1964bc9bad670f8e90517d",
+      "source_size": 23986
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/bg.lproj/locale.pak",
+      "size": 26168,
+      "sha256": "927715922e1dc3639dbc195adf66a01c59a1c0857db90d36f8f24a88e25ff8c2",
+      "source_md5": "8ae081cc2b051486d986df9dd8177aa3",
+      "source_size": 26168
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/sv.lproj/locale.pak",
+      "size": 15074,
+      "sha256": "9378b91811d10c3aeddf677917d11a0c9c7fd3d3425e2e0f6830a423ecf5b39e",
+      "source_md5": "d31a94c5f705c05cde61fe9f789c1674",
+      "source_size": 15074
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ja.lproj/locale.pak",
+      "size": 18786,
+      "sha256": "8216756b9666291936cfbbc4ca22cfa864acf770e60952eb558241e6a65caf77",
+      "source_md5": "133e6fbd1a73ca5ac88ef642a4ba3317",
+      "source_size": 18786
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/hu.lproj/locale.pak",
+      "size": 17144,
+      "sha256": "7a782a8d69677f5082cc7586ef2f274e8877444def899c5c52dfb7a40fd340fd",
+      "source_md5": "5c9b744b5b799b3f726cc1ef33cd836e",
+      "source_size": 17144
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ta.lproj/locale.pak",
+      "size": 36916,
+      "sha256": "981d57371841108c4443aa83dce0cb15fca94686c97633e8ef2f31b365454a73",
+      "source_md5": "d2afaef20a06b4eeaded5d26932d5507",
+      "source_size": 36916
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ms.lproj/locale.pak",
+      "size": 15235,
+      "sha256": "87fe0108c3f1bdf54ba0885c57f6c3236a800698080bbeb0f2c92f776b66f1cd",
+      "source_md5": "c2d58409a1fe4ba649ce9a538564d281",
+      "source_size": 15235
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/gu.lproj/locale.pak",
+      "size": 29893,
+      "sha256": "d27bd0a894630ccb9612cac7eb13e21153f2d0a633bc53c0dfc2ba79bb76a820",
+      "source_md5": "1a604943db707ac5fc988ff150a274a8",
+      "source_size": 29893
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/es.lproj/locale.pak",
+      "size": 17352,
+      "sha256": "31915690912204205f6b001200f77a0126d66ff725f9ae60287ba91be25801f1",
+      "source_md5": "89810f6010fa64d932e0cdf94346a06b",
+      "source_size": 17352
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/nb.lproj/locale.pak",
+      "size": 15388,
+      "sha256": "8313c41eb624d4287dcf617748b91a79a8c8907086afb134f5d0545c03f89fb8",
+      "source_md5": "cb4b4cc0bec517705f22095beedb2e38",
+      "source_size": 15388
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/fil.lproj/locale.pak",
+      "size": 17124,
+      "sha256": "41531074dc32884a8d9f15953973d79745ae8aabb90b772b84161317a3d05f70",
+      "source_md5": "6e0a5218b350528f7cb66a600eb8751e",
+      "source_size": 17124
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/et.lproj/locale.pak",
+      "size": 15244,
+      "sha256": "639f4e3a673e8e44234764b6d709864d20ac2f2a3369818d4dd1aed9785957b2",
+      "source_md5": "f215919da654265acbdd2a6de70941dd",
+      "source_size": 15244
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/sl.lproj/locale.pak",
+      "size": 15725,
+      "sha256": "ddfbec408d475c9416005df84a1642c9cca4835a0d6ffa4c11ce50ec7f17b354",
+      "source_md5": "b77337fa5ac27b2cb504bd17b3c27aa8",
+      "source_size": 15725
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ro.lproj/locale.pak",
+      "size": 17387,
+      "sha256": "4724e462665c0d60fa928b95dd1fc30ee436091d2ce34be7c1f122f04239daf6",
+      "source_md5": "77ceea948bcc608065519496639fd528",
+      "source_size": 17387
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/vi.lproj/locale.pak",
+      "size": 18030,
+      "sha256": "c1848933b23046ef502c66e87e1b3c7558b95e089aa8f4ef2c9addb08e2f0a39",
+      "source_md5": "8325a4c30fe0d0389c7abf4771e7aa27",
+      "source_size": 18030
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/en.lproj/locale.pak",
+      "size": 14073,
+      "sha256": "846ba6c63c82550df8746f3a3313b8f01877323a94322bf99692e65b648be44d",
+      "source_md5": "63b3c586ce87f7598abeef4c1a75060e",
+      "source_size": 14073
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/lt.lproj/locale.pak",
+      "size": 16935,
+      "sha256": "d772250e06940d4ce182683ccf9ea0b90d18230f43d70a8015d8c47b169ef958",
+      "source_md5": "7c6643531837835f492addc77fdd11c6",
+      "source_size": 16935
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/am.lproj/locale.pak",
+      "size": 22256,
+      "sha256": "5148d40f48c3ce76306156531c074aaf7f96abec17debdebd2a86813a1ebba26",
+      "source_md5": "0f59eef436dd62446f4691905fef8bb2",
+      "source_size": 22256
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/hr.lproj/locale.pak",
+      "size": 16333,
+      "sha256": "6c4d2ebd36f3dfd38ce42f0a742528726babf4c0a4b78de95cfc77dda23a8448",
+      "source_md5": "09e569ae4580af02f6ca5175816034b9",
+      "source_size": 16333
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/uk.lproj/locale.pak",
+      "size": 25728,
+      "sha256": "cc73f697073fde7ddadbd300188633cc2ae751e9334cac51786ed8f7dea75c04",
+      "source_md5": "d01d7ff15c1db101e85332509b76141a",
+      "source_size": 25728
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/zh_TW.lproj/locale.pak",
+      "size": 13995,
+      "sha256": "7fa671bcf979b5f2788cbcfbfbcc775a705f1ec89c646506d8e30de857b3d69d",
+      "source_md5": "e55debda56c7b168bf8858558154d737",
+      "source_size": 13995
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/id.lproj/locale.pak",
+      "size": 15099,
+      "sha256": "87ffe4d1cb207bbcf11878e1ed0cb3235b0c8b6843b61e9d10077c7ac68b2f98",
+      "source_md5": "07d471532b4775e7d73fbf51123662ca",
+      "source_size": 15099
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ar.lproj/locale.pak",
+      "size": 24339,
+      "sha256": "cb5c5aabba4b89dc3abd5bfe99dbc8c09c0a0b15e0d1b51f127e2c583d079778",
+      "source_md5": "d04158fb0b4c96bbf58760c86812a6f9",
+      "source_size": 24339
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/hi.lproj/locale.pak",
+      "size": 30306,
+      "sha256": "95870c9bd98c05a3d54e880b29c022586f7f7eaa1ff69a5bf8abf7c96bbf9084",
+      "source_md5": "02275d5c67169e3ad1a4b9befbb2a360",
+      "source_size": 30306
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/pl.lproj/locale.pak",
+      "size": 16507,
+      "sha256": "10f1c52dc2671401709b5f005f58ff67b98af4d8391eeee70c1b85bca773e0ea",
+      "source_md5": "258040b8887ae483ae3e624477b820ea",
+      "source_size": 16507
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/pt_BR.lproj/locale.pak",
+      "size": 16224,
+      "sha256": "b516c8b2a3d947fc2058c1f2cdebf89fa46f6ffcabf47ee2257adea0c13f0737",
+      "source_md5": "8496f814319cc77e58d94e6d6c49ddb2",
+      "source_size": 16224
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/mr.lproj/locale.pak",
+      "size": 30254,
+      "sha256": "4b9e53557b2ac6a303ce1e10cfedd2addd24642ba6e9c9c6cb9c2b1cf27ed631",
+      "source_md5": "975d2979fcc81301d6cb17b2d3d32493",
+      "source_size": 30254
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/ml.lproj/locale.pak",
+      "size": 38928,
+      "sha256": "64d563294f10d08507d7a058eb11c9a91b8925f696b7c758f2b1b7a3c0817d93",
+      "source_md5": "5ec22c29cdc4a505a526c49b53031656",
+      "source_size": 38928
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/Frameworks/Chromium Embedded Framework.framework/Resources/th.lproj/locale.pak",
+      "size": 30554,
+      "sha256": "d8c131f4b40f93062716325bb8810545b41123c012ca6b24367b89f905183825",
+      "source_md5": "2795be8a08739b9ddaa6975b3645013f",
+      "source_size": 30554
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/_CodeSignature/CodeResources",
+      "size": 2659,
+      "sha256": "f0cd413e70b0aad63113df5657e0744b2c8b2975e7752d9d70337e8b8663ae4b",
+      "source_md5": "cf158e11535ac15b2980b38d6af8fc8e",
+      "source_size": 2659
+    },
+    {
+      "path": "Contents/XPCServices/BrowserProxy.xpc/Contents/MacOS/BrowserProxy",
+      "size": 1799984,
+      "sha256": "a372a2a4d085a34f9c23086b8d7357220f3a8e8c43d8921848388b34d180bd08",
+      "source_md5": "8a24ca41a81705b22dcf7ac5f0be3d76",
+      "source_size": 1799984,
+      "download": {
+        "encoding_key": "ba398f0ee99dd4ce35b2100d0db867ac",
+        "encoded_size": 520372,
+        "archive": {
+          "key": "439fe13e2c73f51553e3b823fc119aac",
+          "offset": 27528080,
+          "size": 520372
+        }
+      }
+    },
+    {
+      "path": "Contents/MacOS/SC2",
+      "size": 81262848,
+      "sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb",
+      "source_md5": "8f2319e680613a3d2c3592418d1098d7",
+      "source_size": 78718656,
+      "download": {
+        "encoding_key": "e73d10827c6bf8f3ee1e82b988d29f5e",
+        "encoded_size": 67889592
+      }
+    },
+    {
+      "path": "Contents/Helpers/GLShaderCompiler",
+      "size": 1394976,
+      "sha256": "aa19ff5fecbe673e17434258ff4627a7ff41ce91cbe5408cf5b9b1cf4b48a828",
+      "source_md5": "c806008deb1335850cf66fc10906307e",
+      "source_size": 1394976,
+      "download": {
+        "encoding_key": "7a5795ad604022288b731171523f3dbb",
+        "encoded_size": 400138,
+        "archive": {
+          "key": "439fe13e2c73f51553e3b823fc119aac",
+          "offset": 28048452,
+          "size": 400138
+        }
+      }
+    },
+    {
+      "path": "Contents/Resources/Progress.nib",
+      "size": 5445,
+      "sha256": "388bd87e763bc611b60ab0a04b096c7ac77fb7d3a64c8c24c062bb3c058b502b",
+      "source_md5": "587b190ae4918bbca8f039e6162ae64b",
+      "source_size": 10367,
+      "download": {
+        "encoding_key": "dd880eeb79cacf6d4366f520753f7a63",
+        "encoded_size": 3773,
+        "archive": {
+          "key": "fdbb16e65343f4d976b96600fafdcd65",
+          "offset": 165184495,
+          "size": 3773
+        }
+      }
+    },
+    {
+      "path": "Contents/Resources/Application.nib",
+      "size": 907,
+      "sha256": "d4a5fcd13709512ea5ad4c508eaeb506ab606cb10f883e761132169e88abf6c3",
+      "source_md5": "bda7f6fb3ab0ac065249bf70edc0c5d1",
+      "source_size": 907
+    },
+    {
+      "path": "Contents/Resources/Icon.icns",
+      "size": 2198677,
+      "sha256": "1e6f422df9d3a5213baf95fe8b9cb6f7aa14d7a983c74e2ddae8e27ceb10b2ae",
+      "source_md5": "9637e989893d56e0e8d6b6d8e0f0541d",
+      "source_size": 2198677
+    },
+    {
+      "path": "Contents/Resources/ApplicationMenu.nib",
+      "size": 9176,
+      "sha256": "646cf3d408d8ebf420241040a6e30eca3839a080f324b885d43fc583b07f9178",
+      "source_md5": "58e3a8186c2f882f8be90dcf997647eb",
+      "source_size": 9176
+    },
+    {
+      "path": "Contents/Resources/GLLayerSetup.nib",
+      "size": 8915,
+      "sha256": "48e70fbe12b9107cf2be46814416a1a326c792a967d9f4be745f034c94ce22a9",
+      "source_md5": "0f0fe0368b3b9ca81358c211109ced43",
+      "source_size": 8915
+    },
+    {
+      "path": "Contents/Resources/pt-BR.lproj/AppErrors.txt",
+      "size": 16218,
+      "sha256": "27a04d2726af78b6184a9427f2887078c27eda835c8f3e5e55b58493c5d8082d",
+      "source_md5": "3f907906ae9f497d5f93787d241b5083",
+      "source_size": 16218
+    },
+    {
+      "path": "Contents/Resources/pt-BR.lproj/Application.strings",
+      "size": 6012,
+      "sha256": "3b53336328bf1b536557e50a74440344c809952e588b9d4495fd85ecce11ef79",
+      "source_md5": "655f97930b327d380b06cbd4a0600411",
+      "source_size": 6012
+    },
+    {
+      "path": "Contents/Resources/pt-BR.lproj/Game.strings",
+      "size": 746,
+      "sha256": "d8691a653b72b86269d26e7fa6cb53056fdbacaf0bd1ceed5386f5ef69aa017f",
+      "source_md5": "a18b94c762883fcb22825e86f567455f",
+      "source_size": 746
+    },
+    {
+      "path": "Contents/Resources/pt-BR.lproj/AppStrings.txt",
+      "size": 3094,
+      "sha256": "27bea4802eeb5eebd8ebd48cad36680b6f1a29d2425ed5732fa4b56ebfd1e059",
+      "source_md5": "f7ac88438884e5279464355bff34e481",
+      "source_size": 3094
+    },
+    {
+      "path": "Contents/Resources/es-419.lproj/AppErrors.txt",
+      "size": 16666,
+      "sha256": "672a97409904ef5ee04ca1377945af410891060b226222d86e8465fb64a8e9c8",
+      "source_md5": "4378021c0be87a4a5b4cc7dff39267a2",
+      "source_size": 16666
+    },
+    {
+      "path": "Contents/Resources/es-419.lproj/Application.strings",
+      "size": 6110,
+      "sha256": "11b8bffcdb1f62e0a83ac0fcd62457bdcac1f9761b61c57b58977928df66281e",
+      "source_md5": "b3d70e1b208e0b29954caa709dbdce09",
+      "source_size": 6110
+    },
+    {
+      "path": "Contents/Resources/es-419.lproj/Game.strings",
+      "size": 776,
+      "sha256": "2e7b4e64bfdfbf068cd4d876c2779aa71ee80b7a38f90ad35917de9969dcc825",
+      "source_md5": "df65b2e8cf3a0ca7436d14426858c4dc",
+      "source_size": 776
+    },
+    {
+      "path": "Contents/Resources/es-419.lproj/AppStrings.txt",
+      "size": 3092,
+      "sha256": "b27557211e58e3b818b5ec43d5742fc9abece89b2d63df457a633658b9c6b2b4",
+      "source_md5": "bacfeafc6f5609f2ba4a8ab44b2af3ea",
+      "source_size": 3092
+    },
+    {
+      "path": "Contents/Resources/fr.lproj/AppErrors.txt",
+      "size": 13699,
+      "sha256": "12b4d61bd54f314b5ef02c73665c3cb572c52962aaa77f3b640128dcfa755c8e",
+      "source_md5": "c532dbf1fed35434c30971b5474e788f",
+      "source_size": 13699
+    },
+    {
+      "path": "Contents/Resources/fr.lproj/Application.strings",
+      "size": 6386,
+      "sha256": "71c3d37b19fdecd0f71396e7b0513bda68a8e13a02e68264847f331ed7571a8f",
+      "source_md5": "32bc8790d8a0ec799a22f1e79dd5626a",
+      "source_size": 6386
+    },
+    {
+      "path": "Contents/Resources/fr.lproj/Game.strings",
+      "size": 812,
+      "sha256": "03d6580d7c8887662d1657203d205f0215597841146e947cf9c4818c24e0734e",
+      "source_md5": "66cda39347f48dfd0d30187d9cb423b5",
+      "source_size": 812
+    },
+    {
+      "path": "Contents/Resources/fr.lproj/AppStrings.txt",
+      "size": 2961,
+      "sha256": "2b227417e03413c9c91c4bf52f8a049c545de4dc80b978b8ae8e482a29e9708d",
+      "source_md5": "19bcabff524fcd57961af0c9e2774165",
+      "source_size": 2961
+    },
+    {
+      "path": "Contents/Resources/it.lproj/AppErrors.txt",
+      "size": 9682,
+      "sha256": "c007abbbcd26c31a0e91592da365fc7815eac1c1d5d01daba107a9866daafc08",
+      "source_md5": "8814f837e845751111c5beb3b2a7adf0",
+      "source_size": 9682
+    },
+    {
+      "path": "Contents/Resources/it.lproj/Application.strings",
+      "size": 5944,
+      "sha256": "1b7b2afa91e7e202532bf6b5436b99380990bb3e5b279834f190bc9f8a87a15d",
+      "source_md5": "228bc406394daa7fb5f5777f8bb246ce",
+      "source_size": 5944
+    },
+    {
+      "path": "Contents/Resources/it.lproj/Game.strings",
+      "size": 724,
+      "sha256": "b50b8c8957b17386e876f00132115b4c0a8fb92ea51ea00907bf226ff2cd602c",
+      "source_md5": "2edec98f7d329954272c21dbe0bee6bd",
+      "source_size": 724
+    },
+    {
+      "path": "Contents/Resources/it.lproj/AppStrings.txt",
+      "size": 1933,
+      "sha256": "28ca3fd6f7e046d87785fbfb7300a28b618e4f3d65c3ab1a316ca42d3bca24f6",
+      "source_md5": "de84399b6d7e41a145b83b95569be131",
+      "source_size": 1933
+    },
+    {
+      "path": "Contents/Resources/de.lproj/AppErrors.txt",
+      "size": 13135,
+      "sha256": "1297e9ceb31a5f34cdaea2e16beee8be5d2ec70639886a8bd235c6efaec2f86f",
+      "source_md5": "5697afd3d49f4a419836af6aca3a45d7",
+      "source_size": 13135
+    },
+    {
+      "path": "Contents/Resources/de.lproj/Application.strings",
+      "size": 5894,
+      "sha256": "b6ae640773d77e14d2ff363e984c21e644e98d85a9ddbfdb7d431c508cc868b9",
+      "source_md5": "cf6b239d3b34d365c8ad067f03d07194",
+      "source_size": 5894
+    },
+    {
+      "path": "Contents/Resources/de.lproj/Game.strings",
+      "size": 826,
+      "sha256": "5183ce5431260b45d404a873372f67c24835b1bc43a5052cf62935e9adec5baa",
+      "source_md5": "90fdeb53d4f3e2458b15f06121f6f601",
+      "source_size": 826
+    },
+    {
+      "path": "Contents/Resources/de.lproj/AppStrings.txt",
+      "size": 3117,
+      "sha256": "b32c2e7816f0bccda63664e539232d85a3e5ed1312b3e026590be73d5786bfd2",
+      "source_md5": "4321de4638d6be467994151f46f250ff",
+      "source_size": 3117
+    },
+    {
+      "path": "Contents/Resources/ru.lproj/AppErrors.txt",
+      "size": 18053,
+      "sha256": "080817875f2c9200ace070dbb80fa867f0953690c24fe648f227978889e530cb",
+      "source_md5": "570b55e0fd03ac8ed6646e9a48cf31d3",
+      "source_size": 18053
+    },
+    {
+      "path": "Contents/Resources/ru.lproj/Application.strings",
+      "size": 5704,
+      "sha256": "7d4b8ec30737e71e05cb062d9394380395e7a2fc8d223dda302058d7cc8b543d",
+      "source_md5": "7a3fb5440854edbae927c6498f080447",
+      "source_size": 5704
+    },
+    {
+      "path": "Contents/Resources/ru.lproj/Game.strings",
+      "size": 804,
+      "sha256": "19303f381d19ef6e330e1ca7a9c9a4729c2797ef362742eabc464b09e5c54e1c",
+      "source_md5": "37f45c960affa5fcd819b719d112ee91",
+      "source_size": 804
+    },
+    {
+      "path": "Contents/Resources/ru.lproj/AppStrings.txt",
+      "size": 3535,
+      "sha256": "b2249ce740af705fef8c27948e3aee257a70945b16fa9ee1d51d3e0a2993149a",
+      "source_md5": "828331cae1e2eeea50e0ef6161c81c76",
+      "source_size": 3535
+    },
+    {
+      "path": "Contents/Resources/ko.lproj/AppErrors.txt",
+      "size": 17984,
+      "sha256": "f3c7db4dfd3733155efbf2776070c44b043ac919b5e406c417d8d75e3a911d04",
+      "source_md5": "fd2dd4dcf34ed26fb2a866f3a43b6ec9",
+      "source_size": 17984
+    },
+    {
+      "path": "Contents/Resources/ko.lproj/Application.strings",
+      "size": 4710,
+      "sha256": "6c20d68788eed338c8ecdc6e33fbe1e823c4f5cf36e71ffbd5ad41768076769c",
+      "source_md5": "20094e44fada77030bf52823b4cfab22",
+      "source_size": 4710
+    },
+    {
+      "path": "Contents/Resources/ko.lproj/Game.strings",
+      "size": 646,
+      "sha256": "687c5c36fc728f54f7f7f44915a946719b0b7801ec21de371f231f7e4765c59d",
+      "source_md5": "79f8cddaab251dd95489ce7bf75f1958",
+      "source_size": 646
+    },
+    {
+      "path": "Contents/Resources/ko.lproj/AppStrings.txt",
+      "size": 3411,
+      "sha256": "4641039c6185e4e7d83a477e5827ccacc805f74dd8960135352803d17b56cb41",
+      "source_md5": "5cd72c234c44668ea055595bf8c96bec",
+      "source_size": 3411
+    },
+    {
+      "path": "Contents/Resources/zh-Hant.lproj/AppErrors.txt",
+      "size": 12546,
+      "sha256": "45db8479d77065cd3888d7eeffe318bfacb32337d3f2e18d26df38d178abfd16",
+      "source_md5": "914f7d8ce65d3ad0d159cde468a282ed",
+      "source_size": 12546
+    },
+    {
+      "path": "Contents/Resources/zh-Hant.lproj/Application.strings",
+      "size": 4254,
+      "sha256": "50e3622f34b3efe2e3f1e7469cf38bf6612a773dbc67f89cc65183bf73edab1b",
+      "source_md5": "7005debb17ee691af821774581daabde",
+      "source_size": 4254
+    },
+    {
+      "path": "Contents/Resources/zh-Hant.lproj/Game.strings",
+      "size": 532,
+      "sha256": "c2305d8ac5edff4011a734ab0d53af493e6cb2a0fb83b39209033dd66f984745",
+      "source_md5": "8043f32d3b965b3377089d6b48cab325",
+      "source_size": 532
+    },
+    {
+      "path": "Contents/Resources/zh-Hant.lproj/AppStrings.txt",
+      "size": 3041,
+      "sha256": "a0fcde3864f6ba7f8b1043c815e31ef86aa15268dcd75d351334aca8c3278ce6",
+      "source_md5": "c1ebe03b74d00bb83aeaba3db2757c40",
+      "source_size": 3041
+    },
+    {
+      "path": "Contents/Resources/es.lproj/AppErrors.txt",
+      "size": 12559,
+      "sha256": "6b700a96e7ed0a4f875f04e7c4d5273638646616506b0c73d61de22faafd8231",
+      "source_md5": "747dd7c20280b87a8afca91d8f549b5a",
+      "source_size": 12559
+    },
+    {
+      "path": "Contents/Resources/es.lproj/Application.strings",
+      "size": 6052,
+      "sha256": "4254db6b87d527b2a04da5b7b0e233fc0a9379a186f763a2eebe8d44e44888a7",
+      "source_md5": "2a6ca89b31587301d4e3ebe0275816fa",
+      "source_size": 6052
+    },
+    {
+      "path": "Contents/Resources/es.lproj/Game.strings",
+      "size": 736,
+      "sha256": "344808016c3dfff881f1981fd8370200ac92ff01cc2514b7ddfeaf5fa943afd5",
+      "source_md5": "2bbc628712cb1a2905f2ef7feefd5033",
+      "source_size": 736
+    },
+    {
+      "path": "Contents/Resources/es.lproj/AppStrings.txt",
+      "size": 2908,
+      "sha256": "e2bc1867623bf80cb293afd17ee01e42707b0e9951d1e933433f9d3808892c64",
+      "source_md5": "1d410c9d6a2f4dc390da3dede6c8a26c",
+      "source_size": 2908
+    },
+    {
+      "path": "Contents/Resources/zh-Hans.lproj/AppErrors.txt",
+      "size": 12592,
+      "sha256": "8e2782400a16d3186ce04f15bdbbda9dc896dd57e6a887fe6445cba0c224f2b2",
+      "source_md5": "c6e205906dabd613355b84ec21422069",
+      "source_size": 12592
+    },
+    {
+      "path": "Contents/Resources/zh-Hans.lproj/Application.strings",
+      "size": 4168,
+      "sha256": "78de4d9f33e7421cb7314bcb3ee55077af4b8b95c20f1d93262a1eec6f0b5c00",
+      "source_md5": "8b6fa94651bd870c18aa0152655d9075",
+      "source_size": 4168
+    },
+    {
+      "path": "Contents/Resources/zh-Hans.lproj/Game.strings",
+      "size": 540,
+      "sha256": "53cbf57058c9644af6180e7135e88a5814de8caf95284c462529fae604e109b2",
+      "source_md5": "0721b7d988ebbe266c0ccf86de7582aa",
+      "source_size": 540
+    },
+    {
+      "path": "Contents/Resources/zh-Hans.lproj/AppStrings.txt",
+      "size": 2963,
+      "sha256": "4215eaef59e2858cd37d4226130d98632676a588841dc4eea3a20ff3507f31c6",
+      "source_md5": "7880b6f1f1a0e887fc8599757e346cd9",
+      "source_size": 2963
+    },
+    {
+      "path": "Contents/Resources/en.lproj/AppErrors.txt",
+      "size": 8618,
+      "sha256": "79969b6107e65abf369b220406b80cad2db1c6967b69941d0a4efdb443bfbabd",
+      "source_md5": "35e73648e310bfc558accae06034e663",
+      "source_size": 8618
+    },
+    {
+      "path": "Contents/Resources/en.lproj/Application.strings",
+      "size": 6146,
+      "sha256": "dc018f15b507fad00469d487fdd8c156fbd52d5b1ee652c5fd378f949a49b0dd",
+      "source_md5": "8f144b64139dee213340c6af174202a8",
+      "source_size": 6146
+    },
+    {
+      "path": "Contents/Resources/en.lproj/Game.strings",
+      "size": 726,
+      "sha256": "e6e151290dfbd5adc1e1ea26efa10d901107dcba69a074438e32b7c76152ec89",
+      "source_md5": "42e864839e3eaa63a5706c64e1f26ac1",
+      "source_size": 726
+    },
+    {
+      "path": "Contents/Resources/en.lproj/AppStrings.txt",
+      "size": 1837,
+      "sha256": "06b41124c015fe3cd8d7cfbea822a0a9080af027f33a4f15fe1a70db6c316303",
+      "source_md5": "97b55adad23efbb467de0e06a06475fc",
+      "source_size": 1837
+    },
+    {
+      "path": "Contents/Resources/pl.lproj/AppErrors.txt",
+      "size": 13180,
+      "sha256": "3f742764dfa1bb48f408fcc60dbb59795adad6da100492fee4534c35483b5d07",
+      "source_md5": "3d843fe2b395702b337ba13acb56a867",
+      "source_size": 13180
+    },
+    {
+      "path": "Contents/Resources/pl.lproj/Application.strings",
+      "size": 5846,
+      "sha256": "d80d8dcd85ab82791f06e3a08534ef21e53fac6fd9a1b565e98a772271fa98fa",
+      "source_md5": "edda23590ee5b9479973755b30de61a1",
+      "source_size": 5846
+    },
+    {
+      "path": "Contents/Resources/pl.lproj/Game.strings",
+      "size": 744,
+      "sha256": "a0694c62b4483ae1079d9879a2c0281401fa5f2e645fc99bb8485b0fc06afeff",
+      "source_md5": "3f0e1ced28ca52fffb39a0c0827ac57f",
+      "source_size": 744
+    },
+    {
+      "path": "Contents/Resources/pl.lproj/AppStrings.txt",
+      "size": 2881,
+      "sha256": "05a62aaa369160c80c8be23144f61d5f9346752a6d385755df249ac698f3a1c2",
+      "source_md5": "06264a02a880037518edea736e1192d4",
+      "source_size": 2881
+    }
+  ],
+  "build_config": {
+    "key": "275c3e0594f089a29a5d7b1f470511a3",
+    "text": "# Build Configuration\n\nroot = b49da51995ba9767f4c624034c211342\ninstall = e9dd5cc8d44a96248a7b1c27fb937b14 db3302904a2cf7b33897a2da1dbe306d\ninstall-size = 59752 57888\ndownload = 2d7c04c9259cfc3318a0fa4ac963c2c5 88eaf48771b5c445a277b1c346993565\ndownload-size = 15210817 13407280\nsize = 60554ea85b1d9f87cd06e4594fab798d 27efa0dca56d65e8d41c39cf3cbe2b61\nsize-size = 9734996 8731461\nencoding = ccdd830082b2579690f35643a6272968 18d4b089d5475a96b07dbe8804af165c\nencoding-size = 46333386 46181143\npatch-index = 8ee87f5c9997001f883a5c4050e8f745 901f5c858fc1f65773e38c3c2ee5ad68\npatch-index-size = 5803 2268\npatch = 4aa917ebed6670ca6e5afdd4ae34c45a\npatch-size = 2431\nbuild-name = B96883\nbuild-t1-manifest-version = 2\nbuild-uid = s2\nbuild-product = SC2\nbuild-fixed-hash = bd6fe8ffef083c991c4166cdde56f4f3\nbuild-replay-hash = 5563dc35ec51d0464dc16b56b424c9df\nfeature-placeholder = true\n\n"
+  }
+}

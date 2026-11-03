@@ -62,3 +62,10 @@ python examples/versus_computer.py /path/to/standard.SC2Map --output reports/vs-
 ```
 
 This policy tests a short economy sequence, rather than a competitive strategy.
+
+- `service_joint_turns.py`: an explicit installation, local service, and independent joint-turn policies.
+- `service_botai.py`: the existing macro bots through SC2-compatible service endpoints, with replay saving.
+
+See [service setup and limits](../docs/service.md).
+
+Add `--move` to `service_joint_turns.py` to select the Move command from each native catalog and verify actual unit movement.

@@ -95,7 +95,9 @@ def get_capabilities(sc2_version=None) -> dict:
         'standard_games': 'Delegated to burnysc2; requires its supported local SC2 installation',
         'standard': {'backend': 'burnysc2', 'ready': installation['ready'],
                      'checks': dict(installation['checks']), 'errors': list(installation['errors']),
-                     'note': 'Default installation only; a native sc2_version selection does not select the standard build.'},
+                     'warnings': list(installation.get('warnings', [])),
+                     'note': 'Static installation prerequisites only; API startup and gameplay are not verified. '
+                             'A native sc2_version selection does not select the standard build.'},
         'multiplayer': {
             'backend': profile.backend if profile else None,
             'profile': profile.summary() if profile else None,

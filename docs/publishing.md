@@ -1,8 +1,8 @@
 # Publish this alpha on GitHub
 
-The source is prepared for a GitHub repository. These are maintainer commands;
-MPSC2 does not automatically create a repository, push commits or publish a
-package. The public repository is
+These are maintainer commands. Pushing a version tag to the public repository
+triggers a GitHub alpha release after the offline test matrix succeeds. The
+MPSC2 Python package itself never pushes commits or publishes packages. The repository is
 [devindeng94/mpsc2](https://github.com/devindeng94/mpsc2).
 
 ## Validate the source
@@ -19,7 +19,7 @@ python -m twine check dist/github-release/*
 
 Use a fresh distribution directory so an earlier version is not uploaded by
 accident. Check that `pyproject.toml` and `mpsc2.__version__` agree, and read the
-[current known issues](known-issues.md) and [release notes](release-notes-0.3.3a1.md).
+[current known issues](known-issues.md) and [release notes](release-notes-0.3.4a1.md).
 Live SC2 coverage is recorded separately; GitHub Actions runs offline checks only.
 
 ## Create the repository and first commit
@@ -44,7 +44,7 @@ git add .
 git diff --cached --stat
 git diff --cached --name-only
 git diff --cached --check
-git commit -m "Release MPSC2 0.3.3a1 with Linux multiplayer"
+git commit -m "Release MPSC2 0.3.4a1 with multiplayer service and startup recovery"
 ```
 
 The staged list should contain source, examples, documentation, tests, maps,
@@ -89,14 +89,26 @@ and rebuild distributions after metadata changes.
 
 ## Create an alpha release
 
-After reviewing CI and local validation for the intended commit:
+After reviewing local validation, push the intended commit to `main`, then:
 
-1. Tag the intended commit `v0.3.3a1` and push that tag.
-2. Create a GitHub release for that tag and mark it **pre-release**.
-3. Copy the [prepared release notes](release-notes-0.3.3a1.md).
-4. Attach the wheel, source archive and their SHA256 checksums from the fresh
-   release directory. Verify uploaded asset hashes against the local files.
-5. Keep the exact-build requirement and known limitations in the release text.
+```sh
+git tag -a v0.3.4a1 -m "MPSC2 0.3.4a1"
+git push origin v0.3.4a1
+```
+
+The [Actions workflow](../.github/workflows/tests.yml) runs the full offline
+matrix for the tag. Its release job runs only after all test jobs pass, checks
+that the tag matches both package versions and the release-notes filename, and
+builds fresh distributions. It creates a draft pre-release containing the
+wheel, source distribution and `SHA256SUMS`, downloads the uploaded assets to
+verify their checksums, then publishes the pre-release using the
+[prepared notes](release-notes-0.3.4a1.md).
+
+Only the release job receives `contents: write`; it uses GitHub's temporary
+workflow token. No personal access token is required. Verify both the Actions
+result and the published release page after pushing. If upload or verification
+fails after draft creation, inspect the draft and failed job before retrying;
+do not move an already published version tag.
 
 GitHub generates a source archive for the tag. Do not attach the SC2 installation,
 raw memory dumps, local journals or large replays as package files. This workflow

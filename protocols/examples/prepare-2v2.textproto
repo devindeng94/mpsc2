@@ -1,0 +1,24 @@
+# Schema fixture. No server or map artifact with this ID is implied.
+request_id: "prepare-example-2v2"
+prepare_match {
+  engine { installation_id: "research-installation" }
+  map {
+    artifact_id: "example-melee-map"
+    sha256: "00000000000000000000000000000000"
+    rules_contract: "mpsc2.melee.fixed-teams.v1"
+  }
+  players { slot_id: "alpha" team_id: 10 kind: PLAYER_AGENT race: Terran interface_options { raw: true score: true } }
+  players { slot_id: "beta" team_id: 10 kind: PLAYER_AGENT race: Protoss interface_options { raw: true score: true } }
+  players { slot_id: "gamma" team_id: 20 kind: PLAYER_AGENT race: Zerg interface_options { raw: true score: true } }
+  players { slot_id: "delta" team_id: 20 kind: PLAYER_AGENT race: Random interface_options { raw: true score: true } }
+  teams { vision: TEAM_VISION_SHARED shared_unit_control: false allied_victory: true }
+  clock: CLOCK_STEPPED
+  transport: TRANSPORT_JOINT_TURN
+  random_seed: 42
+  required_capabilities: "independent-clients.v1"
+  required_capabilities: "fixed-teams.v1"
+  required_capabilities: "joint-turns.v1"
+  required_capabilities: "raw-interface.v1"
+  step_count: 8
+  round_timeout_ms: 30000
+}

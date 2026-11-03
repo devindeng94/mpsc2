@@ -2,6 +2,12 @@
 
 MPSC2 preserves the python-sc2 policy API and adds local multiplayer orchestration.
 
+This page describes the current implementation. The optional local service architecture,
+including a stable wire protocol and capability-based engine adapters, is in the
+[general multiplayer API RFC](designs/general-multiplayer-api.md). Its schema is
+implemented by the opt-in local service; see [setup and coverage](service.md).
+Automatic binary discovery and new engine support are separate work.
+
 ```mermaid
 flowchart TD
     policies[Distinct BotAI instances in one Python event loop] --> launcher[MPSC2 launcher and team mapping]

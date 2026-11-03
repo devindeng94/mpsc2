@@ -1,0 +1,293 @@
+// Experimental MPSC2 protocol 1.0, 2026-11-03. See docs/service.md for backend coverage.
+// Copyright (c) MPSC2 contributors. Distributed under the repository MIT license.
+syntax = "proto2";
+package mpsc2.v1;
+
+import "s2clientprotocol/common.proto";
+import "s2clientprotocol/sc2api.proto";
+
+// All requests/responses use binary Protobuf WebSocket frames. Control and turn
+// endpoints have different message types. The /sc2api compatibility endpoint
+// continues to carry unwrapped SC2APIProtocol.Request/Response messages.
+message ProtocolVersion {
+  optional uint32 major = 1;
+  optional uint32 minor = 2;
+}
+
+enum CapabilityState {
+  CAPABILITY_UNKNOWN = 0;
+  CAPABILITY_UNSUPPORTED = 1;
+  CAPABILITY_SUPPORTED = 2;
+}
+
+enum Verification {
+  VERIFICATION_UNCHECKED = 0;
+  VERIFICATION_STATIC = 1;
+  VERIFICATION_LIVE_PROBE = 2;
+  VERIFICATION_CONFORMANCE = 3;
+}
+
+message Capability {
+  optional string name = 1; // Versioned names are defined in the RFC.
+  optional CapabilityState state = 2;
+  optional Verification verification = 3;
+  optional string reason = 4;
+  optional string evidence_id = 5;
+}
+
+message EngineIdentity {
+  optional string installation_id = 1; // Server registry ID, never a client path.
+  optional string operating_system = 2;
+  optional string architecture = 3;
+  optional uint32 base_build = 4;
+  optional string game_version = 5;
+  optional string data_version = 6; // Actual Ping value, not a version-table guess.
+  optional bytes executable_sha256 = 7;
+  optional string adapter_id = 8;
+  optional string adapter_revision = 9;
+  optional bytes adapter_artifact_sha256 = 10;
+  optional bool api_ping_verified = 11;
+}
+
+message EngineSelection {
+  optional string installation_id = 1;
+  optional uint32 required_base_build = 2;
+  optional string required_data_version = 3;
+  optional bytes required_executable_sha256 = 4;
+}
+
+enum ClockMode {
+  CLOCK_UNSPECIFIED = 0;
+  CLOCK_STEPPED = 1;
+  CLOCK_REALTIME = 2;
+}
+
+enum PlayerTransport {
+  TRANSPORT_UNSPECIFIED = 0;
+  TRANSPORT_SC2_COMPAT = 1;
+  TRANSPORT_JOINT_TURN = 2; // Stepped matches only, in this revision.
+}
+
+enum PlayerKind {
+  PLAYER_UNSPECIFIED = 0;
+  PLAYER_AGENT = 1; // A distinct SC2 process and native player perspective.
+  PLAYER_COMPUTER = 2;
+  PLAYER_HUMAN = 3;
+}
+
+message PlayerSpec {
+  optional string slot_id = 1; // Stable caller identity, not a native player ID.
+  optional sint64 team_id = 2; // Arbitrary caller label, including zero/negative.
+  optional PlayerKind kind = 3;
+  optional SC2APIProtocol.Race race = 4;
+  optional string name = 5;
+  optional SC2APIProtocol.Difficulty difficulty = 6; // Computers only.
+  optional SC2APIProtocol.AIBuild ai_build = 7; // Computers only.
+  optional SC2APIProtocol.InterfaceOptions interface_options = 8;
+}
+
+enum TeamVision {
+  TEAM_VISION_UNSPECIFIED = 0;
+  TEAM_VISION_INDIVIDUAL = 1;
+  TEAM_VISION_SHARED = 2;
+}
+
+message TeamRules {
+  optional TeamVision vision = 1;
+  optional bool shared_unit_control = 2;
+  optional bool allied_victory = 3;
+  // This proposal supports fixed team partitions, not dynamic diplomacy.
+}
+
+message MapArtifact {
+  optional string artifact_id = 1; // Pre-registered server-side .SC2Map artifact.
+  optional bytes sha256 = 2;
+  optional string rules_contract = 3; // E.g. mpsc2.melee.fixed-teams.v1.
+}
+
+message MatchSpec {
+  optional EngineSelection engine = 1;
+  optional MapArtifact map = 2;
+  repeated PlayerSpec players = 3;
+  optional TeamRules teams = 4;
+  optional ClockMode clock = 5;
+  optional PlayerTransport transport = 6;
+  optional uint32 random_seed = 7;
+  repeated string required_capabilities = 8;
+  optional uint32 step_count = 9; // Fixed negotiated loops/round; stepped only.
+  optional uint32 round_timeout_ms = 10; // Required for all stepped matches.
+  optional double game_time_limit_seconds = 11 [default = 120]; // Map-relative game time.
+}
+
+enum MatchState {
+  MATCH_UNSPECIFIED = 0;
+  MATCH_PREPARING = 1;
+  MATCH_PREPARED = 2;
+  MATCH_STARTING = 3;
+  MATCH_RUNNING = 4;
+  MATCH_ENDED = 5;
+  MATCH_FAILED = 6;
+  MATCH_CLOSED = 7;
+}
+
+message PlayerBinding {
+  optional string slot_id = 1;
+  optional sint64 team_id = 2;
+  optional uint32 native_player_id = 3; // Absent until JoinGame succeeds.
+  optional string engine_instance_id = 4; // Unique for every agent slot.
+  optional string endpoint = 5;
+  optional PlayerTransport transport = 6;
+}
+
+message PlayerCredential {
+  optional string slot_id = 1;
+  optional bytes bearer_token = 2; // Controller distributes only to this agent.
+  optional uint64 expires_at_unix_ms = 3;
+}
+
+message PreparedMatch {
+  optional string match_id = 1;
+  optional string generation = 2; // New random value on every match allocation.
+  optional EngineIdentity engine = 3;
+  optional MatchSpec accepted_spec = 4;
+  repeated Capability capabilities = 5; // Scoped to this exact accepted spec.
+  repeated PlayerBinding players = 6;
+  repeated PlayerCredential credentials = 7;
+  optional uint64 lease_expires_at_unix_ms = 8;
+  optional MapArtifact materialized_map = 9; // Actual generated map, if transformed.
+}
+
+message CapabilityReport {
+  optional EngineIdentity engine = 1;
+  optional MatchSpec requested_spec = 2;
+  repeated Capability capabilities = 3;
+  optional uint32 maximum_total_slots = 4;
+  optional uint32 maximum_agent_slots = 5;
+  // Maxima are upper bounds, not proof that every smaller configuration works.
+  // probe_match is read-only/static; prepare_match performs live startup checks.
+}
+
+message MatchRef {
+  optional string match_id = 1;
+  optional string generation = 2;
+}
+
+message MatchSnapshot {
+  optional MatchRef match = 1;
+  optional MatchState state = 2;
+  repeated PlayerBinding players = 3;
+  optional uint64 current_epoch = 4;
+  optional uint32 game_loop = 5; // Set only for a verified common boundary.
+  optional bool terminated = 6; // Native game end.
+  optional bool truncated = 7; // Infrastructure/time-limit interruption.
+  optional string reason = 8;
+  repeated SC2APIProtocol.PlayerResult player_results = 9;
+}
+
+enum ErrorCode {
+  ERROR_UNSPECIFIED = 0;
+  ERROR_INVALID_REQUEST = 1;
+  ERROR_PROTOCOL_VERSION = 2;
+  ERROR_CAPABILITY_UNAVAILABLE = 3;
+  ERROR_ENGINE_API_UNAVAILABLE = 4;
+  ERROR_ENGINE_IDENTITY_MISMATCH = 5;
+  ERROR_ADAPTER_UNVERIFIED = 6;
+  ERROR_INVALID_STATE = 7;
+  ERROR_ROSTER_MISMATCH = 8;
+  ERROR_STALE_GENERATION = 9;
+  ERROR_ROUND_CONFLICT = 10;
+  ERROR_ROUND_TIMEOUT = 11;
+  ERROR_PARTIAL_DISPATCH = 12;
+  ERROR_UNCERTAIN_EXECUTION = 13;
+  ERROR_UNAUTHORIZED = 14;
+  ERROR_UNSUPPORTED_MESSAGE = 15;
+  ERROR_RESOURCE_LIMIT = 16;
+  ERROR_REQUEST_CONFLICT = 17;
+}
+
+message Error {
+  optional ErrorCode code = 1;
+  optional string message = 2;
+  optional string capability = 3;
+  optional bool retry_safe = 4; // False unless explicitly proven by the server.
+}
+
+message Hello {
+  repeated ProtocolVersion supported_versions = 1;
+}
+
+message HelloResult {
+  optional ProtocolVersion selected_version = 1;
+  optional string server_revision = 2;
+  optional uint32 maximum_frame_bytes = 3;
+}
+
+message ControlRequest {
+  optional string request_id = 1; // Required by contract, idempotency key.
+  oneof operation {
+    Hello hello = 10;
+    MatchSpec prepare_match = 11;
+    MatchRef start_match = 12;
+    MatchRef get_match = 13;
+    MatchRef close_match = 14;
+    MatchSpec probe_match = 15;
+  }
+}
+
+message ControlResponse {
+  optional string request_id = 1;
+  oneof outcome {
+    HelloResult hello = 10;
+    PreparedMatch prepared_match = 11;
+    MatchSnapshot match = 12;
+    CapabilityReport capabilities = 13;
+    Error error = 99;
+  }
+}
+
+// Optional research endpoint. Identity is bound by the connection credential;
+// callers cannot choose another player's ID inside a turn request.
+message SubmitTurn {
+  optional uint64 epoch = 1;
+  optional uint32 expected_game_loop = 2;
+  optional SC2APIProtocol.RequestAction actions = 3; // Present empty = explicit no-op.
+}
+
+message AwaitTurn {
+  optional uint64 epoch = 1;
+}
+
+message TurnAccepted {
+  optional uint64 epoch = 1;
+  // Acknowledges immutable buffering only, not engine acceptance/execution.
+}
+
+message TurnResult {
+  optional uint64 epoch = 1;
+  optional uint32 previous_game_loop = 2;
+  optional uint32 game_loop = 3; // This player's actual frame; terminal peers need not share a boundary.
+  optional SC2APIProtocol.ResponseAction action_result = 4;
+  optional SC2APIProtocol.ResponseObservation observation = 5;
+  optional bool terminated = 6;
+  optional bool truncated = 7;
+}
+
+message TurnRequest {
+  optional string request_id = 1;
+  optional MatchRef match = 2;
+  oneof operation {
+    SubmitTurn submit = 10;
+    AwaitTurn await_turn = 11;
+    SC2APIProtocol.Request read = 12; // Only Ping/GameInfo/Data/Query/Observation.
+  }
+}
+
+message TurnResponse {
+  optional string request_id = 1;
+  oneof outcome {
+    TurnAccepted accepted = 10;
+    TurnResult result = 11;
+    SC2APIProtocol.Response read = 12;
+    Error error = 99;
+  }
+}

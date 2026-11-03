@@ -137,7 +137,7 @@ Publishing is a separate maintainer action. This project does not automatically
 upload packages, push branches or create releases. The backend remains alpha
 until broader platform/build and long-run validation supports a stronger claim.
 See the [GitHub publishing guide](docs/publishing.md) and
-[prepared alpha release notes](docs/release-notes-0.3.3a1.md).
+[prepared alpha release notes](docs/release-notes-0.3.3a2.md).
 
 Report issues with Python, burnysc2 and SC2 versions, operating system,
 `mpsc2 doctor` output, reproduction steps and a relevant report excerpt.

@@ -14,6 +14,12 @@ def test_bridge_refuses_unrecognized_engine(tmp_path):
             validate_executable(executable)
 
 
+def test_missing_historical_macos_build_explains_update_failure(tmp_path):
+    with patch('mpsc2.native_session.platform.system', return_value='Darwin'):
+        with pytest.raises(FileNotFoundError, match='An SC2 update may have removed this build'):
+            validate_executable(tmp_path / 'Versions/Base96883/SC2.app/Contents/MacOS/SC2')
+
+
 def test_bridge_detects_failed_host_without_waiting(tmp_path):
     class Exited:
         returncode = 9

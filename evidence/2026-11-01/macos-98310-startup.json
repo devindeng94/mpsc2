@@ -1,0 +1,146 @@
+{
+  "tested_on": "2026-11-01",
+  "status": "blocked at stock API startup; no Base98310 native profile",
+  "source_baseline": "ddd93ee81ed55f8f8ab7cd25b588f39790e7f2ae",
+  "mpsc2": "0.3.3a1 plus unreleased diagnostic changes",
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.13.2"
+  },
+  "engine": {
+    "game_version": "5.0.17.98310",
+    "base_build": 98310,
+    "architecture": "x86_64",
+    "size_bytes": 78718656,
+    "executable_relative_path": "Versions/Base98310/SC2.app/Contents/MacOS/SC2",
+    "sha256": "cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1",
+    "uuid": "71ad15db-f69b-3aa8-b842-2d868931f0db",
+    "version_sources": [
+      ".build.info",
+      "in-game UI"
+    ],
+    "api_ping_received": false,
+    "api_data_version": null,
+    "executable_unchanged_after_tests": true
+  },
+  "prior_supported_build": {
+    "build": 96883,
+    "directory_present": true,
+    "executable_present": false,
+    "helpers_unchanged": true
+  },
+  "original_probe": {
+    "error": "TimeoutError: ",
+    "create_game_cases": []
+  },
+  "direct_launch_variants": [
+    {
+      "name": "minimal",
+      "exit": 1,
+      "api_ready": false
+    },
+    {
+      "name": "temp",
+      "exit": 1,
+      "api_ready": false
+    },
+    {
+      "name": "verbose",
+      "exit": 1,
+      "api_ready": false
+    },
+    {
+      "name": "window",
+      "exit": 1,
+      "api_ready": false
+    },
+    {
+      "name": "install-cwd",
+      "exit": 1,
+      "api_ready": false
+    },
+    {
+      "name": "launch",
+      "exit": 1,
+      "api_ready": false
+    },
+    {
+      "name": "data-version",
+      "exit": 1,
+      "api_ready": false
+    },
+    {
+      "name": "headless",
+      "exit": 1,
+      "api_ready": false
+    },
+    {
+      "name": "clean-no-other-SC2-process",
+      "exit": 1,
+      "api_ready": false
+    }
+  ],
+  "debugger_assisted_startup": {
+    "normal_login_UI_observed": true,
+    "requested_API_port_available": false,
+    "initialized_read_only_inspection": {
+      "api_ready": false,
+      "debugger_exit": null,
+      "dump_written": true
+    }
+  },
+  "runtime_text_inspection": {
+    "segment": "__TEXT",
+    "bytes": 71868416,
+    "missing_markers": [
+      "sc2api",
+      "SC2API",
+      "sc2api.proto",
+      "RequestCreateGame",
+      "RequestJoinGame",
+      "RequestPing",
+      "ResponsePing"
+    ],
+    "other_protobuf_descriptors_present": true,
+    "interpretation": "Suggests missing or disabled SC2 API implementation; does not prove compiler configuration or early-exit root cause."
+  },
+  "revised_probe": {
+    "api_connected": false,
+    "returncode": 1,
+    "error_type": "SC2LaunchError",
+    "create_game_cases": []
+  },
+  "gameplay": {
+    "create_game_reached": false,
+    "join_game_reached": false,
+    "multiplayer_confirmed": false,
+    "economy_research_realtime_replay": "not reached"
+  },
+  "regression_tests": {
+    "full_suite": "373 passed, 5 skipped",
+    "final_targeted_after_timeout_wording_and_missing_executable_test": "17 passed",
+    "notes": "First sandboxed run could not allocate loopback ports; full suite passed with loopback access."
+  },
+  "cleanup": {
+    "no_SC2_or_debugger_processes_remained": true,
+    "installed_game_files_modified": false
+  },
+  "local_artifacts": {
+    "directory": "reports/macos-update-20261101",
+    "memory_dumps": "ignored local diagnostics; not distributed"
+  },
+  "next_required_milestone": "Successful stock API Ping and CreateGame/JoinGame on this exact engine before deriving a native profile.",
+  "packaging": {
+    "build": "sdist and wheel succeeded",
+    "twine_check": "passed",
+    "archive_checks": {
+      "mpsc2-0.3.3a1-py3-none-any.whl": {
+        "no_raw_diagnostics_or_compiled_game_helpers": true
+      },
+      "mpsc2-0.3.3a1.tar.gz": {
+        "no_raw_diagnostics_or_compiled_game_helpers": true
+      }
+    }
+  }
+}

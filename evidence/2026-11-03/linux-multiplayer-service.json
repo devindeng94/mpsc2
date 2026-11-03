@@ -1,0 +1,1670 @@
+{
+  "date": "2026-11-03",
+  "package_version": "0.3.3a2",
+  "protocol_version": "1.0",
+  "passed": true,
+  "first_attempt_all_passed": false,
+  "outcome": "Functionality verified with a retained native startup timeout and explicit fresh-match retest",
+  "scope": "Actual Linux x86_64 SC2 4.10 gameplay using the current installed wheel; service and existing launcher regression",
+  "environment": {
+    "python": "3.10.12",
+    "platform": "Linux-5.4.250-2-velinux1u1-amd64-x86_64-with-glibc2.35",
+    "gcc": "11.4.0"
+  },
+  "engine": {
+    "base_build": 75689,
+    "game_version": "4.10.0.75689",
+    "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+    "sha256": "115f65a49191c504f6336f7d5b7818b23dbba3d7a45cacf9142c86c959abaa41",
+    "installed_executable_unchanged": true
+  },
+  "package": {
+    "artifacts": {
+      "mpsc2-0.3.3a2.tar.gz": "96f0ace300b0b3df8f80365cd156f977fbc5d746afe567cd7c14aa6d8ca6d638",
+      "mpsc2-0.3.3a2-py3-none-any.whl": "f3459f431dd3cf95e439146f91a6aa2cb451401382b378b1f3ffabc12450103d"
+    },
+    "wheel_matches_current_source": true,
+    "installed_wheel_tests": {
+      "passed": 454,
+      "skipped": 3
+    }
+  },
+  "doctor": {
+    "ready": true,
+    "detected_platform": "Linux",
+    "default_profile": "linux-x86_64-75689-v1",
+    "compatibility_engine": null,
+    "warnings": [
+      "Linux SC2 guests resolve installed maps under lowercase maps/. These entries exist only under Maps/: Ladder2017Season1, Ladder2017Season2, Ladder2017Season3, Ladder2017Season4, Ladder2018Season1, Ladder2018Season2, Ladder2018Season3, Ladder2018Season4, Melee, mini_games. Add corresponding links under maps/ without replacing existing content."
+    ]
+  },
+  "service": {
+    "joint_turns": [
+      {
+        "case": "joint-2",
+        "passed": true,
+        "teams": [
+          0,
+          1
+        ],
+        "native_player_ids": [
+          1,
+          2
+        ],
+        "distinct_processes": 2,
+        "request_counts": {
+          "action": 40,
+          "step": 40,
+          "observation": 40
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-3",
+        "passed": true,
+        "teams": [
+          0,
+          1,
+          2
+        ],
+        "native_player_ids": [
+          1,
+          2,
+          3
+        ],
+        "distinct_processes": 3,
+        "request_counts": {
+          "action": 60,
+          "step": 60,
+          "observation": 60
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-4",
+        "passed": true,
+        "teams": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "native_player_ids": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "distinct_processes": 4,
+        "request_counts": {
+          "action": 80,
+          "step": 80,
+          "observation": 80
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          },
+          {
+            "player_id": 4,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-5",
+        "passed": true,
+        "teams": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "native_player_ids": [
+          1,
+          2,
+          5,
+          3,
+          4
+        ],
+        "distinct_processes": 5,
+        "request_counts": {
+          "action": 100,
+          "step": 100,
+          "observation": 100
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          },
+          {
+            "player_id": 4,
+            "result": "Tie"
+          },
+          {
+            "player_id": 5,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-6",
+        "passed": true,
+        "teams": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "native_player_ids": [
+          1,
+          6,
+          4,
+          5,
+          2,
+          3
+        ],
+        "distinct_processes": 6,
+        "request_counts": {
+          "action": 120,
+          "step": 120,
+          "observation": 120
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163,
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          },
+          {
+            "player_id": 4,
+            "result": "Tie"
+          },
+          {
+            "player_id": 5,
+            "result": "Tie"
+          },
+          {
+            "player_id": 6,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-7",
+        "passed": true,
+        "teams": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "native_player_ids": [
+          1,
+          7,
+          6,
+          2,
+          4,
+          5,
+          3
+        ],
+        "distinct_processes": 7,
+        "request_counts": {
+          "action": 140,
+          "step": 140,
+          "observation": 140
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163,
+          163,
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          },
+          {
+            "player_id": 4,
+            "result": "Tie"
+          },
+          {
+            "player_id": 5,
+            "result": "Tie"
+          },
+          {
+            "player_id": 6,
+            "result": "Tie"
+          },
+          {
+            "player_id": 7,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-8",
+        "passed": true,
+        "teams": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "native_player_ids": [
+          1,
+          2,
+          3,
+          7,
+          8,
+          5,
+          4,
+          6
+        ],
+        "distinct_processes": 8,
+        "request_counts": {
+          "action": 160,
+          "step": 160,
+          "observation": 160
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163,
+          163,
+          163,
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          },
+          {
+            "player_id": 4,
+            "result": "Tie"
+          },
+          {
+            "player_id": 5,
+            "result": "Tie"
+          },
+          {
+            "player_id": 6,
+            "result": "Tie"
+          },
+          {
+            "player_id": 7,
+            "result": "Tie"
+          },
+          {
+            "player_id": 8,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-4-3v1",
+        "passed": true,
+        "teams": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "native_player_ids": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "distinct_processes": 4,
+        "request_counts": {
+          "action": 80,
+          "step": 80,
+          "observation": 80
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          },
+          {
+            "player_id": 4,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-4-2v2",
+        "passed": true,
+        "teams": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "native_player_ids": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "distinct_processes": 4,
+        "request_counts": {
+          "action": 80,
+          "step": 80,
+          "observation": 80
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          },
+          {
+            "player_id": 4,
+            "result": "Tie"
+          }
+        ]
+      },
+      {
+        "case": "joint-4-move",
+        "passed": true,
+        "teams": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "native_player_ids": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "distinct_processes": 4,
+        "request_counts": {
+          "data": 4,
+          "action": 80,
+          "step": 80,
+          "observation": 80
+        },
+        "rounds": 20,
+        "terminal_frames": [
+          163,
+          163,
+          163,
+          163
+        ],
+        "results": [
+          {
+            "player_id": 1,
+            "result": "Tie"
+          },
+          {
+            "player_id": 2,
+            "result": "Tie"
+          },
+          {
+            "player_id": 3,
+            "result": "Tie"
+          },
+          {
+            "player_id": 4,
+            "result": "Tie"
+          }
+        ],
+        "first_action_results": [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ],
+        "maximum_movement": [
+          4.0,
+          4.0,
+          4.0,
+          4.0
+        ]
+      }
+    ],
+    "realtime": {
+      "case": "realtime-4-2v2",
+      "passed": true,
+      "teams": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "native_player_ids": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "distinct_processes": 4,
+      "request_counts": {
+        "ping": 8,
+        "observation": 52,
+        "data": 4,
+        "game_info": 52,
+        "action": 4,
+        "save_replay": 1
+      },
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "terminated": true,
+      "truncated": false
+    },
+    "full_economy_combat": {
+      "passed": true,
+      "players": [
+        {
+          "player_index": 0,
+          "player_id": 1,
+          "team_id": 0,
+          "result": "Tie",
+          "trained": {
+            "SCV": 33,
+            "MARAUDER": 14,
+            "MARINE": 15
+          },
+          "completed": {
+            "SUPPLYDEPOT": 6,
+            "REFINERY": 1,
+            "BARRACKS": 2,
+            "BARRACKSTECHLAB": 1,
+            "COMMANDCENTER": 1
+          },
+          "checks": {
+            "standard_start": true,
+            "mined_minerals_and_gas": true,
+            "spent_minerals_and_gas": true,
+            "completed_production_chain": true,
+            "trained_workers_and_army": true,
+            "observed_construction_progress": true,
+            "expanded": true,
+            "fought": true
+          },
+          "last_observation": {
+            "loop": 9587,
+            "game_seconds": 427.86,
+            "minerals": 2980,
+            "vespene": 368,
+            "collected_minerals": 8405.0,
+            "collected_vespene": 768.0,
+            "spent_minerals": 5475.0,
+            "spent_vespene": 400.0,
+            "workers": 45,
+            "army": 18,
+            "structures": {
+              "SUPPLYDEPOT": 6,
+              "REFINERY": 1,
+              "BARRACKS": 2,
+              "COMMANDCENTER": 2,
+              "BARRACKSTECHLAB": 1
+            },
+            "killed_units": 2425.0,
+            "killed_structures": 1975.0
+          },
+          "action_errors": {}
+        },
+        {
+          "player_index": 1,
+          "player_id": 2,
+          "team_id": 0,
+          "result": "Tie",
+          "trained": {
+            "SCV": 33,
+            "MARAUDER": 14,
+            "MARINE": 15
+          },
+          "completed": {
+            "SUPPLYDEPOT": 7,
+            "REFINERY": 1,
+            "BARRACKS": 2,
+            "BARRACKSTECHLAB": 1,
+            "COMMANDCENTER": 1
+          },
+          "checks": {
+            "standard_start": true,
+            "mined_minerals_and_gas": true,
+            "spent_minerals_and_gas": true,
+            "completed_production_chain": true,
+            "trained_workers_and_army": true,
+            "observed_construction_progress": true,
+            "expanded": true,
+            "fought": true
+          },
+          "last_observation": {
+            "loop": 9587,
+            "game_seconds": 427.86,
+            "minerals": 3130,
+            "vespene": 404,
+            "collected_minerals": 8555.0,
+            "collected_vespene": 804.0,
+            "spent_minerals": 5475.0,
+            "spent_vespene": 400.0,
+            "workers": 44,
+            "army": 18,
+            "structures": {
+              "SUPPLYDEPOT": 7,
+              "BARRACKS": 2,
+              "COMMANDCENTER": 2,
+              "BARRACKSTECHLAB": 1,
+              "REFINERY": 1
+            },
+            "killed_units": 3325.0,
+            "killed_structures": 1550.0
+          },
+          "action_errors": {
+            "208": 1
+          }
+        },
+        {
+          "player_index": 2,
+          "player_id": 4,
+          "team_id": 1,
+          "result": "Tie",
+          "trained": {
+            "SCV": 20,
+            "MARAUDER": 9,
+            "MARINE": 9
+          },
+          "completed": {
+            "SUPPLYDEPOT": 5,
+            "REFINERY": 1,
+            "BARRACKS": 2,
+            "BARRACKSTECHLAB": 1,
+            "COMMANDCENTER": 1
+          },
+          "checks": {
+            "standard_start": true,
+            "mined_minerals_and_gas": true,
+            "spent_minerals_and_gas": true,
+            "completed_production_chain": true,
+            "trained_workers_and_army": true,
+            "observed_construction_progress": true,
+            "expanded": true,
+            "fought": true
+          },
+          "last_observation": {
+            "loop": 9587,
+            "game_seconds": 427.86,
+            "minerals": 85,
+            "vespene": 378,
+            "collected_minerals": 4860.0,
+            "collected_vespene": 628.0,
+            "spent_minerals": 4825.0,
+            "spent_vespene": 250.0,
+            "workers": 0,
+            "army": 0,
+            "structures": {},
+            "killed_units": 1050.0,
+            "killed_structures": 0.0
+          },
+          "action_errors": {
+            "208": 1
+          }
+        },
+        {
+          "player_index": 3,
+          "player_id": 3,
+          "team_id": 1,
+          "result": "Tie",
+          "trained": {
+            "SCV": 33,
+            "MARINE": 17,
+            "MARAUDER": 11
+          },
+          "completed": {
+            "SUPPLYDEPOT": 5,
+            "REFINERY": 1,
+            "BARRACKS": 2,
+            "BARRACKSTECHLAB": 1,
+            "COMMANDCENTER": 1
+          },
+          "checks": {
+            "standard_start": true,
+            "mined_minerals_and_gas": true,
+            "spent_minerals_and_gas": true,
+            "completed_production_chain": true,
+            "trained_workers_and_army": true,
+            "observed_construction_progress": true,
+            "expanded": true,
+            "fought": true
+          },
+          "last_observation": {
+            "loop": 9587,
+            "game_seconds": 427.86,
+            "minerals": 1975,
+            "vespene": 492,
+            "collected_minerals": 7400.0,
+            "collected_vespene": 792.0,
+            "spent_minerals": 5475.0,
+            "spent_vespene": 300.0,
+            "workers": 38,
+            "army": 0,
+            "structures": {
+              "SUPPLYDEPOT": 4,
+              "COMMANDCENTER": 2
+            },
+            "killed_units": 725.0,
+            "killed_structures": 0.0
+          },
+          "action_errors": {}
+        }
+      ]
+    },
+    "races_research_replays": {
+      "passed": true,
+      "results": {
+        "1": "Tie",
+        "4": "Tie",
+        "3": "Tie",
+        "2": "Tie"
+      },
+      "bots": [
+        {
+          "race": "Terran",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_SCV": 9,
+            "construction_started": 7,
+            "complete_SUPPLYDEPOT": 3,
+            "complete_REFINERY": 1,
+            "complete_ENGINEERINGBAY": 1,
+            "complete_BARRACKS": 1,
+            "created_MARINE": 6,
+            "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1,
+            "complete_COMMANDCENTER": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 15.085693359375,
+            "expansion": [
+              53.5,
+              30.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            5075.0,
+            620.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Protoss",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_PROBE": 9,
+            "construction_started": 7,
+            "complete_PYLON": 3,
+            "complete_ASSIMILATOR": 1,
+            "complete_GATEWAY": 1,
+            "complete_FORGE": 1,
+            "created_ZEALOT": 6,
+            "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1,
+            "complete_NEXUS": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 10.3681640625,
+            "expansion": [
+              75.5,
+              30.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4765.0,
+            640.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Zerg",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_LARVA": 25,
+            "type_changed": 19,
+            "created_OVERLORD": 3,
+            "created_DRONE": 12,
+            "construction_started": 3,
+            "complete_EXTRACTOR": 1,
+            "complete_SPAWNINGPOOL": 1,
+            "created_ZERGLING": 8,
+            "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+            "complete_HATCHERY": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 14.109130859375,
+            "expansion": [
+              53.5,
+              85.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4955.0,
+            664.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Zerg",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_LARVA": 25,
+            "type_changed": 19,
+            "created_OVERLORD": 3,
+            "created_DRONE": 12,
+            "construction_started": 3,
+            "complete_EXTRACTOR": 1,
+            "complete_SPAWNINGPOOL": 1,
+            "created_ZERGLING": 8,
+            "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+            "complete_HATCHERY": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 14.1064453125,
+            "expansion": [
+              75.5,
+              85.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4615.0,
+            652.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        }
+      ],
+      "research_completions": [
+        {
+          "player_id": 3,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 2,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4420,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5156,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5604,
+          "count": 1
+        }
+      ],
+      "playback": [
+        {
+          "observed_id": 0,
+          "upgrades": [],
+          "upgrade_events": {},
+          "attack_levels": {
+            "2": 0,
+            "16": 0,
+            "4": 1,
+            "1": 1,
+            "3": 0
+          },
+          "result": null
+        },
+        {
+          "observed_id": 4,
+          "upgrades": [
+            "PROTOSSGROUNDWEAPONSLEVEL1"
+          ],
+          "upgrade_events": {
+            "PROTOSSGROUNDWEAPONSLEVEL1": 1
+          },
+          "attack_levels": {
+            "16": 0,
+            "2": 0,
+            "4": 1
+          },
+          "result": "Tie"
+        }
+      ],
+      "request_counts": {
+        "ping": 8,
+        "data": 4,
+        "game_info": 1008,
+        "query": 88,
+        "action": 108,
+        "step": 1000,
+        "observation": 1000,
+        "save_replay": 1
+      },
+      "owned_processes_closed": true
+    }
+  },
+  "existing_launcher": {
+    "stepped_counts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "realtime_counts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "realtime_first_attempt_counts": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "realtime_fresh_attempt_counts": [
+      7,
+      8
+    ],
+    "count_checks": [
+      "distinct native IDs/PIDs/ports/unit tags",
+      "alliances",
+      "actions and actual movement",
+      "callbacks",
+      "replay metadata",
+      "no Debug; no realtime Step"
+    ],
+    "races": {
+      "phase": "races",
+      "passed": true,
+      "detail": {
+        "results": [
+          "Tie",
+          "Tie",
+          "Tie",
+          "Tie"
+        ],
+        "bots": [
+          {
+            "race": "Terran",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_SCV": 9,
+              "construction_started": 7,
+              "complete_SUPPLYDEPOT": 3,
+              "complete_REFINERY": 1,
+              "complete_BARRACKS": 1,
+              "complete_ENGINEERINGBAY": 1,
+              "created_MARINE": 6,
+              "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1,
+              "complete_COMMANDCENTER": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 12.19140625,
+              "expansion": [
+                53.5,
+                30.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              5020.0,
+              620.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Protoss",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_PROBE": 9,
+              "construction_started": 7,
+              "complete_PYLON": 3,
+              "complete_ASSIMILATOR": 1,
+              "complete_GATEWAY": 1,
+              "complete_FORGE": 1,
+              "created_ZEALOT": 6,
+              "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1,
+              "complete_NEXUS": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 15.085205078125,
+              "expansion": [
+                75.5,
+                30.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4810.0,
+              620.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 25,
+              "type_changed": 19,
+              "created_OVERLORD": 3,
+              "created_DRONE": 12,
+              "construction_started": 3,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+              "complete_HATCHERY": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 15.08544921875,
+              "expansion": [
+                53.5,
+                85.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4960.0,
+              668.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          },
+          {
+            "race": "Zerg",
+            "history": [
+              "before_start",
+              "start",
+              "end"
+            ],
+            "steps": 250,
+            "events": {
+              "created_LARVA": 25,
+              "type_changed": 19,
+              "created_OVERLORD": 3,
+              "created_DRONE": 12,
+              "construction_started": 3,
+              "complete_EXTRACTOR": 1,
+              "complete_SPAWNINGPOOL": 1,
+              "created_ZERGLING": 8,
+              "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+              "complete_HATCHERY": 1
+            },
+            "queries": {
+              "abilities": true,
+              "pathing_distance": 15.079833984375,
+              "expansion": [
+                75.5,
+                85.5
+              ],
+              "cost_and_supply": true,
+              "unit_collections": true
+            },
+            "collected": [
+              4555.0,
+              656.0
+            ],
+            "max_workers": 21,
+            "result": "Tie",
+            "raw_affects_selection": false,
+            "research_enabled": true
+          }
+        ],
+        "owned_processes_closed": true,
+        "realtime": false,
+        "expansion_required": true
+      }
+    },
+    "research_replay": {
+      "passed": true,
+      "native_results": {
+        "1": "Tie",
+        "2": "Tie",
+        "3": "Tie",
+        "4": "Tie"
+      },
+      "research_completions": [
+        {
+          "player_id": 2,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4292,
+          "count": 1
+        },
+        {
+          "player_id": 3,
+          "upgrade": "zerglingmovementspeed",
+          "loop": 4420,
+          "count": 1
+        },
+        {
+          "player_id": 1,
+          "upgrade": "TerranInfantryWeaponsLevel1",
+          "loop": 5156,
+          "count": 1
+        },
+        {
+          "player_id": 4,
+          "upgrade": "ProtossGroundWeaponsLevel1",
+          "loop": 5828,
+          "count": 1
+        }
+      ],
+      "playback": [
+        {
+          "observed_id": 0,
+          "upgrades": [],
+          "upgrade_events": {},
+          "attack_levels": {
+            "16": 0,
+            "1": 1,
+            "4": 1,
+            "3": 0,
+            "2": 0
+          },
+          "result": null
+        },
+        {
+          "observed_id": 4,
+          "upgrades": [
+            "PROTOSSGROUNDWEAPONSLEVEL1"
+          ],
+          "upgrade_events": {
+            "PROTOSSGROUNDWEAPONSLEVEL1": 1
+          },
+          "attack_levels": {
+            "16": 0,
+            "4": 1,
+            "3": 0
+          },
+          "result": "Tie"
+        }
+      ],
+      "request_counts": {
+        "join_game": 4,
+        "data": 8,
+        "step": 1012,
+        "action": 115,
+        "observation": 1008,
+        "game_info": 1008,
+        "ping": 4,
+        "query": 88,
+        "save_replay": 1
+      },
+      "independent_clients": true,
+      "own_upgrade_callbacks": true,
+      "owned_processes_closed": true
+    },
+    "standard": {
+      "phase": "standard",
+      "passed": true,
+      "detail": {
+        "async_result": "Tie",
+        "async_steps": 168,
+        "standard_batch_result": "Tie",
+        "batch_steps": 113,
+        "async_pair_results": [
+          "Tie",
+          "Tie"
+        ],
+        "allocated_ports_released": true
+      }
+    },
+    "failure_cleanup": {
+      "phase": "failures",
+      "passed": true,
+      "detail": [
+        {
+          "case": "exception",
+          "error": "ValueError: intentional release-test policy failure",
+          "owned_processes_closed": true
+        },
+        {
+          "case": "cancel",
+          "error": "CancelledError: ",
+          "owned_processes_closed": true
+        }
+      ]
+    }
+  },
+  "stages": [
+    {
+      "case": "service-macro",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 66.38
+    },
+    {
+      "case": "service-macro-checks",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 1.32
+    },
+    {
+      "case": "service-races",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 85.59
+    },
+    {
+      "case": "legacy-counts",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 155.93
+    },
+    {
+      "case": "legacy-realtime",
+      "exit_code": 1,
+      "passed": false,
+      "seconds": 225.75
+    },
+    {
+      "case": "legacy-races",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 41.5
+    },
+    {
+      "case": "legacy-research-replay",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 34.3
+    },
+    {
+      "case": "legacy-standard",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 35.18
+    },
+    {
+      "case": "legacy-failures",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 25.74
+    }
+  ],
+  "targeted_retests": [
+    {
+      "case": "baseline-realtime-7",
+      "package": "0.3.3a1",
+      "counts": [
+        7
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 34.84
+    },
+    {
+      "case": "legacy-realtime-retry",
+      "package": "0.3.3a2",
+      "counts": [
+        7,
+        8
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 71.98
+    }
+  ],
+  "replays": [
+    {
+      "path": "raw/baseline-realtime-7/7/game.SC2Replay",
+      "sha256": "2a40ac4c7566dcee6b67a8a924977cfb9d6e000e5f530bffee594dc7630d012f",
+      "bytes": 9334,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 7
+    },
+    {
+      "path": "raw/legacy-counts/2/game.SC2Replay",
+      "sha256": "e7d070045ba4ac000d403c7cd5b130347c6d674e47e218552761dcc7dd93a7dc",
+      "bytes": 8039,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 2
+    },
+    {
+      "path": "raw/legacy-counts/3/game.SC2Replay",
+      "sha256": "47567c183c3890569b05b5666cf30a07fb33e6972ef108a907be718f15bb096d",
+      "bytes": 8347,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 3
+    },
+    {
+      "path": "raw/legacy-counts/4/game.SC2Replay",
+      "sha256": "1ada424c66accb164a9fcf06f573aaa991def1d010699faf77649eb8aab07023",
+      "bytes": 8612,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 4
+    },
+    {
+      "path": "raw/legacy-counts/5/game.SC2Replay",
+      "sha256": "b9086f3b6bb3d7feb3cb9c65651c216be41c56196e11a27bf5630e089bfd0366",
+      "bytes": 9059,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 5
+    },
+    {
+      "path": "raw/legacy-counts/6/game.SC2Replay",
+      "sha256": "5e75a8d57cd35fcf170a63e06e0baa6f6a0149e5c8a56e4ddb75d84bac18b64a",
+      "bytes": 9214,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 6
+    },
+    {
+      "path": "raw/legacy-counts/7/game.SC2Replay",
+      "sha256": "c9e3df2feed75abe6f1319f3faa67478c941044c5156c3a01b5fec9786f53018",
+      "bytes": 9300,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 7
+    },
+    {
+      "path": "raw/legacy-counts/8/game.SC2Replay",
+      "sha256": "6835e8797b4b48cbf3bfa1dd48e152ddd34735bbc5135b5575a1d858e6900049",
+      "bytes": 9527,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 8
+    },
+    {
+      "path": "raw/legacy-races/game.SC2Replay",
+      "sha256": "a6077dd63ef1bd59598ffe810d98419b2d1a4137f064cbef1848b2fc3a07fb4f",
+      "bytes": 15599,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 4
+    },
+    {
+      "path": "raw/legacy-realtime/2/game.SC2Replay",
+      "sha256": "02a78cc9318c01474aeba8837caa8d6497689948f9c19f2d73b2c58a9acc949c",
+      "bytes": 8053,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 2
+    },
+    {
+      "path": "raw/legacy-realtime/3/game.SC2Replay",
+      "sha256": "5468398508ce677832121aded8856ef447f637cb8b9b7ef641b71d32cd63a1ab",
+      "bytes": 8404,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 3
+    },
+    {
+      "path": "raw/legacy-realtime/4/game.SC2Replay",
+      "sha256": "2032743d5a157a371899198daca039585060b4d6aec287b012a4a6c4b6c7709b",
+      "bytes": 8732,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 4
+    },
+    {
+      "path": "raw/legacy-realtime/5/game.SC2Replay",
+      "sha256": "069dbd2549cfb0aa794a2925d84393e7b582bc710c2640547300e9c7f0aaed39",
+      "bytes": 9066,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 5
+    },
+    {
+      "path": "raw/legacy-realtime/6/game.SC2Replay",
+      "sha256": "595504e3eb0b7313b055663deae387315fc216cf4b87e8a9b1103f5ee4a0032c",
+      "bytes": 9262,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 6
+    },
+    {
+      "path": "raw/legacy-realtime-retry/7/game.SC2Replay",
+      "sha256": "ab313b80caca07f268744b072da482195a29325a1a722e589fadc143df612141",
+      "bytes": 9446,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 7
+    },
+    {
+      "path": "raw/legacy-realtime-retry/8/game.SC2Replay",
+      "sha256": "bcaa87da233945f5d764eb20cbffb90b76d72a4d5ef1d4557aebd3c6b3c0c22e",
+      "bytes": 9625,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 8
+    },
+    {
+      "path": "raw/legacy-standard/game.SC2Replay",
+      "sha256": "8210695123ff6426c7bc673c41a6fca3e49ace293c1b0ab2fa0def8421201538",
+      "bytes": 8816,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 2
+    },
+    {
+      "path": "raw/service-macro/game.SC2Replay",
+      "sha256": "b016b53ff3a82df76939588146371a3c7fe67c6c90c40f3f7f376ba6c89fc96b",
+      "bytes": 27024,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 4
+    },
+    {
+      "path": "raw/service-matrix/realtime-4-2v2/game.SC2Replay",
+      "sha256": "9f88036b5f205a2fd52aefb21ac09706569aa1a4225ebfcf170e04d29146738f",
+      "bytes": 9223,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 4
+    },
+    {
+      "path": "raw/service-races/game.SC2Replay",
+      "sha256": "af06fba299fd73183b3421ece9ced48f71ab9f258889c6fbc818cb98423917c9",
+      "bytes": 15704,
+      "game_version": "4.10.0.75689",
+      "data_version": "B89B5D6FA7CBF6452E721311BFBC6CB2",
+      "players": 4
+    }
+  ],
+  "cleanup": {
+    "passed": true,
+    "recorded_owned_native_process_count": 151,
+    "owned_processes_remaining": [],
+    "selected_engine_processes_remaining": [],
+    "other_sc2_jobs_observed": 0
+  },
+  "previous_package_version_preserved": "0.3.3a1",
+  "new_runtime_code_fixes_required": false,
+  "failed_attempts": [
+    {
+      "case": "legacy-realtime/7",
+      "players": 7,
+      "realtime": true,
+      "error": "TimeoutError: Multiplayer barrier timed out after 90s",
+      "phase": "Native JoinGame before gameplay; service not involved",
+      "cleanup_verified": true,
+      "fresh_seven_and_eight_player_matches_passed": true,
+      "root_cause": "Unconfirmed; the Linux native helper is unchanged. Do not infer startup reliability from the successful retest."
+    }
+  ],
+  "known_warnings": [
+    "Existing upstream standard-game teardown emitted connection/session-close warnings despite passing gameplay and port-release assertions."
+  ],
+  "limits": [
+    "Bounded matches, not a long-running training reliability study.",
+    "Only the exact registered Linux Base75689 executable and bundled maps are covered.",
+    "Service realtime coverage is a short four-player 2v2 game; existing launcher realtime covers 2 through 8.",
+    "All clients run on one Linux host over loopback; no distributed-host or rendered-interface test.",
+    "No new Windows gameplay validation or Mac Base98310 support claim."
+  ],
+  "raw_evidence": "reports/linux-service-20261103/raw (local, not included in Git)",
+  "raw_archive": {
+    "path": "reports/linux-service-20261103/linux-results.tar.gz",
+    "sha256": "c084431e727e94f48b92b221598e28a0892d91b9ade249512722666e08eaebb6",
+    "bytes": 2618140
+  },
+  "validation_harness_sha256": {
+    "retry_driver.py": "81f7e1473d1286818aba537e2f9d1375f18fc490f1eb691f942e0c9d84541f50",
+    "regression_driver.py": "a313e24a401173bc237cb613e263bac89d9d86e09547dca7785cd8b9434bfb35",
+    "service_races.py": "25de97fd5860ed8264952fc3b3c7c39811d2fe4bc63ad97b99e5534a54c3fd53",
+    "build_evidence.py": "2e74fd04e83940c3e947c1795454a31fadd9f8158589796da49eb8eb22fd7647",
+    "cleanup_audit.py": "b13bfc99c3d0cef007be02b3b4a34b122a0fc0ebd9ef0274e41afbec6c87f9ac"
+  },
+  "source_sha256": {
+    "src/mpsc2/native_session.py": "5e441122b53299905700d9fae7035c046a35ee605eb8afc3dd735e6236d42ae7",
+    "src/mpsc2/linux_session.py": "52c77cda15e8873bd399c9e66e862b7d8c4bf542093bed9283cba9fac167c16a",
+    "src/mpsc2/service/coordinator.py": "a67372dbff0d5314fa4d0d8e8868f2a9c8f7c72b51e67c3836bf1a5c12c37135",
+    "src/mpsc2/service/server.py": "d9f84079974284df1c243d435881f0da1826fdfd346c6777efdb9e0936292d46",
+    "src/mpsc2/service/backend.py": "c25663de49a690a417ab49068fc223509752a38f5602b30a1bc31e771d402d36",
+    "src/mpsc2/service/bots.py": "2913262dfdd32138d1e439736e3a7177b61947e202fffc82091769c39dd54b9d",
+    "src/mpsc2/service/client.py": "0e90d72debf906a876936a77d8f9fa53d833b6a18f778a2c3b0fe88bc4ea513f",
+    "src/mpsc2/service/__init__.py": "492e793c2ccb09ead7a0d9da2a309c456ae4be3fe2914385657f0be472ef8e9c",
+    "src/mpsc2/service/multiplayer_pb2.py": "852016d1f2aa546e418c8559126bee23f6f1634df00a490fe939246b2a98a769",
+    "src/mpsc2/service/contract.py": "4ea024e838cbeeae2fd93b182e1d2216236bd9bc8439674db0340cdd7783b2e2",
+    "src/mpsc2/service/__main__.py": "86cd9dd641c96fd19a96be8bdb65075ce5e7a8f1f756a3bcc021e7ba3a3df8d0",
+    "src/mpsc2/native/linux_bridge.c": "cc2c610a3bb0a055e88d5836e3ef4498e4472a7be2cca030613ea8c44ac38f99",
+    "protocols/mpsc2/v1/multiplayer.proto": "0c0777341f0e44d4ae9db175128d3e83a63938ae73ce9a7f270d53224fa0b56e"
+  }
+}

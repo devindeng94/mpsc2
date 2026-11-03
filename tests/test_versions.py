@@ -18,6 +18,15 @@ def test_original_upstream_versions_export_is_preserved():
     assert VERSIONS is upstream
 
 
+@pytest.mark.parametrize('value', ['5.0.17', '5.0.17.98310', 'Base98310', 98310])
+def test_macos_update_metadata_does_not_grant_native_support(value):
+    game = get_game_version(value)
+    assert game.build == 98310 and game.data_version is None
+    with pytest.raises(UnsupportedNativeProfile, match='No verified native'):
+        get_native_profile('Darwin', value)
+    assert get_native_profile('Darwin') is MACOS_96883
+
+
 def test_native_loader_refuses_a_different_python_architecture(tmp_path):
     from mpsc2.windows_session import validate_executable
     executable = tmp_path/'SC2_x64.exe'
@@ -54,7 +63,7 @@ def test_defaults_and_binary_architecture_are_explicit():
         get_native_profile('Windows', architecture='arm64')
     assert len(get_game_version('5.0.14').data_version) == 32
     assert len(WINDOWS_93333.executable_sha256) == 64
-    assert get_game_version('5.0.15', system='Darwin').data_version is None  # do not invent an unrecorded value
+    assert get_game_version('5.0.15', system='Darwin').data_version == 'B49DA51995BA9767F4C624034C211342'
 
 
 def test_registries_and_profile_settings_cannot_be_mutated():

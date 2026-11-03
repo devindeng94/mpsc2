@@ -86,10 +86,12 @@ _GAMES = (
                 'PySC2/burnysc2 version tables; local API Ping'),
     GameVersion('5.0.14.93333', 93333, '446907060311FB1CC29EB31E547BB9FD', ('5.0.14',),
                 'burnysc2 version table; local API Ping and replay metadata'),
-    GameVersion('5.0.15.96883', 96883, None, ('5.0.15',),
-                'Existing macOS validation; data identifier not recorded'),
+    GameVersion('5.0.15.96883', 96883, 'B49DA51995BA9767F4C624034C211342', ('5.0.15',),
+                'macOS compatibility-engine API Ping with matching Base96883 build configuration'),
     GameVersion('5.0.15.98370', 98370, '84197ED58A0329FA79CC9426E07E5FB3', ('5.0.15',),
                 'Local Windows API Ping and stepped/realtime replay metadata'),
+    GameVersion('5.0.17.98310', 98310, None, ('5.0.17',),
+                'macOS .build.info and game UI; API startup failed, no Ping data identifier'),
 )
 GAME_VERSIONS = MappingProxyType({game.label: game for game in _GAMES})
 _ALIASES = MappingProxyType({alias: tuple(g.label for g in _GAMES if alias in g.aliases)
@@ -265,6 +267,15 @@ def compatibility_catalog() -> dict:
         'native_profiles': [profile.summary() for profile in NATIVE_PROFILES.values()],
         'default_native_builds': dict(DEFAULT_NATIVE_BUILDS),
         'observations': [
+            {'system': 'Darwin', 'build': 98310, 'game_version': '5.0.17.98310',
+             'executable_sha256': 'cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1',
+             'standard_api': 'startup failed on tested installation', 'native_multiplayer': 'no profile',
+             'note': 'macOS Base98310 did not expose the SC2 API in local tests. Direct API launches '
+                     'exited with code 1 before Ping. This is a recorded failure, not proof that every '
+                     'installation fails. Base96883 remains the supported macOS native build; '
+                     'run python -m mpsc2.probe to retest this installation, or see '
+                     'python -m mpsc2 prepare-macos-compat --help for explicit separate-engine setup.',
+             'evidence': 'evidence/2026-11-01/macos-98310-startup.json'},
             {'system': 'Windows', 'build': 75689, 'standard_api': 'tested', 'native_multiplayer': 'registered profile',
              'note': 'Engine support uses installed content; historical 4.10 balance data is not guaranteed',
              'evidence': 'evidence/2026-11-01/windows-three-build-validation.json'},

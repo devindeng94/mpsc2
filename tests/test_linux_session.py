@@ -13,7 +13,7 @@ from unittest.mock import AsyncMock, patch
 import pytest
 from s2clientprotocol import sc2api_pb2 as api
 
-from mpsc2.linux_session import LinuxProcess, build_bridge, validate_executable
+from mpsc2.linux_session import LinuxJoinTimeout, LinuxProcess, build_bridge, validate_executable
 from mpsc2.native_session import NativeMultiplayerSession
 from mpsc2.versions import LINUX_75689, UnsupportedNativeProfile, get_game_version
 
@@ -161,6 +161,152 @@ def test_linux_join_uses_distinct_ports_and_cleans_all_children(count, failure, 
         assert all(c.get_game_data.await_count == 1 for c in clients)
         report = json.loads((session.output/'native-session.json').read_text())
         assert report['realtime'] and report['ability_layouts'] == ['legacy-4.10-3800']*count
+
+
+@pytest.mark.parametrize('failure', ['once', 'twice', 'partial', 'started', 'queued',
+                                    'missing_log', 'error', 'cancel', 'data_timeout'])
+def test_linux_startup_recovery_is_bounded_and_pre_join_only(failure, tmp_path):
+    source = tmp_path/'map.SC2Map'
+    source.touch()
+    prepared = AsyncMock()
+    session = NativeMultiplayerSession(source, output=tmp_path/'run', players=7,
+                                       realtime=True, timeout=0.02, prepared_hook=prepared)
+    processes, clients, configurations = [], [], []
+
+    def process(executable, root, output, env, index, **kwargs):
+        child = AsyncMock()
+        child._process = SimpleNamespace(pid=100+len(processes), poll=lambda: None)
+        child._port, child._arguments, child.observation_guard = 5000+len(processes), {}, None
+        output.mkdir(parents=True)
+        if failure != 'missing_log' or index != 6:
+            (output/'engine.log').write_text(
+                'Game has started.\n' if failure == 'started' else
+                'MainThread: Queuing response: join_game, id: 0\n' if failure == 'queued' else 'Lobby pending\n')
+        controller = child.__aenter__.return_value
+        controller._execute.return_value = api.Response(create_game=api.ResponseCreateGame())
+        controller.ping.return_value = api.Response(ping=api.ResponsePing(
+            base_build=75689, data_version=get_game_version(75689).data_version))
+        if index == 0:
+            # Every previous child must be closed before the next launch.
+            assert all(p.__aexit__.await_count == 1 for p in processes)
+            configurations.append(set(session.ports.server) | {p for pair in session.ports.players for p in pair})
+        processes.append(child)
+        return child
+
+    def client(*args, **kwargs):
+        attempt, index = divmod(len(clients), 7)
+        child = AsyncMock()
+        child.ability_layout = 'legacy-4.10-3800'
+        async def join(**kwargs):
+            if failure == 'error':
+                raise RuntimeError('join refused')
+            if failure == 'cancel':
+                raise asyncio.CancelledError()
+            if failure == 'data_timeout' or (failure == 'partial' and index == 0) or (failure == 'once' and attempt == 1):
+                return index+1
+            await asyncio.Event().wait()
+        child.join_game.side_effect = join
+        if failure == 'data_timeout':
+            async def hang():
+                await asyncio.Event().wait()
+            child.get_game_data.side_effect = hang
+        clients.append(child)
+        return child
+
+    async def run():
+        async with session:
+            assert session.player_ids == list(range(1, 8))
+
+    with patch('mpsc2.native_session.platform.system', return_value='Linux'), \
+         patch('mpsc2.linux_session.detect_installation', return_value={'platform':'Linux', 'root':str(tmp_path)}), \
+         patch('mpsc2.linux_session.validate_executable'), \
+         patch('mpsc2.linux_session.build_bridge', return_value=tmp_path/'bridge.so'), \
+         patch('mpsc2.linux_session.file_sha256', return_value='fixture'), \
+         patch('mpsc2.linux_session.psutil.Process', return_value=SimpleNamespace(create_time=lambda: 123.0, net_connections=lambda **kw: [])), \
+         patch('mpsc2.linux_session.LinuxProcess', side_effect=process), \
+         patch('mpsc2.linux_session.RecordedClient', side_effect=client):
+        if failure == 'once':
+            asyncio.run(run())
+        else:
+            expected = (RuntimeError if failure == 'error' else asyncio.CancelledError if failure == 'cancel'
+                        else TimeoutError if failure == 'data_timeout' else LinuxJoinTimeout)
+            with pytest.raises(expected):
+                asyncio.run(run())
+    retried = failure in ('once', 'twice')
+    assert len(processes) == (14 if retried else 7)
+    assert all(p.__aexit__.await_count == 1 for p in processes)
+    assert prepared.await_count == (2 if retried else 1)
+    report = json.loads((session.output/'native-session.json').read_text())
+    assert len(report['startup_attempts']) == (2 if retried else 1)
+    archive = session.output/'failed-join-attempt-1'
+    assert archive.is_dir() == retried
+    if retried:
+        assert configurations[0].isdisjoint(configurations[1])
+        assert len(session.clients) == len(session.processes) == 7
+        first = json.loads((archive/'native-session.json').read_text())
+        assert first['stage'] == 'join_game'
+        assert len(first['join_network']) == 7
+        assert all(p['state'] == 'interrupted' for p in first['join_progress'])
+        assert first['startup_attempts'][0]['outcome'] == 'join_timeout'
+        assert (archive/'client-6/engine.log').read_text() == 'Lobby pending\n'
+    if failure == 'partial':
+        assert report['join_progress'][0]['player_id'] == 1
+    if failure == 'once':
+        assert all(p['state'] == 'joined' for p in report['join_progress'])
+
+
+def test_linux_recovery_ports_hold_conflicting_allocations_until_replacement():
+    from mpsc2.linux_session import _allocate_ports
+    first = SimpleNamespace(server=[3000, 3001], players=[[3002, 3003]], clean=lambda: cleaned.append('first'))
+    second = SimpleNamespace(server=[4000, 4001], players=[[4002, 4003]], clean=lambda: cleaned.append('second'))
+    cleaned = []
+    def allocate(**kwargs):
+        assert not cleaned
+        return next(candidates)
+    candidates = iter([first, second])
+    with patch('mpsc2.linux_session.Portconfig', side_effect=allocate):
+        assert _allocate_ports(2, {3000}) is second
+    assert cleaned == ['first']
+
+
+@pytest.mark.parametrize('condition', ['connected', 'exited', 'reused_pid', 'denied'])
+def test_linux_join_snapshot_is_scoped_and_does_not_prevent_cleanup(condition):
+    from collections import namedtuple
+    from unittest.mock import Mock
+    import psutil
+    from mpsc2.linux_session import _join_network_evidence
+    Address = namedtuple('Address', 'ip port')
+    def connection(local, remote=()):
+        return SimpleNamespace(fd=7, type=1, laddr=Address(*local),
+                               raddr=Address(*remote) if remote else (), status='ESTABLISHED')
+    owned = Mock()
+    owned.create_time.return_value = 99 if condition == 'reused_pid' else 123
+    owned.net_connections.return_value = [
+        connection(('127.0.0.1', 3001)),
+        connection(('127.0.0.1', 50000), ('127.0.0.1', 3003)),
+        connection(('10.0.0.1', 50001), ('1.1.1.1', 443)),
+        connection(('127.0.0.1', 6000), ('127.0.0.1', 6001)),
+    ]
+    if condition == 'denied':
+        owned.net_connections.side_effect = psutil.AccessDenied(17)
+    session = SimpleNamespace(
+        processes=[SimpleNamespace(_process=SimpleNamespace(poll=lambda: 1 if condition == 'exited' else None))],
+        native_metadata={'server_ports':[3000,3001], 'guest_ports':[[3002,3003]],
+                         'processes':[{'pid':17, 'api_port':4000, 'process_create_time':123}]})
+    with patch('mpsc2.linux_session.psutil.Process', return_value=owned) as process:
+        report = _join_network_evidence(session)
+    assert len(report) == 1 and report[0]['pid'] == 17
+    if condition == 'connected':
+        assert len(report[0]['sockets']) == 2
+        assert report[0]['sockets'][1]['remote'] == ['127.0.0.1', 3003]
+    else:
+        assert not report[0]['sockets']
+    if condition == 'exited':
+        process.assert_not_called()
+    if condition == 'reused_pid':
+        owned.net_connections.assert_not_called()
+    if condition in ('reused_pid', 'denied'):
+        assert report[0]['error']
 
 
 @pytest.mark.parametrize('observed', [0, 3, 4, 8])

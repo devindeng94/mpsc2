@@ -1,0 +1,1726 @@
+{
+  "tested_on": "2026-11-01",
+  "mpsc2": "0.3.3a2",
+  "source_baseline": "ddd93ee81ed55f8f8ab7cd25b588f39790e7f2ae",
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.13.2"
+  },
+  "scope": "Explicit separate Base96883 compatibility engine after retail Base98310 update. No native Base98310 API/gameplay support.",
+  "retail": {
+    "version": "5.0.17.98310",
+    "build": 98310,
+    "executable_sha256": "cbe001a76f5962b207c71179ae86b6129561066d62bc59c0543186f43bfffeb1",
+    "all_129_source_app_files_still_match": true,
+    "build_info_sha256": "25a50223a5321624c33c63974660485fd25455330dbc3dd5340bc9a91120ff12",
+    "build_selection_unchanged": true
+  },
+  "compatibility_engine": {
+    "profile": "macos-x86_64-96883-v1",
+    "executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb",
+    "api_identity": {
+      "game_version": "5.0.15.96883",
+      "base_build": 96883,
+      "data_version": "B49DA51995BA9767F4C624034C211342"
+    },
+    "app_files_verified": 129,
+    "app_signature_deep_verification": "passed",
+    "download_bytes": 94674260,
+    "local_files_reused": 118,
+    "build_config": "275c3e0594f089a29a5d7b1f470511a3",
+    "manifest_sha256": "341c624ae48c643ab50cd6ba999f99f429e2d244de61f9b1665bf562e7e0a3c3",
+    "retail_installation_replaced": false,
+    "installer_changes_global_SC2PATH": false,
+    "game_binaries_redistributed": false
+  },
+  "regression_tests": {
+    "source": "403 passed, 5 skipped in 2.94s",
+    "installed_wheel": "403 passed, 5 skipped in 1.46s",
+    "skips": "Platform-specific tests not applicable to this Mac"
+  },
+  "native_helpers_unchanged": {
+    "local_four_bridge.c": true,
+    "observation_guard.c": true,
+    "windows_bridge.c": true,
+    "linux_bridge.c": true
+  },
+  "stepped_player_counts": [
+    {
+      "players": 2,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1
+      ],
+      "native_player_ids": [
+        1,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "replay_sha256": "aec1d1cfa14f37a876c9cd09b058ac7070c1daedda00d629656469f4a4f4017a"
+    },
+    {
+      "players": 3,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0
+      ],
+      "native_player_ids": [
+        1,
+        2,
+        3
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "ping": 2,
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "replay_sha256": "d48278dd6bd9857c2efbc4a15e692f1da3a3c2716421b09e8828cbbca6b3d677"
+    },
+    {
+      "players": 4,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_player_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "ping": 2,
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "replay_sha256": "594a79fd17a996039d2c87c22bca4c98d040b959cd89bf1632e7152a0ec0fd70"
+    },
+    {
+      "players": 5,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "native_player_ids": [
+        1,
+        2,
+        3,
+        5,
+        4
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "ping": 2,
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "replay_sha256": "5a28b5d49c36fd761912e401d20f8b06714209abfc7723e40489fdbb076dc16f"
+    },
+    {
+      "players": 6,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_player_ids": [
+        1,
+        4,
+        3,
+        2,
+        5,
+        6
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "ping": 2,
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "replay_sha256": "6b26ec64a436c7989557409d196614e704fa687ce0b3faad9f5a92fee867bcd3"
+    },
+    {
+      "players": 7,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "native_player_ids": [
+        1,
+        7,
+        2,
+        4,
+        6,
+        5,
+        3
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "ping": 2,
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "replay_sha256": "f9ed06a7aac4eca5c429ab621a87ab6c397a6ecddfbb7eac1e5b91449f6bc8cd"
+    },
+    {
+      "players": 8,
+      "realtime": false,
+      "scenario": "arena",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_player_ids": [
+        1,
+        5,
+        3,
+        2,
+        8,
+        4,
+        6,
+        7
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 10,
+          "moved": true,
+          "collected_minerals": 0,
+          "max_workers": 0,
+          "max_structures": 0,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "ping": 2,
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        },
+        {
+          "join_game": 1,
+          "step": 13,
+          "action": 2,
+          "observation": 12,
+          "data": 1,
+          "game_info": 12,
+          "ping": 1
+        }
+      ],
+      "replay_sha256": "c6203928b0cf946c75c16a7dbc7a89ab5ea89339291fe4859e4051f9ea58d3e3"
+    }
+  ],
+  "retained_failures": [
+    {
+      "case": "Base98310 official retail executable",
+      "result": "No usable API; see macos-98310-startup.json and official-launcher follow-up"
+    },
+    {
+      "case": "Base96883 executable with newer app supporting files",
+      "result": "macOS signature rejection; resolved by restoring the complete matching app bundle"
+    },
+    {
+      "case": "Complete Base96883 app with Base98310 build metadata",
+      "result": "Exited before API startup; resolved by separate matching Base96883 build selection"
+    },
+    {
+      "case": "First eight-client stepped join",
+      "result": "90-second barrier timeout; four of eight native readiness events",
+      "retry": "Isolated eight-client game passed",
+      "root_cause": "Unconfirmed; existing intermittent native join limitation retained"
+    }
+  ],
+  "limitations": [
+    "Uses 5.0.15 rules/data, not 5.0.17 balance",
+    "Tested on an upgraded installation with retained historical content; fresh installations not validated",
+    "Shares installed content cache; later cache removal may break it",
+    "No new live Windows or Linux run; profiles/helpers unchanged",
+    "Bounded gameplay fixtures do not establish long-training reliability"
+  ],
+  "local_artifacts": "reports/macos-98310-deeper",
+  "replays_and_downloads_in_public_source": false,
+  "realtime_economy": [
+    {
+      "players": 4,
+      "realtime": true,
+      "scenario": "melee",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_player_ids": [
+        1,
+        4,
+        2,
+        3
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 117,
+          "moved": true,
+          "collected_minerals": 450.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 117,
+          "moved": true,
+          "collected_minerals": 405.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 115,
+          "moved": true,
+          "collected_minerals": 450.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 117,
+          "moved": true,
+          "collected_minerals": 410.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "ping": 2,
+          "join_game": 1,
+          "observation": 123,
+          "action": 7,
+          "data": 1,
+          "game_info": 119,
+          "query": 1,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 123,
+          "action": 6,
+          "data": 1,
+          "game_info": 119,
+          "ping": 1,
+          "query": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 121,
+          "action": 6,
+          "data": 1,
+          "game_info": 117,
+          "ping": 1,
+          "query": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 123,
+          "action": 6,
+          "data": 1,
+          "game_info": 119,
+          "ping": 1,
+          "query": 1
+        }
+      ],
+      "replay_sha256": "df333df3dc83ebb26676d147f9548f9d6676660c4c5a3d6f4aa5952fde0a9837"
+    },
+    {
+      "players": 8,
+      "realtime": true,
+      "scenario": "melee",
+      "team_ids": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "native_player_ids": [
+        1,
+        5,
+        2,
+        4,
+        7,
+        6,
+        3,
+        8
+      ],
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "metrics": [
+        {
+          "steps": 116,
+          "moved": true,
+          "collected_minerals": 445.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 117,
+          "moved": true,
+          "collected_minerals": 410.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 117,
+          "moved": true,
+          "collected_minerals": 450.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 116,
+          "moved": true,
+          "collected_minerals": 410.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 119,
+          "moved": true,
+          "collected_minerals": 455.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 117,
+          "moved": true,
+          "collected_minerals": 410.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 116,
+          "moved": true,
+          "collected_minerals": 450.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        },
+        {
+          "steps": 116,
+          "moved": true,
+          "collected_minerals": 415.0,
+          "max_workers": 15,
+          "max_structures": 2,
+          "ended": true,
+          "result": "Tie"
+        }
+      ],
+      "request_counts": [
+        {
+          "ping": 2,
+          "join_game": 1,
+          "observation": 121,
+          "action": 6,
+          "data": 1,
+          "game_info": 118,
+          "query": 1,
+          "save_replay": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 122,
+          "action": 6,
+          "data": 1,
+          "game_info": 119,
+          "ping": 1,
+          "query": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 122,
+          "action": 7,
+          "data": 1,
+          "game_info": 119,
+          "ping": 1,
+          "query": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 121,
+          "action": 6,
+          "data": 1,
+          "game_info": 118,
+          "ping": 1,
+          "query": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 124,
+          "action": 6,
+          "data": 1,
+          "game_info": 121,
+          "ping": 1,
+          "query": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 122,
+          "action": 6,
+          "data": 1,
+          "game_info": 119,
+          "ping": 1,
+          "query": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 121,
+          "action": 6,
+          "data": 1,
+          "game_info": 118,
+          "ping": 1,
+          "query": 1
+        },
+        {
+          "join_game": 1,
+          "observation": 121,
+          "action": 6,
+          "data": 1,
+          "game_info": 118,
+          "ping": 1,
+          "query": 1
+        }
+      ],
+      "replay_sha256": "17d4373b16dc789c440bd8b170de81e0c43d4b45f37c73883998a9305c921d32"
+    }
+  ],
+  "mixed_race_research": {
+    "phase": "races",
+    "passed": true,
+    "detail": {
+      "results": [
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie",
+        "Tie"
+      ],
+      "bots": [
+        {
+          "race": "Terran",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_SCV": 9,
+            "construction_started": 7,
+            "complete_SUPPLYDEPOT": 3,
+            "complete_REFINERY": 1,
+            "complete_ENGINEERINGBAY": 1,
+            "complete_BARRACKS": 1,
+            "created_MARINE": 6,
+            "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1,
+            "complete_COMMANDCENTER": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 15.798583984375,
+            "expansion": [
+              40.5,
+              33.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4985.0,
+            648.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Protoss",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_PROBE": 9,
+            "construction_started": 6,
+            "complete_PYLON": 3,
+            "complete_ASSIMILATOR": 1,
+            "complete_GATEWAY": 1,
+            "complete_FORGE": 1,
+            "created_ZEALOT": 6,
+            "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 15.80078125,
+            "expansion": [
+              114.5,
+              33.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4750.0,
+            604.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Zerg",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_LARVA": 25,
+            "type_changed": 19,
+            "created_OVERLORD": 3,
+            "created_DRONE": 12,
+            "construction_started": 3,
+            "complete_EXTRACTOR": 1,
+            "complete_SPAWNINGPOOL": 1,
+            "created_ZERGLING": 8,
+            "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+            "complete_HATCHERY": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 16.174560546875,
+            "expansion": [
+              14.5,
+              57.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4855.0,
+            628.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Protoss",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_PROBE": 9,
+            "construction_started": 5,
+            "complete_PYLON": 2,
+            "complete_ASSIMILATOR": 1,
+            "complete_GATEWAY": 1,
+            "complete_FORGE": 1,
+            "created_ZEALOT": 5,
+            "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 17.173583984375,
+            "expansion": [
+              114.5,
+              33.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4755.0,
+            604.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Terran",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_SCV": 9,
+            "construction_started": 7,
+            "complete_SUPPLYDEPOT": 3,
+            "complete_REFINERY": 1,
+            "complete_ENGINEERINGBAY": 1,
+            "complete_BARRACKS": 1,
+            "created_MARINE": 6,
+            "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1,
+            "complete_COMMANDCENTER": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 16.174560546875,
+            "expansion": [
+              14.5,
+              57.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            5080.0,
+            604.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Protoss",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_PROBE": 9,
+            "construction_started": 7,
+            "complete_PYLON": 3,
+            "complete_ASSIMILATOR": 1,
+            "complete_GATEWAY": 1,
+            "complete_FORGE": 1,
+            "created_ZEALOT": 6,
+            "upgrade_PROTOSSGROUNDWEAPONSLEVEL1": 1,
+            "complete_NEXUS": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 16.46044921875,
+            "expansion": [
+              104.5,
+              48.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4795.0,
+            596.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Zerg",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_LARVA": 25,
+            "type_changed": 19,
+            "created_OVERLORD": 3,
+            "created_DRONE": 12,
+            "construction_started": 3,
+            "complete_EXTRACTOR": 1,
+            "complete_SPAWNINGPOOL": 1,
+            "created_ZERGLING": 8,
+            "upgrade_ZERGLINGMOVEMENTSPEED": 1,
+            "complete_HATCHERY": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 14.803466796875,
+            "expansion": [
+              50.5,
+              98.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4935.0,
+            664.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        },
+        {
+          "race": "Terran",
+          "history": [
+            "before_start",
+            "start",
+            "end"
+          ],
+          "steps": 250,
+          "events": {
+            "created_SCV": 9,
+            "construction_started": 7,
+            "complete_SUPPLYDEPOT": 3,
+            "complete_REFINERY": 1,
+            "complete_ENGINEERINGBAY": 1,
+            "complete_BARRACKS": 1,
+            "created_MARINE": 6,
+            "upgrade_TERRANINFANTRYWEAPONSLEVEL1": 1,
+            "complete_COMMANDCENTER": 1
+          },
+          "queries": {
+            "abilities": true,
+            "pathing_distance": 14.802978515625,
+            "expansion": [
+              78.5,
+              98.5
+            ],
+            "cost_and_supply": true,
+            "unit_collections": true
+          },
+          "collected": [
+            4620.0,
+            644.0
+          ],
+          "max_workers": 21,
+          "result": "Tie",
+          "raw_affects_selection": false,
+          "research_enabled": true
+        }
+      ],
+      "owned_processes_closed": true,
+      "realtime": false,
+      "expansion_required": false
+    },
+    "replay_sha256": "7d289d44011055d21ed8135a0dcf7265f94e8c38bb2dae0a72d409465a577dc5"
+  },
+  "standard_games": {
+    "phase": "standard",
+    "passed": true,
+    "detail": {
+      "async_result": "Tie",
+      "async_steps": 168,
+      "standard_batch_result": "Tie",
+      "batch_steps": 113,
+      "async_pair_results": [
+        "Tie",
+        "Tie"
+      ],
+      "allocated_ports_released": true
+    }
+  },
+  "research_replay": {
+    "passed": true,
+    "native_results": {
+      "1": "Tie",
+      "2": "Tie",
+      "3": "Tie",
+      "4": "Tie",
+      "5": "Tie",
+      "6": "Tie",
+      "7": "Tie",
+      "8": "Tie"
+    },
+    "research_completions": [
+      {
+        "player_id": 8,
+        "upgrade": "zerglingmovementspeed",
+        "loop": 4292,
+        "count": 1
+      },
+      {
+        "player_id": 2,
+        "upgrade": "zerglingmovementspeed",
+        "loop": 4292,
+        "count": 1
+      },
+      {
+        "player_id": 5,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5220,
+        "count": 1
+      },
+      {
+        "player_id": 1,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5220,
+        "count": 1
+      },
+      {
+        "player_id": 6,
+        "upgrade": "TerranInfantryWeaponsLevel1",
+        "loop": 5316,
+        "count": 1
+      },
+      {
+        "player_id": 3,
+        "upgrade": "ProtossGroundWeaponsLevel1",
+        "loop": 5444,
+        "count": 1
+      },
+      {
+        "player_id": 7,
+        "upgrade": "ProtossGroundWeaponsLevel1",
+        "loop": 5444,
+        "count": 1
+      },
+      {
+        "player_id": 4,
+        "upgrade": "ProtossGroundWeaponsLevel1",
+        "loop": 5476,
+        "count": 1
+      }
+    ],
+    "playback": [
+      {
+        "observed_id": 0,
+        "upgrades": [],
+        "upgrade_events": {},
+        "attack_levels": {
+          "8": 0,
+          "16": 0,
+          "3": 1,
+          "7": 1,
+          "1": 1,
+          "6": 1,
+          "5": 1,
+          "4": 1,
+          "2": 0
+        },
+        "result": null
+      },
+      {
+        "observed_id": 8,
+        "upgrades": [
+          "ZERGLINGMOVEMENTSPEED"
+        ],
+        "upgrade_events": {
+          "ZERGLINGMOVEMENTSPEED": 1
+        },
+        "attack_levels": {
+          "16": 0,
+          "8": 0,
+          "1": 1,
+          "5": 1,
+          "2": 0
+        },
+        "result": "Tie"
+      }
+    ],
+    "request_counts": {
+      "ping": 9,
+      "join_game": 8,
+      "step": 2024,
+      "action": 277,
+      "observation": 2016,
+      "data": 8,
+      "game_info": 2016,
+      "query": 5500,
+      "save_replay": 1
+    },
+    "independent_clients": true,
+    "own_upgrade_callbacks": true,
+    "owned_processes_closed": true
+  },
+  "standard_cleanup_warning": {
+    "message": "Upstream standard lifecycle emitted Connection already closed and Unclosed client session after passing gameplay/port-release assertions",
+    "previously_observed": [
+      "reports/alpha-release-audit/standard.log",
+      "reports/macos-windows-integration-435bf38/standard.log"
+    ],
+    "fixed_by_this_change": false
+  },
+  "live_validation_runs": [
+    {
+      "name": "prepared-probe",
+      "returncode": 0,
+      "seconds": 13.44
+    },
+    {
+      "name": "counts-eight-retry",
+      "returncode": 0,
+      "seconds": 96.7
+    },
+    {
+      "name": "realtime",
+      "returncode": 0,
+      "seconds": 302.75
+    },
+    {
+      "name": "research-eight",
+      "returncode": 0,
+      "seconds": 1037.76
+    },
+    {
+      "name": "standard",
+      "returncode": 0,
+      "seconds": 57.16
+    },
+    {
+      "name": "research-playback",
+      "returncode": 0,
+      "seconds": 52.78
+    }
+  ],
+  "packaging": {
+    "wheel_and_sdist": "built and checked",
+    "pinned_manifest_included": true,
+    "game_binaries_and_raw_reports_excluded": true,
+    "checksums": "SHA256SUMS.txt alongside local distribution files"
+  },
+  "cleanup": {
+    "task_owned_SC2_processes_remaining": 0,
+    "unrelated_processes_terminated": false,
+    "retail_app_and_build_metadata_preserved": true
+  }
+}

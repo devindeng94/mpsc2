@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+import sys
 
 from . import __version__, maps
 from .capabilities import get_capabilities
@@ -20,6 +21,10 @@ def main(argv=None):
     doctor.add_argument('--sc2-version', help='Native profile: version label or Base<number>; no fallback')
     commands.add_parser('versions', help='List game metadata, verified native profiles and support observations')
     commands.add_parser('maps', help='List the installed multiplayer map paths')
+    compat = commands.add_parser('prepare-macos-compat', help='Prepare a separate Base96883 API engine for a Base98310 Mac installation')
+    compat.add_argument('--installation', type=Path, required=True, help='Retail StarCraft II folder; it is not replaced')
+    compat.add_argument('--destination', type=Path, required=True, help='New folder outside the retail installation')
+    compat.add_argument('--cache', type=Path, help='Optional cache for the pinned Blizzard download')
     replay = commands.add_parser('replay', help='Watch a replay with python-sc2')
     replay.add_argument('path')
     replay.add_argument('--observed-id', type=int, default=0, help='Native player ID, or 0 for all-player view')
@@ -28,6 +33,16 @@ def main(argv=None):
     replay.add_argument('--step-size', type=int, default=4)
     replay.add_argument('--max-game-loop', type=int, help='Stop after a bounded preview')
     args = parser.parse_args(argv)
+    if args.command == 'prepare-macos-compat':
+        from .compat_engine import prepare_macos_compat
+        try:
+            result = prepare_macos_compat(args.installation, args.destination, cache=args.cache,
+                                          progress=lambda message: print(message, file=sys.stderr, flush=True))
+        except (OSError, ValueError, RuntimeError) as error:
+            print(f'Compatibility engine preparation failed: {error}', file=sys.stderr)
+            return 1
+        print(json.dumps(result, indent=2))
+        return 0
     if args.command == 'versions':
         print(json.dumps(compatibility_catalog(), indent=2))
         return 0

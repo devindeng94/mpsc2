@@ -28,3 +28,11 @@ project and is not affiliated with or endorsed by Blizzard. The SC2 executable,
 game assets, account, and installation are not included. The MIT license for
 MPSC2 does not license the game itself. Maps reference assets in the user's
 separately installed game.
+
+`src/mpsc2/assets/macos-96883-bundle.json` contains file identities, download
+locations and build-configuration metadata derived from Blizzard's official
+Base96883 and Base98310 installation manifests. It contains no executable or
+game asset payloads. The optional `prepare-macos-compat` command retrieves
+verified historical app files directly from Blizzard's CDN into a separate
+local directory; those files remain Blizzard software and are not covered by
+MPSC2's MIT license.

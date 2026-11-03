@@ -210,7 +210,8 @@ async def enter_windows(session):
         if session.players not in profile.players:
             raise RuntimeError(f'{profile.id} does not support {session.players} players')
         version = get_game_version(session.sc2_version if session.sc2_version is not None else profile.game_version, system='Windows')
-        installation = detect_installation()
+        installation = ({'root': str(session.installation_root), 'platform': 'Windows'}
+                        if getattr(session, 'installation_root', None) is not None else detect_installation())
         if not installation.get('root') or installation.get('platform', 'Windows') != 'Windows':
             raise RuntimeError('Cannot locate a Windows SC2 installation for the selected profile')
         root = Path(installation['root'])
@@ -258,6 +259,8 @@ async def enter_windows(session):
                 **({'engine': engine} if engine is not None else {}),
                 'process_create_time': psutil.Process(process._process.pid).create_time(),
                 'observation_guard': getattr(process, 'observation_guard', None)})
+        if getattr(session, 'prepared_hook', None) is not None:
+            await session.prepared_hook(session)
         request = api.RequestCreateGame(local_map=api.LocalMap(map_path=str(session.map_path)),
                                         realtime=session.realtime, random_seed=session.seed, disable_fog=session.disable_fog)
         for _ in range(session.players):

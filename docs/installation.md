@@ -49,7 +49,7 @@ See [pip's local-install documentation](https://pip.pypa.io/en/stable/topics/loc
 A built wheel can also be installed directly:
 
 ```sh
-python -m pip install /path/to/mpsc2-0.3.3a1-py3-none-any.whl
+python -m pip install /path/to/mpsc2-0.3.3a2-py3-none-any.whl
 ```
 
 There is no assumed public PyPI release. Do not rely on `pip install mpsc2`
@@ -79,6 +79,32 @@ upstream version because its lifecycle adapters depend on it.
 
 ## Set up SC2 for native multiplayer on macOS
 
+If the 5.0.17/Base98310 update removed your supported engine, use the explicit
+[separate compatibility engine](macos-98310-investigation.md#prepare-the-separate-engine)
+introduced in 0.3.3a2. It restores the signed Base96883 app and its matching
+5.0.15 data selection alongside the retail installation. The Base98310
+executable itself did not expose a usable API in local tests.
+
+From your project folder:
+
+```sh
+python -m mpsc2 prepare-macos-compat \
+  --installation "/Applications/StarCraft II" \
+  --destination "$PWD/.mpsc2/StarCraftII-96883"
+export SC2PATH="$PWD/.mpsc2/StarCraftII-96883"
+python -m mpsc2 doctor --sc2-version Base96883
+python -m mpsc2.probe --output reports/compat-engine-probe.json
+python examples/minimal_four_player.py
+```
+
+Use a new destination and probe output. Setup downloads about 95 MB directly
+from Blizzard and verifies every restored app file; the repository contains
+metadata, not Blizzard executables. Large game-data files remain shared with
+your installed cache. This was tested after an update from 5.0.15; a fresh
+installation without the required historical content is not yet validated.
+Keep the retail installation available. The setup command prepares files;
+the probe and gameplay commands test whether they work on your machine.
+
 Install StarCraft II separately using Blizzard's distribution. Upstream's
 [SC2 setup instructions](https://github.com/BurnySc2/python-sc2#starcraft-ii)
 cover the normal installation. A current game download is not guaranteed to
@@ -104,10 +130,10 @@ Its required SHA256 is:
 ```
 
 A matching build number alone is insufficient. MPSC2 checks the complete
-executable hash and refuses other binaries. It does not download, downgrade,
-patch or re-sign the installed game. If this build is unavailable, offline
-work and upstream standard games remain separate options; the multiplayer
-backend needs a port before another executable can be supported.
+executable hash and refuses other binaries. Ordinary game launches do not
+download engines or change versions automatically. Only the explicit setup
+command above restores the older app into a new folder. It leaves the retail
+executable and build selection intact and preserves Blizzard's app signatures.
 
 Install [Apple's Command Line Tools](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools)
 if `clang` is absent:

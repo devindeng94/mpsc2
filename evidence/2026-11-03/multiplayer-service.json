@@ -1,0 +1,660 @@
+{
+  "date": "2026-11-03",
+  "implementation": "experimental local MPSC2 protocol 1.0",
+  "scope": "Real-engine conformance on macOS Base96883. Cross-platform service gameplay not tested in this run.",
+  "engine": {
+    "base_build": 96883,
+    "game_version": "5.0.15.96883",
+    "data_version": "B49DA51995BA9767F4C624034C211342",
+    "executable_sha256": "7a8e076ce304d6cc18591eed03bda5ea68a8639826c0b7364de3f53a3da8e0eb"
+  },
+  "source_suite": {
+    "passed": 452,
+    "skipped": 5
+  },
+  "python_310": {
+    "version": "3.10.0",
+    "check": "Service import and authenticated Hello negotiation",
+    "passed": true
+  },
+  "joint_turn_cases": [
+    {
+      "name": "joint-2",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        1
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        2
+      ],
+      "distinct_native_process_count": 2,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        163,
+        163
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "e2c5178361e6fd577607f4accadc964b653da5222a55f0bb7cf0a93410926ed3"
+    },
+    {
+      "name": "joint-3",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        1,
+        2
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        3,
+        2
+      ],
+      "distinct_native_process_count": 3,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        164,
+        164,
+        164
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "8e0ae2d2c2022f7819cc8ba6a9a9b32dd2015513dea76691a0dc89bed839827a"
+    },
+    {
+      "name": "joint-4",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        4,
+        2,
+        3
+      ],
+      "distinct_native_process_count": 4,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        164,
+        164,
+        164,
+        164
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "eb8bcbb9d065cdaa4ce9acc284978236fd595319acd44237191a4a6c4817b229"
+    },
+    {
+      "name": "joint-5",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        5,
+        3,
+        4,
+        2
+      ],
+      "distinct_native_process_count": 5,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        163,
+        164,
+        163,
+        164,
+        164
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "e8e0bd6e8114d4ae74c5a55fff622371b7f9d1447cd3480daff65fef52c486c9"
+    },
+    {
+      "name": "joint-6",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        4,
+        6,
+        5,
+        3,
+        2
+      ],
+      "distinct_native_process_count": 6,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        163,
+        164,
+        164,
+        163,
+        164,
+        163
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "6fc137f89de8cc3bbf06cf3ff82da5444b337a39aae0b22f3678b25e5c1ae3ef"
+    },
+    {
+      "name": "joint-7",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        5,
+        6
+      ],
+      "distinct_native_process_count": 7,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        163,
+        164,
+        163,
+        163,
+        164,
+        163,
+        163
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "ec5869225c71612372fa31d852d0d91a6f5ec29978e5e6d51fe98858847f2e7b"
+    },
+    {
+      "name": "joint-8",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        5,
+        2,
+        4,
+        8,
+        6,
+        7,
+        3
+      ],
+      "distinct_native_process_count": 8,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        165,
+        164,
+        164,
+        164,
+        164,
+        164,
+        164,
+        164
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "238106d1fe3b2267672bafbb25c07e6778a9cdd45dd983eff71e60f30d29a288"
+    },
+    {
+      "name": "joint-4-3v1",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "distinct_native_process_count": 4,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        163,
+        163,
+        163,
+        163
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "3bb8016498df3996d0419bee9a21d6954bd74aaffecd2d97e33a6ea2557d8650"
+    },
+    {
+      "name": "joint-4-2v2",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "distinct_native_process_count": 4,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        164,
+        164,
+        163,
+        164
+      ],
+      "terminated": true,
+      "truncated": false,
+      "raw_report_sha256": "eb13a81becb7663494c8ac886f1301595e3be7ddb6d1513dd528ed0eda69728b"
+    },
+    {
+      "name": "joint-4-move",
+      "transport": "joint-turns",
+      "teams": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "passed": true,
+      "native_player_ids": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "distinct_native_process_count": 4,
+      "initial_common_loop": 3,
+      "rounds": 20,
+      "actual_final_loops": [
+        163,
+        163,
+        163,
+        163
+      ],
+      "terminated": true,
+      "truncated": false,
+      "first_action_results": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "maximum_movement": [
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ],
+      "raw_report_sha256": "79a363ecec445ff7fe3141e329c685777319bd5ee42553b74caa653e656fb5cd"
+    }
+  ],
+  "sc2_compat_full_game": {
+    "teams": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "requested_galaxy_time_limit": 600,
+    "passed": true,
+    "economy": {
+      "passed": true,
+      "players": [
+        {
+          "player_index": 0,
+          "player_id": 1,
+          "team_id": 0,
+          "result": "Tie",
+          "trained": {
+            "SCV": 33,
+            "MARAUDER": 14,
+            "MARINE": 15
+          },
+          "completed": {
+            "SUPPLYDEPOT": 7,
+            "REFINERY": 1,
+            "BARRACKS": 2,
+            "BARRACKSTECHLAB": 1,
+            "COMMANDCENTER": 1
+          },
+          "checks": {
+            "standard_start": true,
+            "mined_minerals_and_gas": true,
+            "spent_minerals_and_gas": true,
+            "completed_production_chain": true,
+            "trained_workers_and_army": true,
+            "observed_construction_progress": true,
+            "expanded": true,
+            "fought": true
+          },
+          "last_observation": {
+            "loop": 9587,
+            "game_seconds": 427.86,
+            "minerals": 2845,
+            "vespene": 404,
+            "collected_minerals": 8370.0,
+            "collected_vespene": 804.0,
+            "spent_minerals": 5525.0,
+            "spent_vespene": 400.0,
+            "workers": 44,
+            "army": 21,
+            "structures": {
+              "SUPPLYDEPOT": 7,
+              "BARRACKS": 2,
+              "COMMANDCENTER": 2,
+              "BARRACKSTECHLAB": 1,
+              "REFINERY": 1
+            },
+            "killed_units": 4250.0,
+            "killed_structures": 3575.0
+          },
+          "action_errors": {}
+        },
+        {
+          "player_index": 1,
+          "player_id": 4,
+          "team_id": 0,
+          "result": "Tie",
+          "trained": {
+            "SCV": 33,
+            "MARAUDER": 14,
+            "MARINE": 15
+          },
+          "completed": {
+            "SUPPLYDEPOT": 5,
+            "REFINERY": 1,
+            "BARRACKS": 2,
+            "BARRACKSTECHLAB": 1,
+            "COMMANDCENTER": 1
+          },
+          "checks": {
+            "standard_start": true,
+            "mined_minerals_and_gas": true,
+            "spent_minerals_and_gas": true,
+            "completed_production_chain": true,
+            "trained_workers_and_army": true,
+            "observed_construction_progress": true,
+            "expanded": true,
+            "fought": true
+          },
+          "last_observation": {
+            "loop": 9587,
+            "game_seconds": 427.86,
+            "minerals": 3085,
+            "vespene": 404,
+            "collected_minerals": 8410.0,
+            "collected_vespene": 804.0,
+            "spent_minerals": 5375.0,
+            "spent_vespene": 400.0,
+            "workers": 44,
+            "army": 11,
+            "structures": {
+              "COMMANDCENTER": 2,
+              "SUPPLYDEPOT": 5,
+              "BARRACKSTECHLAB": 1,
+              "REFINERY": 1,
+              "BARRACKS": 2
+            },
+            "killed_units": 2225.0,
+            "killed_structures": 300.0
+          },
+          "action_errors": {}
+        },
+        {
+          "player_index": 2,
+          "player_id": 3,
+          "team_id": 1,
+          "result": "Tie",
+          "trained": {
+            "SCV": 19,
+            "MARAUDER": 9,
+            "MARINE": 8
+          },
+          "completed": {
+            "SUPPLYDEPOT": 5,
+            "REFINERY": 1,
+            "BARRACKS": 2,
+            "BARRACKSTECHLAB": 1,
+            "COMMANDCENTER": 1
+          },
+          "checks": {
+            "standard_start": true,
+            "mined_minerals_and_gas": true,
+            "spent_minerals_and_gas": true,
+            "completed_production_chain": true,
+            "trained_workers_and_army": true,
+            "observed_construction_progress": true,
+            "expanded": true,
+            "fought": true
+          },
+          "last_observation": {
+            "loop": 9587,
+            "game_seconds": 427.86,
+            "minerals": 260,
+            "vespene": 298,
+            "collected_minerals": 4385.0,
+            "collected_vespene": 548.0,
+            "spent_minerals": 4175.0,
+            "spent_vespene": 250.0,
+            "workers": 0,
+            "army": 0,
+            "structures": {},
+            "killed_units": 375.0,
+            "killed_structures": 0.0
+          },
+          "action_errors": {
+            "44": 1
+          }
+        },
+        {
+          "player_index": 3,
+          "player_id": 2,
+          "team_id": 1,
+          "result": "Tie",
+          "trained": {
+            "SCV": 33,
+            "MARAUDER": 12,
+            "MARINE": 14
+          },
+          "completed": {
+            "SUPPLYDEPOT": 5,
+            "REFINERY": 1,
+            "BARRACKS": 2,
+            "BARRACKSTECHLAB": 1,
+            "COMMANDCENTER": 1
+          },
+          "checks": {
+            "standard_start": true,
+            "mined_minerals_and_gas": true,
+            "spent_minerals_and_gas": true,
+            "completed_production_chain": true,
+            "trained_workers_and_army": true,
+            "observed_construction_progress": true,
+            "expanded": true,
+            "fought": true
+          },
+          "last_observation": {
+            "loop": 9587,
+            "game_seconds": 427.86,
+            "minerals": 920,
+            "vespene": 459,
+            "collected_minerals": 6895.0,
+            "collected_vespene": 784.0,
+            "spent_minerals": 5875.0,
+            "spent_vespene": 325.0,
+            "workers": 21,
+            "army": 0,
+            "structures": {
+              "REFINERY": 1,
+              "COMMANDCENTER": 2,
+              "SUPPLYDEPOT": 1
+            },
+            "killed_units": 1750.0,
+            "killed_structures": 0.0
+          },
+          "action_errors": {}
+        }
+      ]
+    },
+    "replay_sha256": "da8b629d91daebc998ccdda9dcf907900d27bb4aa7b504914e0a499f104c5e83",
+    "replay_version": [
+      "Base96883",
+      "B49DA51995BA9767F4C624034C211342"
+    ]
+  },
+  "realtime_compatibility": {
+    "results": [
+      "Tie",
+      "Tie",
+      "Tie",
+      "Tie"
+    ],
+    "terminated": true,
+    "truncated": false,
+    "teams": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "realtime": true,
+    "scope": "Short four-player realtime BotAI game, no RequestStep; not a full economic conformance run",
+    "replay_sha256": "d5d94f09e1197c5ab24f62921da66b8b54a76ecc9580cca4388d3a45e1d73e93",
+    "replay_version": [
+      "Base96883",
+      "B49DA51995BA9767F4C624034C211342"
+    ]
+  },
+  "unsupported_engine_selection": {
+    "requested_base_build": 98310,
+    "error_code": 6,
+    "error": "No verified native multiplayer profile for Darwin/x86_64/Base98310. Known game metadata and standard API support do not authorize native multiplayer.",
+    "processes_launched": false,
+    "fallback_used": false
+  },
+  "cleanup": {
+    "owned_native_pids_checked": 83,
+    "remaining_owned_sc2_processes": []
+  },
+  "failures_preserved": [
+    {
+      "case": "matrix/joint-8",
+      "stage": "native joining",
+      "outcome": "Timed out after 90 seconds; bridge reported 6/8 ready; owned clients cleaned. Fresh matches later joined successfully."
+    },
+    {
+      "case": "botai4-2v2",
+      "stage": "native termination and idle controller",
+      "outcome": "Found heartbeat reader bug and overly strict common-terminal-frame requirement; fixed and retested."
+    },
+    {
+      "case": "botai4-audit",
+      "stage": "terminal frame validation",
+      "actual_final_loops": [
+        4804,
+        4803,
+        4804,
+        4804
+      ],
+      "outcome": "All native results agreed; initial fixed boundary assumption rejected legitimate native completion."
+    },
+    {
+      "case": "matrix-followup/joint-8",
+      "stage": "terminal frame validation",
+      "actual_final_loops": [
+        163,
+        163,
+        163,
+        164,
+        165,
+        164,
+        164,
+        163
+      ],
+      "outcome": "Every client had native ended status and full identical outcomes. Replaced fixed terminal tolerance with separate completion semantics; active rounds still require exact advancement."
+    }
+  ],
+  "not_implemented": [
+    "Automatic native binary discovery",
+    "Mac Base98310 engine API support",
+    "Remote encrypted service deployment",
+    "Computer/Human slots in service backend"
+  ],
+  "source_sha256": {
+    "protocols/mpsc2/v1/multiplayer.proto": "0c0777341f0e44d4ae9db175128d3e83a63938ae73ce9a7f270d53224fa0b56e",
+    "src/mpsc2/linux_session.py": "52c77cda15e8873bd399c9e66e862b7d8c4bf542093bed9283cba9fac167c16a",
+    "src/mpsc2/native_session.py": "5e441122b53299905700d9fae7035c046a35ee605eb8afc3dd735e6236d42ae7",
+    "src/mpsc2/service/__init__.py": "492e793c2ccb09ead7a0d9da2a309c456ae4be3fe2914385657f0be472ef8e9c",
+    "src/mpsc2/service/__main__.py": "86cd9dd641c96fd19a96be8bdb65075ce5e7a8f1f756a3bcc021e7ba3a3df8d0",
+    "src/mpsc2/service/backend.py": "c25663de49a690a417ab49068fc223509752a38f5602b30a1bc31e771d402d36",
+    "src/mpsc2/service/bots.py": "2913262dfdd32138d1e439736e3a7177b61947e202fffc82091769c39dd54b9d",
+    "src/mpsc2/service/client.py": "0e90d72debf906a876936a77d8f9fa53d833b6a18f778a2c3b0fe88bc4ea513f",
+    "src/mpsc2/service/contract.py": "4ea024e838cbeeae2fd93b182e1d2216236bd9bc8439674db0340cdd7783b2e2",
+    "src/mpsc2/service/coordinator.py": "a67372dbff0d5314fa4d0d8e8868f2a9c8f7c72b51e67c3836bf1a5c12c37135",
+    "src/mpsc2/service/multiplayer_pb2.py": "852016d1f2aa546e418c8559126bee23f6f1634df00a490fe939246b2a98a769",
+    "src/mpsc2/service/server.py": "d9f84079974284df1c243d435881f0da1826fdfd346c6777efdb9e0936292d46",
+    "src/mpsc2/windows_session.py": "7005fc9a26d32f14d13e9eeb10e932727eaea3ce5be6ee241bb92e71d0511dbb"
+  }
+}

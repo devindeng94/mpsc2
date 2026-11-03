@@ -38,3 +38,8 @@ Thumbs.db
 .codex/
 .agents/
 .aws/
+.mpsc2/
+.mpsc2-downloads/
+
+# Local service controller credential
+controller.token

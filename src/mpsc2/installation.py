@@ -2,12 +2,15 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import locale
 import os
 from pathlib import Path
 import re
 
 from sc2 import paths as upstream
+
+from .versions import MACOS_96883, compatibility_catalog
 
 
 def file_sha256(path: Path) -> str:
@@ -58,6 +61,8 @@ def detect_installation() -> dict:
     report = {'platform': target, 'source': None, 'root': None, 'build': None,
               'installed_builds': [], 'build_directories': [], 'incomplete_builds': [],
               'executable': None, 'executable_sha256': None,
+              'compatibility_observations': [],
+              'compatibility_engine': None,
               'working_directory': None, 'checks': checks, 'errors': errors,
               'warnings': warnings, 'ready': False}
     if not checks['supported_platform']:
@@ -106,6 +111,37 @@ def detect_installation() -> dict:
             checks['executable_present'] = executable.is_file()
             if checks['executable_present']:
                 report['executable_sha256'] = file_sha256(executable)
+                report['compatibility_observations'] = [
+                    observation for observation in compatibility_catalog()['observations']
+                    if observation.get('system') == target and observation.get('build') == build
+                    and observation.get('executable_sha256') == report['executable_sha256']
+                ]
+                warnings.extend(o['note'] for o in report['compatibility_observations'] if o.get('note'))
+                receipt_path = root / 'mpsc2-compat-engine.json'
+                if receipt_path.is_file():
+                    try:
+                        if receipt_path.stat().st_size > 65536:
+                            raise ValueError('receipt is too large')
+                        receipt = json.loads(receipt_path.read_text(encoding='utf-8'))
+                        if (not isinstance(receipt, dict) or receipt.get('format') != 1
+                                or receipt.get('profile') != MACOS_96883.id or target != 'Darwin'
+                                or build != MACOS_96883.build
+                                or report['executable_sha256'] != MACOS_96883.executable_sha256):
+                            raise ValueError('receipt does not match the selected engine')
+                        report['compatibility_engine'] = {
+                            'engine_build': build, 'source_build': receipt.get('source_build'),
+                            'source_root': receipt.get('source_root'),
+                            'content_selection': receipt.get('content_selection'),
+                            'selected_data_version': receipt.get('data_version'),
+                            'native_base98310_support': False,
+                        }
+                        warnings.append('Using the separate Base96883 API compatibility engine. '
+                                        'Its signed app and data selection are pinned to 5.0.15, using the installed content cache; '
+                                        'the Base98310 executable is not used.')
+                        if file_sha256(root / '.build.info') != receipt.get('build_info_sha256'):
+                            warnings.append('Compatibility game-data metadata changed after preparation; rerun live validation.')
+                    except (OSError, ValueError, TypeError) as exc:
+                        warnings.append(f'Cannot verify compatibility-engine receipt: {exc}')
         if not checks['installation_directory']:
             errors.append(f'SC2 installation directory not found: {root}. Set SC2PATH to the folder containing Versions.')
         elif not builds:

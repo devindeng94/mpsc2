@@ -2,9 +2,11 @@ include README.md LICENSE THIRD_PARTY_NOTICES.md CONTRIBUTING.md CHANGELOG.md
 include requirements*.txt .gitattributes .gitignore
 recursive-include .github *.md *.yml
 recursive-include docs *.md
+recursive-include protocols *.proto *.textproto *.md
 recursive-include examples *.py
 recursive-include examples *.md
 recursive-include scripts *.py
+recursive-include tools *.py
 recursive-include tests *.py
 recursive-include maps *.SC2Map *.galaxy *.md LICENSE.*
 recursive-include src/mpsc2 *.galaxy *.c *.h *.SC2Map py.typed LICENSE.*

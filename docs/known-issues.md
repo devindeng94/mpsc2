@@ -1,5 +1,20 @@
 # Known alpha issues
 
+## macOS Base98310: API startup unavailable in local validation
+
+The 5.0.17.98310 update failed before API connection on the tested Mac.
+Multiplayer support remains pinned to Base96883, whose executable the update
+removed from this installation. Diagnostics record the exact tested checksum
+and startup failure; metadata recognition does not enable a native backend.
+See the [investigation and retest instructions](macos-98310-investigation.md).
+
+Version 0.3.3a2 adds `prepare-macos-compat` to restore a separately selected,
+signed Base96883 app and matching 5.0.15 data selection. This provides a route
+for research after updating the retail game. It does not enable the API in
+Base98310 or provide 5.0.17 balance data. The compatibility root shares the
+installed content cache; missing historical data or later cache removal can
+prevent startup. Retest after changes to the retail installation.
+
 ## MPSC2-001: upgrade observations assumed a single opponent
 
 **Fixed in 0.3.1a2 on macOS Base96883, in 0.3.2a1 on Windows Base93333, and
@@ -84,6 +99,43 @@ six native readiness events and never reached gameplay. A fresh six-client
 retry and later eight-client launches passed, but the initial cause is
 unconfirmed. The project has not
 established a startup failure rate, long-training reliability, remote-host
-support, Linux native multiplayer, or arbitrary-map compatibility.
+support, or arbitrary-map compatibility.
 See [player-count validation](player-count-validation.md) and the
 [alpha audit](alpha-validation.md).
+
+The [2026-11-03 Linux service audit](../evidence/2026-11-03/linux-multiplayer-service.json)
+passed every new-service scenario but recorded a 90-second native JoinGame
+timeout in an existing-launcher seven-player realtime match. Fresh seven- and
+eight-player matches passed; the retained previous package also passed a
+seven-player comparison. No service was involved in the failed match, and the
+Linux native helper was unchanged. The cause is unconfirmed; the successful
+retest does not establish a startup failure rate.
+
+The [follow-up investigation](linux-startup-recovery.md) observed another
+unforced seven-player Linux stall, this time in stepped mode. The new bounded
+startup recovery completed its replacement match. It also passed controlled
+stall tests through native and service entry points. The precise engine trigger
+remains unconfirmed; recovery mitigates startup failures without claiming to
+eliminate the underlying native issue. Failed attempts remain visible in the
+session report and archive.
+
+## Upstream standard-game cleanup warning
+
+The standard async/batch validation passes gameplay and port-release assertions,
+but burnysc2 can emit `Connection already closed` and `Unclosed client session`
+during cleanup. This occurred before the macOS compatibility-engine change and
+was observed again in 0.3.3a2. The compatibility installer does not change that
+upstream lifecycle; repeated standard batches are not certified leak-free.
+
+## Experimental local service
+
+The optional [protocol 1.0 service](service.md) wraps the current validated
+engine adapters. It does not automatically discover new engine integrations or
+add Mac Base98310 support. Its first backend accepts only the bundled 2–8-agent
+scenarios; standard Computer/Human games remain on the existing launcher.
+
+The service tests reproduced an intermittent eight-client native join timeout.
+The failed match was truncated and cleaned up, and fresh attempts passed.
+Terminal GameOver observations can have different native frame numbers even
+when all clients are ended with identical outcomes. The API preserves these
+frames and does not present them as a synchronized decision boundary.

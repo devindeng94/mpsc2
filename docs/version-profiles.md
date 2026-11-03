@@ -43,6 +43,12 @@ On Windows this alias selects the exact Base93333 profile. The full label
 `5.0.15.96883` and `Base96883`. Native `GameMatch` objects and the low-level
 `NativeMultiplayerSession` also accept `sc2_version`.
 
+On an updated Base98310 Mac installation, 0.3.3a2 can
+[prepare a separate Base96883 engine](macos-98310-investigation.md#prepare-the-separate-engine).
+Select that root with `SC2PATH` and keep using `sc2_version="Base96883"` or the
+Mac default. The restored profile uses 5.0.15 data; Base98310 is not an alias for
+this compatibility engine and has no native profile.
+
 Starting in 0.3.2a3, Windows also supports `5.0.15`, `5.0.15.98370` and
 `Base98370`. The `5.0.15` alias resolves to Base98370 on Windows and Base96883
 on macOS. Low-level metadata lookups should use
@@ -113,9 +119,10 @@ be passed to helper compilation.
 | Windows Base93333 | Native 2–8-client profile; earlier live validation and registry regression checks |
 | Windows Base98370 | Native 2–8-client profile; separate layout, observation strategy and installed-data launch setting; [validation](windows-98370-validation.md) |
 | macOS Base96883 | Existing native profile and historical validation; unchanged C sources and offline regression checks on this machine |
+| macOS Base98310 / 5.0.17 | Metadata and measured startup-failure observation only; no API Ping or native profile; [investigation](macos-98310-investigation.md) |
 | Windows Base75689 / 4.10.0 | Native profile added in 0.3.2a4; separate layout and legacy ability-table translation; [three-build guide](windows-three-build-validation.md) |
 | Windows Base92440 | Unverified observation only; its local directory was empty; no guessed version label/data identifier |
-| Linux | Standard upstream support; no MPSC2 native backend |
+| Linux Base75689 / 4.10.0 | Native 2–8-client profile; [validation](linux.md) |
 
 The Mac data identifier was not recorded in the existing evidence, so its game
 record uses `None` and preserves the existing default launch behavior. The

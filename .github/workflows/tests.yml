@@ -51,3 +51,52 @@ jobs:
             coverage.xml
             test-results.xml
             dist/*
+
+  release:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify release version and notes
+        run: |
+          python - <<'PY'
+          import ast
+          import os
+          from pathlib import Path
+          import tomllib
+
+          version = tomllib.loads(Path('pyproject.toml').read_text())['project']['version']
+          tree = ast.parse(Path('src/mpsc2/__init__.py').read_text())
+          exported = next(ast.literal_eval(node.value) for node in tree.body
+                          if isinstance(node, ast.Assign)
+                          and any(isinstance(target, ast.Name) and target.id == '__version__'
+                                  for target in node.targets))
+          assert os.environ['GITHUB_REF_NAME'] == f'v{version}', 'Tag/version mismatch'
+          assert exported == version, 'Exported version mismatch'
+          assert Path(f'docs/release-notes-{version}.md').is_file(), 'Missing release notes'
+          PY
+      - name: Build and check release packages
+        run: |
+          python -m pip install 'build>=1.2' 'twine>=5'
+          python -m build
+          python -m twine check dist/*
+          cd dist
+          sha256sum *.whl *.tar.gz > SHA256SUMS
+      - name: Upload, verify and publish alpha release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="$GITHUB_REF_NAME"
+          version="${tag#v}"
+          gh release create "$tag" dist/*.whl dist/*.tar.gz dist/SHA256SUMS \
+            --verify-tag --draft --prerelease --title "MPSC2 $version" \
+            --notes-file "docs/release-notes-$version.md"
+          gh release download "$tag" --dir "$RUNNER_TEMP/release-check"
+          (cd "$RUNNER_TEMP/release-check" && sha256sum --check SHA256SUMS)
+          gh release edit "$tag" --draft=false --prerelease

@@ -1,5 +1,39 @@
 # Changelog
 
+## 0.3.4a1 — multiplayer service and Linux startup recovery
+
+- Add protocol 1.0 control and per-player WebSocket endpoints, explicit installation/map registries, engine identity checks and player credentials.
+- Add a backend boundary around the existing native sessions, SC2-compatible stepping and a joint-turn scheduler with bounded history, deadlines and partial-dispatch failure handling.
+- Add asynchronous research clients, an opt-in BotAI runner, runnable service examples and documentation. Preserve the existing launcher API. Unknown-engine discovery and Mac Base98310 support are not included.
+- Validate the service on Linux SC2 4.10/Base75689: 454 installed-wheel tests, 2–8 independent clients, team layouts, realtime, full economy/combat and mixed-race research/replay checks. Add Linux service commands and dated evidence.
+- Recover once from a fully stalled Linux 3–8-player JoinGame before policies run, using replacement processes and distinct multiplayer ports. Preserve failed logs, record startup stages and per-client join outcomes, and refuse recovery after partial joins, native start markers, cancellation or later failures. The original intermittent native trigger remains unconfirmed; see the [investigation](docs/linux-startup-recovery.md).
+- Pass the final recovery regression with 468 tests on Linux and 466 on macOS; complete live Linux 2/4/7/8-player games in both timing modes, including recovery from three naturally stalled starts.
+- Include the separate macOS compatibility engine and diagnostic improvements from the 0.3.3a2 development build below.
+- Publish tagged alpha packages and checksums through GitHub Actions after the cross-platform offline test matrix succeeds.
+
+## 0.3.3a2 — development build: separate macOS compatibility engine
+
+- Add explicit `prepare-macos-compat` setup for updated Base98310 Mac
+  installations: restore the complete signed Base96883 app from verified
+  Blizzard objects, reusing matching local resources and bounded archive ranges.
+- Select matching 5.0.15 build metadata in the separate root and share installed
+  content files. Preserve retail files, existing native profiles and helpers.
+- Verify app-file checksums, preserve download-cache integrity, reject existing
+  destinations and writes into the retail installation, and report the selected
+  compatibility engine in `doctor`.
+
+- Record macOS 5.0.17/Base98310 metadata and its measured API startup failure;
+  no native profile or gameplay support is claimed for that build.
+- Show an executable-checksum-specific warning in installation diagnostics.
+- Detect an owned engine exiting before API connection, cancel the pending
+  connection, clean up, and report its exit code instead of retrying for minutes.
+- Explain missing historical Mac executables after game updates and preserve
+  all existing native profiles and helper implementations.
+- Add `mpsc2.probe --expected-base-build` to reject a different API-reported
+  engine before CreateGame, and `--attach-port` for a localhost Ping-only check
+  that does not launch or quit the game. Preserve further Base98310 failures
+  and direct-launch control results in dated evidence.
+
 ## 0.3.3a1 — Linux SC2 4.10 multiplayer
 
 - Add a separate Linux x86_64 Base75689 backend for independent 2–8-client games.
